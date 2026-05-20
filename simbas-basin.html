@@ -212,9 +212,11 @@ footer strong{color:var(--gold)}
 </footer>
 
 
+
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(el) {
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
     el.addEventListener('click', function() {
       gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: window.location.pathname });
     });
@@ -223,6 +225,18 @@ document.addEventListener('DOMContentLoaded', function() {
     el.addEventListener('click', function() {
       gtag('event', 'email_click', { event_category: 'engagement', event_label: el.href });
     });
+  });
+  document.querySelectorAll('a[href*="tel:"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'phone_click', { event_category: 'engagement', event_label: el.href });
+    });
+  });
+  document.querySelectorAll('a[href^="http"]').forEach(function(el) {
+    if (!el.href.includes(window.location.hostname)) {
+      el.addEventListener('click', function() {
+        gtag('event', 'external_link_click', { event_category: 'engagement', event_label: el.href });
+      });
+    }
   });
   var depths = [25,50,75,100], reached = [];
   window.addEventListener('scroll', function() {
