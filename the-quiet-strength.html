@@ -187,7 +187,13 @@
     in every classroom, in every life quietly touched.
   </div>
 
-  <div class="poem">
+      <div style="text-align:center;margin:1.5rem 0;">
+      <button id="lang-toggle" onclick="toggleLang()" style="background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.4);color:var(--gold);padding:0.6rem 1.8rem;border-radius:2rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.82rem;font-weight:600;letter-spacing:0.08em;transition:all 0.2s;">
+        🔄 മലയാളത്തിൽ വായിക്കുക
+      </button>
+    </div>
+
+  <div class="poem" id="en-poem">
 
     <div class="stanza" data-animate>
       The world looks at a teacher and sees a quiet guide,<br>
@@ -207,10 +213,31 @@
       You forget your own accomplishments, the lives you touched and grew,<br>
       But hold the ledger of the past, and benefactors remember you.<br>
       For fifteen days, or fifteen years, or the decades still in view —<br>
-      The compass always points right back to where strength is always found in you.
+      My compass always points right back to where strength is always found in you.
     </div>
 
   </div>
+    <div id="ml-poem" style="display:none;" class="poem">
+      <div class="stanza" data-animate>
+        ലോകം ഒരു അധ്യാപകയെ കാണുന്നത് ഒരു നിശ്ശബ്ദ വഴികാട്ടിയായി,<br>
+        എന്നാൽ ഞാൻ കാണുന്നു ആ മൃദുലമായ കരുത്ത്, ആഴത്തിൽ നിറഞ്ഞ്.<br>
+        ഗജരാജനെപ്പോലെ ഭൂമിയിൽ നടക്കുന്നു, സ്വന്തം പ്രതാപം അറിയാതെ,<br>
+        നിങ്ങൾ താഴ്മയോടെ ജീവിതത്തിലൂടെ നടക്കുന്നു, ഓരോ ഇടവും പ്രകാശിപ്പിച്ച്.
+      </div>
+      <div class="stanza" data-animate>
+        നിങ്ങൾ നാഴികകൾ എണ്ണുന്നില്ല, മെല്ലെ മറഞ്ഞുപോകുന്ന വർഷങ്ങളും,<br>
+        വളഞ്ഞ വഴികളും, നിങ്ങൾ ഉണ്ടാക്കിയ ചരിത്രവും മറന്നുപോയേക്കാം.<br>
+        മരുഭൂമിയിലെ പഴയ പാതകൾ, കടലിനക്കരെയുള്ള വഴികൾ,<br>
+        എന്നാൽ നിങ്ങൾ വെച്ച ഓരോ ചുവടും എല്ലാവർക്കുമായി ഒരു ലോകം തീർത്തു.
+      </div>
+      <div class="stanza" data-animate>
+        നിങ്ങൾ സ്വന്തം നേട്ടങ്ങൾ മറക്കുന്നു, തൊട്ടുണർത്തിയ ജീവിതങ്ങളും,<br>
+        എന്നാൽ ഭൂതകാലത്തിന്റെ കണക്കുപുസ്തകം കൈവശമുണ്ട്, ഉപകൃതർ നിങ്ങളെ ഓർക്കുന്നു.<br>
+        പതിനഞ്ച് ദിവസമോ, പതിനഞ്ച് വർഷമോ, ഇനിയും കാണേണ്ട ദശകങ്ങളോ —<br>
+        ആ കോമ്പസ് എന്നും ചൂണ്ടുന്നു, നിങ്ങളിൽ കണ്ടെത്തുന്ന കരുത്തിലേക്ക്.
+      </div>
+    </div>
+
 
   <div class="reflection" data-animate>
     <div class="reflection-label">✦ A Reflection</div>
@@ -265,5 +292,24 @@ const observer = new IntersectionObserver(entries=>{
 document.querySelectorAll('[data-animate]').forEach(el=>observer.observe(el));
 </script>
 
+
+<script>
+function toggleLang() {
+  const en = document.getElementById('en-poem');
+  const ml = document.getElementById('ml-poem');
+  const btn = document.getElementById('lang-toggle');
+  if (ml.style.display === 'none') {
+    ml.style.display = 'block';
+    en.style.display = 'none';
+    btn.textContent = '🔄 Read in English';
+    gtag('event', 'language_toggle', {language: 'malayalam', page: 'quiet_strength'});
+  } else {
+    ml.style.display = 'none';
+    en.style.display = 'block';
+    btn.textContent = '🔄 മലയാളത്തിൽ വായിക്കുക';
+    gtag('event', 'language_toggle', {language: 'english', page: 'quiet_strength'});
+  }
+}
+</script>
 </body>
 </html>
