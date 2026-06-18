@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 21st Birthday Akil! 🎂</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BZDPM9EZM');
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=DM+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #050608;
+      --gold: #C9A227;
+      --gold2: #f0c040;
+      --electric: #00d4ff;
+      --purple: #8b5cf6;
+      --text: #fff;
+      --muted: #9ca3af;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* GRID BACKGROUND */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(201,162,39,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,162,39,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* GLOW ORBS */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+      animation: float 8s ease-in-out infinite;
+    }
+    .orb1 { width:400px;height:400px;background:var(--gold);top:-100px;left:-100px; }
+    .orb2 { width:350px;height:350px;background:var(--electric);bottom:-80px;right:-80px;animation-delay:2s; }
+    .orb3 { width:300px;height:300px;background:var(--purple);top:40%;right:10%;animation-delay:4s; }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-30px);} }
+
+    /* STARS */
+    .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: twinkle ease-in-out infinite;
+    }
+    @keyframes twinkle { 0%,100% { opacity: 0.15; } 50% { opacity: 1; } }
+
+    /* FALLING GLITTER */
+    .glitter {
+      position: fixed;
+      top: -5vh;
+      pointer-events: none;
+      z-index: 0;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* HEADER */
+    .header { text-align: center; padding: 3rem 0 2rem; }
+
+    .age-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #000;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.5rem 1.4rem;
+      border-radius: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 30px rgba(201,162,39,0.4);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 20px rgba(201,162,39,0.4); }
+      50% { box-shadow: 0 0 40px rgba(201,162,39,0.7); }
+    }
+
+    .big-title {
+      font-size: clamp(2.5rem, 9vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .big-title .gold-text {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer { 0%{background-position:0% center;} 100%{background-position:200% center;} }
+
+    .role-line {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.95rem;
+      color: var(--electric);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .location-line {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* STATS GRID */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 3rem 0;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,162,39,0.2);
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .stat-num {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 900;
+      color: var(--gold);
+      font-family: 'DM Mono', monospace;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* MESSAGE CARD */
+    .message-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,162,39,0.15);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      margin: 2.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .message-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--gold), var(--electric));
+    }
+    .message-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #e5e7eb;
+    }
+    .message-text p { margin-bottom: 1.1rem; }
+    .message-text p:last-child { margin-bottom: 0; }
+
+    /* LEGACY GRID */
+    .legacy-title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 3rem 0 1.5rem;
+      color: var(--gold2);
+    }
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .legacy-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 1.6rem;
+      transition: all 0.3s;
+    }
+    .legacy-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+    .legacy-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .legacy-card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .legacy-card-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* FROM SECTION */
+    .from-section { text-align: center; margin: 3rem 0 1rem; }
+    .from-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .from-names {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .from-pill {
+      background: rgba(201,162,39,0.1);
+      border: 1px solid rgba(201,162,39,0.3);
+      color: var(--gold);
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .confetti-row {
+      text-align: center;
+      font-size: 2rem;
+      margin: 2rem 0;
+      letter-spacing: 0.3em;
+    }
+
+    .footer-line {
+      text-align: center;
+      color: #4b5563;
+      font-size: 0.78rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    @media(max-width:600px){
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+<div class="stars" id="stars"></div>
+<div id="glitter"></div>
+
+<div class="container">
+
+  <div class="header">
+    <div class="age-tag">🎂 21ST BIRTHDAY · JUNE 21, 2026</div>
+    <h1 class="big-title">Happy Birthday<br><span class="gold-text">Akil! 🎉</span></h1>
+    <p class="role-line">📍 Digital Marketing & Real Estate Professional</p>
+    <p class="location-line">UAE Raised · Kerala Born 🇦🇪🇮🇳</p>
+  </div>
+
+  <div class="confetti-row">🎂 🚀 💼 🌍 🔥</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">AED 10M+</div>
+      <div class="stat-label">Real Estate Sales</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Languages Spoken</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">21</div>
+      <div class="stat-label">Years, Already This Far</div>
+    </div>
+  </div>
+
+  <div class="message-card">
+    <div class="message-text">
+      <p>Dear Akil,</p>
+      <p>Today you turn 21 — a massive milestone. As you celebrate today, we want you to know how incredibly proud we are of the man, the professional and the leader you are becoming.</p>
+      <p>You have always had a unique fire in you. While some people wait for opportunities, you go out and build them. From being raised in the UAE to now operating as a global-minded professional, you have proven that true success comes from hustle, adaptability and an unstoppable work ethic.</p>
+      <p>Closing over AED 10M in real estate sales, mastering five different languages and continuously upgrading your digital marketing skills — these are not normal achievements for a 21-year-old. You are miles ahead of the curve. And seeing you bring that global perspective and energy into Venad Global Consultancy makes us prouder than words can say.</p>
+      <p>And it wasn't lost on us — our 23rd anniversary, and you were the one who took us out, drove us, made the day feel special without making a big deal of it. That's who you are. Confident on the outside, thoughtful underneath. Add the new matte black Thunderbird into the mix and honestly — you're not just turning 21, you're arriving.</p>
+      <p>May this year bring you even bigger deals, deeper wisdom and the quiet confidence that comes from knowing you have the skills to conquer any market you enter.</p>
+      <p>We are so proud of your grind. We love you — always.</p>
+    </div>
+  </div>
+
+  <div class="legacy-title">🌍 You Are Building an Incredible Legacy</div>
+
+  <div class="legacy-grid">
+    <div class="legacy-card">
+      <div class="legacy-icon">🗣️</div>
+      <div class="legacy-card-title">The Multilingual Communicator</div>
+      <div class="legacy-card-text">Speaking 5 languages is a true superpower. You don't just talk to clients — you connect with the world.</div>
+    </div>
+    <div class="legacy-card">
+      <div class="legacy-icon">🤝</div>
+      <div class="legacy-card-title">The Art of the Deal</div>
+      <div class="legacy-card-text">Closing AED 10M+ in the UAE is a testament to your negotiation skills and your relentless drive.</div>
+    </div>
+    <div class="legacy-card">
+      <div class="legacy-icon">📈</div>
+      <div class="legacy-card-title">The Digital Architect</div>
+      <div class="legacy-card-text">Armed with Google and HubSpot certifications, you are mastering the marketing tools that drive modern business.</div>
+    </div>
+    <div class="legacy-card">
+      <div class="legacy-icon">🏛️</div>
+      <div class="legacy-card-title">A Pillar of Venad Global</div>
+      <div class="legacy-card-text">You have taken your frontline experience and brought it home — helping build the foundation of our own family legacy.</div>
+    </div>
+    <div class="legacy-card" style="border-color:rgba(0,212,255,0.25);">
+      <div class="legacy-icon">🏍️</div>
+      <div class="legacy-card-title">Matte Black, Full Throttle</div>
+      <div class="legacy-card-text">The Thunderbird 350X in matte black isn't just a colour change. It's exactly your energy — bold, understated and built to turn heads without trying too hard.</div>
+    </div>
+    <div class="legacy-card" style="border-color:rgba(201,162,39,0.4);">
+      <div class="legacy-icon">🚗</div>
+      <div class="legacy-card-title">The One Who Drove Us</div>
+      <div class="legacy-card-text">Our 23rd anniversary, and it was you behind the wheel taking us out. Small gesture on paper. Meant everything in the room.</div>
+    </div>
+  </div>
+
+  <div class="from-section">
+    <div class="from-label">With all our love, from</div>
+    <div class="from-names">
+      <span class="from-pill">🙏 Dara</span>
+      <span class="from-pill">❤️ Vinima</span>
+      <span class="from-pill">😄 Adil</span>
+    </div>
+  </div>
+
+  <div class="footer-line">
+    🌿 Made with love from Kollam, Kerala — June 21, 2026
+  </div>
+
+</div>
+
+<script>
+// Twinkling stars
+(function(){
+  const c = document.getElementById('stars');
+  for(let i=0;i<90;i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const sz = Math.random()*2+0.5;
+    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${2+Math.random()*4}s;animation-delay:${-Math.random()*5}s;`;
+    c.appendChild(s);
+  }
+})();
+
+// Falling glitter / confetti
+(function(){
+  const c = document.getElementById('glitter');
+  const bits = ['✨','🌟','⭐','💫','🎉'];
+  for(let i=0;i<22;i++){
+    const g = document.createElement('div');
+    g.className = 'glitter';
+    g.textContent = bits[Math.floor(Math.random()*bits.length)];
+    g.style.cssText = `left:${Math.random()*100}%;font-size:${0.8+Math.random()*1}rem;animation-duration:${8+Math.random()*10}s;animation-delay:${-Math.random()*15}s;`;
+    c.appendChild(g);
+  }
+})();
+</script>
+
+</body>
+</html>
