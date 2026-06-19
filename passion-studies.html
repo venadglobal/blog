@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passion Studies Research Hub</title>
+
+  <!-- Google tag (gtag.js) - GA4 Tracking Code -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2BZDPM9EZM');
+
+    // Custom function to track click events before redirecting
+    function trackResearchClick(articleName) {
+      gtag('event', 'select_content', {
+        'content_type': 'research_card',
+        'item_id': articleName
+      });
+    }
+  </script>
+</head>
+<body style="margin: 0; padding: 10px; background-color: #fcfcfc;">
+
+  <!-- Main Display Wrapper -->
+  <div style="max-width: 1000px; margin: 20px auto; position: relative; font-family: sans-serif;">
+    
+    <!-- 1. The Main Full-Sized Image -->
+    <img src="passion-studies.png" 
+         usemap="#research-map" 
+         alt="Exploring the Crucifixion and Resurrection Research" 
+         style="width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+
+    <!-- 2. Interactive Image Map Hotspots (Aligned with Buttons) -->
+    <map name="research-map">
+      <!-- Left Card: Timeline Area -->
+      <area shape="rect" coords="175,290,465,780" 
+            alt="The Real Timeline" 
+            title="Read the Timeline Research" 
+            href="https://venadglobal.org/blog/jesus-calendar-research.html"
+            onclick="trackResearchClick('Timeline Chronology Study');">
+      
+      <!-- Right Card: Blood and Water Area -->
+      <area shape="rect" coords="535,290,825,780" 
+            alt="Blood and Water" 
+            title="Discover the Science" 
+            href="https://venadglobal.org/blog/blood-and-water-john19"
+            onclick="trackResearchClick('Blood and Water Science Study');">
+    </map>
+    
+    <p style="text-align: center; color: #666; font-size: 14px; margin-top: 12px; font-style: italic;">
+      💡 Click the left card to read the Timeline research, or the right card to explore the Blood &amp; Water study.
+    </p>
+  </div>
+
+</body>
+</html>
