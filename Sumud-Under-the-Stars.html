@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2BZDPM9EZM');
+</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sumud Under the Stars — idivet | Venad Global Blog</title>
+<meta name="description" content="A poem about rising after the fall, strength not as hardness, but as mature love. By idivet."/>
+<!-- public post -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Cinzel:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#0a0a14;
+  --navy:#0f1a3a;
+  --midnight:#141830;
+  --gold:#C9A227;
+  --gold2:#F0C060;
+  --ivory:#F5F0E8;
+  --parchment:#EDE8DC;
+  --ink:#1a1410;
+  --muted:#6b6050;
+  --border:#C9A22740;
+  --red:#8B1A1A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--deep);color:var(--ivory);line-height:1.8;font-size:17px}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline;color:var(--gold2)}
+
+/* NAV */
+.nav{background:rgba(10,10,20,0.95);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;position:sticky;top:0;z-index:999;border-bottom:1px solid var(--border);backdrop-filter:blur(10px)}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;padding:0.875rem 0;text-decoration:none}
+.nav-title{color:var(--gold);font-family:'Cinzel',serif;font-size:0.95rem;font-weight:600;letter-spacing:1px}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:#aaa;font-size:0.8rem;font-family:'DM Mono',monospace;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#0a0a14 0%,#0f1828 60%,#0a0a14 100%);padding:5rem 2rem 4rem;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'ϕ';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:30rem;opacity:0.03;pointer-events:none;color:var(--gold)}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,3rem);color:var(--ivory);line-height:1.2;margin-bottom:1.5rem;font-weight:400}
+.hero h1 em{color:var(--gold);font-style:italic;font-family:'EB Garamond',serif}
+.hero-desc{color:#aab0c0;font-size:1.1rem;max-width:600px;margin:0 auto 2rem;font-style:italic}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center;margin-top:2rem}
+.meta-tag{font-family:'DM Mono',monospace;font-size:0.7rem;color:#888;background:rgba(201,162,39,0.1);border:1px solid var(--border);padding:0.3rem 0.8rem;border-radius:20px}
+
+/* BODY */
+.content{max-width:760px;margin:0 auto;padding:3rem 2rem}
+.content p{margin-bottom:1.5rem;color:#d8d0c0}
+.content h2{font-family:'Cinzel',serif;font-size:1.5rem;color:var(--gold);margin:3rem 0 1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border);font-weight:600;letter-spacing:0.5px}
+.content h3{font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--ivory);margin:2rem 0 0.75rem;font-weight:700;font-style:italic}
+.content ul,.content ol{margin:0 0 1.5rem 1.5rem;color:#d8d0c0}
+.content li{margin-bottom:0.6rem}
+
+/* CALLOUT */
+.callout{background:rgba(201,162,39,0.06);border-left:3px solid var(--gold);padding:1.25rem 1.75rem;border-radius:0 8px 8px 0;margin:2rem 0;color:#d8d0c0}
+.callout-title{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.75rem}
+
+/* POEM BLOCK */
+.poem-block{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:2rem;margin:2.5rem 0}
+.poem-block h3{color:var(--gold);font-family:'Cinzel',serif;margin-top:0;margin-bottom:1.5rem;text-align:center;font-size:1.3rem;font-weight:600;letter-spacing:0.5px}
+.poem-block .poem-text{font-family:'EB Garamond',serif;font-size:1.05rem;color:#d8d0c0;line-height:1.9;text-align:center;font-style:italic}
+.poem-block .poem-text p{margin-bottom:1.2rem;color:#d8d0c0}
+.poem-block .poem-glossary{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:0.75rem;color:#999;text-align:center}
+.poem-block .poem-glossary strong{color:var(--gold)}
+
+/* AUTHOR */
+.author-box{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:1.75rem;margin:3rem 0;display:flex;gap:1.25rem;align-items:flex-start}
+.author-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--gold));display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;flex-shrink:0;border:1px solid var(--border)}
+.author-name{font-weight:600;color:var(--ivory);margin-bottom:0.3rem;font-family:'Cinzel',serif;font-size:0.95rem}
+.author-bio{font-size:0.88rem;color:#999;line-height:1.6}
+
+/* FOOTER */
+footer{background:var(--deep);border-top:1px solid var(--border);color:#666;text-align:center;padding:2rem;font-family:'DM Mono',monospace;font-size:0.75rem;margin-top:4rem}
+footer a{color:var(--gold)}
+
+@media(max-width:600px){.nav-links{display:none}.hero{padding:3rem 1.5rem 3rem}.content{padding:2rem 1.5rem}.poem-block{padding:1.5rem}}
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="https://venadglobal.org/blog" class="nav-brand">
+    <img src="../vgc_logo.png" alt="VGC" style="height:34px;">
+    <span class="nav-title">VENAD GLOBAL BLOG</span>
+  </a>
+  <div class="nav-links">
+    <a href="https://venadglobal.org">Home</a>
+    <a href="https://venadglobal.org/blog">All Posts</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">POETRY · REAL TALK</div>
+    <h1>Phoenix Bird</h1>
+    <p class="hero-desc">I am not weak because I broke. I am not weak because I stayed.</p>
+    <div class="hero-meta">
+      <span class="meta-tag">✍ idivet</span>
+      <span class="meta-tag">📅 July 2026</span>
+      <span class="meta-tag">⏱ 3 min read</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="callout">
+    <div class="callout-title">Refrain kept intact</div>
+    <p style="margin:0;font-style:italic">“I am not weak...” — this line anchors the whole piece.</p>
+  </div>
+
+  <h2>Evaluation Notes</h2>
+  <div class="ref-grid" style="margin-top:1.5rem">
+    <div class="ref-card">
+      <div class="ref-cat">Core Theme</div>
+      <div class="ref-title">Resilience as mature love</div>
+      <div class="ref-desc">Not defiance for its own sake. The phoenix is not spectacle; it is quiet rebuilding.</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-cat">Voice</div>
+      <div class="ref-title">Direct, first-person</div>
+      <div class="ref-desc">No ornament. Works best read aloud slowly, letting each line land.</div>
+    </div>
+  </div>
+
+  <h2>Narrated Version</h2>
+
+  <p>I have burned before.<br>
+  Not in myth, in daylight.<br>
+  Ash in my mouth,<br>
+  hands still open.</p>
+
+  <p>I am not weak because I broke.<br>
+  I am not weak because I stayed.<br>
+  I am not weak because I loved,<br>
+  even when love cost me.</p>
+
+  <p>The fire did not finish me.<br>
+  It taught me how to breathe<br>
+  through smoke,<br>
+  how to choose the next step<br>
+  when nothing was left to prove.</p>
+
+  <p>I do not rise to impress.<br>
+  I rise because the morning<br>
+  asks for work,<br>
+  and I am still here to do it.</p>
+
+  <p>I am not weak because I feel.<br>
+  I am not weak because I forgive.<br>
+  I am not weak because I begin again,<br>
+  quietly, without applause.</p>
+
+  <p>Call it phoenix bird if you need a name.<br>
+  I call it living.</p>
+
+  <p style="text-align:right;margin-top:2rem;color:var(--gold);font-style:italic">— idivet</p>
+
+  <!-- NEW UAE TRIBUTE SECTION -->
+  <h2 style="margin-top:4rem">From Ashes to Accord</h2>
+  <p>Like the phoenix we wrote of before, nations too are tested by fire. In 2026, the world watched the Gulf expecting collapse. What they saw instead was <em>sumud</em> — resilience that does not shout, but endures. This is for the United Arab Emirates: its leaders, its Armed Forces, and every resident who kept the light on.</p>
+
+  <div class="poem-block">
+    <h3>Sumud Under the Stars</h3>
+    <div class="poem-text">
+      <p>In the year when the Gulf was tested by fire,<br>
+      <strong>Sheikh Mohamed bin Zayed</strong> stood steady, a Leader to a nation.<br>
+      Beside him, <strong>Sheikh Mohammed bin Rashid</strong> of Dubai,<br>
+      Building dreams upward while guarding the foundation.</p>
+
+      <p>When skies were torn in late February’s night,<br>
+      Your <strong>Armed Forces</strong> answered, not with rage, but right.<br>
+      Ninety five in a hundred turned back by your hand,<br>
+      So the <em>adhan</em> and temple bell still echo across the sand.</p>
+
+      <p>This is <strong>tasamuh</strong>: tolerance lived, not declared.<br>
+      A hundred flags, one shelter, all equal, all spared.<br>
+      This is <strong>rahma</strong>: care without border or name.<br>
+      For citizen, for worker, for all who came.</p>
+
+      <p>You knew the cost if wrath took the helm,<br>
+      Water gone, ports silenced, a wound to the realm.<br>
+      So you chose <strong>sumud</strong>: resilience that bends not breaks,<br>
+      Holding the line while the desert awakes.</p>
+
+      <p>When Barakah was struck in May, the world held breath,<br>
+      But the core stood untouched, no whisper of death.<br>
+      The <strong>IAEA bore witness</strong>, commendation was clear:<br>
+      “No leak, no fear. Safety held here.”</p>
+
+      <p>And when pens met paper on <strong>June the eighteenth</strong>,<br>
+      A memorandum born, not of surrender, but peace.<br>
+      You taught that strength is the choice to restrain,<br>
+      That true power keeps a nation’s lamp from the rain.</p>
+
+      <p>So we speak this thanks from near and far:<br>
+      For guarding <strong>salam</strong> when war was the boast.<br>
+      May your towers stand, may your palms stay green,<br>
+      A fortress of mercy, by the world’s trust seen.</p>
+    </div>
+    <div class="poem-glossary">
+      <strong>Sumud</strong> = steadfastness · <strong>Tasamuh</strong> = tolerance · <strong>Rahma</strong> = compassion · <strong>Salam</strong> = peace
+    </div>
+  </div>
+  <!-- END UAE TRIBUTE SECTION -->
+
+  <div class="callout" style="margin-top:3rem">
+    <div class="callout-title">Context</div>
+    <p style="margin:0">Written during my cybersecurity learning journey (Intro to Cybersecurity, Cisco Networking Academy, 93%). Next: CCST. This poem sits beside practical work, not apart from it.</p>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar" style="background:none"><img src="../vgc_logo.png" alt="VGC" style="height:34px;"></div>
+    <div>
+      <div class="author-name">Antony Ancil — idivet</div>
+      <div class="author-bio">Cybersecurity learner, writer from Kollam, Kerala. 30+ years international experience including 20+ years at Higher Colleges of Technology UAE. Founder of Venad Global Consultancy. I value direct honest feedback and mature love as strength.</div>
+    </div>
+  </div>
+
+  <p style="text-align:center;margin-top:2rem">
+    <a href="https://venadglobal.org/blog" style="background:var(--midnight);color:var(--gold);padding:0.75rem 2rem;border-radius:50px;font-family:'DM Mono',monospace;font-size:0.82rem;border:1px solid var(--border)">← Back to Blog</a>
+  </p>
+
+</div>
+
+<footer style="background:#060606;border-top:1px solid rgba(201,162,39,0.15);padding:1.5rem 2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.75rem;color:#6b7280;">
+  <p>© 2026 Antony Ancil — Venad Global Consultancy. All rights reserved.</p>
+  <p style="margin-top:0.4rem;">Content published on this site is the original work of Antony Ancil. Unauthorised reproduction is prohibited.</p>
+</footer>
+
+<script>
+// Track when reader reaches poem end
+document.addEventListener('DOMContentLoaded', function() {
+  const poemEnd = document.querySelector('.author-box');
+  if (!poemEnd) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        gtag('event', 'poem_read_complete', {
+          'event_category': 'engagement',
+          'event_label': 'Phoenix Bird',
+          'value': 1
+        });
+        observer.disconnect();
+      }
+    });
+  }, {threshold: 0.5});
+  observer.observe(poemEnd);
+});
+
+// Engaged reader timers
+setTimeout(() => gtag('event','engaged_30s', {content:'phoenix-bird'}), 30000);
+setTimeout(() => gtag('event','engaged_60s', {content:'phoenix-bird'}), 60000);
+setTimeout(() => gtag('event','engaged_120s', {content:'phoenix-bird'}), 120000);
+</script>
+
+</body>
+</html>
