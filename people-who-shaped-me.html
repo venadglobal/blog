@@ -40,7 +40,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Grain texture overlay */
 body::after {
   content: '';
   position: fixed;
@@ -54,7 +53,6 @@ body::after {
 a { color: var(--gold); text-decoration: none; }
 a:hover { color: var(--gold2); }
 
-/* NAV */
 nav {
   background: var(--ink);
   padding: 0 2rem;
@@ -79,7 +77,6 @@ nav {
 }
 .nav-links a:hover { color: var(--gold); }
 
-/* HERO */
 .hero {
   background: var(--ink);
   padding: 5rem 2rem 4rem;
@@ -133,7 +130,6 @@ nav {
   opacity: 0.5;
 }
 
-/* INTRO */
 .intro {
   max-width: 720px;
   margin: 0 auto;
@@ -149,14 +145,12 @@ nav {
 }
 .intro p strong { color: var(--ink); font-weight: 700; }
 
-/* PEOPLE SECTION */
 .people-section {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 2rem 5rem;
 }
 
-/* PERSON CARD */
 .person-card {
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -174,7 +168,6 @@ nav {
 }
 .person-card:last-child { border-bottom: none; }
 
-/* Avatar */
 .person-avatar {
   width: 100px;
   height: 100px;
@@ -200,7 +193,6 @@ nav {
   background: var(--gold);
 }
 
-/* Person info */
 .person-name {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
@@ -237,7 +229,6 @@ nav {
   font-size: 1.05rem;
 }
 
-/* Memory tag */
 .memory-tag {
   display: inline-flex;
   align-items: center;
@@ -252,7 +243,6 @@ nav {
   margin-top: 0.75rem;
 }
 
-/* CLOSING */
 .closing {
   background: var(--ink);
   padding: 4rem 2rem;
@@ -287,7 +277,6 @@ nav {
   font-size: 1.1rem;
 }
 
-/* FOOTER */
 footer {
   background: #111;
   padding: 1.5rem 2rem;
@@ -328,7 +317,6 @@ footer strong { color: var(--gold); }
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">✦ A Personal Tribute</div>
@@ -341,7 +329,6 @@ footer strong { color: var(--gold); }
   </div>
 </section>
 
-<!-- INTRO -->
 <div class="intro">
   <p>
     Over thirty years across UAE — Fujairah, Madinat Zayed, Ruwais, Abu Dhabi —
@@ -353,9 +340,7 @@ footer strong { color: var(--gold); }
   </p>
 </div>
 
-<!-- PEOPLE -->
 <div class="people-section">
-
   <!-- Dr. Phil Quirke -->
   <div class="person-card">
     <div class="person-avatar">PQ</div>
@@ -540,10 +525,8 @@ footer strong { color: var(--gold); }
       <div class="memory-tag">🌿 The Farm Story · Kerala Jugad · Abu Dhabi · Steady Belief</div>
     </div>
   </div>
-
 </div>
 
-<!-- CLOSING -->
 <section class="closing">
   <div class="closing-inner">
     <div class="closing-divider"></div>
@@ -573,7 +556,6 @@ footer strong { color: var(--gold); }
   </div>
 </footer>
 
-<!-- Intersection Observer for scroll animations -->
 <script>
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
@@ -587,7 +569,6 @@ document.querySelectorAll('.person-card').forEach(function(card) {
   observer.observe(card);
 });
 
-// GA4 tracking
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
     el.addEventListener('click', function() {
@@ -606,7 +587,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
 
 <footer style="background:#060606;border-top:1px solid rgba(201,162,39,0.15);padding:1.5rem 2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.75rem;color:#6b7280;">
   <p>© 2026 Antony Ancil — Venad Global Consultancy. All rights reserved.</p>
