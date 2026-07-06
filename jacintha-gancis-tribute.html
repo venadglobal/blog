@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>In Loving Memory — Jacintha Gancis (Valiya Amma) | Venad Global Blog</title>
+  <meta name="description" content="A tribute to Jacintha Gancis — beloved Godmother, Master Chef of Kuruken's Kitchen, and the quiet peacemaker of a generation. Rest in peace, Valiya Amma.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BZDPM9EZM');
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap');
+
+    :root{
+      --bg:#07080a;--surface:#0f1115;--card:#161a20;
+      --gold:#C9A227;--gold2:#f0c040;
+      --text:#e0e4ec;--muted:#8892a0;--warm:#d4c8bc;
+      --ivory:#f5f0e8;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'EB Garamond',Georgia,serif;font-size:1.1rem;line-height:1.9;}
+
+    nav{background:rgba(7,8,10,0.97);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,162,39,0.15);}
+    nav img{height:34px;}
+    nav a{color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.85rem;font-weight:600;}
+    nav .nav-links{margin-left:auto;display:flex;gap:1.5rem;}
+    nav .nav-links a{color:var(--muted);font-weight:400;font-size:0.82rem;font-family:'DM Mono',monospace;}
+    nav .nav-links a:hover{color:var(--gold);}
+
+    .hero{
+      min-height:60vh;display:flex;align-items:center;justify-content:center;padding:5rem 2rem 3rem;
+      text-align:center;
+      background:
+        radial-gradient(ellipse at 50% 40%,rgba(201,162,39,0.06) 0%,transparent 60%);
+      position:relative;
+    }
+    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,39,0.3),transparent);}
+    .hero-inner{max-width:720px;margin:0 auto;}
+    .hero-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:400;color:#fff;line-height:1.25;margin-bottom:0.6rem;font-style:italic;}
+    .hero h1 strong{font-style:normal;font-weight:700;color:var(--gold2);}
+    .hero-dates{font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--muted);margin:1rem 0 1.5rem;letter-spacing:0.08em;}
+    .hero-verse{font-style:italic;color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto;line-height:1.7;}
+
+    /* PHOTO SECTION */
+    .photos{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:720px;margin:3rem auto;padding:0 2rem;}
+    .photo-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(201,162,39,0.2);}
+    .photo-wrap img{width:100%;height:320px;object-fit:cover;display:block;}
+    .photo-caption{text-align:center;font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);padding:0.6rem;background:var(--card);}
+
+    /* FUNERAL NOTICE */
+    .funeral-notice{max-width:560px;margin:0 auto 3rem;padding:0 2rem;}
+    .funeral-box{background:var(--card);border-radius:14px;padding:1.8rem;border:1px solid rgba(201,162,39,0.2);text-align:center;}
+    .funeral-box h3{font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.1rem;margin-bottom:1rem;font-weight:400;font-style:italic;}
+    .funeral-box p{font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--muted);line-height:1.8;margin-bottom:0.4rem;}
+    .funeral-box p strong{color:#fff;}
+
+    /* ARTICLE */
+    .article-body{max-width:680px;margin:0 auto;padding:2rem 2rem 5rem;}
+    .article-body p{margin-bottom:1.5rem;color:var(--warm);line-height:1.9;font-size:1.08rem;}
+    .article-body p.lead{font-size:1.2rem;color:#e8ecf4;font-style:italic;}
+
+    .section-break{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
+    .section-break h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;font-weight:400;white-space:nowrap;}
+    .section-break::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,162,39,0.3),transparent);}
+
+    .memory-box{background:var(--card);border-radius:14px;padding:1.8rem;margin:2rem 0;border:1px solid rgba(255,255,255,0.05);border-left:4px solid var(--gold);}
+    .memory-box p{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:0.8rem;}
+    .memory-box p:last-child{margin:0;}
+
+    .recipe-card{background:linear-gradient(135deg,#0d0a08,#100d08);border-radius:14px;padding:1.8rem;margin:1.5rem 0;border:1px solid rgba(201,162,39,0.2);}
+    .recipe-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold2);margin-bottom:0.6rem;font-style:italic;}
+    .recipe-card p{color:var(--muted);font-size:0.95rem;line-height:1.75;margin:0;}
+
+    .farewell{background:linear-gradient(135deg,var(--card),#080808);border-radius:16px;padding:2.5rem;margin:3rem 0;border:1px solid rgba(201,162,39,0.15);text-align:center;}
+    .farewell p{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--gold2);line-height:1.8;margin:0;}
+
+    .prayer{text-align:center;margin:2rem 0;font-style:italic;color:var(--muted);font-size:0.95rem;}
+
+    .post-nav{background:var(--surface);padding:1.5rem 2rem;text-align:center;border-top:1px solid rgba(201,162,39,0.1);}
+    .post-nav a{color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.82rem;margin:0 1rem;}
+    footer{background:#040506;border-top:1px solid rgba(201,162,39,0.1);padding:1.5rem 2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.75rem;color:#6b7280;}
+
+    @media(max-width:600px){
+      .photos{grid-template-columns:1fr;}
+      .photo-wrap img{height:260px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://venadglobal.org">
+    <img src="../vgc_logo.png" alt="VGC">
+  </a>
+  <a href="https://venadglobal.org">✦ Venad Global</a>
+  <div class="nav-links">
+    <a href="https://venadglobal.org/blog/">Blog</a>
+    <a href="https://venadglobal.org/blog/when-family-comes-home.html">Kurukkan Series</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">✦ In Loving Memory</div>
+    <h1><strong>Jacintha Gancis</strong><br><em>Valiya Amma</em></h1>
+    <div class="hero-dates">Called home · 5 July 2026 · 3:30 PM</div>
+    <p class="hero-verse">"She is not gone. The kitchen remembers her. The courtyard remembers her. We remember her."</p>
+  </div>
+</section>
+
+<div class="photos">
+  <div class="photo-wrap">
+    <img src="Jacintha2.jpg" alt="Jacintha Gancis — Valiya Amma" onerror="this.style.height='120px';this.style.background='#161a20';">
+    <div class="photo-caption">Jacintha Gancis — Valiya Amma</div>
+  </div>
+  <div class="photo-wrap">
+    <img src="Jacintha1.jpg" alt="Jacintha Gancis — Valiya Amma" onerror="this.style.height='120px';this.style.background='#161a20';">
+    <div class="photo-caption">Valiya Amma — at rest</div>
+  </div>
+</div>
+
+<div class="funeral-notice">
+  <div class="funeral-box">
+    <h3>Funeral Service</h3>
+    <p>📍 <strong>St. John de Britto Church, Sakthikulangara</strong></p>
+    <p>🕒 <strong>11:00 AM — Tuesday, 7 July 2026</strong></p>
+    <p style="margin-top:1rem;font-style:italic;color:#6b7280;">Please keep her departed soul and the family in your prayers. 🙏</p>
+  </div>
+</div>
+
+<section class="article-body">
+
+  <p class="lead">To the world, she was Jacintha Gancis. But to me, she was Valiya Amma — the second in line of Kuruken's legacy, a true mentor, and the undisputed Master Chef of Kuruken's Kitchen.</p>
+
+  <p>When a matriarch of her calibre leaves, she doesn't just leave behind an empty chair. She leaves behind a foundational legacy built on patience, discipline and unforgettable flavours.</p>
+
+  <div class="section-break"><h2>🚗 The Peacemaker from Velankanni</h2></div>
+
+  <p>Some of my earliest childhood memories revolve around the gifts she would bring back from Velankanni Church in Tamil Nadu. She would always bring us toy cars.</p>
+
+  <div class="memory-box">
+    <p>Naturally, when you put siblings and cousins in a courtyard with toy cars, it inevitably turned into a demolition derby. We would bump into each other, start big fights, and create total chaos.</p>
+    <p>But Valiya Amma was the ultimate load balancer. She would step right into the middle of the noise and sort it out amicably — restoring peace to the courtyard with the quiet authority only an elder sister possesses.</p>
+  </div>
+
+  <div class="section-break"><h2>🐄 The Mischief on the Porch</h2></div>
+
+  <p>She was incredibly hardworking, always managing the household, the animals and her legendary kitchen. I, on the other hand, was a highly mischievous fellow.</p>
+
+  <p>One day, one of our cows was due for delivery. Valiya Amma was deep in her element, busy cooking in the kitchen. She told me to sit on the porch and let her know the second the cow started crying.</p>
+
+  <div class="memory-box">
+    <p>Instead of keeping watch, I found a long cylindrical piece of material and figured out how to blow through it to perfectly mimic the cow's call.</p>
+    <p>Every time I made the sound, she would drop everything, rush out of the kitchen and anxiously check on the cow. When she asked me, I would sit there playing the innocent card — "I didn't hear anything."</p>
+    <p>It worked brilliantly — until she finally figured out the source of the noise, and I had to sprint away to escape a well-deserved smack!</p>
+  </div>
+
+  <div class="section-break"><h2>🥥 The Master Chef of Kuruken's Kitchen</h2></div>
+
+  <p>If there is one thing that defines her legacy, it is her culinary mastery. You cannot buy the food she made. It was pure, sovereign heritage.</p>
+
+  <div class="recipe-card">
+    <div class="recipe-name">The Legendary Orappam</div>
+    <p>This wasn't just a sweet — it was a work of art. A rice flour halwa enriched with fresh coconut milk and coconut oil. Valiya Amma cooked it the traditional way — placing the large plate over hot charcoal until it developed that perfect, crusty top and bottom, while remaining rich and soft inside.</p>
+  </div>
+
+  <div class="recipe-card">
+    <div class="recipe-name">The Nostalgic Chiratta Appam</div>
+    <p>The ultimate Kerala treat. She would take a sweet batter of rice flour, mashed ripe bananas and fresh coconut, and steam it inside empty coconut shells — chiratta. It came out naturally fluffy, mildly sweet, and carried the exact aroma of our heritage.</p>
+  </div>
+
+  <div class="farewell">
+    <p>Valiya Amma, the kitchen will never smell quite the same without you,<br>and the courtyard will miss your peaceful presence.<br><br>You guided us, fed us, and anchored the family.<br><br>Rest now. Your work here was complete and beautiful.</p>
+  </div>
+
+  <div class="prayer">
+    <p>Eternal rest grant unto her, O Lord.<br>And let perpetual light shine upon her. 🕯️</p>
+  </div>
+
+</section>
+
+<div class="post-nav">
+  <a href="https://venadglobal.org/blog/">← All Posts</a>
+  <a href="when-family-comes-home.html">Kurukkan Family Series →</a>
+</div>
+
+<footer>
+  <p>(c) 2026 Antony Ancil — Venad Global Consultancy. All rights reserved.</p>
+  <p style="margin-top:0.3rem;">A personal tribute — published with love and gratitude.</p>
+</footer>
+
+</body>
+</html>
