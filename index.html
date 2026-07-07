@@ -45,8 +45,8 @@ body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(-
 a{color:inherit;text-decoration:none}
 
 /* NAV */
-.nav{background:var(--navy2);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;position:sticky;top:0;z-index:999;border-bottom:3px solid var(--gold)}
-.nav-brand{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 0;text-decoration:none}
+.nav{background:var(--navy2);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;position:sticky;top:38px;z-index:999;border-bottom:3px solid var(--gold)}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;padding:0.2rem 0;text-decoration:none}
 .nav-logo{background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-weight:500;font-size:0.7rem;padding:4px 8px;border-radius:3px;line-height:1.3;text-align:center}
 .nav-title{color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
 .nav-subtitle{color:var(--gold);font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:1px}
@@ -154,8 +154,9 @@ footer strong{color:var(--gold)}
   padding:0;
   overflow:hidden;
   white-space:nowrap;
-  position:relative;
-  z-index:200;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 .vgc-announce-inner{
   display:inline-flex;
@@ -776,6 +777,32 @@ footer strong{color:var(--gold)}
   <!-- POEMS SECTION -->
   <div class="section-label" style="margin-top:2rem">✦ Poems</div>
   <div class="posts-grid" style="padding-bottom:1rem">
+
+<a href="Sumud-Under-the-Stars.html" class="post-card" onclick="gtag('event','post_click',{post:'sumud_stars',location:'blog_grid'});">
+      <div class="post-card-accent" style="background:linear-gradient(90deg,#0f1a3a,#C9A227)"></div>
+      <div class="post-card-body">
+        <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✦ Poem · UAE Tribute</div>
+        <h3>Sumud Under the Stars</h3>
+        <p>A tribute to the UAE's leaders and people — for choosing peace when war was the boast. Written in gratitude from a former resident of 30 years.</p>
+        <div class="post-footer">
+          <span class="post-date">July 2026</span>
+          <span class="post-link">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="version-57.html" class="post-card" onclick="gtag('event','post_click',{post:'version_57',location:'blog_grid'});">
+      <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1a1a2e)"></div>
+      <div class="post-card-body">
+        <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✦ Poem</div>
+        <h3>Version 57.0</h3>
+        <p>Not cloud-hosted. Not rented from someone else's server. Fifty-seven years compiled on local hardware — the fingerprints are real, and they are mine.</p>
+        <div class="post-footer">
+          <span class="post-date">June 2026</span>
+          <span class="post-link">Read →</span>
+        </div>
+      </div>
+    </a>
 
     <a href="the-quiet-strength.html" class="post-card" onclick="gtag('event','post_click',{post:'quiet_strength',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#166534,#C9A227)"></div>
