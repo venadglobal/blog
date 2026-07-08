@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Last Journey on the Surface — A Poem | Venad Global Blog</title>
+  <meta name="description" content="A poem for Jacintha Gancis and all the mothers who carried us before we knew the words to speak. By Antony Ancil.">
+  <meta name="author" content="Antony Ancil — Venad Global Consultancy">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://venadglobal.org/blog/the-last-journey.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BZDPM9EZM');
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;1,400&family=DM+Mono:wght@400;500&display=swap');
+
+    :root{
+      --bg:#07080a;--surface:#0f1115;--card:#161a20;
+      --gold:#C9A227;--gold2:#f0c040;
+      --text:#e0e4ec;--muted:#8892a0;--warm:#d4c8bc;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'EB Garamond',Georgia,serif;font-size:1.08rem;line-height:1.9;}
+
+    nav{background:rgba(7,8,10,0.97);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,162,39,0.15);}
+    nav img{height:34px;}
+    nav a{color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.85rem;font-weight:600;}
+    nav .nav-links{margin-left:auto;display:flex;gap:1.5rem;}
+    nav .nav-links a{color:var(--muted);font-weight:400;font-size:0.82rem;font-family:'DM Mono',monospace;}
+    nav .nav-links a:hover{color:var(--gold);}
+
+    .hero{
+      min-height:52vh;display:flex;align-items:center;justify-content:center;
+      padding:5rem 2rem 3rem;text-align:center;
+      background:radial-gradient(ellipse at 50% 40%,rgba(201,162,39,0.05) 0%,transparent 65%);
+      position:relative;
+    }
+    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,39,0.2),transparent);}
+    .hero-inner{max-width:680px;margin:0 auto;}
+    .hero-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:#fff;font-style:italic;line-height:1.25;margin-bottom:0.8rem;}
+    .hero-dedication{font-style:italic;color:var(--muted);font-size:0.95rem;margin-top:1rem;line-height:1.7;}
+    .hero-meta{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);margin-top:1.2rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;}
+
+    .poem-wrap{max-width:580px;margin:0 auto;padding:4rem 2rem 6rem;}
+
+    .poem{
+      font-family:'Playfair Display',serif;
+      font-size:1.12rem;
+      line-height:2.1;
+      color:var(--warm);
+    }
+    .poem .stanza{margin-bottom:2.8rem;}
+    .poem .stanza:last-child{margin-bottom:0;}
+    .poem .line{display:block;}
+    .poem .line.gold{color:var(--gold2);}
+
+    .poem-divider{
+      display:flex;align-items:center;gap:1rem;
+      margin:3.5rem 0;opacity:0.3;
+    }
+    .poem-divider::before,.poem-divider::after{content:'';flex:1;height:1px;background:var(--gold);}
+    .poem-divider span{color:var(--gold);font-size:0.8rem;}
+
+    .dedication-box{background:var(--card);border-radius:14px;padding:1.8rem;margin:3rem 0;border:1px solid rgba(201,162,39,0.15);text-align:center;}
+    .dedication-box p{font-style:italic;color:var(--muted);font-size:0.95rem;line-height:1.8;}
+
+    .share-bar{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);margin:2rem 0;}
+    .share-label{font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--muted);}
+    .share-btn{padding:0.4rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:'DM Mono',monospace;}
+    .share-wa{background:#25D366;color:#000;}
+    .share-li{background:#0077b5;color:#fff;}
+    .share-copy{background:var(--card);color:var(--gold);border:1px solid rgba(201,162,39,0.4);}
+
+    .author-box{background:var(--surface);border-radius:16px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;margin:2rem 0;border:1px solid rgba(201,162,39,0.12);}
+    .author-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8B6914);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;color:#000;flex-shrink:0;}
+    .author-info h4{color:#fff;font-size:0.9rem;margin-bottom:0.3rem;font-family:'DM Mono',monospace;}
+    .author-info p{color:var(--muted);font-size:0.85rem;line-height:1.6;font-family:'DM Mono',monospace;}
+
+    .post-nav{background:var(--surface);padding:1.5rem 2rem;text-align:center;border-top:1px solid rgba(201,162,39,0.1);}
+    .post-nav a{color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.82rem;margin:0 1rem;}
+    footer{background:#040506;border-top:1px solid rgba(201,162,39,0.1);padding:1.5rem 2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.75rem;color:#6b7280;}
+
+    @media(max-width:600px){.author-box{flex-direction:column;}.poem{font-size:1rem;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://venadglobal.org">
+    <img src="../vgc_logo.png" alt="VGC">
+  </a>
+  <a href="https://venadglobal.org">✦ Venad Global</a>
+  <div class="nav-links">
+    <a href="https://venadglobal.org/blog/">Blog</a>
+    <a href="jacintha-gancis-tribute.html">Tribute</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">🪵 Poem · In Memory</div>
+    <h1>The Last Journey on the Surface</h1>
+    <p class="hero-dedication">For Jacintha Gancis — Valiya Amma<br>And for all the mothers who carried us before we knew the words to speak.</p>
+    <div class="hero-meta">
+      <span>✍️ Antony Ancil — Kollam, Kerala</span>
+      <span>📅 July 2026</span>
+    </div>
+  </div>
+</section>
+
+<div class="poem-wrap">
+  <div class="poem">
+
+    <div class="stanza">
+      <span class="line">The servers hummed across the night,</span>
+      <span class="line">A digital bridge in silent flight,</span>
+      <span class="line">Linking the shores of the western sea</span>
+      <span class="line">To the quiet porch where she used to be.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">From the far-off streets where the engines roar,</span>
+      <span class="line">To the crowded steps of the old house door.</span>
+      <span class="line">But when the hour struck at three,</span>
+      <span class="line">The data faded, the soul set free.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">The modern world was cast aside,</span>
+      <span class="line">And logic bowed to a deeper pride.</span>
+      <span class="line gold">"No wheels," we said, "no iron frame,</span>
+      <span class="line gold">Shall bear the weight of her sacred name."</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">For when the world was small and new,</span>
+      <span class="line">And the morning grass was wet with dew,</span>
+      <span class="line">Her steady arms were our refuge place,</span>
+      <span class="line">Carrying us with a mother's grace.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">She held our weight when our steps were weak,</span>
+      <span class="line">Before we knew the words to speak.</span>
+    </div>
+
+    <div class="poem-divider"><span>✦</span></div>
+
+    <div class="stanza">
+      <span class="line">So shoulder to shoulder, the brothers stood,</span>
+      <span class="line">To bear the weight of the heavy wood.</span>
+      <span class="line">The final debt that love commands,</span>
+      <span class="line">To hold her high with our own two hands.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">Through the dusty road, beneath the sky,</span>
+      <span class="line">We walked the path as the crowd went by.</span>
+      <span class="line">Step by step to the churchyard floor,</span>
+      <span class="line">And onward still to the final door.</span>
+    </div>
+
+    <div class="stanza">
+      <span class="line">The tears broke loose from a heavy chest,</span>
+      <span class="line">As the weary traveler was laid to rest.</span>
+      <span class="line gold">No longer carried, no longer bound,</span>
+      <span class="line gold">But lifted high by the love she found.</span>
+    </div>
+
+  </div>
+
+  <div class="dedication-box">
+    <p>Written in memory of Jacintha Gancis — Valiya Amma.<br>
+    And for every mother who carried the family on her arms<br>before the family knew how to carry itself. 🕯️</p>
+  </div>
+
+  <div class="share-bar">
+    <span class="share-label">Share:</span>
+    <a class="share-btn share-wa" href="https://wa.me/?text=The%20Last%20Journey%20on%20the%20Surface%20%E2%80%94%20A%20poem%20by%20Antony%20Ancil.%20https://venadglobal.org/blog/the-last-journey.html" target="_blank">WhatsApp</a>
+    <a class="share-btn share-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://venadglobal.org/blog/the-last-journey.html" target="_blank">LinkedIn</a>
+    <button class="share-btn share-copy" onclick="navigator.clipboard.writeText('https://venadglobal.org/blog/the-last-journey.html');this.textContent='Copied!';">Copy Link</button>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">AA</div>
+    <div class="author-info">
+      <h4>Antony Ancil — Kollam, Kerala</h4>
+      <p>Written on the day of the funeral — 7 July 2026. For Valiya Amma, and all the mothers who carried us first.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="post-nav">
+  <a href="jacintha-gancis-tribute.html">← Tribute to Valiya Amma</a>
+  <a href="https://venadglobal.org/blog/">All Posts →</a>
+</div>
+
+<footer>
+  <p>(c) 2026 Antony Ancil — Venad Global Consultancy. All rights reserved.</p>
+  <p style="margin-top:0.3rem;">Written with love. In memory of Jacintha Gancis.</p>
+</footer>
+
+</body>
+</html>
