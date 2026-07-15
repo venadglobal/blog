@@ -315,6 +315,11 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://venadglobal.org/blog/sumud-under-the-stars.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
     <loc>https://venadglobal.org/blog/the-climber.html</loc>
     <lastmod>2026-06-28</lastmod>
     <priority>0.80</priority>
@@ -363,11 +368,6 @@
     <loc>https://venadglobal.org/blog/when-family-comes-home.html</loc>
     <lastmod>2026-06-28</lastmod>
     <priority>0.80</priority>
-  </url>
-   <url>
-    <loc>https://venadglobal.org/blog/Sumud-Under-the-Stars.html</loc>
-    <lastmod>2026-06-28</lastmod>
-    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://venadglobal.org/blog/rules-vs-trust.html</loc>
