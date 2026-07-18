@@ -15,6 +15,8 @@
 <meta name="google-site-verification" content="STRING_OF_CHARACTERS" />
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Venad Global Blog — Real Guidance for Real People</title>
+<link rel="canonical" href="https://venadglobal.org/blog/">
+<meta name="robots" content="index, follow">
 <meta name="description" content="Honest, experience-based blog about Canada immigration, Gulf jobs, Kerala nursing abroad, CV writing, and more. By Antony Ancil — 30 years international experience."/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Venad Global Blog — Real Guidance for Real People"/>
@@ -126,7 +128,27 @@ a{color:inherit;text-decoration:none}
 .topics-bar-inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center}
 .topic-filter{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.5px;padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;transition:all 0.2s}
 .topic-filter:hover,.topic-filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
-.topic-filter.all{background:var(--navy);color:#fff;border-color:var(--navy)}
+.topic-filter .filter-count{opacity:0.7;font-size:0.68rem}
+.post-card.filtered-hidden{display:none}
+
+/* MEGA MENU */
+.mega-menu-wrap{position:relative}
+.mega-menu-trigger{background:none;border:none;color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;letter-spacing:0.5px;cursor:pointer;padding:0}
+.mega-menu-trigger:hover{color:var(--gold)}
+.mega-menu{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--navy2);border:1px solid var(--gold);border-radius:8px;padding:0.6rem;min-width:240px;flex-direction:column;gap:0.2rem;box-shadow:0 12px 32px rgba(0,0,0,0.4);z-index:1000}
+.mega-menu.open{display:flex}
+.mega-menu a{color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;padding:0.5rem 0.7rem;border-radius:5px;transition:all 0.15s}
+.mega-menu a:hover{background:rgba(201,162,39,0.15);color:var(--gold)}
+
+/* MOBILE HAMBURGER */
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;padding:0.2rem 0.4rem}
+@media(max-width:720px){
+  .hamburger{display:block}
+  .nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.8rem;padding:1rem 0 0.5rem;border-top:1px solid rgba(255,255,255,0.1);margin-top:0.5rem}
+  .nav-links.mobile-open{display:flex}
+  .mega-menu-wrap{width:100%}
+  .mega-menu{position:static;transform:none;width:100%;box-shadow:none;margin-top:0.5rem;border-color:rgba(201,162,39,0.4)}
+}
 
 /* FOOTER */
 footer{background:var(--navy2);color:#6b7590;padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--gold)}
@@ -248,8 +270,21 @@ footer strong{color:var(--gold)}
       <div class="nav-subtitle">Real Experience · Honest Guidance</div>
     </div>
   </a>
-  <div class="nav-links">
-    <a href="what-simba-knows.html" onclick="gtag('event','nav_click',{link:'simba',location:'blog_header'});">Poems</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <div class="mega-menu-wrap">
+      <button class="mega-menu-trigger" id="megaTrigger" aria-expanded="false">Categories ▾</button>
+      <div class="mega-menu" id="megaMenu">
+        <a href="#" data-filter="careers" onclick="gtag('event','nav_click',{link:'careers',location:'mega_menu'});">🌍 Immigration & Careers</a>
+        <a href="#" data-filter="policy" onclick="gtag('event','nav_click',{link:'policy',location:'mega_menu'});">🚦 Kerala Systems & Policy</a>
+        <a href="#" data-filter="mindset" onclick="gtag('event','nav_click',{link:'mindset',location:'mega_menu'});">🧠 Mindset & Philosophy</a>
+        <a href="#" data-filter="realtalk" onclick="gtag('event','nav_click',{link:'realtalk',location:'mega_menu'});">🔥 Real Talk</a>
+        <a href="#" data-filter="tech" onclick="gtag('event','nav_click',{link:'tech',location:'mega_menu'});">🤖 AI & Tech</a>
+        <a href="#" data-filter="culture" onclick="gtag('event','nav_click',{link:'culture',location:'mega_menu'});">🎭 Culture & Everyday Life</a>
+        <a href="#" data-filter="faith" onclick="gtag('event','nav_click',{link:'faith',location:'mega_menu'});">✝️ Faith & Research</a>
+        <a href="#" data-filter="poems" onclick="gtag('event','nav_click',{link:'poems',location:'mega_menu'});">✦ Poems & Personal</a>
+      </div>
+    </div>
     <a href="../services.html">Services</a>
     <a href="../index.html">Main Site</a>
     <a href="https://wa.me/918589895659" style="color:var(--gold);font-weight:500">💬 WhatsApp</a>
@@ -276,13 +311,15 @@ footer strong{color:var(--gold)}
 <div class="topics-bar">
   <div class="topics-bar-inner">
     <span style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);letter-spacing:1px;margin-right:0.25rem">TOPICS:</span>
-    <span class="topic-filter all">All</span>
-    <span class="topic-filter">🇨🇦 Canada</span>
-    <span class="topic-filter">🇦🇪 Gulf Jobs</span>
-    <span class="topic-filter">🏥 Nursing Abroad</span>
-    <span class="topic-filter">📄 CV & LinkedIn</span>
-    <span class="topic-filter">🤖 AI & Tech</span>
-    <span class="topic-filter">🎓 Certifications</span>
+    <span class="topic-filter active" data-filter="all">All <span class="filter-count"></span></span>
+    <span class="topic-filter" data-filter="careers">🌍 Immigration & Careers <span class="filter-count"></span></span>
+    <span class="topic-filter" data-filter="policy">🚦 Kerala Systems & Policy <span class="filter-count"></span></span>
+    <span class="topic-filter" data-filter="mindset">🧠 Mindset & Philosophy <span class="filter-count"></span></span>
+    <span class="topic-filter" data-filter="realtalk">🔥 Real Talk <span class="filter-count"></span></span>
+    <span class="topic-filter" data-filter="tech">🤖 AI & Tech <span class="filter-count"></span></span>
+    <span class="topic-filter" data-filter="culture">🎭 Culture & Everyday Life <span class="filter-count"></span></span>
+    <span class="topic-filter" data-filter="faith">✝️ Faith & Research <span class="filter-count"></span></span>
+    <span class="topic-filter" data-filter="poems">✦ Poems & Personal <span class="filter-count"></span></span>
   </div>
 </div>
 
@@ -310,7 +347,7 @@ footer strong{color:var(--gold)}
   <div class="section-label">All Posts</div>
   <div class="posts-grid">
 
-<a href="horizontal-network.html" class="post-card" onclick="gtag('event','post_click',{post:'horizontal_network',location:'blog_grid'});">
+<a href="horizontal-network.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'horizontal_network',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌐 Community · Trust · Sovereignty</div>
@@ -323,7 +360,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="libertarian-referee.html" class="post-card" onclick="gtag('event','post_click',{post:'libertarian_referee',location:'blog_grid'});">
+<a href="libertarian-referee.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'libertarian_referee',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚽ Sport · World Cup · Analysis</div>
@@ -336,7 +373,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="deficit-illusion-power-sector.html" class="post-card" onclick="gtag('event','post_click',{post:'deficit_illusion',location:'blog_grid'});">
+<a href="deficit-illusion-power-sector.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'deficit_illusion',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#f0c040)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚡ Utilities · Policy · Kerala</div>
@@ -349,7 +386,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="kill-switch-economy.html" class="post-card" onclick="gtag('event','post_click',{post:'kill_switch',location:'blog_grid'});">
+<a href="kill-switch-economy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'kill_switch',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f87171,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f87171;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚠️ Systems · Ownership · Sovereignty</div>
@@ -362,7 +399,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="competitive-learner.html" class="post-card" onclick="gtag('event','post_click',{post:'competitive_learner',location:'blog_grid'});">
+<a href="competitive-learner.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'competitive_learner',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#3b82f6)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎯 Learning · Execution · Survival</div>
@@ -375,7 +412,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="map-and-meter.html" class="post-card" onclick="gtag('event','post_click',{post:'map_and_meter',location:'blog_grid'});">
+<a href="map-and-meter.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'map_and_meter',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1B3A6B)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🗺️ AI Literacy · Tech Audit · Kerala Wisdom</div>
@@ -388,7 +425,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="ksrtc-accountability.html" class="post-card" onclick="gtag('event','post_click',{post:'ksrtc_accountability',location:'blog_grid'});">
+<a href="ksrtc-accountability.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'ksrtc_accountability',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#f0c040)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🚌 Administration · Public Transport · Kerala</div>
@@ -401,7 +438,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="kerala-campus-strikes.html" class="post-card" onclick="gtag('event','post_click',{post:'campus_strikes',location:'blog_grid'});">
+<a href="kerala-campus-strikes.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'campus_strikes',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f87171,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f87171;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎓 Education · Politics · Kerala</div>
@@ -414,7 +451,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="e20-petrol-facts.html" class="post-card" onclick="gtag('event','post_click',{post:'e20_petrol',location:'blog_grid'});">
+<a href="e20-petrol-facts.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'e20_petrol',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⛽ Auto · Science · India</div>
@@ -427,7 +464,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="health-is-wealth.html" class="post-card" onclick="gtag('event','post_click',{post:'health_is_wealth',location:'blog_grid'});">
+<a href="health-is-wealth.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'health_is_wealth',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#16a34a,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🏥 Health · Systems · Sovereignty</div>
@@ -440,7 +477,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="jacintha-gancis-tribute.html" class="post-card" onclick="gtag('event','post_click',{post:'jacintha_tribute',location:'blog_grid'});">
+<a href="jacintha-gancis-tribute.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'jacintha_tribute',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#1a1a2e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🕯️ In Loving Memory</div>
@@ -453,7 +490,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="currency-of-gratitude.html" class="post-card" onclick="gtag('event','post_click',{post:'currency_gratitude',location:'blog_grid'});">
+<a href="currency-of-gratitude.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'currency_gratitude',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1B3A6B)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🤝 Gratitude · Loyalty · Human Nature</div>
@@ -466,7 +503,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/truth-fading-closed-doors.html" class="post-card" onclick="gtag('event','post_click',{post:'truth-fading-closed-doors.',location:'blog_grid'});">
+<a href="https://venadglobal.org/blog/truth-fading-closed-doors.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'truth-fading-closed-doors.',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#8B6914)"></div>
       <div class="post-card-body">
       <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🕯️The Purpose · Sacrifice · Truth </div>
@@ -479,7 +516,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-     <a href="https://venadglobal.org/blog/emotional-sovereignty.html" class="post-card" onclick="gtag('event','post_click',{post:'emotional-sovereignty',location:'blog_grid'});">
+     <a href="https://venadglobal.org/blog/emotional-sovereignty.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'emotional-sovereignty',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#8B6914)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🪶 Field Notes · Gatekeeper · Foundation</div>
@@ -492,7 +529,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-     <a href="rules-vs-trust.html" class="post-card" onclick="gtag('event','post_click',{post:'rules_vs_trust',location:'blog_grid'});">
+     <a href="rules-vs-trust.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'rules_vs_trust',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1B3A6B)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🤝 Trust · Relationships · Society</div>
@@ -505,7 +542,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-      <a href="diy-architect.html" class="post-card" onclick="gtag('event','post_click',{post:'diy_architect',location:'blog_grid'});">
+      <a href="diy-architect.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'diy_architect',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#8B6914)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔧 Mindset · Self-Reliance · Execution</div>
@@ -518,7 +555,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="six-foot-blueprint.html" class="post-card" onclick="gtag('event','post_click',{post:'six_foot',location:'blog_grid'});">
+    <a href="six-foot-blueprint.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'six_foot',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌱 Environment · Civic · Sustainability</div>
@@ -531,7 +568,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="citizenship-paradox.html" class="post-card" onclick="gtag('event','post_click',{post:'citizenship_paradox',location:'blog_grid'});">
+    <a href="citizenship-paradox.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'citizenship_paradox',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#FF9933,#138808)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fbbf24;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🪪 Governance · Identity · Democracy</div>
@@ -544,7 +581,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="cost-of-secrecy.html" class="post-card" onclick="gtag('event','post_click',{post:'cost_secrecy',location:'blog_grid'});">
+    <a href="cost-of-secrecy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'cost_secrecy',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#2dd4bf,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#5eead4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔓 Knowledge · Architecture · Systems</div>
@@ -557,7 +594,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="the-long-bridge.html" class="post-card" onclick="gtag('event','post_click',{post:'long_bridge',location:'blog_grid'});">
+    <a href="the-long-bridge.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'long_bridge',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1B3A6B,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#93c5fd;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌉 Language · Culture · Kerala</div>
@@ -570,7 +607,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="the-prescribed-milk.html" class="post-card" onclick="gtag('event','post_click',{post:'prescribed_milk',location:'blog_grid'});">
+    <a href="the-prescribed-milk.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'prescribed_milk',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1B3A6B)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fde68a;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🥛 Cultural Observation · Family</div>
@@ -583,7 +620,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="kerala-rto-colour-change.html" class="post-card" onclick="gtag('event','post_click',{post:'kerala_rto',location:'blog_grid'});">
+    <a href="kerala-rto-colour-change.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'kerala_rto',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#4a90b8,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#7ec8e3;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🏍️ Kerala RTO · Real Experience</div>
@@ -596,7 +633,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="crab-basket-blueprint.html" class="post-card" onclick="gtag('event','post_click',{post:'crab_basket',location:'blog_grid'});">
+    <a href="crab-basket-blueprint.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'crab_basket',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#a8552e)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Mindset · Self-Mastery</div>
@@ -609,7 +646,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="queen-of-the-night.html" class="post-card" onclick="gtag('event','post_click',{post:'queen_night',location:'blog_grid'});">
+    <a href="queen-of-the-night.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'queen_night',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#064e3b,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#22c55e;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌸 Kerala Garden</div>
@@ -622,7 +659,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="drishyam-3-mohanlal-review.html" class="post-card" onclick="gtag('event','post_click',{post:'drishyam3_review',location:'blog_grid'});">
+    <a href="drishyam-3-mohanlal-review.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'drishyam3_review',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#7c2d12,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f97316;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎬 Malayalam Cinema</div>
@@ -635,7 +672,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="ai-jobs-kerala-professionals.html" class="post-card" onclick="gtag('event','post_click',{post:'ai_jobs_kerala',location:'blog_grid'});">
+    <a href="ai-jobs-kerala-professionals.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'ai_jobs_kerala',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#3b82f6,#8b5cf6)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#3b82f6;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🤖 Must Read</div>
@@ -648,7 +685,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="google-io-2026-kerala-consultant.html" class="post-card" onclick="gtag('event','post_click',{post:'google_io_2026',location:'blog_grid'});">
+    <a href="google-io-2026-kerala-consultant.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'google_io_2026',location:'blog_grid'});">
       <div class="post-card-accent ai"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#4285F4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔵 Google I/O 2026</div>
@@ -661,7 +698,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="hct-operations-lessons.html" class="post-card" onclick="gtag('event','post_click',{post:'hct_operations',location:'blog_grid'});">
+    <a href="hct-operations-lessons.html" class="post-card" data-category="realtalk" onclick="gtag('event','post_click',{post:'hct_operations',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1B3A6B,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#93c5fd;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">📋 Director's Insights</div>
@@ -675,7 +712,7 @@ footer strong{color:var(--gold)}
     </a>
 
     
-    <a href="when-family-comes-home.html" class="post-card" onclick="gtag('event','post_click',{post:'family_comes_home',location:'blog_grid'});">
+    <a href="when-family-comes-home.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'family_comes_home',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1B3A6B,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#93c5fd;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🏡 Family · Memory · Kerala</div>
@@ -688,7 +725,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-        <a href="anniversary-2026.html" class="post-card" onclick="gtag('event','post_click',{post:'anniversary_2026',location:'blog_grid'});">
+        <a href="anniversary-2026.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'anniversary_2026',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#8B6914)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fde68a;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">💍 Anniversary · Love Story · Kerala</div>
@@ -701,7 +738,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-        <a href="the-other-side-of-the-coin.html" class="post-card" onclick="gtag('event','post_click',{post:'other_side_coin',location:'blog_grid'});">
+        <a href="the-other-side-of-the-coin.html" class="post-card" data-category="realtalk" onclick="gtag('event','post_click',{post:'other_side_coin',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1B3A6B,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fde68a;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">💡 Life Lessons · Leadership</div>
@@ -714,7 +751,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="canada-aip-kerala.html" class="post-card">
+    <a href="canada-aip-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent canada"></div>
       <div class="post-card-body">
         <div class="post-tag">🇨🇦 Canada Immigration</div>
@@ -727,7 +764,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-        <a href="kseb-prosumer-injustice.html" class="post-card" onclick="gtag('event','post_click',{post:'kseb_prosumer',location:'blog_grid'});">
+        <a href="kseb-prosumer-injustice.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'kseb_prosumer',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#f97316,#ef4444)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f97316;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚡ Solar Justice</div>
@@ -740,7 +777,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-        <a href="blood-and-water-john19.html" class="post-card" onclick="gtag('event','post_click',{post:'blood_water',location:'blog_grid'});">
+        <a href="blood-and-water-john19.html" class="post-card" data-category="faith" onclick="gtag('event','post_click',{post:'blood_water',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#7c1d1d,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fca5a5;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✝️ Biblical Research · John 19:34</div>
@@ -753,7 +790,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="jesus-calendar-research.html" class="post-card" onclick="gtag('event','post_click',{post:'jesus_calendar',location:'blog_grid'});">
+    <a href="jesus-calendar-research.html" class="post-card" data-category="faith" onclick="gtag('event','post_click',{post:'jesus_calendar',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#7c3aed,#1d4ed8)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#7c3aed;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✝️ Research</div>
@@ -766,7 +803,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="cs50-at-57.html" class="post-card">
+    <a href="cs50-at-57.html" class="post-card" data-category="tech">
       <div class="post-card-accent ai"></div>
       <div class="post-card-body">
         <div class="post-tag">🤖 AI & Certifications</div>
@@ -779,7 +816,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="gulf-jobs-2026.html" class="post-card">
+    <a href="gulf-jobs-2026.html" class="post-card" data-category="careers">
       <div class="post-card-accent gulf"></div>
       <div class="post-card-body">
         <div class="post-tag">🇦🇪 Gulf Jobs</div>
@@ -792,7 +829,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="cv-mistakes-kerala.html" class="post-card">
+    <a href="cv-mistakes-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent cv"></div>
       <div class="post-card-body">
         <div class="post-tag">📄 CV & LinkedIn</div>
@@ -805,7 +842,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="nursing-abroad.html" class="post-card">
+    <a href="nursing-abroad.html" class="post-card" data-category="careers">
       <div class="post-card-accent nursing"></div>
       <div class="post-card-body">
         <div class="post-tag">🏥 Nursing Abroad</div>
@@ -818,7 +855,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="nri-return-kerala.html" class="post-card">
+    <a href="nri-return-kerala.html" class="post-card" data-category="realtalk">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#b5451b,#e07b39)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#b5451b;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Real Talk</div>
@@ -830,7 +867,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="middle-class-kerala.html" class="post-card">
+    <a href="middle-class-kerala.html" class="post-card" data-category="realtalk">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#b5451b,#e07b39)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#b5451b;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Real Talk</div>
@@ -842,7 +879,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="loyalty-what-it-gets-you.html" class="post-card">
+    <a href="loyalty-what-it-gets-you.html" class="post-card" data-category="realtalk">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#b5451b,#e07b39)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#b5451b;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Real Talk</div>
@@ -854,7 +891,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="kerala-brain-drain.html" class="post-card">
+    <a href="kerala-brain-drain.html" class="post-card" data-category="realtalk">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#b5451b,#e07b39)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#b5451b;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Real Talk</div>
@@ -866,7 +903,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="australia-migration-kerala.html" class="post-card">
+    <a href="australia-migration-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#00843D,#FFCD00)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#00843D;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🦘 Australia Migration</div>
@@ -878,7 +915,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="new-zealand-migration-kerala.html" class="post-card">
+    <a href="new-zealand-migration-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#00467F,#CC0000)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#00467F;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🥝 New Zealand Migration</div>
@@ -890,7 +927,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="germany-blue-card-kerala.html" class="post-card">
+    <a href="germany-blue-card-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#000 33%,#DD0000 33% 66%,#FFCE00 66%)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#DD0000;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🇩🇪 Germany Blue Card</div>
@@ -901,7 +938,7 @@ footer strong{color:var(--gold)}
         </div>
       </div>
     </a>
-    <a href="uk-student-visa-kerala.html" class="post-card">
+    <a href="uk-student-visa-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#012169,#C8102E)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#012169;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎓 UK Students</div>
@@ -919,7 +956,7 @@ footer strong{color:var(--gold)}
   <div class="section-label" style="margin-top:2rem">✦ Poems</div>
   <div class="posts-grid" style="padding-bottom:1rem">
 
-<a href="the-last-journey.html" class="post-card" onclick="gtag('event','post_click',{post:'last_journey',location:'blog_grid'});">
+<a href="the-last-journey.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'last_journey',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#1a1a2e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🪵 Poem · In Memory</div>
@@ -932,7 +969,7 @@ footer strong{color:var(--gold)}
   </div>
 </a>
 
-<a href="Sumud-Under-the-Stars.html" class="post-card" onclick="gtag('event','post_click',{post:'sumud_stars',location:'blog_grid'});">
+<a href="Sumud-Under-the-Stars.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'sumud_stars',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#0f1a3a,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✦ Poem · UAE Tribute</div>
@@ -945,7 +982,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="version-57.html" class="post-card" onclick="gtag('event','post_click',{post:'version_57',location:'blog_grid'});">
+    <a href="version-57.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'version_57',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1a1a2e)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✦ Poem</div>
@@ -958,7 +995,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="the-quiet-strength.html" class="post-card" onclick="gtag('event','post_click',{post:'quiet_strength',location:'blog_grid'});">
+    <a href="the-quiet-strength.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'quiet_strength',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#166534,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌿 Poem · Teacher Tribute</div>
@@ -971,7 +1008,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="what-simba-knows.html" class="post-card" onclick="gtag('event','post_click',{post:'simba',location:'poems_grid'});">
+    <a href="what-simba-knows.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'simba',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#8B4513,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#8B4513;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🐾 Poem</div>
@@ -985,7 +1022,7 @@ footer strong{color:var(--gold)}
     </a>
 
     
-    <a href="seasonal.html" class="post-card" onclick="gtag('event','post_click',{post:'seasonal',location:'poems_grid'});">
+    <a href="seasonal.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'seasonal',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#2d0a1a,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#8B1A2A;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌿 Poem</div>
@@ -997,7 +1034,7 @@ footer strong{color:var(--gold)}
         </div>
       </div>
     </a>
-    <a href="simbas-basin.html" class="post-card" onclick="gtag('event','post_click',{post:'simbas_basin',location:'poems_grid'});">
+    <a href="simbas-basin.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'simbas_basin',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1a3a5c,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#1a3a5c;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">💧 Poem II</div>
@@ -1010,7 +1047,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="phoenix-bird.html" class="post-card" onclick="gtag('event','post_click',{post:'phoenix',location:'poems_grid'});">
+    <a href="phoenix-bird.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'phoenix',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#8B1A1A,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#8B1A1A;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Poem</div>
@@ -1023,7 +1060,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="the-climber.html" class="post-card" onclick="gtag('event','post_click',{post:'the_climber',location:'poems_grid'});">
+    <a href="the-climber.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'the_climber',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#14532d,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#4ade80;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌳 Poem</div>
@@ -1036,7 +1073,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="rareeram-lullaby.html" class="post-card" onclick="gtag('event','post_click',{post:'rareeram_lullaby',location:'poems_grid'});">
+    <a href="rareeram-lullaby.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'rareeram_lullaby',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#2d1b4e,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#9f7aea;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎵 Lullaby</div>
@@ -1049,7 +1086,7 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-    <a href="people-who-shaped-me.html" class="post-card" onclick="gtag('event','post_click',{post:'people_shaped',location:'poems_grid'});">
+    <a href="people-who-shaped-me.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'people_shaped',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1a3a1a,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#1a5c1a;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🙏 Personal</div>
@@ -1068,5 +1105,79 @@ footer strong{color:var(--gold)}
   <p>(c) 2026 Antony Ancil - Venad Global Consultancy. All rights reserved.</p>
   <p style="margin-top:0.4rem;">Content published on this site is the original work of Antony Ancil. Unauthorised reproduction is prohibited.</p>
 </footer>
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.post-card[data-category]'));
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.topic-filter'));
+
+  var counts = {};
+  cards.forEach(function(c){
+    var cat = c.dataset.category;
+    counts[cat] = (counts[cat]||0) + 1;
+  });
+  pills.forEach(function(p){
+    var f = p.dataset.filter;
+    var countSpan = p.querySelector('.filter-count');
+    if(!countSpan) return;
+    if(f === 'all'){ countSpan.textContent = '(' + cards.length + ')'; }
+    else { countSpan.textContent = '(' + (counts[f]||0) + ')'; }
+  });
+
+  function applyFilter(filter){
+    cards.forEach(function(c){
+      if(filter === 'all' || c.dataset.category === filter){
+        c.classList.remove('filtered-hidden');
+      } else {
+        c.classList.add('filtered-hidden');
+      }
+    });
+    pills.forEach(function(p){
+      p.classList.toggle('active', p.dataset.filter === filter);
+    });
+    gtag('event','topic_filter',{filter:filter});
+  }
+
+  pills.forEach(function(p){
+    p.addEventListener('click', function(){ applyFilter(p.dataset.filter); });
+  });
+
+  document.querySelectorAll('.mega-menu a[data-filter]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      applyFilter(a.dataset.filter);
+      document.getElementById('megaMenu').classList.remove('open');
+      document.getElementById('megaTrigger').setAttribute('aria-expanded','false');
+      var grid = document.querySelector('.posts-grid');
+      if(grid) grid.scrollIntoView({behavior:'smooth', block:'start'});
+      var navLinks = document.getElementById('navLinks');
+      if(navLinks) navLinks.classList.remove('mobile-open');
+    });
+  });
+
+  var trigger = document.getElementById('megaTrigger');
+  var menu = document.getElementById('megaMenu');
+  if(trigger && menu){
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = menu.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', function(e){
+      if(!menu.contains(e.target) && e.target !== trigger){
+        menu.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var hamburger = document.getElementById('hamburgerBtn');
+  var navLinks = document.getElementById('navLinks');
+  if(hamburger && navLinks){
+    hamburger.addEventListener('click', function(){
+      navLinks.classList.toggle('mobile-open');
+    });
+  }
+})();
+</script>
 </body>
 </html>
