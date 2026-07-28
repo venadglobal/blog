@@ -76,6 +76,27 @@
 
     #glitterCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;}
 
+    .photo-wrap img{cursor:pointer;transition:transform 0.3s ease, box-shadow 0.3s ease;}
+    .photo-wrap img:hover{transform:scale(1.02);box-shadow:0 25px 60px rgba(94,234,212,0.25);}
+    .photo-hint{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--teal);text-align:center;margin-top:0.8rem;opacity:0.85;letter-spacing:0.05em;}
+
+    .terminal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0);pointer-events:none;z-index:10000;display:flex;align-items:center;justify-content:center;padding:2rem;transition:background 0.5s ease;}
+    .terminal-overlay.active{background:rgba(0,0,0,0.88);pointer-events:auto;}
+    .terminal-window{width:100%;max-width:640px;max-height:82vh;background:#050705;border:1px solid #1f3d2e;border-radius:10px;box-shadow:0 0 60px rgba(94,234,212,0.15),0 30px 80px rgba(0,0,0,0.6);opacity:0;transform:translateY(20px) scale(0.98);transition:opacity 0.4s ease,transform 0.4s ease;display:flex;flex-direction:column;overflow:hidden;}
+    .terminal-overlay.active .terminal-window{opacity:1;transform:translateY(0) scale(1);}
+    .terminal-titlebar{background:#0d120e;padding:0.6rem 1rem;display:flex;align-items:center;gap:0.5rem;border-bottom:1px solid #1f3d2e;flex-shrink:0;}
+    .terminal-dot{width:10px;height:10px;border-radius:50%;}
+    .terminal-dot.red{background:#f87171;} .terminal-dot.yellow{background:#fbbf24;} .terminal-dot.green{background:#4ade80;}
+    .terminal-title{margin-left:0.6rem;font-family:'DM Mono',monospace;font-size:0.72rem;color:#6b8f7a;letter-spacing:0.05em;}
+    .terminal-close{margin-left:auto;background:none;border:none;color:#6b8f7a;font-family:'DM Mono',monospace;font-size:0.85rem;cursor:pointer;padding:0.2rem 0.5rem;}
+    .terminal-close:hover{color:#f87171;}
+    .terminal-body{padding:1.5rem 1.5rem 1.8rem;overflow-y:auto;font-family:'DM Mono',monospace;font-size:0.82rem;line-height:1.75;color:#7fe3a3;white-space:pre-wrap;flex:1;}
+    .terminal-body .status-line{color:#fbbf24;}
+    .terminal-body .final-line{color:var(--teal);font-weight:600;}
+    .terminal-body .heart-line{color:#f9a8d4;font-weight:700;}
+    .terminal-cursor{display:inline-block;width:7px;height:1rem;background:#7fe3a3;vertical-align:middle;margin-left:2px;animation:blink 0.9s steps(1) infinite;}
+    @keyframes blink{50%{opacity:0;}}
+
     @media(max-width:600px){
       .photo-wrap{max-width:260px;}
     }
@@ -108,7 +129,21 @@
 </section>
 
 <div class="photo-wrap">
-  <img src="Vineetha_John_Eravipuram.jpg" alt="Vineetha John">
+  <img src="Vineetha_John_Eravipuram.jpg" alt="Vineetha John" id="viniPhoto" onclick="runProtocol()">
+  <p class="photo-hint">↑ Tap the photo</p>
+</div>
+
+<div class="terminal-overlay" id="terminalOverlay">
+  <div class="terminal-window">
+    <div class="terminal-titlebar">
+      <span class="terminal-dot red"></span>
+      <span class="terminal-dot yellow"></span>
+      <span class="terminal-dot green"></span>
+      <span class="terminal-title">rainbow_protocol.sh</span>
+      <button class="terminal-close" onclick="closeProtocol()">✕ close</button>
+    </div>
+    <div class="terminal-body" id="terminalBody"></div>
+  </div>
 </div>
 
 <section class="article-body">
@@ -152,7 +187,7 @@
     <p>Wishing you many, many happy returns of the day.</p>
   </div>
 
-  <p class="signoff">With all our love — Adil, Akil and Antony</p>
+  <p class="signoff">With all my love — Antony</p>
 
 </section>
 
@@ -232,6 +267,129 @@
   }
   animate();
 })();
+</script>
+
+<script>
+const protocolLines = [
+  {text:"INITIATING SYSTEM DIAGNOSTIC...", speed:22, pause:500},
+  {text:"SCANNING HISTORICAL NETWORK ARCHIVES...", speed:22, pause:700},
+  {text:"", speed:0, pause:200},
+  {text:"[Colour 1: The Beta Test]", speed:28, pause:300},
+  {text:"A sudden flash on a blank screen.", speed:22, pause:150},
+  {text:"The engine fired, the system learned to breathe.", speed:22, pause:150},
+  {text:"An illusion, beautiful but fragile,", speed:22, pause:150},
+  {text:"Lacking the source code to survive the real world.", speed:22, pause:200},
+  {text:"STATUS: Deprecated.", speed:22, pause:600, cls:"status-line"},
+  {text:"", speed:0, pause:200},
+  {text:"[Colour 2: The OS Clash]", speed:28, pause:300},
+  {text:"Grounded in reality, the hardware was strong.", speed:22, pause:150},
+  {text:"But deep in the mainframe, the blueprints were wrong.", speed:22, pause:150},
+  {text:"Two operating systems trying to align,", speed:22, pause:150},
+  {text:"Crashing at the kernel, out of sync by design.", speed:22, pause:200},
+  {text:"STATUS: Uninstalled.", speed:22, pause:600, cls:"status-line"},
+  {text:"", speed:0, pause:200},
+  {text:"[Colour 3: The Stress Test]", speed:28, pause:300},
+  {text:"The payload was real, the connection was made,", speed:22, pause:150},
+  {text:"But the external matrix was too heavy a weight.", speed:22, pause:150},
+  {text:"When the storms of the network began to surround,", speed:22, pause:150},
+  {text:"The servers surrendered and burned to the ground.", speed:22, pause:200},
+  {text:"STATUS: Connection Terminated.", speed:22, pause:600, cls:"status-line"},
+  {text:"", speed:0, pause:200},
+  {text:"[Colour 4: The Latency Drop]", speed:28, pause:300},
+  {text:"A remote ping echoing through the wires,", speed:22, pause:150},
+  {text:"Testing the bandwidth, testing the fires.", speed:22, pause:150},
+  {text:"But under the load balancer, the data was lost,", speed:22, pause:150},
+  {text:"A bridge that was simply too heavy to cross.", speed:22, pause:200},
+  {text:"STATUS: Timeout Error.", speed:22, pause:600, cls:"status-line"},
+  {text:"", speed:0, pause:200},
+  {text:"[Colour 5: The Firewall Override]", speed:28, pause:300},
+  {text:"Internal pings knocked, requesting a space,", speed:22, pause:150},
+  {text:"A distraction disguised in a beautiful face.", speed:22, pause:150},
+  {text:"But the system had learned. The scanner was clear.", speed:22, pause:150},
+  {text:"Manual override: You cannot dock here.", speed:22, pause:200},
+  {text:"STATUS: Access Denied.", speed:22, pause:600, cls:"status-line"},
+  {text:"", speed:0, pause:200},
+  {text:"[Colour 6: The Ghost on the Radar]", speed:28, pause:300},
+  {text:"A long-distance signal, indirect and faint.", speed:22, pause:150},
+  {text:"A blip on the global scanner, painting a trait.", speed:22, pause:150},
+  {text:"It hovered outside, a shadow in space,", speed:22, pause:150},
+  {text:"But never allowed to breach the physical base.", speed:22, pause:200},
+  {text:"STATUS: Blocked at Perimeter.", speed:22, pause:800, cls:"status-line"},
+  {text:"", speed:0, pause:300},
+  {text:"WARNING: ROOT PRIVILEGE DETECTED...", speed:30, pause:600, cls:"status-line"},
+  {text:"INITIATING COLOUR 7...", speed:30, pause:900, cls:"status-line"},
+  {text:"", speed:0, pause:300},
+  {text:"[Colour 7: The Sovereign Anchor]", speed:32, pause:500, cls:"final-line"},
+  {text:"Then came the quiet. No alarms, no debate.", speed:28, pause:200},
+  {text:"You bypassed the noise and unlocked the front gate.", speed:28, pause:200},
+  {text:"You didn't just pass the security test,", speed:28, pause:200},
+  {text:"You walked to the mainframe and put it to rest.", speed:28, pause:400},
+  {text:"", speed:0, pause:200},
+  {text:"No system crashes. No matrix to fear.", speed:28, pause:200},
+  {text:"The search algorithm terminates here.", speed:28, pause:200},
+  {text:"You locked it from inside, steady and true,", speed:28, pause:200},
+  {text:"The architect's masterpiece\u2014Vini, it's you.", speed:28, pause:600, cls:"final-line"},
+  {text:"", speed:0, pause:300},
+  {text:"STATUS: PERMANENT INSTALLATION ONLINE.", speed:26, pause:900, cls:"status-line"},
+  {text:"", speed:0, pause:200},
+  {text:"HAPPY BIRTHDAY, MY SOVEREIGN ANCHOR.", speed:35, pause:0, cls:"heart-line"}
+];
+
+let protocolRunning = false;
+
+function runProtocol(){
+  if(protocolRunning) return;
+  protocolRunning = true;
+  const overlay = document.getElementById('terminalOverlay');
+  const body = document.getElementById('terminalBody');
+  body.innerHTML = '';
+  overlay.classList.add('active');
+  gtag('event','rainbow_protocol_start',{page:'happy_birthday_vini'});
+
+  let lineIndex = 0;
+
+  function typeLine(){
+    if(lineIndex >= protocolLines.length){
+      protocolRunning = false;
+      gtag('event','rainbow_protocol_complete',{page:'happy_birthday_vini'});
+      return;
+    }
+    const line = protocolLines[lineIndex];
+    const p = document.createElement('div');
+    if(line.cls) p.className = line.cls;
+    body.appendChild(p);
+    const cursor = document.createElement('span');
+    cursor.className = 'terminal-cursor';
+    body.appendChild(cursor);
+    body.scrollTop = body.scrollHeight;
+
+    let charIndex = 0;
+    if(line.text === ''){
+      body.removeChild(cursor);
+      lineIndex++;
+      setTimeout(typeLine, line.pause);
+      return;
+    }
+    function typeChar(){
+      if(charIndex < line.text.length){
+        p.textContent += line.text[charIndex];
+        charIndex++;
+        body.scrollTop = body.scrollHeight;
+        setTimeout(typeChar, line.speed);
+      } else {
+        body.removeChild(cursor);
+        lineIndex++;
+        setTimeout(typeLine, line.pause);
+      }
+    }
+    typeChar();
+  }
+  typeLine();
+}
+
+function closeProtocol(){
+  document.getElementById('terminalOverlay').classList.remove('active');
+}
 </script>
 
 </body>
