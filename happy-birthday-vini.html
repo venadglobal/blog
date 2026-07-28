@@ -336,6 +336,27 @@ const protocolLines = [
 ];
 
 let protocolRunning = false;
+let audioCtx = null;
+
+function playTypeSound(){
+  try{
+    if(!audioCtx){
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'square';
+    const freq = 620 + Math.random() * 180;
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.035, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.03);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.03);
+  }catch(e){}
+}
 
 function runProtocol(){
   if(protocolRunning) return;
@@ -373,6 +394,7 @@ function runProtocol(){
     function typeChar(){
       if(charIndex < line.text.length){
         p.textContent += line.text[charIndex];
+        if(line.text[charIndex] !== ' ') playTypeSound();
         charIndex++;
         body.scrollTop = body.scrollHeight;
         setTimeout(typeChar, line.speed);
