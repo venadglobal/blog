@@ -60,6 +60,10 @@
     .section-break h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;white-space:nowrap;}
     .section-break::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,162,39,0.4),transparent);}
     .stat-box{background:var(--card);border-radius:14px;padding:1.6rem;margin:2rem 0;border:1px solid rgba(201,162,39,0.15);}
+    .stat-item{background:var(--card);border-radius:12px;padding:1.2rem;text-align:center;border:1px solid rgba(201,162,39,0.15);}
+    .stat-item .num{font-family:'DM Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--gold2);}
+    .stat-item .lbl{font-size:0.72rem;color:var(--muted);margin-top:0.3rem;}
+    .stat-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:0.8rem;margin:2rem 0;}
     .stat-row{display:flex;justify-content:space-between;padding:0.5rem 0;border-top:1px solid rgba(255,255,255,0.06);gap:1rem;flex-wrap:wrap;}
     .stat-row:first-of-type{border-top:none;}
     .stat-label{font-size:0.86rem;color:var(--muted);}
@@ -123,6 +127,11 @@
   <div class="section-break"><h2>💸 The Economics of Exploitation</h2></div>
 
   <p>Let’s look at the math. The tax rates on alcohol in Kerala are among the highest in the country, with the sales tax on most hard liquor sitting at a staggering 251%. By the time you factor in the various duties and margins, consumers are paying astronomical markups that feel like 400% over the actual production cost.</p>
+
+ <div class="stat-strip">
+    <div class="stat-item"><div class="num">251%</div><div class="lbl">Sales tax on hard liquor</div></div>
+    <div class="stat-item"><div class="num">~400%</div><div class="lbl">Estimated markup over production cost</div></div>
+  </div>
 
   <p>When a citizen pays that much tax, they are single-handedly funding the state’s infrastructure and government salaries. Yet, how does the state say "thank you"? By treating them like criminals.</p>
 
