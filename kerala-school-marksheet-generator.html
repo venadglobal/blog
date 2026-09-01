@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kerala School Marksheet Generator – 48 Students A-D – TE 40/80 + CE – Consolidation – Clean PDF – VGC Gold</title>
+<meta name="description" content="Free Kerala School Marksheet Generator for teachers – 48 students A-D, 13 subjects, TE 40/80 + CE 10/20, auto grading A+ to E, TE Grade + Total + Final Grade, consolidation mark list, auto paper A4/A3/A2, clean PDF with zero comments for official school records, JSON backup & import – 100% browser, no data stored on server.">
+<meta name="keywords" content="Kerala school marksheet generator, CCE marksheet, TE CE grading, Kerala 48 students marksheet, consolidation mark list, A+ to E grading, TE 40 80, CE 10 20, clean school PDF, teacher tool Kerala, VGC Gold">
+<meta name="author" content="Venad Global Consultants – VGC Gold">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">
+<meta property="og:title" content="Kerala School Marksheet Generator – 48 Students – Clean Official PDF – VGC">
+<meta property="og:description" content="Free tool for Kerala teachers: 48 students A-D, 13 subjects, TE40/80, auto grading, consolidation with TE Grade + Total, auto paper A4/A3, clean PDF zero comments for school records, JSON backup. 100% in browser, no server storage.">
+<meta property="og:url" content="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Venad Global Consultants">
+<meta property="og:image" content="https://venadglobal.org/images/kerala-marksheet-generator-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kerala School Marksheet Generator – 48 Students – Clean PDF">
+<meta name="twitter:description" content="Free Kerala teacher tool – 48 students, TE40/80, consolidation, clean PDF no comments, JSON backup, no data stored.">
+<meta name="twitter:image" content="https://venadglobal.org/images/kerala-marksheet-generator-og.jpg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#08090b">
+<!-- GA4 – VGC -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2BZDPM9EZM',{page_path:'/blog/kerala-school-marksheet-generator.html'});function trackExport(t){gtag('event','marksheet_export',{type:t,version:'V7_PUBLIC'});}</script>
+<!-- Structured Data – SoftwareApplication for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kerala School Marksheet Generator – 48 Students – VGC Gold",
+  "operatingSystem": "Any – Browser Based",
+  "applicationCategory": "EducationApplication",
+  "description": "Free Kerala School Marksheet Generator for teachers – 48 students A-D divisions, 13 subjects, TE 40/80 + CE 10/20, auto grading A+ to E, TE Grade + Total + Final Grade, consolidation mark list, auto paper A4/A3/A2/A1, clean PDF with zero comments for official school records, JSON backup & import based on Term/Class/Division/Scheme – 100% browser, no server storage.",
+  "url": "https://venadglobal.org/blog/kerala-school-marksheet-generator.html",
+  "author": {"@type": "Organization","name": "Venad Global Consultants","url": "https://venadglobal.org"},
+  "offers": {"@type": "Offer","price": "0","priceCurrency": "INR"},
+  "featureList": ["48 students A-D","13 subjects","TE 40+10=50 and TE 80+20=100","Auto grading A+ to E","TE Grade + Total + Final Grade","Consolidation mark list all subjects","Auto paper A4/A3/A2/A1","Clean PDF zero comments","JSON backup and import by Term Class Division Scheme","100% browser no storage","Arrow key navigation"]
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{font-family:Inter,system-ui} .mono{font-family:'DM Mono',monospace}
+:root{--gold:#C9A227;--gold2:#f0c040;--dark:#08090b;--card:#161a20;--card2:#0e1015;--border:#232834;--border2:#2a2f3a}
+body{margin:0;background:var(--dark);color:#e8e6e1;min-height:100vh}
+.top-gold{height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
+.sticky-head{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(8,9,11,0.97);border-bottom:1px solid #1e232e}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px}
+.card-gold{border:1px solid rgba(201,162,39,0.3)}
+.input{background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:11px 13px;color:#e8e6e1;width:100%;box-sizing:border-box;font-size:14px;outline:none}
+.input:focus{border-color:rgba(201,162,39,0.6)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:.15s;white-space:nowrap}
+.btn-gold{background:var(--gold2);color:#08090b} .btn-dark{background:#1f242f;border:1px solid #2a2f3a;color:#e8e6e1} .btn-save{background:#10b981;color:#08090b} .btn-danger{background:#1f1515;border:1px solid rgba(239,68,68,0.2);color:#ff9a9a} .btn-sm{padding:5px 9px;font-size:11px;border-radius:8px}
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border)} table{border-collapse:collapse;width:100%;min-width:1180px}
+th{background:var(--gold);color:#08090b;padding:9px 7px;text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid #000}
+td{border:1px solid var(--border2);padding:4px;background:var(--card);font-size:13px;vertical-align:middle}
+td input{width:100%;background:#0e1015;border:1px solid #2a2f3a;border-radius:7px;padding:6px 7px;color:#fff;font-size:13px;text-align:center;box-sizing:border-box}
+td input.name-input{text-align:left} tr:hover td{background:#1c212c}
+.badge{display:inline-flex;padding:2px 7px;border-radius:999px;font-size:10.5px;font-weight:700;border:1px solid #2a2f3a;min-width:26px;justify-content:center}
+.grade-Aplus{background:rgba(201,162,39,0.15);color:#f0c040;border-color:rgba(201,162,39,0.3)} .grade-A{background:rgba(52,211,153,0.15);color:#6ee7b7}
+.grade-Bplus{background:rgba(96,165,250,0.15);color:#93c5fd} .grade-B{background:rgba(167,139,250,0.15);color:#c4b5fd}
+.grade-Cplus,.grade-C{background:rgba(251,146,60,0.15);color:#fdba74} .grade-Dplus,.grade-D{background:rgba(248,113,113,0.15);color:#fca5a5} .grade-E{background:rgba(239,68,68,0.2);color:#fca5a5}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#f0c040;color:#08090b;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:600;z-index:999}
+.subject-pill{padding:5px 11px;border-radius:999px;border:1px solid #2a2f3a;background:#161a20;font-size:11px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.subject-pill.active{background:rgba(201,162,39,0.18);border-color:rgba(201,162,39,0.5);color:#f0c040;font-weight:700}
+.db-chip{padding:6px 12px;border-radius:999px;border:1px solid #2a2f3a;background:#0e1015;font-size:11px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.db-chip.active{background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.4);color:#6ee7b7;font-weight:700}
+.dot{width:6px;height:6px;border-radius:50%;display:inline-block}
+
+/* VGC Blog Branding – Above/Below only – as per sample */
+.vgc-nav{background:rgba(8,9,11,0.97);backdrop-filter:blur(10px);padding:0.9rem 1.6rem;display:flex;align-items:center;gap:0.9rem;position:sticky;top:0;z-index:101;border-bottom:1px solid rgba(201,162,39,0.2)}
+.vgc-nav img.vgc-logo{height:34px;width:34px;border-radius:50%;border:1px solid rgba(201,162,39,0.3);background:#0f1115}
+.vgc-nav a.brand{color:#f0c040;text-decoration:none;font-family:'DM Mono',monospace;font-size:0.85rem;font-weight:700;letter-spacing:0.04em}
+.vgc-nav .nav-links{margin-left:auto;display:flex;gap:1.5rem;align-items:center}
+.vgc-nav .nav-links a{color:#8892a0;text-decoration:none;font-family:'DM Mono',monospace;font-size:0.82rem;transition:0.15s}
+.vgc-nav .nav-links a:hover{color:#f0c040}
+.vgc-nav .nav-links a.active{color:#f0c040;font-weight:600}
+.vgc-footer{background:#040506;border-top:1px solid rgba(201,162,39,0.15);padding:1.4rem 2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.73rem;color:#6b7280;margin-top:2rem}
+.vgc-footer a{color:#C9A227;text-decoration:none}
+
+</style>
+</head>
+<body>
+<div class="top-gold"></div>
+<nav class="vgc-nav">
+  <a href="https://venadglobal.org"><img class="vgc-logo" src="/android-chrome-512x512.png" alt="VGC Gold V"></a>
+  <a class="brand" href="https://venadglobal.org">✦ Venad Global</a>
+  <div class="nav-links">
+    <a class="active" href="https://venadglobal.org/blog/">Blog</a>
+    <a href="https://venadglobal.org/services.html">Services</a>
+    <a href="https://wa.me/918589895659" target="_blank">WhatsApp</a>
+  </div>
+</nav>
+<header class="sticky-head">
+<div style="max-width:1380px;margin:0 auto;padding:12px 18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center">
+<div style="display:flex;align-items:center;gap:12px">
+<div style="height:38px;width:38px;border-radius:12px;background:#161a20;border:1px solid #2a2f3a;display:flex;align-items:center;justify-content:center;color:#f0c040;font-weight:800">V6</div>
+<div>
+<h1 style="margin:0;font-size:14px;font-weight:700">Kerala Marksheet <span style="color:#f0c040">V7 PUBLIC – NO STORAGE – JSON BACKUP + PDF</span> <span style="margin-left:6px;display:inline-flex;font-size:10px;padding:3px 9px;border-radius:999px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#6ee7b7">● Public – No Site Storage – Backup JSON + PDF</span></h1>
+<p class="mono" style="margin:2px 0 0 0;font-size:10px;color:#8a8f98">PUBLIC: Data lives only in this tab – Export JSON to backup – Import JSON to restore – No data saved on venadglobal.org</p>
+</div>
+</div>
+<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+<div class="mono" style="font-size:11px;padding:6px 12px;border-radius:999px;background:#161a20;border:1px solid #2a2f3a" id="headerInfo">10A • 1st Term • 40_10</div>
+<div class="mono" style="font-size:10px;padding:5px 10px;border-radius:999px;background:#161a20;border:1px solid #2a2f3a" id="lastSaved">Last: never</div>
+<div class="mono" style="font-size:10px;padding:5px 10px;border-radius:999px;background:rgba(201,162,39,0.12);border:1px solid rgba(201,162,39,0.3);color:#f0c040" id="dbKeyLabel">DB: -</div>
+</div>
+</div>
+</header>
+<main style="max-width:1380px;margin:0 auto;padding:16px 14px 90px;display:flex;flex-direction:column;gap:14px">
+
+<div class="card" style="background:linear-gradient(90deg,rgba(201,162,39,0.15),rgba(240,192,64,0.08));border:1px solid rgba(201,162,39,0.3);padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center">
+<div style="display:flex;gap:10px;align-items:center">
+<span style="font-size:20px">🔒</span>
+<div>
+<div style="font-weight:700;font-size:12px;color:#f0c040;letter-spacing:.08em">PUBLIC VERSION – PRIVACY SAFE – NO DATA STORED ON SERVER</div>
+<div class="mono" style="font-size:11px;color:#e8e6e1;margin-top:2px">This tool runs 100% in your browser. No data sent to venadglobal.org. Refresh = data gone unless you export JSON. Backup your JSON file + PDF. Import JSON later based on Class/Division/Term/Scheme.</div>
+</div>
+</div>
+<div style="display:flex;gap:8px">
+<button class="btn btn-gold" onclick="document.getElementById('btnExportJson').click()">📥 Backup JSON Now</button>
+<button class="btn btn-dark" onclick="document.getElementById('btnImportJson').click()">📤 Import My JSON</button>
+</div>
+</div>
+
+
+<div class="card" style="background:linear-gradient(180deg,#151a23,#0e1218);border:1px solid rgba(201,162,39,0.25)">
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
+<div>
+<div style="font-size:11px;font-weight:700;letter-spacing:.18em;color:#f0c040">🌐 PUBLIC DATABASE – Session Only – No Site Storage</div>
+<div class="mono" style="font-size:10.5px;color:#8a8f98;margin-top:4px">PUBLIC: Each Term+Class+Div+Scheme = separate in-memory DB. Switching keeps data in this tab only. Refresh = data lost unless you exported JSON. Import your JSON to restore based on existing criteria (Class, Division, Term, Scheme).</div>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn btn-dark" id="btnShowDBs">📂 Show Session DBs</button>
+<button class="btn btn-dark" id="btnExportMaster">💾 Export SESSION MASTER</button>
+<button class="btn btn-dark" id="btnImportMaster">📤 Import MASTER (All)</button>
+<input type="file" id="fileMaster" accept=".json" style="display:none">
+</div>
+</div>
+<div id="dbList" style="display:none;margin-top:12px;flex-wrap:wrap;gap:8px"></div>
+</div>
+
+<div class="card card-gold" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center">
+<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+<span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:#f0c040">💾 BACKUP (Public – No Site Save)</span>
+<button class="btn btn-save" id="btnSaveNow">💾 Keep in Session</button>
+<span class="mono" style="font-size:11px;background:#0e1015;border:1px solid rgba(16,185,129,0.2);padding:7px 11px;border-radius:10px;color:#6ee7b7" id="autoSaveStatus">Public – Session Only – Export JSON</span>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+<select id="backupType" class="input" style="width:210px;padding:8px 10px;font-size:12px">
+<option value="current_db">Current DB – This Class/Term</option>
+<option value="names_only">Names Only – This Class</option>
+<option value="marks_current">Marks Only – Current Subject</option>
+<option value="all_dbs">MASTER – All Classes/Terms</option>
+</select>
+<button class="btn btn-dark" id="btnExportJson">📥 Export</button>
+<button class="btn btn-dark" id="btnImportJson">📤 Import Selective</button>
+<input type="file" id="fileImport" accept=".json,.csv" style="display:none">
+<button class="btn btn-danger" id="btnClearCurrent">🗑️ Clear Session DB</button>
+<button class="btn btn-danger" id="btnClearAll">🗑️ Clear All Session</button>
+</div>
+</div>
+
+<div class="card">
+<div style="display:grid;grid-template-columns:1.1fr 1fr 0.6fr 0.6fr 0.8fr 0.6fr;gap:10px">
+<div><label style="font-size:11px;color:#8a8f98">School</label><input id="schoolName" class="input" value="St. John's High School – Eravipuram, Kollam"></div>
+<div><label style="font-size:11px;color:#8a8f98">Examination Term</label>
+<select id="examNameSel" class="input">
+<option>1st Term 2026-27</option><option>2nd Term 2026-27</option><option>Mid Term 2026-27</option><option>Model Exam 2026-27</option><option>Annual Exam 2026-27</option><option>1st Term 2025-26</option><option>2nd Term 2025-26</option>
+</select>
+</div>
+<div><label style="font-size:11px;color:#8a8f98">Class</label><select id="classSel" class="input"><option>8</option><option>9</option><option selected>10</option></select></div>
+<div><label style="font-size:11px;color:#8a8f98">Division</label><select id="divisionSel" class="input"><option selected>A</option><option>B</option><option>C</option><option>D</option></select></div>
+<div><label style="font-size:11px;color:#8a8f98">Scheme</label><select id="schemeSel" class="input"><option value="40_10" selected>TE 40 + CE 10 = 50</option><option value="80_20">TE 80 + CE 20 = 100</option></select></div>
+<div><label style="font-size:11px;color:#8a8f98">Roster</label><div class="mono" style="padding:11px;background:#0e1015;border:1px solid #2a2f3a;border-radius:12px;font-size:13px" id="studentCount">0</div></div>
+</div>
+
+<div style="margin-top:12px;padding:10px 12px;background:#0e1015;border:1px dashed rgba(201,162,39,0.3);border-radius:12px" class="mono">
+<div style="font-size:11px;color:#f0c040;font-weight:700">🔑 CURRENT DB KEY (auto-generated to avoid duplication):</div>
+<div id="currentDBKey" style="font-size:13px;margin-top:4px;color:#e8e6e1;word-break:break-all">10A_1st_Term_2026-27_40_10</div>
+<div style="font-size:10px;color:#8a8f98;margin-top:4px">Logic: Class+Division _ Term _ Scheme. Example: 10A_1st_Term_2026-27_40_10 vs 10B_1st_Term_2026-27_40_10 are different DBs. 10A_1st_Term vs 10A_2nd_Term are different. 40_10 vs 80_20 are different. No overwrite.</div>
+</div>
+
+<div style="margin-top:14px">
+<label style="font-size:11px;color:#8a8f98;letter-spacing:.08em">SUBJECTS (13) – Same Roster Per DB – Marks Per Subject</label>
+<div id="subjectPills" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:8px"></div>
+<div style="display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap">
+<select id="subjectSel" class="input" style="width:190px">
+<option>Malayalam 1</option><option>Malayalam 2</option><option>English 1</option><option>English 2</option><option>Hindi 1</option><option>Hindi 2</option><option>Mathematics</option><option>Science</option><option>Social Science</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>IT</option><option>Custom</option>
+</select>
+<input id="customSub" class="input" style="width:180px;display:none" placeholder="Custom subject">
+<button class="btn btn-dark" id="btnAddSubject">➕ Add / Switch Subject</button>
+<span class="mono" style="font-size:11px;color:#8a8f98">Tab → next • ↓ Enter = down • ↑ = up</span>
+</div>
+</div>
+
+<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn btn-gold" id="btnAddRowEnd">➕ Add Row End</button>
+<button class="btn btn-dark" id="btnFillCE">✨ Fill Empty CE</button>
+<button class="btn btn-dark" id="btnGen48">🔄 Generate 48 Empty Rows</button>
+<select id="sampleSel" class="input" style="width:160px"><option value="empty">Empty</option><option value="ixb">Sample 32</option><option value="48">48 Generic</option></select>
+</div>
+</div>
+
+<div class="card" style="background:linear-gradient(180deg,#1c1f27,#161a20);border:2px solid var(--gold);">
+<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center">
+<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+<span style="font-size:11px;font-weight:800;letter-spacing:.15em;color:#f0c040">⬇️ EXPORTS – Auto Naming Uses DB Key</span>
+<span class="mono" style="font-size:11px;background:#0e1015;border:1px solid #2a2f3a;padding:6px 10px;border-radius:8px" id="pdfNamePreview">Malayalam1_10A_1st_Term_2026-27.pdf</span>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+<button class="btn btn-gold" id="btnPdf">📄 PDF Clean – Current Sub</button>
+<button class="btn btn-dark" id="btnCsv">📊 CSV Current</button>
+<button class="btn btn-dark" id="btnConsolidationPdf">📚 Consolidation – TE Gr + Total</button>
+<button class="btn btn-dark" id="btnConsolidationCsv">📊 Consolidation CSV Detailed</button>
+<label style="display:flex;align-items:center;gap:6px;font-size:11px;background:#0e1015;border:1px solid #2a2f3a;padding:7px 10px;border-radius:10px"><input type="checkbox" id="consolIncludeEmpty"> All 13 sub</label>
+<button class="btn btn-dark" id="btnPrint">🖨️ Print</button>
+</div>
+</div>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden">
+<div class="table-wrap"><table><thead><tr>
+<th style="width:38px">Sl</th><th style="width:210px">Name</th>
+<th style="width:88px" id="thTE">TE <span class="teMaxLabel">40</span> / AB</th><th style="width:68px">TE Gr</th>
+<th style="width:68px" id="thCE">CE <span class="ceMaxLabel">10</span></th><th style="width:68px">CE Gr</th>
+<th style="width:68px">Total <span class="totalMaxLabel">50</span></th><th style="width:52px">%</th><th style="width:70px">Final</th><th style="width:110px">Action</th>
+</tr></thead><tbody id="tbody"></tbody></table></div>
+<div class="mono" style="padding:8px 12px;font-size:10.5px;color:#5a5f6a">DB: <span id="dbInfoFooter"></span> | Scheme: <span id="schemeLabel"></span> | <span id="genTime"></span></div>
+</div>
+
+</main>
+<script>
+function gradeByPerc(p){if(p===null||isNaN(p))return'E';if(p>=90)return'A+';if(p>=80)return'A';if(p>=70)return'B+';if(p>=60)return'B';if(p>=50)return'C+';if(p>=40)return'C';if(p>=30)return'D+';if(p>=20)return'D';return'E';}
+function parseMark(v,max){if(v===null||v===undefined)return null;let s=String(v).trim().toUpperCase();if(s==='')return null;if(s==='AB'||s==='ABSENT')return null;let n=parseFloat(s);if(isNaN(n))return null;if(n<0)n=0;if(n>max)n=max;return n;}
+function calcRow(teRaw,ceRaw,teMax,ceMax,totalMax){
+  let te=parseMark(teRaw,teMax), ce=parseMark(ceRaw,ceMax);
+  let teVal=te===null?0:te, ceVal=ce===null?0:ce;
+  let total=null;
+  if(teRaw!==''||ceRaw!==''){ total=(te===null&&ce===null)?null:teVal+ceVal; if(String(teRaw).toUpperCase()==='AB' && (ce===null||ceRaw==='')) total=0; if(total===null && (te!==null||ce!==null)) total=teVal+ceVal; }
+  let perc=total===null?null:total/totalMax*100;
+  let tePerc=te===null?null:te/teMax*100, cePerc=ce===null?null:ce/ceMax*100;
+  return{te,ce,total,perc,teGrade:te===null?'E':gradeByPerc(tePerc), ceGrade:ce===null?(ceRaw===''?'E':gradeByPerc(cePerc)):gradeByPerc(cePerc), finalGrade:total===null?'E':gradeByPerc(perc)};
+}
+const SUBJECTS=["Malayalam 1","Malayalam 2","English 1","English 2","Hindi 1","Hindi 2","Mathematics","Science","Social Science","Physics","Chemistry","Biology","IT"];
+const MASTER_KEY='vgc_marksheet_v6_master_foolproof';
+let masterDB={databases:{}, currentKey:null};
+let students=[]; let marks={}; let currentSubject='Malayalam 1'; let customName=''; let scheme='40_10';
+function getSchemeVals(){return scheme==='40_10'?{teMax:40,ceMax:10,totalMax:50}:{teMax:80,ceMax:20,totalMax:100};}
+function uid(){return Math.random().toString(36).slice(2,9);}
+function sanitize(str){return str.replace(/\s+/g,'_').replace(/[^A-Za-z0-9_.-]/g,'').replace(/_+/g,'_');}
+function generateDBKey(cls,div,exam,sch){let examS=sanitize(exam); return `${cls}${div}_${examS}_${sch}`;}
+function getCurrentDBKey(){let cls=document.getElementById('classSel').value; let div=document.getElementById('divisionSel').value; let exam=document.getElementById('examNameSel').value; return generateDBKey(cls,div,exam,scheme);}
+function ensureSubject(sub){if(!marks[sub]){marks[sub]=students.map(()=>({teRaw:'',ceRaw:''}));}else{if(marks[sub].length<students.length){let diff=students.length-marks[sub].length;for(let i=0;i<diff;i++) marks[sub].push({teRaw:'',ceRaw:''});}else if(marks[sub].length>students.length){marks[sub]=marks[sub].slice(0,students.length);}}}
+function getCurMarks(){ensureSubject(currentSubject); return marks[currentSubject];}
+
+// PUBLIC VERSION – NO STORAGE – DATA ONLY IN MEMORY – BACKUP VIA JSON + PDF
+function saveMasterToStorage(){
+  // No persistent storage for public – keep in memory only
+  try{
+    // Optional: keep in sessionStorage for current tab only, cleared on close
+    sessionStorage.setItem(MASTER_KEY+'_session', JSON.stringify(masterDB));
+  }catch(e){}
+  document.getElementById('lastSaved').textContent='In-Memory • '+getCurrentDBKey()+' • '+new Date().toLocaleTimeString();
+  document.getElementById('autoSaveStatus').textContent='Public – No site storage – Export JSON to backup';
+  document.getElementById('dbKeyLabel').textContent='DB: '+getCurrentDBKey()+' (Session only)';
+  document.getElementById('currentDBKey').textContent=getCurrentDBKey()+' – Session only – Export JSON';
+  document.getElementById('dbInfoFooter').textContent=getCurrentDBKey()+' | '+students.length+' students | '+Object.keys(marks).length+' subjects | Session only';
+  updatePdfNamePreview();
+  renderDBList();
+  return true;
+}
+function loadMasterFromStorage(){
+  // PUBLIC – try sessionStorage only, no localStorage – fresh start for public visitors
+  try{
+    let raw=sessionStorage.getItem(MASTER_KEY+'_session');
+    if(!raw) return false;
+    masterDB=JSON.parse(raw);
+    if(!masterDB.databases) masterDB.databases={};
+    return true;
+  }catch(e){return false;}
+}
+function saveCurrentDBToMaster(showToast=false){
+  let key=getCurrentDBKey();
+  let db={
+    school:document.getElementById('schoolName').value,
+    exam:document.getElementById('examNameSel').value,
+    class:document.getElementById('classSel').value,
+    division:document.getElementById('divisionSel').value,
+    scheme:scheme,
+    students:students,
+    marks:marks,
+    currentSubject:currentSubject,
+    customName:customName,
+    ts:Date.now()
+  };
+  masterDB.databases[key]=db;
+  masterDB.currentKey=key;
+  saveMasterToStorage();
+  document.getElementById('lastSaved').textContent='Last: '+new Date().toLocaleTimeString()+' • '+key;
+  document.getElementById('autoSaveStatus').textContent='saved '+new Date().toLocaleTimeString()+' • '+key;
+  document.getElementById('dbKeyLabel').textContent='DB: '+key;
+  document.getElementById('currentDBKey').textContent=key;
+  document.getElementById('dbInfoFooter').textContent=key+' | '+students.length+' students | '+Object.keys(marks).length+' subjects';
+  if(showToast) toast('💾 Saved DB: '+key+' • '+students.length+' students');
+  updatePdfNamePreview();
+  renderDBList();
+}
+function loadDBByKey(key){
+  if(!masterDB.databases[key]) return false;
+  let db=masterDB.databases[key];
+  document.getElementById('schoolName').value=db.school||document.getElementById('schoolName').value;
+  document.getElementById('examNameSel').value=db.exam||document.getElementById('examNameSel').value;
+  document.getElementById('classSel').value=db.class||document.getElementById('classSel').value;
+  document.getElementById('divisionSel').value=db.division||document.getElementById('divisionSel').value;
+  scheme=db.scheme||'40_10'; document.getElementById('schemeSel').value=scheme;
+  students=db.students||[]; marks=db.marks||{}; currentSubject=db.currentSubject||'Malayalam 1'; customName=db.customName||'';
+  masterDB.currentKey=key;
+  saveMasterToStorage();
+  render();
+  toast('📂 Loaded DB: '+key);
+  return true;
+}
+function createNewDBIfNotExists(){
+  let key=getCurrentDBKey();
+  if(masterDB.databases[key]){
+    // load existing
+    loadDBByKey(key);
+  } else {
+    // create new empty DB for this key
+    students=Array.from({length:48},()=>({id:uid(),name:''}));
+    marks={}; SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
+    saveCurrentDBToMaster(false);
+    render();
+    toast('🆕 New DB created: '+key+' – 48 empty rows');
+  }
+}
+function switchDBOnSelectorChange(){
+  // auto-save current before switching
+  if(masterDB.currentKey && masterDB.databases[masterDB.currentKey]){
+    // save current state to old key before switching
+    saveCurrentDBToMaster(false);
+  }
+  let newKey=getCurrentDBKey();
+  if(masterDB.databases[newKey]){
+    loadDBByKey(newKey);
+  } else {
+    // check if user wants to create new or keep current roster? For foolproof, create new empty but offer to copy names from current?
+    if(confirm(`Create new database for ${newKey}?\n\nCurrent: ${masterDB.currentKey||'none'}\nNew: ${newKey}\n\nClick OK to create 48 empty rows for new DB, or Cancel to stay.`)){
+      createNewDBIfNotExists();
+    } else {
+      // revert selectors to old key if possible
+      if(masterDB.currentKey && masterDB.databases[masterDB.currentKey]){
+        let oldDb=masterDB.databases[masterDB.currentKey];
+        document.getElementById('classSel').value=oldDb.class;
+        document.getElementById('divisionSel').value=oldDb.division;
+        document.getElementById('examNameSel').value=oldDb.exam;
+        document.getElementById('schemeSel').value=oldDb.scheme; scheme=oldDb.scheme;
+        render();
+      }
+    }
+  }
+}
+
+const names32=["Ann Mary G","Abhitharajan B","Adithya S","Aisha Fathima","Akash J","Amrutha M","Anandu A","Ananya K","Anandhu R","Anjana S","Arun V","Arya S","Aswin C","Devika R","Diya S","Gowri Nandana","Harikrishnan M","Irfan S","Jeswin J","Karthik P","Keerthana S","Krishnapriya","Lekshmi P","Malavika B","Midhun M","Nandana S","Nihal K","Pranav S","Riya Fathima","Sreehari S","Sreelakshmi M","Vaishnavi V"];
+function loadSample(key){
+  let arr=[];
+  if(key==='ixb') arr=names32; else if(key==='48') arr=Array.from({length:48},(_,i)=>"Student "+(i+1));
+  else arr=[];
+  if(arr.length>0){
+    students=arr.map(n=>({id:uid(),name:n}));
+    // extend to 48 if needed
+    if(students.length<48){let need=48-students.length; for(let i=0;i<need;i++) students.push({id:uid(),name:''});}
+    SUBJECTS.forEach(s=>{if(!marks[s]) marks[s]=students.map(()=>({teRaw:'',ceRaw:''})); else ensureSubject(s);});
+    // fill sample marks for current subject if ixb
+    if(key==='ixb'){
+      let vals=getSchemeVals();
+      marks[currentSubject]=students.map((_,i)=>{if(i>=names32.length) return {teRaw:'',ceRaw:''}; let base=20+(i%5)*3; let te=Math.min(vals.teMax, base+Math.floor(Math.random()*8)); return {teRaw:''+te, ceRaw:''+Math.min(vals.ceMax,5+Math.floor(Math.random()*5))};});
+    }
+    saveCurrentDBToMaster(false); render();
+  }
+}
+function render(){
+  let vals=getSchemeVals();
+  document.getElementById('thTE').innerHTML=`TE <span class="teMaxLabel">${vals.teMax}</span> / AB`;
+  document.getElementById('thCE').innerHTML=`CE <span class="ceMaxLabel">${vals.ceMax}</span>`;
+  document.querySelectorAll('.totalMaxLabel').forEach(el=>el.textContent=vals.totalMax);
+  document.querySelectorAll('.teMaxLabel').forEach(el=>el.textContent=vals.teMax);
+  document.querySelectorAll('.ceMaxLabel').forEach(el=>el.textContent=vals.ceMax);
+  document.getElementById('schemeLabel').textContent=`TE ${vals.teMax}+CE ${vals.ceMax}=${vals.totalMax}`;
+  document.getElementById('studentCount').textContent=students.length;
+  document.getElementById('genTime').textContent=new Date().toLocaleString();
+  document.getElementById('headerInfo').textContent=`${document.getElementById('classSel').value}${document.getElementById('divisionSel').value} • ${document.getElementById('examNameSel').value} • ${vals.totalMax} • ${currentSubject}`;
+  let curKey=getCurrentDBKey();
+  document.getElementById('currentDBKey').textContent=curKey;
+  document.getElementById('dbKeyLabel').textContent='DB: '+curKey;
+  document.getElementById('dbInfoFooter').textContent=curKey+' | '+students.length+' students | '+Object.keys(marks).length+' subjects';
+  renderPills(); updatePdfNamePreview();
+  let tbody=document.getElementById('tbody'); tbody.innerHTML='';
+  let cur=getCurMarks();
+  students.forEach((stu,i)=>{
+    let m=cur[i]||{teRaw:'',ceRaw:''};
+    let c=calcRow(m.teRaw,m.ceRaw,vals.teMax,vals.ceMax,vals.totalMax);
+    let tr=document.createElement('tr'); tr.dataset.idx=i;
+    tr.innerHTML=`<td style="text-align:center" class="mono">${i+1}</td>
+    <td><input class="name-input" data-k="name" data-i="${i}" value="${stu.name.replace(/"/g,'&quot;')}" placeholder="Name ${i+1}" autocomplete="off"></td>
+    <td><input data-k="teRaw" data-i="${i}" value="${m.teRaw}" placeholder="0-${vals.teMax}/AB" autocomplete="off"></td>
+    <td style="text-align:center"><span class="badge grade-${c.teGrade.replace('+','plus')} te-grade-badge">${c.teGrade}</span></td>
+    <td><input data-k="ceRaw" data-i="${i}" value="${m.ceRaw}" placeholder="0-${vals.ceMax}" autocomplete="off"></td>
+    <td style="text-align:center"><span class="badge grade-${c.ceGrade.replace('+','plus')} ce-grade-badge">${c.ceGrade}</span></td>
+    <td style="text-align:center" class="mono total-cell"><b>${c.total===null?'AB':c.total}</b></td>
+    <td style="text-align:center" class="mono perc-cell">${c.perc===null?'-':c.perc.toFixed(1)+'%'}</td>
+    <td style="text-align:center"><span class="badge grade-${c.finalGrade.replace('+','plus')} final-grade-badge" style="font-weight:800">${c.finalGrade}</span></td>
+    <td style="text-align:center"><div style="display:flex;gap:4px;justify-content:center"><button class="btn btn-dark btn-sm" data-action="insert" data-i="${i}">➕↓</button><button class="btn btn-danger btn-sm" data-action="delete" data-i="${i}">✕</button></div></td>`;
+    tbody.appendChild(tr);
+  });
+  tbody.querySelectorAll('input').forEach(inp=>{
+    inp.addEventListener('input',(e)=>{
+      let i=parseInt(e.target.dataset.i); let k=e.target.dataset.k; let el=e.target; let s=el.selectionStart, ee=el.selectionEnd;
+      if(k==='name'){students[i].name=el.value;} else {ensureSubject(currentSubject); marks[currentSubject][i][k]=el.value;}
+      updateRowCalc(i);
+      clearTimeout(window._saveDeb); window._saveDeb=setTimeout(()=>saveCurrentDBToMaster(false),600);
+      requestAnimationFrame(()=>{el.focus(); try{el.setSelectionRange(s,ee);}catch(_){}});
+    });
+    inp.addEventListener('keydown',(e)=>{
+      let i=parseInt(e.target.dataset.i); let k=e.target.dataset.k;
+      if(e.key==='ArrowDown' || (e.key==='Enter' && !e.shiftKey)){
+        e.preventDefault();
+        let next=document.querySelector(`input[data-i="${i+1}"][data-k="${k}"]`);
+        if(next){next.focus(); next.select();}
+      } else if(e.key==='ArrowUp'){
+        e.preventDefault();
+        let prev=document.querySelector(`input[data-i="${i-1}"][data-k="${k}"]`);
+        if(prev){prev.focus(); prev.select();}
+      }
+    });
+    inp.addEventListener('blur',()=>saveCurrentDBToMaster(false));
+  });
+  tbody.querySelectorAll('button[data-action]').forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+      let i=parseInt(e.currentTarget.dataset.i); let act=e.currentTarget.dataset.action;
+      if(act==='delete'){if(confirm('Delete '+students[i].name+'?')){students.splice(i,1); Object.keys(marks).forEach(sub=>marks[sub].splice(i,1)); saveCurrentDBToMaster(false); render();}}
+      else if(act==='insert'){let ns={id:uid(),name:''}; students.splice(i+1,0,ns); Object.keys(marks).forEach(sub=>marks[sub].splice(i+1,0,{teRaw:'',ceRaw:''})); saveCurrentDBToMaster(false); render(); setTimeout(()=>{let inp=document.querySelector(`input[data-i="${i+1}"][data-k="name"]`); if(inp) inp.focus();},80);}
+    });
+  });
+}
+function updateRowCalc(i){
+  try{
+    let vals=getSchemeVals(); let cur=getCurMarks(); let m=cur[i]; if(!m) return;
+    let c=calcRow(m.teRaw,m.ceRaw,vals.teMax,vals.ceMax,vals.totalMax);
+    let tbody=document.getElementById('tbody'); let tr=tbody.children[i]; if(!tr) return;
+    tr.querySelector('.te-grade-badge').textContent=c.teGrade; tr.querySelector('.te-grade-badge').className='badge grade-'+c.teGrade.replace('+','plus')+' te-grade-badge';
+    tr.querySelector('.ce-grade-badge').textContent=c.ceGrade; tr.querySelector('.ce-grade-badge').className='badge grade-'+c.ceGrade.replace('+','plus')+' ce-grade-badge';
+    tr.querySelector('.total-cell').innerHTML='<b>'+(c.total===null?'AB':c.total)+'</b>';
+    tr.querySelector('.perc-cell').textContent=c.perc===null?'-':c.perc.toFixed(1)+'%';
+    let f=tr.querySelector('.final-grade-badge'); f.textContent=c.finalGrade; f.className='badge grade-'+c.finalGrade.replace('+','plus')+' final-grade-badge'; f.style.fontWeight='800';
+  }catch(e){}
+}
+function renderPills(){
+  let container=document.getElementById('subjectPills'); container.innerHTML='';
+  SUBJECTS.forEach(s=>{if(!marks[s]) marks[s]=students.map(()=>({teRaw:'',ceRaw:''}));});
+  let allSubs=[...new Set([...SUBJECTS, ...Object.keys(marks).filter(s=>!SUBJECTS.includes(s))])];
+  allSubs.forEach(sub=>{
+    let count=(marks[sub]||[]).filter(x=>x.teRaw!==''||x.ceRaw!=='').length;
+    let pill=document.createElement('div'); pill.className='subject-pill '+(sub===currentSubject?'active':'');
+    let dotColor=count>0?'#10b981':'#3f3f46';
+    pill.innerHTML=`<span class="dot" style="background:${dotColor}"></span>${sub} <span class="mono" style="font-size:10px;opacity:0.7">(${count})</span>`;
+    pill.addEventListener('click',()=>{saveCurrentDBToMaster(false); currentSubject=sub; render(); saveCurrentDBToMaster(false); toast('Switched to '+sub);});
+    container.appendChild(pill);
+  });
+}
+function updatePdfNamePreview(){
+  let subj=currentSubject.replace(/\s+/g,'');
+  let cls=document.getElementById('classSel').value+document.getElementById('divisionSel').value;
+  let exam=sanitize(document.getElementById('examNameSel').value);
+  let name=`${subj}_${cls}_${exam}.pdf`;
+  document.getElementById('pdfNamePreview').textContent=name;
+  return name;
+}
+function renderDBList(){
+  let container=document.getElementById('dbList');
+  let keys=Object.keys(masterDB.databases);
+  if(keys.length===0){container.innerHTML='<div class="mono" style="font-size:11px;color:#8a8f98">No DBs yet – select Class/Division/Term/Scheme to create</div>'; return;}
+  container.innerHTML='';
+  keys.sort().forEach(k=>{
+    let db=masterDB.databases[k];
+    let chip=document.createElement('div'); chip.className='db-chip '+(k===masterDB.currentKey?'active':'');
+    chip.innerHTML=`<span class="dot" style="background:${k===masterDB.currentKey?'#10b981':'#3f3f46'}"></span>${k} <span style="font-size:10px;opacity:0.6">(${db.students?.length||0} stu, ${Object.keys(db.marks||{}).length} sub)</span>`;
+    chip.addEventListener('click',()=>{saveCurrentDBToMaster(false); loadDBByKey(k); document.getElementById('dbList').style.display='none';});
+    container.appendChild(chip);
+  });
+}
+function toast(m){let t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200);}
+
+// events – foolproof: change of Term/Class/Div/Scheme triggers DB switch
+['classSel','divisionSel','examNameSel','schemeSel'].forEach(id=>{
+  let el=document.getElementById(id);
+  el.addEventListener('change',()=>{
+    if(id==='schemeSel') scheme=el.value;
+    // auto-switch DB logic
+    switchDBOnSelectorChange();
+  });
+});
+
+document.getElementById('btnShowDBs').addEventListener('click',()=>{
+  let list=document.getElementById('dbList');
+  list.style.display=list.style.display==='none'?'flex':'none';
+  renderDBList();
+});
+
+document.getElementById('btnAddRowEnd').addEventListener('click',()=>{students.push({id:uid(),name:''}); Object.keys(marks).forEach(sub=>marks[sub].push({teRaw:'',ceRaw:''})); saveCurrentDBToMaster(false); render();});
+document.getElementById('btnGen48').addEventListener('click',()=>{if(!confirm('Generate 48 empty rows for '+getCurrentDBKey()+'?'))return; students=Array.from({length:48},()=>({id:uid(),name:''})); SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''}))); saveCurrentDBToMaster(false); render(); toast('48 rows for '+getCurrentDBKey());});
+document.getElementById('btnFillCE').addEventListener('click',()=>{let cur=getCurMarks(); let ceMax=getSchemeVals().ceMax; cur.forEach(r=>{if(r.ceRaw==='') r.ceRaw=''+ceMax;}); saveCurrentDBToMaster(false); render(); toast('Filled CE '+ceMax);});
+document.getElementById('sampleSel').addEventListener('change',(e)=>{if(e.target.value==='empty'){students=[]; marks={}; SUBJECTS.forEach(s=>marks[s]=[]); saveCurrentDBToMaster(false); render(); return;} loadSample(e.target.value);});
+document.getElementById('btnSaveNow').addEventListener('click',()=>saveCurrentDBToMaster(true));
+document.getElementById('btnClearCurrent').addEventListener('click',()=>{
+  let key=getCurrentDBKey();
+  if(confirm('Clear current DB '+key+'?')){delete masterDB.databases[key]; saveMasterToStorage(); students=[]; marks={}; SUBJECTS.forEach(s=>marks[s]=[]); saveCurrentDBToMaster(false); render(); toast('Cleared '+key);}
+});
+document.getElementById('btnClearAll').addEventListener('click',()=>{
+  if(confirm('Clear ALL DBs – all classes/terms? This cannot be undone!')){localStorage.removeItem(MASTER_KEY); masterDB={databases:{},currentKey:null}; students=[]; marks={}; renderDBList(); saveCurrentDBToMaster(false); render(); toast('All DBs cleared');}
+});
+document.getElementById('subjectSel').addEventListener('change',(e)=>{
+  let v=e.target.value; if(v==='Custom'){document.getElementById('customSub').style.display='block';} else {document.getElementById('customSub').style.display='none'; saveCurrentDBToMaster(false); currentSubject=v; ensureSubject(v); render(); saveCurrentDBToMaster(false);}
+});
+document.getElementById('customSub').addEventListener('input',(e)=>{customName=e.target.value;});
+document.getElementById('btnAddSubject').addEventListener('click',()=>{
+  let sel=document.getElementById('subjectSel').value; let sub=sel==='Custom'?document.getElementById('customSub').value.trim():sel;
+  if(!sub){toast('Enter subject'); return;} saveCurrentDBToMaster(false); currentSubject=sub; ensureSubject(sub); render(); saveCurrentDBToMaster(true); toast('Subject: '+sub);
+});
+document.getElementById('schoolName').addEventListener('input',()=>{clearTimeout(window._headDeb); window._headDeb=setTimeout(()=>saveCurrentDBToMaster(false),700);});
+
+// Backup selective – current DB or master
+document.getElementById('btnExportJson').addEventListener('click',()=>{
+  let type=document.getElementById('backupType').value;
+  let curKey=getCurrentDBKey();
+  if(type==='current_db'){
+    let db=masterDB.databases[curKey]||{school:document.getElementById('schoolName').value,exam:document.getElementById('examNameSel').value,class:document.getElementById('classSel').value,division:document.getElementById('divisionSel').value,scheme:scheme,students:students,marks:marks,currentSubject:currentSubject};
+    let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=`${curKey}.json`; a.click(); URL.revokeObjectURL(url); toast('Exported current DB: '+curKey);
+  } else if(type==='names_only'){
+    let data={school:document.getElementById('schoolName').value,class:document.getElementById('classSel').value,division:document.getElementById('divisionSel').value,students:students,dbKey:curKey,v:'NAMES_ONLY'};
+    let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=`NAMES_${curKey}.json`; a.click(); URL.revokeObjectURL(url); toast('Names only: '+curKey);
+  } else if(type==='marks_current'){
+    let data={dbKey:curKey,subject:currentSubject,marks_current:marks[currentSubject]||[],students:students.map(s=>({id:s.id,name:s.name})),scheme:scheme,class:document.getElementById('classSel').value,division:document.getElementById('divisionSel').value,exam:document.getElementById('examNameSel').value,v:'MARKS_CURRENT'};
+    let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=`MARKS_${currentSubject.replace(/\s+/g,'')}_${curKey}.json`; a.click(); URL.revokeObjectURL(url); toast('Marks current: '+currentSubject);
+  } else if(type==='all_dbs'){
+    let blob=new Blob([JSON.stringify(masterDB,null,2)],{type:'application/json'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=`MASTER_ALL_DBS_${new Date().toISOString().slice(0,10)}.json`; a.click(); URL.revokeObjectURL(url); toast('MASTER exported: '+Object.keys(masterDB.databases).length+' DBs');
+  }
+});
+document.getElementById('btnExportMaster').addEventListener('click',()=>{let blob=new Blob([JSON.stringify(masterDB,null,2)],{type:'application/json'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=`MASTER_ALL_DBS_${new Date().toISOString().slice(0,10)}.json`; a.click(); URL.revokeObjectURL(url); toast('MASTER: '+Object.keys(masterDB.databases).length+' DBs');});
+document.getElementById('btnImportMaster').addEventListener('click',()=>document.getElementById('fileMaster').click());
+document.getElementById('fileMaster').addEventListener('change',(e)=>{
+  let f=e.target.files[0]; if(!f) return; let r=new FileReader(); r.onload=()=>{try{
+    let d=JSON.parse(r.result);
+    if(d.databases){ // master file
+      // merge
+      Object.keys(d.databases).forEach(k=>{masterDB.databases[k]=d.databases[k];});
+      saveMasterToStorage(); renderDBList(); toast('MASTER imported – now '+Object.keys(masterDB.databases).length+' DBs');
+      // load current key if exists
+      let curKey=getCurrentDBKey();
+      if(masterDB.databases[curKey]) loadDBByKey(curKey);
+    }
+  }catch(err){toast('Master import failed');}}; r.readAsText(f); e.target.value='';
+});
+
+document.getElementById('btnImportJson').addEventListener('click',()=>document.getElementById('fileImport').click());
+document.getElementById('fileImport').addEventListener('change',(e)=>{
+  let f=e.target.files[0]; if(!f) return; let r=new FileReader(); r.onload=()=>{try{
+    let d=JSON.parse(r.result);
+    if(d.students && d.marks && d.class){ // full DB file with class/div etc
+      let key=generateDBKey(d.class,d.division,d.exam,d.scheme||scheme);
+      masterDB.databases[key]=d;
+      saveMasterToStorage(); renderDBList();
+      if(confirm(`Imported DB ${key}. Load it now?`)) loadDBByKey(key);
+      return;
+    }
+    if(d.students && !d.marks){ // names only
+      students=d.students.map(s=>({id:s.id||uid(),name:s.name||s}));
+      SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
+      saveCurrentDBToMaster(true); render(); toast('Imported NAMES ONLY – '+students.length);
+      return;
+    }
+    if(d.marks_current && d.subject){
+      marks[d.subject]=d.marks_current;
+      if(d.students){students=d.students.map(s=>({id:s.id||uid(),name:s.name||s}));}
+      currentSubject=d.subject;
+      saveCurrentDBToMaster(true); render(); toast('Imported marks for '+d.subject);
+      return;
+    }
+    if(d.databases){ // master
+      Object.keys(d.databases).forEach(k=>masterDB.databases[k]=d.databases[k]);
+      saveMasterToStorage(); renderDBList(); toast('Imported MASTER');
+    }
+  }catch(err){toast('Import failed '+err.message);}}; r.readAsText(f); e.target.value='';
+});
+
+// Exports current
+document.getElementById('btnCsv').addEventListener('click',()=>{
+  let cur=getCurMarks(); let vals=getSchemeVals();
+  let header=`Sl#,Name,TE(${vals.teMax}),TE Grade,CE(${vals.ceMax}),CE Grade,Total(${vals.totalMax}),%,Final Grade\n`;
+  let csv=header+students.map((stu,i)=>{let m=cur[i]||{teRaw:'',ceRaw:''}; let c=calcRow(m.teRaw,m.ceRaw,vals.teMax,vals.ceMax,vals.totalMax); return `${i+1},"${stu.name.replace(/"/g,'""')}",${m.teRaw===''?'AB':m.teRaw},${c.teGrade},${m.ceRaw===''?'':m.ceRaw},${c.ceGrade},${c.total===null?'AB':c.total},${c.perc===null?'':c.perc.toFixed(2)},${c.finalGrade}`;}).join('\n');
+  let blob=new Blob([csv],{type:'text/csv'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=updatePdfNamePreview().replace('.pdf','.csv'); a.click(); URL.revokeObjectURL(url); trackExport('csv_'+currentSubject); toast('CSV: '+currentSubject);
+});
+async function exportPdfCurrent(){
+  let vals=getSchemeVals(); let JSPDF=window.jspdf&&window.jspdf.jsPDF?window.jspdf.jsPDF:null; if(!JSPDF){toast('jsPDF not loaded'); return;}
+  let cur=getCurMarks();
+  // AUTO PAPER LOGIC for single subject marksheet
+  // Always A4 portrait for single subject, but auto-adjust Name column width based on longest name
+  let maxNameLen=Math.max(...students.map(s=>s.name.length), 10);
+  let nameColWidth = maxNameLen>22 ? 58 : maxNameLen>16 ? 52 : 46;
+  const doc=new JSPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  doc.setFillColor(255,255,255); doc.rect(0,0,210,297,'F');
+  doc.setFillColor(201,162,39); doc.rect(0,0,210,3,'F');
+  doc.setTextColor(0,0,0); doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.text(document.getElementById('schoolName').value,10,11);
+  doc.setFontSize(8.5); doc.setFont('helvetica','normal'); doc.setTextColor(40,40,40);
+  doc.text(`${document.getElementById('examNameSel').value} | Class ${document.getElementById('classSel').value}${document.getElementById('divisionSel').value} | ${currentSubject} | TE ${vals.teMax}+CE ${vals.ceMax}=${vals.totalMax} | Students: ${students.length} | DB: ${getCurrentDBKey()}`,10,16);
+  let body=students.map((stu,i)=>{let m=cur[i]||{teRaw:'',ceRaw:''}; let c=calcRow(m.teRaw,m.ceRaw,vals.teMax,vals.ceMax,vals.totalMax); return [i+1,stu.name,m.teRaw===''?'AB':m.teRaw,c.teGrade,m.ceRaw===''?'':m.ceRaw,c.ceGrade,c.total===null?'AB':c.total,c.perc===null?'-':c.perc.toFixed(1)+'%',c.finalGrade];});
+  doc.autoTable({
+    startY:19,
+    head:[['Sl','Name',`TE(${vals.teMax})`,'TE Gr',`CE(${vals.ceMax})`,'CE Gr',`Total(${vals.totalMax})`,'%','Final']],
+    body:body,
+    theme:'grid',
+    headStyles:{fillColor:[201,162,39],textColor:[0,0,0],fontStyle:'bold',fontSize:7.5,lineWidth:0.2},
+    bodyStyles:{fontSize:7.5,cellPadding:1.8,lineWidth:0.15},
+    alternateRowStyles:{fillColor:[248,248,245]},
+    margin:{left:8,right:8},
+    columnStyles:{
+      0:{cellWidth:8,halign:'center'},
+      1:{cellWidth:nameColWidth},
+      2:{cellWidth:13,halign:'center'},
+      3:{cellWidth:14,halign:'center'},
+      4:{cellWidth:13,halign:'center'},
+      5:{cellWidth:14,halign:'center'},
+      6:{cellWidth:15,halign:'center'},
+      7:{cellWidth:11,halign:'center'},
+      8:{cellWidth:14,halign:'center'}
+    },
+    styles:{overflow:'linebreak'}
+  });
+  // clean footer
+  let finalY=doc.lastAutoTable?doc.lastAutoTable.finalY+4:200;
+  // NO FOOTER – CLEAN – doc.setFontSize(6.5);
+  doc.text(`Clean School Record – A4 Portrait – Auto-adjusted Name col ${nameColWidth}mm for ${maxNameLen} chars – ${getCurrentDBKey()}`,10,finalY);
+  doc.save(updatePdfNamePreview());
+  toast('✅ Clean PDF A4 – Auto-adjusted – '+updatePdfNamePreview());
+}
+document.getElementById('btnPdf').addEventListener('click',exportPdfCurrent);
+
+// Consolidation – enhanced
+function buildConsolidation(){
+  let vals=getSchemeVals();
+  let activeSubs=SUBJECTS.filter(s=>marks[s] && marks[s].some(m=>m.teRaw!==''||m.ceRaw!==''));
+  if(activeSubs.length===0) activeSubs=SUBJECTS.slice(0,5);
+  let includeEmpty=document.getElementById('consolIncludeEmpty')?.checked;
+  if(includeEmpty) activeSubs=SUBJECTS;
+  let rows=students.map((stu,idx)=>{
+    let totals={}; let sum=0, cnt=0;
+    activeSubs.forEach(sub=>{let m=(marks[sub]||[])[idx]||{teRaw:'',ceRaw:''}; let c=calcRow(m.teRaw,m.ceRaw,vals.teMax,vals.ceMax,vals.totalMax); totals[sub]=c; totals[sub].teRaw=m.teRaw; totals[sub].ceRaw=m.ceRaw; if(c.total!==null){sum+=c.total; cnt++;}});
+    let overallPerc=cnt>0?sum/(cnt*vals.totalMax)*100:null; let overallGrade=overallPerc===null?'E':gradeByPerc(overallPerc);
+    return {stu,totals,sum,overallPerc,overallGrade,cnt};
+  });
+  return {activeSubs, rows, vals};
+}
+document.getElementById('btnConsolidationCsv').addEventListener('click',()=>{
+  let {activeSubs, rows, vals}=buildConsolidation();
+  let header=['Sl#','Name']; activeSubs.forEach(s=>{header.push(`${s} TE(${vals.teMax})`); header.push(`${s} TE Grade`); header.push(`${s} CE(${vals.ceMax})`); header.push(`${s} CE Grade`); header.push(`${s} Total(${vals.totalMax})`); header.push(`${s} %`); header.push(`${s} Final Grade`);}); header.push('Grand Total'); header.push('Overall %'); header.push('Overall Grade');
+  let csv=header.join(',')+'\n'+rows.map((r,i)=>{let base=[i+1,`"${r.stu.name.replace(/"/g,'""')}"`]; activeSubs.forEach(s=>{let t=r.totals[s]; base.push(t.teRaw===''?'AB':t.teRaw); base.push(t.teGrade); base.push(t.ceRaw); base.push(t.ceGrade); base.push(t.total===null?'AB':t.total); base.push(t.perc===null?'':t.perc.toFixed(1)+'%'); base.push(t.finalGrade);}); base.push(r.sum); base.push(r.overallPerc===null?'':r.overallPerc.toFixed(2)+'%'); base.push(r.overallGrade); return base.join(',');}).join('\n');
+  let blob=new Blob([csv],{type:'text/csv'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=`CONSOLIDATION_DETAILED_${getCurrentDBKey()}.csv`; a.click(); URL.revokeObjectURL(url); toast('Detailed Consolidation CSV');
+});
+document.getElementById('btnConsolidationPdf').addEventListener('click',()=>{
+  let {activeSubs, rows, vals}=buildConsolidation();
+  let JSPDF=window.jspdf.jsPDF;
+  // AUTO PAPER LOGIC – choose paper based on number of subjects to keep print clean
+  // Each subject = 4 columns (TE, TE Gr, Tot, Fin Gr) ~ 36mm needed
+  let numSub=activeSubs.length;
+  let paperFormat, orientation='landscape', fontSizeHead, fontSizeBody, cellPad;
+  if(numSub<=3){
+    paperFormat='a4'; // 297x210 landscape
+    fontSizeHead=7.5; fontSizeBody=7; cellPad=2;
+  } else if(numSub<=6){
+    paperFormat='a3'; // 420x297
+    fontSizeHead=7; fontSizeBody=6.5; cellPad=1.8;
+  } else if(numSub<=9){
+    paperFormat='a2'; // 594x420 – jsPDF supports a2
+    fontSizeHead=6.5; fontSizeBody=6; cellPad=1.5;
+  } else {
+    paperFormat='a1'; // 841x594 for 10-13 subjects
+    fontSizeHead=6; fontSizeBody=5.5; cellPad=1.2;
+  }
+  // For very large (13 subjects), use custom width 900mm to avoid cramp – fallback to a1
+  let doc;
+  try{
+    doc=new JSPDF({orientation:orientation,unit:'mm',format:paperFormat});
+  } catch(e){
+    // fallback to custom
+    doc=new JSPDF({orientation:'landscape',unit:'mm',format:[900, 500]});
+    paperFormat='custom 900x500';
+  }
+  let pageW=doc.internal.pageSize.getWidth();
+  let pageH=doc.internal.pageSize.getHeight();
+  doc.setFillColor(255,255,255); doc.rect(0,0,pageW,pageH,'F');
+  doc.setFillColor(201,162,39); doc.rect(0,0,pageW,3,'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(0,0,0); doc.text(document.getElementById('schoolName').value,8,11);
+  doc.setFontSize(8.5); doc.setFont('helvetica','normal'); doc.setTextColor(40,40,40);
+  doc.text(`CONSOLIDATION – CLEAN SCHOOL RECORD – DB: ${getCurrentDBKey()} | Class ${document.getElementById('classSel').value}${document.getElementById('divisionSel').value} | ${document.getElementById('examNameSel').value} | TE${vals.teMax}+CE${vals.ceMax}=${vals.totalMax} | ${numSub} Subjects – TE Grade + Total + Final – Auto Paper: ${paperFormat.toUpperCase()}`,8,15.5);
+  let head=['Sl','Name'];
+  activeSubs.forEach(s=>{
+    let shortName=s.length>10? s.substring(0,10) : s;
+    head.push(`${shortName} TE`); head.push(`${shortName} TE-Gr`); head.push(`${shortName} Tot`); head.push(`${shortName} F-Gr`);
+  });
+  head.push('Grand'); head.push('%'); head.push('O-Gr');
+  let body=rows.map((r,i)=>{
+    let base=[i+1,r.stu.name];
+    activeSubs.forEach(s=>{
+      let t=r.totals[s];
+      base.push(t.teRaw===''?'AB':t.teRaw);
+      base.push(t.teGrade);
+      base.push(t.total===null?'AB':t.total);
+      base.push(t.finalGrade);
+    });
+    base.push(r.sum); base.push(r.overallPerc===null?'-':r.overallPerc.toFixed(1)+'%'); base.push(r.overallGrade);
+    return base;
+  });
+  // Auto-adjust column widths: Name 30mm, Sl 8mm, rest auto but with min
+  let colStyles={0:{cellWidth:7,halign:'center'},1:{cellWidth:28}};
+  // dynamic: remaining width / (numSub*4+3)
+  let remainingWidth = pageW - 8 - 7 - 28 - 20; // margins + Sl + Name + Grand cols
+  let perSubCol = Math.max(6, Math.min(14, remainingWidth/(numSub*4+3)));
+  // Actually set for each subject col group
+  let colIdx=2;
+  activeSubs.forEach(_=>{
+    colStyles[colIdx]={cellWidth:perSubCol*0.9,halign:'center'}; colIdx++;
+    colStyles[colIdx]={cellWidth:perSubCol*0.9,halign:'center'}; colIdx++;
+    colStyles[colIdx]={cellWidth:perSubCol*1.1,halign:'center'}; colIdx++;
+    colStyles[colIdx]={cellWidth:perSubCol*1.1,halign:'center'}; colIdx++;
+  });
+  colStyles[colIdx]={cellWidth:12,halign:'center'}; colIdx++;
+  colStyles[colIdx]={cellWidth:11,halign:'center'}; colIdx++;
+  colStyles[colIdx]={cellWidth:10,halign:'center'};
+
+  doc.autoTable({
+    startY:18,
+    head:[head],
+    body:body,
+    theme:'grid',
+    headStyles:{fillColor:[201,162,39],textColor:[0,0,0],fontStyle:'bold',fontSize:fontSizeHead,lineWidth:0.2,halign:'center'},
+    bodyStyles:{fontSize:fontSizeBody,cellPadding:cellPad,lineWidth:0.15,halign:'center'},
+    alternateRowStyles:{fillColor:[248,248,245]},
+    margin:{left:4,right:4},
+    columnStyles:colStyles,
+    styles:{overflow:'linebreak',minCellHeight:5},
+    didDrawPage:function(data){
+      doc.setFontSize(6); doc.setTextColor(100,100,100);
+      doc.text(`Auto Paper: ${paperFormat.toUpperCase()} – ${numSub} subjects – ${perSubCol.toFixed(1)}mm/col – Clean – No VGC Branding – ${new Date().toLocaleDateString()}`,4,pageH-3);
+    }
+  });
+  let fileName=`CONSOLIDATION_${getCurrentDBKey()}_AUTO-${paperFormat.toUpperCase()}_${numSub}Sub_TE-Grade_Total.pdf`;
+  doc.save(fileName);
+  toast(`✅ Consolidation – Auto Paper ${paperFormat.toUpperCase()} for ${numSub} subjects – Clean Print`);
+});
+document.getElementById('btnPrint').addEventListener('click',()=>window.print());
+
+// PUBLIC VERSION – NO LOCAL STORAGE – FRESH FOR EVERY VISITOR – IMPORT JSON TO RESTORE
+window.addEventListener('DOMContentLoaded',()=>{
+  // PUBLIC: Always start fresh, ignore old localStorage (prevents previous error on blog)
+  try{ localStorage.removeItem(MASTER_KEY); }catch(e){}
+  let hadMaster=loadMasterFromStorage(); // tries sessionStorage only
+  if(!hadMaster){
+    masterDB={databases:{},currentKey:null};
+    // Public starts with empty 48 rows – no preloaded private data
+    students=Array.from({length:48},()=>({id:uid(),name:''}));
+    marks={}; SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
+    saveCurrentDBToMaster(false);
+  } else {
+    let curKey=masterDB.currentKey || Object.keys(masterDB.databases)[0];
+    if(curKey && masterDB.databases[curKey]){
+      loadDBByKey(curKey);
+    } else {
+      let firstKey=Object.keys(masterDB.databases)[0];
+      if(firstKey) loadDBByKey(firstKey);
+    }
+  }
+  if(students.length===0){
+    students=Array.from({length:48},()=>({id:uid(),name:''}));
+    SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
+    saveCurrentDBToMaster(false);
+  }
+  render(); renderDBList();
+  // PUBLIC: No auto-save interval to localStorage – only session
+  // No preloaded private 10A data for public – public starts blank for privacy
+  toast('🌐 Public Version – Data not stored on site – Enter data → Export JSON + PDF → Import JSON to restore');
+});
+// expose preloaded data if injected
+</script>
+<footer class="vgc-footer">
+  <div>© 2026 Antony Ancil – Venad Global Consultancy. All rights reserved.</div>
+  <div style="margin-top:6px">Content published on this site is the original work of Antony Ancil. Unauthorised reproduction is prohibited. • <a href="https://venadglobal.org/blog/">Blog</a> • <a href="https://venadglobal.org/services.html">Services</a> • <a href="https://venadglobal.org/privacy.html">Privacy</a> • <a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">Marksheet Tool</a></div>
+  <div style="margin-top:10px;display:flex;justify-content:center;gap:10px;align-items:center">
+    <img src="/android-chrome-512x512.png" alt="VGC" style="height:26px;width:26px;border-radius:50%;border:1px solid rgba(201,162,39,0.3)">
+    <span style="color:#C9A227;font-weight:600;letter-spacing:0.05em">VGC Gold • Real Experience • Honest Guidance</span>
+  </div>
+</footer>
+</body>
+</html>
