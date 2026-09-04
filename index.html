@@ -12,7 +12,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta charset="UTF-8"/>
-<meta name="google-site-verification" content="STRING_OF_CHARACTERS" />
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Venad Global Blog — Real Guidance for Real People</title>
 <link rel="canonical" href="https://venadglobal.org/blog/">
@@ -20,337 +19,110 @@
 <meta name="description" content="Honest, experience-based blog about Canada immigration, Gulf jobs, Kerala nursing abroad, CV writing, and more. By Antony Ancil — 30 years international experience."/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Venad Global Blog — Real Guidance for Real People"/>
-<meta property="og:description" content="Honest, experience-based blog about Canada immigration, Gulf jobs, nursing abroad, CV writing and more. By Antony Ancil — 30 years international experience."/>
 <meta property="og:url" content="https://venadglobal.org/blog/"/>
 <meta property="og:site_name" content="Venad Global Consultancy"/>
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Venad Global Blog — Real Guidance for Real People"/>
-<meta name="twitter:description" content="Honest guidance on Canada immigration, Gulf jobs, nursing abroad and more. By Antony Ancil."/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#1B3A6B;
-  --navy2:#0D1F3C;
-  --gold:#C9A227;
-  --gold2:#F0C060;
-  --white:#FFFFFF;
-  --ink:#1a1a2e;
-  --muted:#5a6480;
-  --bg:#F7F5F0;
-  --card:#FFFFFF;
-  --border:#E8E4DC;
-  --tag-bg:#EBF0FA;
-}
+:root{--navy:#1B3A6B;--navy2:#0D1F3C;--gold:#C9A227;--gold2:#F0C060;--white:#FFFFFF;--ink:#1a1a2e;--muted:#5a6480;--bg:#F7F5F0;--card:#FFFFFF;--border:#E8E4DC;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--ink);line-height:1.7}
 a{color:inherit;text-decoration:none}
-
-/* NAV */
-.nav{background:var(--navy2);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;position:sticky;top:38px;z-index:999;border-bottom:3px solid var(--gold)}
-.nav-brand{display:flex;align-items:center;gap:0.75rem;padding:0.2rem 0;text-decoration:none}
-.nav-logo{background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-weight:500;font-size:0.7rem;padding:4px 8px;border-radius:3px;line-height:1.3;text-align:center}
+.vgc-announce-bar{background:#0a0800;border-bottom:1px solid rgba(201,162,39,0.4);padding:0;overflow:hidden;white-space:nowrap;position:sticky;top:0;z-index:1000;}
+.vgc-announce-inner{display:inline-flex;align-items:center;gap:0;animation:vgcscroll 160s linear infinite;padding:0.52rem 0;}
+.vgc-announce-bar:hover .vgc-announce-inner{animation-play-state:paused;}
+.vgc-item{display:inline-flex;align-items:center;gap:0.6rem;padding:0 3rem;font-family:'DM Mono',monospace;font-size:0.78rem;color:#f0c040;letter-spacing:0.04em;}
+.vgc-item .dot{width:5px;height:5px;border-radius:50%;background:#C9A227;flex-shrink:0;}
+@keyframes vgcscroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.nav{background:var(--navy2);padding:0.6rem 1.5rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;position:sticky;top:38px;z-index:999;border-bottom:3px solid var(--gold)}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
 .nav-title{color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
 .nav-subtitle{color:var(--gold);font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:1px}
+.nav-permanent{display:flex;justify-content:center;}
+.permanent-link{font-family:'DM Mono',monospace;font-size:0.82rem;font-weight:700;color:#ff4d4d!important;background:rgba(255,77,77,0.1);border:1px solid rgba(255,77,77,0.3);padding:0.45rem 1rem;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all 0.2s}
+.permanent-link:hover{background:rgba(255,77,77,0.18);transform:translateY(-1px);}
+.must-badge{background:#ff4d4d;color:#fff;padding:2px 6px;border-radius:3px;font-size:0.68rem;margin-right:0.4rem;letter-spacing:1px;}
 .nav-links{display:flex;gap:1.2rem;align-items:center}
-.nav-links a{color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a{color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;letter-spacing:0.5px;}
 .nav-links a:hover{color:var(--gold)}
+.mega-menu-wrap{position:relative}
+.mega-menu-trigger{background:none;border:none;color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;cursor:pointer}
+.mega-menu{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--navy2);border:1px solid var(--gold);border-radius:8px;padding:0.6rem;min-width:240px;flex-direction:column;gap:0.2rem;box-shadow:0 12px 32px rgba(0,0,0,0.4);z-index:1000}
+.mega-menu.open{display:flex}
+.mega-menu a{color:#ccc;font-size:0.82rem;padding:0.5rem 0.7rem;border-radius:5px;}
+.mega-menu a:hover{background:rgba(201,162,39,0.15);color:var(--gold)}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer}
+@media(max-width:1200px){.nav{grid-template-columns:1fr auto;}.nav-permanent{grid-column:1/-1;order:-1;justify-content:flex-start;}.permanent-link{white-space:normal;width:100%;text-align:center;justify-content:center;display:flex;}}
+@media(max-width:720px){.hamburger{display:block}.nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.8rem;padding:1rem 0 0.5rem;border-top:1px solid rgba(255,255,255,0.1);margin-top:0.5rem;grid-column:1/-1;}.nav-links.mobile-open{display:flex}}
 
-/* HERO */
-.hero{background:var(--navy2);padding:4rem 1.5rem 3rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-40px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,0.12) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),transparent)}
-.hero-inner{max-width:760px;margin:0 auto}
-.hero-tag{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;line-height:1.2;margin-bottom:1rem}
-.hero h1 em{color:var(--gold);font-style:normal}
-.hero-desc{color:#a0aabb;font-size:1rem;max-width:560px;line-height:1.75;margin-bottom:1.5rem}
-.hero-meta{display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center}
-.hero-pill{background:rgba(201,162,39,0.15);border:1px solid rgba(201,162,39,0.3);color:var(--gold);font-family:'DM Mono',monospace;font-size:0.72rem;padding:4px 12px;border-radius:20px;letter-spacing:0.5px}
-
-/* MAIN LAYOUT */
-.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
-
-/* FEATURED */
-.featured-section{padding:3rem 0 1rem}
-.section-label{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--border);padding-bottom:0.5rem;margin-bottom:2rem}
-
-.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
-
-.daily-card,.evergreen-card{background:#ffffff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);padding:2.2rem;display:flex;flex-direction:column;justify-content:space-between;min-height:280px;transition:transform 0.15s,box-shadow 0.15s;}
-.daily-card:hover,.evergreen-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.1)}
-
-.daily-badge{display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.25);padding:0.3rem 0.8rem;border-radius:20px;width:fit-content;margin-bottom:1.1rem}
+/* HERO FEATURED - 2 Featured + centre - BLUE BLEND WHITE LETTERS - EXCELLENT */
+.hero-featured-wrapper{
+  background:var(--navy2);
+  padding:2.5rem 1.5rem;
+  display:grid;
+  grid-template-columns:380px 1fr 380px;
+  gap:2rem;
+  align-items:stretch;
+  border-bottom:4px solid var(--gold);
+  position:relative;
+}
+.hf-left,.hf-right{display:flex;}
+.daily-card,.featured-card{
+  background:linear-gradient(135deg,#0D1F3C 0%,#1B3A6B 100%)!important;
+  border:1px solid rgba(201,162,39,0.35)!important;
+  border-radius:12px;
+  box-shadow:0 12px 32px rgba(0,0,0,0.3)!important;
+  padding:2.2rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  width:100%;
+  color:#fff!important;
+  text-decoration:none;
+  transition:transform 0.2s;
+}
+.daily-card:hover,.featured-card:hover{transform:translateY(-4px);border-color:var(--gold)!important;}
+.daily-card h2,.featured-card h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff!important;line-height:1.3;margin-bottom:0.7rem;}
+.daily-card p,.featured-card p{color:#a0b3d1!important;font-size:0.9rem;line-height:1.7;margin-bottom:1.2rem;flex:1;}
+.daily-badge{display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:2px;color:#F0C060!important;text-transform:uppercase;background:rgba(201,162,39,0.12)!important;border:1px solid rgba(201,162,39,0.35)!important;padding:0.3rem 0.8rem;border-radius:20px;width:fit-content;margin-bottom:1.1rem}
 .daily-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulseDot 1.6s ease-in-out infinite}
 @keyframes pulseDot{0%,100%{opacity:1}50%{opacity:0.3}}
-
-.evergreen-badge{display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:2px;color:var(--navy2);text-transform:uppercase;background:rgba(30,42,74,0.06);border:1px solid rgba(30,42,74,0.15);padding:0.3rem 0.8rem;border-radius:20px;width:fit-content;margin-bottom:1.1rem}
-
-.daily-card h2,.evergreen-card h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--navy);line-height:1.3;margin-bottom:0.7rem}
-.daily-card p,.evergreen-card p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:1.2rem;flex:1}
-
-.read-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--navy);color:#fff;padding:0.6rem 1.25rem;border-radius:6px;font-family:'DM Mono',monospace;font-size:0.8rem;font-weight:500;letter-spacing:0.5px;transition:background 0.2s,transform 0.15s;width:fit-content}
-.read-btn:hover{background:var(--gold);color:var(--navy);transform:translateY(-1px)}
-.read-btn .arrow{transition:transform 0.2s}
-.read-btn:hover .arrow{transform:translateX(3px)}
-
-@media(max-width:700px){
-  .featured-grid{grid-template-columns:1fr}
-}
-
-/* GRID */
-.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;padding:1rem 0 3rem}
-.post-card{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
-.post-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
-.post-card-accent{height:5px;background:var(--navy)}
-.post-card-accent.canada{background:linear-gradient(90deg,#E63946,#fff,#E63946)}
-.post-card-accent.gulf{background:linear-gradient(90deg,var(--gold),#C41E3A)}
-
-.post-card-accent.cv{background:linear-gradient(90deg,#7C3AED,#A78BFA)}
-.post-card-accent.nursing{background:linear-gradient(90deg,#059669,#34D399)}
-.post-card-accent.ai{background:linear-gradient(90deg,#4285F4,#34A853)}
-.post-card-body{padding:1.4rem;flex:1;display:flex;flex-direction:column}
-.post-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem}
-.post-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);line-height:1.4;margin-bottom:0.6rem}
-.post-card p{font-size:0.85rem;color:var(--muted);line-height:1.65;flex:1;margin-bottom:1rem}
-.post-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
-.post-date{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted)}
-.post-link{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--navy);font-weight:500;display:flex;align-items:center;gap:4px;transition:color 0.2s}
-.post-link:hover{color:var(--gold)}
-
-/* COMING SOON CARD */
-.post-card.soon{opacity:0.65}
-.soon-badge{background:var(--tag-bg);color:var(--navy);font-family:'DM Mono',monospace;font-size:0.68rem;padding:2px 8px;border-radius:10px;border:1px solid var(--border)}
-
-/* ABOUT STRIP */
-.about-strip{background:var(--navy);padding:2.5rem 1.5rem;margin:0}
-.about-strip-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
-.about-strip h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:0.5rem}
-.about-strip p{color:#a0aabb;font-size:0.9rem;line-height:1.65}
-.about-strip-cta{display:flex;flex-direction:column;gap:0.6rem;flex-shrink:0}
-.cta-btn{padding:0.55rem 1.2rem;border-radius:6px;font-family:'DM Mono',monospace;font-size:0.78rem;font-weight:500;text-align:center;white-space:nowrap;transition:opacity 0.2s}
-.cta-gold{background:var(--gold);color:var(--navy)}
-.cta-outline{border:1px solid rgba(255,255,255,0.3);color:#fff}
-.cta-btn:hover{opacity:0.85}
-
-/* TOPICS BAR */
-.topics-bar{padding:1.5rem 0;border-bottom:1px solid var(--border)}
-.topics-bar-inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center}
+.read-btn{display:inline-flex;align-items:center;gap:0.5rem;background:#C9A227!important;color:#0D1F3C!important;padding:0.6rem 1.25rem;border-radius:6px;font-family:'DM Mono',monospace;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;width:fit-content}
+.read-btn:hover{background:#F0C060!important;}
+.hf-center{text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 1rem;}
+.hero-tag{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
+.hf-center h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.9rem);color:#fff;line-height:1.2;margin-bottom:1rem}
+.hf-center h1 em{color:var(--gold);font-style:normal}
+.hero-desc{color:#a0aabb;font-size:1rem;max-width:520px;line-height:1.7;margin-bottom:1.5rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;}
+.hero-pill{background:rgba(201,162,39,0.15);border:1px solid rgba(201,162,39,0.3);color:var(--gold);font-family:'DM Mono',monospace;font-size:0.72rem;padding:4px 12px;border-radius:20px;}
+.wrap{max-width:1300px;margin:0 auto;padding:0 1.5rem}
+.topics-bar{position:sticky;top:82px;z-index:997;background:var(--bg);border-bottom:2px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,0.08);padding:1rem 0;}
+.topics-bar-inner{max-width:1300px;margin:0 auto;padding:0 1.5rem;display:flex;gap:0.7rem;flex-wrap:wrap;align-items:center}
+.search-wrap{flex:1;min-width:240px;max-width:360px;position:relative;order:-1;}
+.search-wrap input{width:100%;background:#fff;border:1px solid var(--border);border-radius:22px;padding:0.6rem 1rem 0.6rem 2.3rem;font-family:'DM Mono',monospace;font-size:0.78rem;outline:none;}
+.search-wrap input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,0.15);}
+.search-wrap::before{content:'⌕';position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.1rem;}
 .topic-filter{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.5px;padding:5px 14px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;transition:all 0.2s}
 .topic-filter:hover,.topic-filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 .topic-filter .filter-count{opacity:0.7;font-size:0.68rem}
+.posts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;padding:1rem 0 3rem}
+.post-card{background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.12);border-color:var(--gold);}
+.post-card-accent{height:5px;background:var(--navy)}
+.post-card-body{padding:1.2rem;flex:1;display:flex;flex-direction:column}
+.post-tag{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem}
+.post-card h3{font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--navy);line-height:1.4;margin-bottom:0.6rem}
+.post-card p{font-size:0.82rem;color:var(--muted);line-height:1.65;flex:1;margin-bottom:1rem}
+.post-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.post-date{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted)}
+.post-link{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--navy);font-weight:500}
 .post-card.filtered-hidden{display:none}
-
-/* MEGA MENU */
-.mega-menu-wrap{position:relative}
-.mega-menu-trigger{background:none;border:none;color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;letter-spacing:0.5px;cursor:pointer;padding:0}
-.mega-menu-trigger:hover{color:var(--gold)}
-.mega-menu{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--navy2);border:1px solid var(--gold);border-radius:8px;padding:0.6rem;min-width:240px;flex-direction:column;gap:0.2rem;box-shadow:0 12px 32px rgba(0,0,0,0.4);z-index:1000}
-.mega-menu.open{display:flex}
-.mega-menu a{color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;padding:0.5rem 0.7rem;border-radius:5px;transition:all 0.15s}
-.mega-menu a:hover{background:rgba(201,162,39,0.15);color:var(--gold)}
-
-/* MOBILE HAMBURGER */
-.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;padding:0.2rem 0.4rem}
-@media(max-width:720px){
-  .hamburger{display:block}
-  .nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.8rem;padding:1rem 0 0.5rem;border-top:1px solid rgba(255,255,255,0.1);margin-top:0.5rem}
-  .nav-links.mobile-open{display:flex}
-  .mega-menu-wrap{width:100%}
-  .mega-menu{position:static;transform:none;width:100%;box-shadow:none;margin-top:0.5rem;border-color:rgba(201,162,39,0.4)}
-}
-
-/* FOOTER */
-footer{background:var(--navy2);color:#6b7590;padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--gold)}
-footer strong{color:var(--gold)}
-.footer-links{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-top:0.75rem}
-.footer-links a{color:#a0aabb;font-family:'DM Mono',monospace;font-size:0.75rem}
-.footer-links a:hover{color:var(--gold)}
-
-@media(max-width:680px){
-  .featured-card{grid-template-columns:1fr}
-  .featured-card-visual{min-height:160px;padding:1.5rem}
-  .featured-num{font-size:3rem}
-  .about-strip-inner{grid-template-columns:1fr}
-  .about-strip-cta{flex-direction:row}
-}
+@media(max-width:1300px){.posts-grid{grid-template-columns:repeat(3,1fr);}.hero-featured-wrapper{grid-template-columns:320px 1fr 320px;}}
+@media(max-width:1000px){.hero-featured-wrapper{grid-template-columns:1fr 1fr;}.hf-center{grid-column:1/-1;order:-1;}.posts-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.hero-featured-wrapper{grid-template-columns:1fr;}.posts-grid{grid-template-columns:1fr;}}
 </style>
-<style>
-/* === VGC EXCELLENT FIXES - Locked header + search + 3-col hero === */
-.vgc-announce-bar{position:sticky!important;top:0!important;z-index:1000!important;display:block!important;}
-.nav{position:sticky!important;top:38px!important;z-index:999!important;}
-.topics-bar{
-  position:sticky!important;
-  top:78px!important;
-  z-index:997!important;
-  background:#F7F5F0!important;
-  box-shadow:0 4px 16px rgba(0,0,0,0.08)!important;
-  border-bottom:2px solid #E8E4DC!important;
-}
-.topics-bar-inner{display:flex!important;gap:0.7rem!important;flex-wrap:wrap!important;align-items:center!important;}
-.search-wrap{
-  flex:1;min-width:240px;max-width:360px;position:relative;order:-1;
-}
-.search-wrap input{
-  width:100%;background:#fff;border:1px solid #E8E4DC;border-radius:22px;
-  padding:0.6rem 1rem 0.6rem 2.3rem;font-family:'DM Mono',monospace;font-size:0.78rem;outline:none;
-}
-.search-wrap input:focus{border-color:#C9A227;box-shadow:0 0 0 3px rgba(201,162,39,0.15);}
-.search-wrap::before{content:'⌕';position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#5a6480;font-size:1.1rem;}
-/* 3-column hero like screenshot - excellent view */
-.hero-featured-wrapper{
-  background:#0D1F3C;
-  padding:2.2rem 1.5rem;
-  display:grid;
-  grid-template-columns:320px 1fr 320px;
-  gap:1.5rem;
-  align-items:stretch;
-  border-bottom:4px solid #C9A227;
-  position:relative;
-}
-.hero-featured-wrapper::before{
-  content:'';position:absolute;top:-40px;right:-60px;width:300px;height:300px;
-  border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,0.12) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hf-left,.hf-right{display:flex;}
-.hf-left .daily-card,.hf-right .evergreen-card{width:100%;}
-.hf-center{padding:0 1rem;display:flex;flex-direction:column;justify-content:center;}
-.hf-center .hero-tag{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:3px;color:#C9A227;text-transform:uppercase;margin-bottom:1rem;}
-.hf-center h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.2vw,2.8rem);color:#fff;line-height:1.15;margin-bottom:1rem;}
-.hf-center h1 em{color:#C9A227;font-style:normal;}
-.hf-center .hero-desc{color:#a0aabb;font-size:0.95rem;line-height:1.7;margin-bottom:1.2rem;}
-.hf-center .hero-meta{display:flex;flex-wrap:wrap;gap:0.5rem;}
-@media(max-width:1150px){.hero-featured-wrapper{grid-template-columns:1fr 1fr;} .hf-center{grid-column:1/-1;order:-1;}}
-@media(max-width:720px){.hero-featured-wrapper{grid-template-columns:1fr;padding:1.5rem 1rem;}}
-</style>
+</head>
 <body>
-<!-- VGC ANNOUNCEMENT BAR - Add immediately after <body> tag -->
-<!-- To update announcements: edit the items in the announcements array in the script -->
-<style>
-.vgc-announce-bar{
-  background:#0a0800;
-  border-bottom:1px solid rgba(201,162,39,0.4);
-  padding:0;
-  overflow:hidden;
-  white-space:nowrap;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-.vgc-announce-inner{
-  display:inline-flex;
-  align-items:center;
-  gap:0;
-  animation:vgcscroll 160s linear infinite;
-  padding:0.52rem 0;
-}
-.vgc-announce-bar:hover .vgc-announce-inner{
-  animation-play-state:paused;
-}
-.vgc-item{
-  display:inline-flex;
-  align-items:center;
-  gap:0.6rem;
-  padding:0 3rem;
-  font-family:'DM Mono',monospace;
-  font-size:0.78rem;
-  color:#f0c040;
-  letter-spacing:0.04em;
-}
-.vgc-item .dot{
-  width:5px;height:5px;
-  border-radius:50%;
-  background:#C9A227;
-  flex-shrink:0;
-}
-.vgc-item a{
-  color:#C9A227;
-  text-decoration:none;
-  border-bottom:1px solid rgba(201,162,39,0.3);
-}
-.vgc-item a:hover{color:#f0c040;border-bottom-color:rgba(240,192,64,0.6);}
-@keyframes vgcscroll{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-</style>
-<style>
-
-/* === V3 EXCELLENT - Blue blend boxes white letters + center alignment + 4 in row === */
-.hero-featured-wrapper .hf-left .daily-card,
-.hero-featured-wrapper .hf-right .evergreen-card{
-  background:linear-gradient(135deg,#0D1F3C 0%,#1B3A6B 100%)!important;
-  border:1px solid rgba(201,162,39,0.35)!important;
-  box-shadow:0 8px 32px rgba(0,0,0,0.25)!important;
-  color:#fff!important;
-}
-.hero-featured-wrapper .hf-left .daily-card h2,
-.hero-featured-wrapper .hf-right .evergreen-card h2{
-  color:#FFFFFF!important;
-}
-.hero-featured-wrapper .hf-left .daily-card p,
-.hero-featured-wrapper .hf-right .evergreen-card p{
-  color:#a0b3d1!important;
-}
-.hero-featured-wrapper .daily-badge{
-  background:rgba(201,162,39,0.15)!important;
-  border:1px solid rgba(201,162,39,0.4)!important;
-  color:#F0C060!important;
-}
-.hero-featured-wrapper .evergreen-badge{
-  background:rgba(255,255,255,0.08)!important;
-  border:1px solid rgba(255,255,255,0.18)!important;
-  color:#C9A227!important;
-}
-.hero-featured-wrapper .read-btn{
-  background:#C9A227!important;
-  color:#0D1F3C!important;
-  font-weight:700!important;
-}
-.hero-featured-wrapper .read-btn:hover{
-  background:#F0C060!important;
-  color:#0D1F3C!important;
-}
-/* Centre alignment for middle */
-.hf-center{
-  text-align:center!important;
-  align-items:center!important;
-}
-.hf-center .hero-tag{
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-.hf-center h1{
-  text-align:center!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-}
-.hf-center .hero-desc{
-  text-align:center!important;
-  margin-left:auto!important;
-  margin-right:auto!important;
-  max-width:560px!important;
-}
-.hf-center .hero-meta{
-  justify-content:center!important;
-}
-/* 4 in a row posts grid */
-.posts-grid{
-  grid-template-columns:repeat(4,1fr)!important;
-  gap:1.2rem!important;
-}
-@media(max-width:1300px){.posts-grid{grid-template-columns:repeat(3,1fr)!important;}}
-@media(max-width:900px){.posts-grid{grid-template-columns:repeat(2,1fr)!important;}}
-@media(max-width:560px){.posts-grid{grid-template-columns:1fr!important;}}
-/* Make cards a bit more compact for 4-col */
-.post-card-body{padding:1.2rem!important;}
-.post-card h3{font-size:1.02rem!important;}
-.post-card p{font-size:0.82rem!important;}
-
-</style>
-
-
 <div class="vgc-announce-bar" role="marquee" aria-label="VGC Announcements">
   <div class="vgc-announce-inner" id="vgcBar"></div>
 </div>
@@ -360,7 +132,28 @@ footer strong{color:var(--gold)}
   var announcements = [
     "VGC does not authorise any third-party agents, brokers or representatives — contact us only through official channels.",
     "Official WhatsApp: +91 85898 95659 — no other number is authorised.",
-    "New on the blog: The *Free* Trap: Surveillance Capitalism & Deep Work.",
+    "Consultations available for Kerala professionals — WhatsApp to book.",
+    "Beware of fake agents claiming to represent VGC — we operate only through venadglobal.org and official WhatsApp.",
+  ];
+  var bar = document.getElementById('vgcBar');
+  var html = '';
+  var doubled = announcements.concat(announcements);
+  doubled.forEach(function(msg){
+    html += '<span class="vgc-item"><span class="dot"></span>' + msg + '</span>';
+  });
+  bar.innerHTML = html;
+})();
+</script>
+<!-- END VGC ANNOUNCEMENT BAR -->
+<script>
+(function(){
+  var announcements = [
+    "VGC does not authorise any third-party agents, brokers or representatives — contact us only through official channels.",
+    "Official WhatsApp: +91 85898 95659 — no other number is authorised.",
+    "Must Read: Before you Sign The 60 Lakh Reality of Overseas Education!",
+    "New on the blog: The Education Mirage: Why the Traditional Degree is a Collapsing Currency.",
+    "New on the blog: 🔔 KERALA TEACHERS  📢 – Marksheet Generator Ready! 🔔.",
+    "The *Free* Trap: Surveillance Capitalism & Deep Work.",
     "The Healthcare Loop — Why the System Wants to Manage You, Not Cure You.",
     "There is a Reason to Worry in Mullaperiyar: Probability Theory: The 5.2 Magnitude Lie & The Kinetic Truth.",
     "The Storytelling Architecture: An Open Letter to the Malayalam Film Industry on Power, Ethics, and Public Trust.",
@@ -391,19 +184,15 @@ footer strong{color:var(--gold)}
     "The Ghost Protocol: The Digital Evolution of the Letter of Wishes.",
     "The Physics of Human Nature: The Undercover Protocol and the System Rollback.",
     "The 999-Year Trap: Why the Dam Issue is About Paper, Not Water.",
-    "Consultations available for Kerala professionals — WhatsApp to book.",
-    "Beware of fake agents claiming to represent VGC — we operate only through venadglobal.org and official WhatsApp.",
   ];
   var bar = document.getElementById('vgcBar');
-  var html = '';
-  var doubled = announcements.concat(announcements);
-  doubled.forEach(function(msg){
-    html += '<span class="vgc-item"><span class="dot"></span>' + msg + '</span>';
-  });
-  bar.innerHTML = html;
+  if(bar){
+    var html='';var doubled=announcements.concat(announcements);
+    doubled.forEach(function(msg){html+='<span class="vgc-item"><span class="dot"></span>'+msg+'</span>';});
+    bar.innerHTML=html;
+  }
 })();
 </script>
-<!-- END VGC ANNOUNCEMENT BAR -->
 <nav class="nav">
   <a href="index.html" class="nav-brand">
     <img src="../vgc_logo.png" alt="VGC" style="height:34px;">
@@ -412,19 +201,24 @@ footer strong{color:var(--gold)}
       <div class="nav-subtitle">Real Experience · Honest Guidance</div>
     </div>
   </a>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+  <div class="nav-permanent">
+    <a href="https://venadglobal.org/blog/before-you-sign-overseas-education.html" class="permanent-link">
+      <span class="must-badge">Must Read:</span> Before you Sign The 60 Lakh Reality of Overseas Education
+    </a>
+  </div>
+  <button class="hamburger" id="hamburgerBtn">☰</button>
   <div class="nav-links" id="navLinks">
     <div class="mega-menu-wrap">
       <button class="mega-menu-trigger" id="megaTrigger" aria-expanded="false">Categories ▾</button>
       <div class="mega-menu" id="megaMenu">
-        <a href="#" data-filter="careers" onclick="gtag('event','nav_click',{link:'careers',location:'mega_menu'});">🌍 Immigration & Careers</a>
-        <a href="#" data-filter="policy" onclick="gtag('event','nav_click',{link:'policy',location:'mega_menu'});">🚦 Kerala Systems & Policy</a>
-        <a href="#" data-filter="mindset" onclick="gtag('event','nav_click',{link:'mindset',location:'mega_menu'});">🧠 Mindset & Philosophy</a>
-        <a href="#" data-filter="realtalk" onclick="gtag('event','nav_click',{link:'realtalk',location:'mega_menu'});">🔥 Real Talk</a>
-        <a href="#" data-filter="tech" onclick="gtag('event','nav_click',{link:'tech',location:'mega_menu'});">🤖 AI & Tech</a>
-        <a href="#" data-filter="culture" onclick="gtag('event','nav_click',{link:'culture',location:'mega_menu'});">🎭 Culture & Everyday Life</a>
-        <a href="#" data-filter="faith" onclick="gtag('event','nav_click',{link:'faith',location:'mega_menu'});">✝️ Faith & Research</a>
-        <a href="#" data-filter="poems" onclick="gtag('event','nav_click',{link:'poems',location:'mega_menu'});">✦ Poems & Personal</a>
+        <a href="#" data-filter="careers">🌍 Immigration & Careers</a>
+        <a href="#" data-filter="policy">🚦 Kerala Systems & Policy</a>
+        <a href="#" data-filter="mindset">🧠 Mindset & Philosophy</a>
+        <a href="#" data-filter="realtalk">🔥 Real Talk</a>
+        <a href="#" data-filter="tech">🤖 AI & Tech</a>
+        <a href="#" data-filter="culture">🎭 Culture & Everyday Life</a>
+        <a href="#" data-filter="faith">✝️ Faith & Research</a>
+        <a href="#" data-filter="poems">✦ Poems & Personal</a>
       </div>
     </div>
     <a href="../services.html">Services</a>
@@ -433,45 +227,45 @@ footer strong{color:var(--gold)}
   </div>
 </nav>
 
-<!-- HERO -->
-
 <div class="hero-featured-wrapper">
-  <div class="hf-left"><a href="https://venadglobal.org/blog/daylight-robbery-state-monopolies.html" class="daily-card" onclick="gtag('event','post_click',{post:'daily_post',location:'featured_daily'});">
-        <div>
-          <div class="daily-badge"><span class="dot"></span>⚡ State Monopolies · Governance · Structural Inequity</div>
-          <h2>Daylight Robbery: How State Monopolies Hijack the Judiciary to Fund Their Own Incompetence</h2>
-          <p>When a private corporation bleeds money, it restructures or dies. When a state monopoly fails, it simply captures the regulators, rewrites the math, and bills the public.</p>
-        </div>
-        <div class="read-btn">Read Featured Post <span class="arrow">→</span></div>
-      </a></div>
+  <div class="hf-left">
+    <a href="https://venadglobal.org/ponmudi-river-eco-tourism-resort.html" class="daily-card">
+      <div>
+        <div class="daily-badge"><span class="dot"></span>🌿 Rare Eco-Tourism · Featured Post</div>
+        <h2>🌿 Ponmudi River Eco Tourism Resort & Premium Estate!</h2>
+        <p>Direct Trivandrum-Ponmudi Highway frontage AND direct private access to the Kallar River. This space also uses for the Featured post.</p>
+      </div>
+      <div class="read-btn">Read Featured Post →</div>
+    </a>
+  </div>
   <div class="hf-center">
     <div class="hero-tag">⚡ VENAD GLOBAL CONSULTANCY — BLOG</div>
     <h1>Real Stories.<br><em>Honest Guidance.</em></h1>
     <p class="hero-desc">No fake promises. No copied content. Everything here comes from 30 years of living and working internationally — Canada immigration, Gulf jobs, Kerala nursing abroad, CV writing, and more.</p>
     <div class="hero-meta">
-      <span class="hero-pill">✍️ Antony Ancil — idivet</span>
+      <span class="hero-pill">✍️ Antony Ancil — IDIVET</span>
       <span class="hero-pill">🇦🇪 30 Yrs UAE</span>
       <span class="hero-pill">🇨🇦 Canada AIP</span>
       <span class="hero-pill">🏥 Nursing Abroad</span>
       <span class="hero-pill">🤖 Google AI Certified</span>
     </div>
   </div>
-  <div class="hf-right"><a href="https://venadglobal.org/blog/probability-theory-kinetic-impact.html" class="evergreen-card" onclick="gtag('event','post_click',{post:'probability-theory-kinetic-impact',location:'featured_evergreen'});">
-        <div>
-          <div class="evergreen-badge">📊 Probability Theory • Systems Audit  • 🏔️ Kinetic Impact</div>
-          <h2>There is a Reason to Worry in Mullaperiyar: Probability Theory: The 5.2 Magnitude Lie & The Kinetic Truth.</h2>
-          <p>We cannot negotiate with gravity, topography, or systemic denial. Recognizing the probability of deceit is the first step to preventing tomorrow's disaster.</p>
-        </div>
-        <div class="read-btn">Read Featured Post <span class="arrow">→</span></div>
-      </a></div>
+  <div class="hf-right">
+    <a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html" class="featured-card">
+      <div>
+        <div class="daily-badge" style="background:rgba(255,77,77,0.12)!important;border-color:rgba(255,77,77,0.3)!important;color:#ff8888!important;"><span class="dot" style="background:#ff4d4d"></span>🔔 KERALA TEACHERS  📢 • 🔑 Marksheet Generator</div>
+        <h4>✨ PUBLIC VERSION – PRIVACY SAFE – NO DATA STORED ON SERVER</h4>
+        <p>100% browser run – No data sent to venadglobal.org - ⬇️ Auto Naming: Malayalam1_10A_1st_Term_2026-27.pdf - 💾 Backup your JSON + PDF  Import later based on Class / Term / Division / Scheme</p>
+      </div>
+      <div class="read-btn">Read Featured Post →</div>
+    </a>
+  </div>
 </div>
 
-
-<!-- TOPICS -->
 <div class="topics-bar">
   <div class="topics-bar-inner">
-    <div class="search-wrap"><input id="searchInput" type="text" placeholder="Search for posts... (Onam, flood, poem)"></div>
-    <span style="font-family:'DM Mono',monospace;font-size:0.72rem;color:#5a6480;letter-spacing:1px;margin-right:0.25rem">TOPICS:</span>
+    <div class="search-wrap"><input id="searchInput" type="text" placeholder="Search Archive... (Onam, flood, poem)"></div>
+    <span style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);letter-spacing:1px;margin-right:0.25rem">TOPICS:</span>
     <span class="topic-filter active" data-filter="all">All <span class="filter-count"></span></span>
     <span class="topic-filter" data-filter="careers">🌍 Immigration & Careers <span class="filter-count"></span></span>
     <span class="topic-filter" data-filter="policy">🚦 Kerala Systems & Policy <span class="filter-count"></span></span>
@@ -483,16 +277,36 @@ footer strong{color:var(--gold)}
     <span class="topic-filter" data-filter="poems">✦ Poems & Personal <span class="filter-count"></span></span>
   </div>
 </div>
-<div class="wrap">
 
 <div class="wrap">
-
-  <!-- FEATURED POST -->
-  
-
-  <!-- ALL POSTS GRID -->
-  <div class="section-label">All Posts</div>
+  <div class="section-label">All Posts — 4 in a row</div>
   <div class="posts-grid">
+
+<a href="https://venadglobal.org/blog/education-mirage.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'education-mirage',location:'blog_grid'});">
+  <div class="post-card-accent" style="background:linear-gradient(90deg,#16a34a,#C9A227)"></div>
+  <div class="post-card-body">
+    <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎓 Education · Economy · Systems</div>
+    <h3>The Education Mirage: Why the Traditional Degree is a Collapsing Currency</h3>
+    <p>Society operates on a deeply ingrained architectural glitch: trading your most energetic years for debt to buy a ticket to a world that no longer exists.</p>
+    <div class="post-footer">
+      <span class="post-date">September 2026</span>
+      <span class="post-link">Read →</span>
+    </div>
+  </div>
+</a>
+    
+<a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'kerala-school-marksheet-generator',location:'blog_grid'});">
+  <div class="post-card-accent" style="background:linear-gradient(90deg,#60a5fa,#C9A227)"></div>
+  <div class="post-card-body">
+    <div class="post-tag" style="color:#60a5fa;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔔 KERALA TEACHERS  📢 • 🔑 Marksheet Generator</div>
+    <h3>✨ Public Version – Privacy Safe – No Data Stored On Server</h3>
+    <p>100% browser run – No data sent to venadglobal.org ⬇️ Auto Naming: Malayalam1_10A_1st_Term_2026-27.pdf 💾 Backup your JSON + PDF  Import later based on Class / Term / Division / Scheme</p>
+    <div class="post-footer">
+      <span class="post-date">September 2026</span>
+      <span class="post-link">Read →</span>
+    </div>
+  </div>
+</a>
 
 <a href="https://venadglobal.org/blog/free-trap-surveillance-capitalism.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'free-trap-surveillance-capitalism',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#60a5fa,#C9A227)"></div>
@@ -501,7 +315,7 @@ footer strong{color:var(--gold)}
     <h3>The "Free" Trap: Surveillance Capitalism & Deep Work</h3>
     <p>The Digital Extraction Machine vs. The Sovereign Mind.</p>
     <div class="post-footer">
-      <span class="post-date">August 2026</span>
+      <span class="post-date">September 2026</span>
       <span class="post-link">Read →</span>
     </div>
   </div>
@@ -524,7 +338,7 @@ footer strong{color:var(--gold)}
   <div class="post-card-accent" style="background:linear-gradient(90deg,#60a5fa,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#60a5fa;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">📊 Probability Theory • Systems Audit  • 🏔️ Kinetic Impact</div>
-    <h3>There is a Reason to Worry in Mullaperiyar: Probability Theory: The 5.2 Magnitude Lie & The Kinetic Truth.</h3>
+    <h4>There is a Reason to Worry in Mullaperiyar: Probability Theory: The 5.2 Magnitude Lie & The Kinetic Truth.</h4>
     <p>We cannot negotiate with gravity, topography, or systemic denial. Recognizing the probability of deceit is the first step to preventing tomorrow's disaster.</p>
     <div class="post-footer">
       <span class="post-date">August 2026</span>
@@ -572,38 +386,12 @@ footer strong{color:var(--gold)}
       </div>
     </a>
 
-<a href="https://venadglobal.org/blog/kinetic-trigger-glacial-flood.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'kinetic-trigger-glacial-flood:'blog_grid'});">
-  <div class="post-card-accent" style="background:linear-gradient(90deg,#60a5fa,#C9A227)"></div>
-  <div class="post-card-body">
-    <div class="post-tag" style="color:#60a5fa;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🏔️ Systems · Environment · Topography</div>
-    <h3>The Kinetic Trigger: Decoding the True Mechanics of a Glacial Flood</h3>
-    <p>The mainstream media blames a melting glacier. But the laws of physics and topography tell a much more violent, structural story.</p>
-    <div class="post-footer">
-      <span class="post-date">August 2026</span>
-      <span class="post-link">Read →</span>
-    </div>
-  </div>
-</a>
-
 <a href="https://venadglobal.org/blog/smart-city-panopticon.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'smart-city-panopticon:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f87171,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f87171;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚠️ Systems · Surveillance · Sovereignty</div>
     <h3>The Smart City Panopticon.</h3>
     <p>How We Are Volunteering for the Kill Switch.</p>
-    <div class="post-footer">
-      <span class="post-date">August 2026</span>
-      <span class="post-link">Read →</span>
-    </div>
-  </div>
-</a>
-
-<a href="https://venadglobal.org/blog/engineered-deficit-kseb.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'engineered-deficit-kseb',location:'blog_grid'});">
-  <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#f0c040)"></div>
-  <div class="post-card-body">
-    <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚡ Power Systems · Infrastructure · Economics</div>
-    <h3>The Engineered Deficit: How Kerala’s Power Monopoly Uses Geography to Hide the Truth</h3>
-    <p>When the grid fails or tariffs spike, authorities point to the sky and earth. But behind KSEB's alibis lies a highly profitable, manufactured shortage.</p>
     <div class="post-footer">
       <span class="post-date">August 2026</span>
       <span class="post-link">Read →</span>
@@ -1028,7 +816,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/crocodile-tears-educational-reform.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'crocodile_tears_reform',location:'blog_grid'});">
+<a href="crocodile-tears-educational-reform.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'crocodile_tears_reform',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f87171,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f87171;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎓 Education · Politics · Kerala</div>
@@ -1041,7 +829,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/the-silent-carriers.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'silent_carriers',location:'blog_grid'});">
+<a href="the-silent-carriers.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'silent_carriers',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#c084fc,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#c084fc;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Psychology · Society · Reflection</div>
@@ -1054,7 +842,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/smartphone-software-illusion.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'smartphone_illusion',location:'blog_grid'});">
+<a href="smartphone-software-illusion.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'smartphone_illusion',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#60a5fa,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#60a5fa;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">📱 Tech · Consumer Awareness</div>
@@ -1067,7 +855,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/architecture-of-ingratitude.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'architecture_ingratitude',location:'blog_grid'});">
+<a href="architecture-of-ingratitude.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'architecture_ingratitude',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#c084fc,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#c084fc;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Psychology · Boundaries · Character</div>
@@ -1080,7 +868,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/kerala-60-month-ultimatum.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'kerala_60_month',location:'blog_grid'});">
+<a href="kerala-60-month-ultimatum.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'kerala_60_month',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f87171,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f87171;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Economy · Infrastructure · Sovereignty</div>
@@ -1093,7 +881,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/nasa-isro-strategic-synergy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'nasa_isro_synergy',location:'blog_grid'});">
+<a href="nasa-isro-strategic-synergy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'nasa_isro_synergy',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#60a5fa,#f4a03c)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#60a5fa;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🛰️ Leadership · Strategy · Space</div>
@@ -1106,7 +894,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/the-0-1-percent-rule.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'the_0_1_percent_rule',location:'blog_grid'});">
+<a href="the-0-1-percent-rule.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'the_0_1_percent_rule',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#c084fc,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#c084fc;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">☕ Black Coffee Philosophy · Part II</div>
@@ -1119,7 +907,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/black-coffee-philosophy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'black_coffee_philosophy',location:'blog_grid'});">
+<a href="black-coffee-philosophy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'black_coffee_philosophy',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#c084fc,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#c084fc;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Mindset · Composure · Leadership</div>
@@ -1132,7 +920,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/cosmic-clock-human-accelerator.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'cosmic_clock',location:'blog_grid'});">
+<a href="cosmic-clock-human-accelerator.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'cosmic_clock',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#60a5fa,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#60a5fa;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌍 Environment · Science · Systems</div>
@@ -1145,7 +933,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/letter-of-wishes-burial-or-donation.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'letter_of_wishes',location:'blog_grid'});">
+<a href="letter-of-wishes-burial-or-donation.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'letter_of_wishes',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#c084fc,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#c084fc;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Philosophy · Part 1/3 · Society</div>
@@ -1158,7 +946,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/arrogance-of-the-demand.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'arrogance_of_demand',location:'blog_grid'});">
+<a href="arrogance-of-the-demand.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'arrogance_of_demand',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#f0c040)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚡ Policy · Consumer Rights · Kerala</div>
@@ -1171,7 +959,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/the-outrage-economy.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'outrage_economy',location:'blog_grid'});">
+<a href="the-outrage-economy.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'outrage_economy',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f87171,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f87171;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🏛️ Politics · Systems · India</div>
@@ -1184,7 +972,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/the-borders-within.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'borders_within',location:'blog_grid'});">
+<a href="the-borders-within.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'borders_within',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#c084fc,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#c084fc;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Psychology · Family · Society</div>
@@ -1197,7 +985,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/illusion-of-consensus.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'illusion_of_consensus',location:'blog_grid'});">
+<a href="illusion-of-consensus.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'illusion_of_consensus',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#c084fc,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#c084fc;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Psychology · Society · Ethics</div>
@@ -1210,7 +998,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/messi-baptism-of-destiny.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'messi_tribute',location:'blog_grid'});">
+<a href="messi-baptism-of-destiny.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'messi_tribute',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#75AADB,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#75AADB;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🇦🇷 World Cup 2026 · Tribute</div>
@@ -1223,7 +1011,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/spain-argentina-world-cup-final-2026.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'world_cup_final_2026',location:'blog_grid'});">
+<a href="spain-argentina-world-cup-final-2026.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'world_cup_final_2026',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚽ World Cup 2026 · Live from Kollam</div>
@@ -1236,7 +1024,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/digital-compartmentalization.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'digital_compartmentalization',location:'blog_grid'});">
+<a href="digital-compartmentalization.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'digital_compartmentalization',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#60a5fa,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#60a5fa;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">📱 Tech · Security · Productivity</div>
@@ -1249,7 +1037,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/horizontal-network.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'horizontal_network',location:'blog_grid'});">
+<a href="horizontal-network.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'horizontal_network',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌐 Community · Trust · Sovereignty</div>
@@ -1262,7 +1050,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/libertarian-referee.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'libertarian_referee',location:'blog_grid'});">
+<a href="libertarian-referee.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'libertarian_referee',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚽ Sport · World Cup · Analysis</div>
@@ -1275,7 +1063,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/deficit-illusion-power-sector.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'deficit_illusion',location:'blog_grid'});">
+<a href="deficit-illusion-power-sector.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'deficit_illusion',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#f0c040)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚡ Utilities · Policy · Kerala</div>
@@ -1288,7 +1076,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/kill-switch-economy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'kill_switch',location:'blog_grid'});">
+<a href="kill-switch-economy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'kill_switch',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f87171,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f87171;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚠️ Systems · Ownership · Sovereignty</div>
@@ -1301,7 +1089,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/competitive-learner.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'competitive_learner',location:'blog_grid'});">
+<a href="competitive-learner.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'competitive_learner',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#3b82f6)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎯 Learning · Execution · Survival</div>
@@ -1314,7 +1102,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/map-and-meter.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'map_and_meter',location:'blog_grid'});">
+<a href="map-and-meter.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'map_and_meter',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1B3A6B)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🗺️ AI Literacy · Tech Audit · Kerala Wisdom</div>
@@ -1327,7 +1115,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/ksrtc-accountability.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'ksrtc_accountability',location:'blog_grid'});">
+<a href="ksrtc-accountability.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'ksrtc_accountability',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#f0c040)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🚌 Administration · Public Transport · Kerala</div>
@@ -1340,7 +1128,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/kerala-campus-strikes.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'campus_strikes',location:'blog_grid'});">
+<a href="kerala-campus-strikes.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'campus_strikes',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f87171,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f87171;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎓 Education · Politics · Kerala</div>
@@ -1353,7 +1141,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/e20-petrol-facts.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'e20_petrol',location:'blog_grid'});">
+<a href="e20-petrol-facts.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'e20_petrol',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⛽ Auto · Science · India</div>
@@ -1366,7 +1154,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/health-is-wealth.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'health_is_wealth',location:'blog_grid'});">
+<a href="health-is-wealth.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'health_is_wealth',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#16a34a,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🏥 Health · Systems · Sovereignty</div>
@@ -1379,7 +1167,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/currency-of-gratitude.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'currency_gratitude',location:'blog_grid'});">
+<a href="currency-of-gratitude.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'currency_gratitude',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1B3A6B)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🤝 Gratitude · Loyalty · Human Nature</div>
@@ -1405,7 +1193,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-     <a href="https://venadglobal.org/blog/emotional-sovereignty.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'emotional-sovereignty',location:'blog_grid'});">
+     <a href="emotional-sovereignty.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'emotional-sovereignty',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#8B6914)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🪶 Field Notes · Gatekeeper · Foundation</div>
@@ -1418,7 +1206,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-     <a href="https://venadglobal.org/blog/rules-vs-trust.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'rules_vs_trust',location:'blog_grid'});">
+     <a href="rules-vs-trust.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'rules_vs_trust',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1B3A6B)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🤝 Trust · Relationships · Society</div>
@@ -1431,7 +1219,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-      <a href="https://venadglobal.org/blog/diy-architect.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'diy_architect',location:'blog_grid'});">
+      <a href="diy-architect.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'diy_architect',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#8B6914)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔧 Mindset · Self-Reliance · Execution</div>
@@ -1444,7 +1232,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/six-foot-blueprint.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'six_foot',location:'blog_grid'});">
+    <a href="six-foot-blueprint.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'six_foot',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#22c55e,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌱 Environment · Civic · Sustainability</div>
@@ -1457,7 +1245,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/citizenship-paradox.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'citizenship_paradox',location:'blog_grid'});">
+    <a href="citizenship-paradox.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'citizenship_paradox',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#FF9933,#138808)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fbbf24;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🪪 Governance · Identity · Democracy</div>
@@ -1470,7 +1258,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/cost-of-secrecy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'cost_secrecy',location:'blog_grid'});">
+    <a href="cost-of-secrecy.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'cost_secrecy',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#2dd4bf,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#5eead4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔓 Knowledge · Architecture · Systems</div>
@@ -1483,7 +1271,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/the-long-bridge.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'long_bridge',location:'blog_grid'});">
+    <a href="the-long-bridge.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'long_bridge',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1B3A6B,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#93c5fd;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌉 Language · Culture · Kerala</div>
@@ -1496,7 +1284,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/the-prescribed-milk.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'prescribed_milk',location:'blog_grid'});">
+    <a href="the-prescribed-milk.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'prescribed_milk',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1B3A6B)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fde68a;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🥛 Cultural Observation · Family</div>
@@ -1509,7 +1297,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/kerala-rto-colour-change.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'kerala_rto',location:'blog_grid'});">
+    <a href="kerala-rto-colour-change.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'kerala_rto',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#4a90b8,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#7ec8e3;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🏍️ Kerala RTO · Real Experience</div>
@@ -1522,7 +1310,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/crab-basket-blueprint.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'crab_basket',location:'blog_grid'});">
+    <a href="crab-basket-blueprint.html" class="post-card" data-category="mindset" onclick="gtag('event','post_click',{post:'crab_basket',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#a8552e)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🧠 Mindset · Self-Mastery</div>
@@ -1535,7 +1323,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/queen-of-the-night.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'queen_night',location:'blog_grid'});">
+    <a href="queen-of-the-night.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'queen_night',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#064e3b,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#22c55e;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌸 Kerala Garden</div>
@@ -1548,7 +1336,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/drishyam-3-mohanlal-review.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'drishyam3_review',location:'blog_grid'});">
+    <a href="drishyam-3-mohanlal-review.html" class="post-card" data-category="culture" onclick="gtag('event','post_click',{post:'drishyam3_review',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#7c2d12,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f97316;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎬 Malayalam Cinema</div>
@@ -1561,7 +1349,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/ai-jobs-kerala-professionals.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'ai_jobs_kerala',location:'blog_grid'});">
+    <a href="ai-jobs-kerala-professionals.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'ai_jobs_kerala',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#3b82f6,#8b5cf6)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#3b82f6;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🤖 Must Read</div>
@@ -1574,7 +1362,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/google-io-2026-kerala-consultant.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'google_io_2026',location:'blog_grid'});">
+    <a href="google-io-2026-kerala-consultant.html" class="post-card" data-category="tech" onclick="gtag('event','post_click',{post:'google_io_2026',location:'blog_grid'});">
       <div class="post-card-accent ai"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#4285F4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔵 Google I/O 2026</div>
@@ -1587,7 +1375,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/hct-operations-lessons.html" class="post-card" data-category="realtalk" onclick="gtag('event','post_click',{post:'hct_operations',location:'blog_grid'});">
+    <a href="hct-operations-lessons.html" class="post-card" data-category="realtalk" onclick="gtag('event','post_click',{post:'hct_operations',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1B3A6B,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#93c5fd;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">📋 Director's Insights</div>
@@ -1600,7 +1388,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/the-other-side-of-the-coin.html" class="post-card" data-category="realtalk" onclick="gtag('event','post_click',{post:'other_side_coin',location:'blog_grid'});">
+    <a href="the-other-side-of-the-coin.html" class="post-card" data-category="realtalk" onclick="gtag('event','post_click',{post:'other_side_coin',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1B3A6B,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fde68a;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">💡 Life Lessons · Leadership</div>
@@ -1613,7 +1401,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/canada-aip-kerala.html" class="post-card" data-category="careers">
+    <a href="canada-aip-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent canada"></div>
       <div class="post-card-body">
         <div class="post-tag">🇨🇦 Canada Immigration</div>
@@ -1626,7 +1414,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-        <a href="https://venadglobal.org/blog/kseb-prosumer-injustice.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'kseb_prosumer',location:'blog_grid'});">
+        <a href="kseb-prosumer-injustice.html" class="post-card" data-category="policy" onclick="gtag('event','post_click',{post:'kseb_prosumer',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#f97316,#ef4444)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f97316;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">⚡ Solar Justice</div>
@@ -1639,7 +1427,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-        <a href="https://venadglobal.org/blog/blood-and-water-john19.html" class="post-card" data-category="faith" onclick="gtag('event','post_click',{post:'blood_water',location:'blog_grid'});">
+        <a href="blood-and-water-john19.html" class="post-card" data-category="faith" onclick="gtag('event','post_click',{post:'blood_water',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#7c1d1d,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fca5a5;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✝️ Biblical Research · John 19:34</div>
@@ -1652,7 +1440,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/jesus-calendar-research.html" class="post-card" data-category="faith" onclick="gtag('event','post_click',{post:'jesus_calendar',location:'blog_grid'});">
+    <a href="jesus-calendar-research.html" class="post-card" data-category="faith" onclick="gtag('event','post_click',{post:'jesus_calendar',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#7c3aed,#1d4ed8)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#7c3aed;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✝️ Research</div>
@@ -1665,7 +1453,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/cs50-at-57.html" class="post-card" data-category="tech">
+    <a href="cs50-at-57.html" class="post-card" data-category="tech">
       <div class="post-card-accent ai"></div>
       <div class="post-card-body">
         <div class="post-tag">🤖 AI & Certifications</div>
@@ -1678,7 +1466,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/gulf-jobs-2026.html" class="post-card" data-category="careers">
+    <a href="gulf-jobs-2026.html" class="post-card" data-category="careers">
       <div class="post-card-accent gulf"></div>
       <div class="post-card-body">
         <div class="post-tag">🇦🇪 Gulf Jobs</div>
@@ -1691,7 +1479,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/cv-mistakes-kerala.html" class="post-card" data-category="careers">
+    <a href="cv-mistakes-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent cv"></div>
       <div class="post-card-body">
         <div class="post-tag">📄 CV & LinkedIn</div>
@@ -1704,7 +1492,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/nursing-abroad.html" class="post-card" data-category="careers">
+    <a href="nursing-abroad.html" class="post-card" data-category="careers">
       <div class="post-card-accent nursing"></div>
       <div class="post-card-body">
         <div class="post-tag">🏥 Nursing Abroad</div>
@@ -1717,7 +1505,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/nri-return-kerala.html" class="post-card" data-category="realtalk">
+    <a href="nri-return-kerala.html" class="post-card" data-category="realtalk">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#b5451b,#e07b39)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#b5451b;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Real Talk</div>
@@ -1729,7 +1517,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/middle-class-kerala.html" class="post-card" data-category="realtalk">
+    <a href="middle-class-kerala.html" class="post-card" data-category="realtalk">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#b5451b,#e07b39)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#b5451b;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Real Talk</div>
@@ -1741,7 +1529,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/loyalty-what-it-gets-you.html" class="post-card" data-category="realtalk">
+    <a href="loyalty-what-it-gets-you.html" class="post-card" data-category="realtalk">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#b5451b,#e07b39)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#b5451b;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Real Talk</div>
@@ -1753,7 +1541,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/kerala-brain-drain.html" class="post-card" data-category="realtalk">
+    <a href="kerala-brain-drain.html" class="post-card" data-category="realtalk">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#b5451b,#e07b39)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#b5451b;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Real Talk</div>
@@ -1765,7 +1553,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/australia-migration-kerala.html" class="post-card" data-category="careers">
+    <a href="australia-migration-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#00843D,#FFCD00)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#00843D;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🦘 Australia Migration</div>
@@ -1777,7 +1565,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/new-zealand-migration-kerala.html" class="post-card" data-category="careers">
+    <a href="new-zealand-migration-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#00467F,#CC0000)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#00467F;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🥝 New Zealand Migration</div>
@@ -1789,7 +1577,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/germany-blue-card-kerala.html" class="post-card" data-category="careers">
+    <a href="germany-blue-card-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#000 33%,#DD0000 33% 66%,#FFCE00 66%)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#DD0000;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🇩🇪 Germany Blue Card</div>
@@ -1801,7 +1589,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/uk-student-visa-kerala.html" class="post-card" data-category="careers">
+    <a href="uk-student-visa-kerala.html" class="post-card" data-category="careers">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#012169,#C8102E)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#012169;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎓 UK Students</div>
@@ -1832,7 +1620,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/happy-birthday-vini.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_vini',location:'blog_grid'});">
+<a href="happy-birthday-vini.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_vini',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#5eead4,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#5eead4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎂 Family · Tribute</div>
@@ -1845,7 +1633,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/happy-birthday-shajy.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_shajy',location:'blog_grid'});">
+<a href="happy-birthday-shajy.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_shajy',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#3b82c4,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#3b82c4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎂 Family · Tribute</div>
@@ -1871,7 +1659,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/happy-birthday-nila-neil.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_nila_neil',location:'blog_grid'});">
+<a href="happy-birthday-nila-neil.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_nila_neil',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#ff8fb3,#c58cf0)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#c58cf0;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎂 Family · Twins · Birthday</div>
@@ -1884,7 +1672,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/happy-birthday-seema.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_seema',location:'blog_grid'});">
+<a href="happy-birthday-seema.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_seema',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#f9a8d4,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f9a8d4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎂 Family · Tribute</div>
@@ -1897,7 +1685,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/the-weight-of-the-shield.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'weight_of_the_shield',location:'blog_grid'});">
+<a href="the-weight-of-the-shield.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'weight_of_the_shield',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#f0c040)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🛡️ Poetry · Reflection</div>
@@ -1910,7 +1698,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/the-last-journey.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'last_journey',location:'blog_grid'});">
+<a href="the-last-journey.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'last_journey',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#1a1a2e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🪵 Poem · In Memory</div>
@@ -1923,7 +1711,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/jacintha-gancis-tribute.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'jacintha_tribute',location:'blog_grid'});">
+<a href="jacintha-gancis-tribute.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'jacintha_tribute',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#1a1a2e,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🕯️ In Loving Memory</div>
@@ -1936,7 +1724,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/sumud-under-the-stars.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'sumud_stars',location:'blog_grid'});">
+<a href="sumud-under-the-stars.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'sumud_stars',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#0f1a3a,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✦ Poem · UAE Tribute</div>
@@ -1949,7 +1737,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/version-57.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'version_57',location:'blog_grid'});">
+    <a href="version-57.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'version_57',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#1a1a2e)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#f0c040;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">✦ Poem</div>
@@ -1962,7 +1750,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-<a href="https://venadglobal.org/blog/happy-birthday-akil.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_akil',location:'blog_grid'});">
+<a href="happy-birthday-akil.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_akil',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#5eead4,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#5eead4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎂 Family · Tribute</div>
@@ -1975,7 +1763,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-<a href="https://venadglobal.org/blog/when-family-comes-home.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'family_comes_home',location:'blog_grid'});">
+<a href="when-family-comes-home.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'family_comes_home',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1B3A6B,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#93c5fd;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🏡 Family · Memory · Kerala</div>
@@ -1988,7 +1776,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-        <a href="https://venadglobal.org/blog/anniversary-2026.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'anniversary_2026',location:'blog_grid'});">
+        <a href="anniversary-2026.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'anniversary_2026',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#C9A227,#8B6914)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#fde68a;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">💍 Anniversary · Love Story · Kerala</div>
@@ -2001,7 +1789,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/the-quiet-strength.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'quiet_strength',location:'blog_grid'});">
+    <a href="the-quiet-strength.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'quiet_strength',location:'blog_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#166534,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#86efac;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌿 Poem · Teacher Tribute</div>
@@ -2014,7 +1802,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-<a href="https://venadglobal.org/blog/happy-birthday-adil.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_adil',location:'blog_grid'});">
+<a href="happy-birthday-adil.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'happy_birthday_adil',location:'blog_grid'});">
   <div class="post-card-accent" style="background:linear-gradient(90deg,#5eead4,#C9A227)"></div>
   <div class="post-card-body">
     <div class="post-tag" style="color:#5eead4;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎂 Family · Tribute</div>
@@ -2027,7 +1815,7 @@ It's usually the will to turn on the lights.</p>
   </div>
 </a>
 
-    <a href="https://venadglobal.org/blog/what-simba-knows.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'simba',location:'poems_grid'});">
+    <a href="what-simba-knows.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'simba',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#8B4513,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#8B4513;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🐾 Poem</div>
@@ -2040,7 +1828,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
     
-    <a href="https://venadglobal.org/blog/seasonal.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'seasonal',location:'poems_grid'});">
+    <a href="seasonal.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'seasonal',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#2d0a1a,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#8B1A2A;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌿 Poem</div>
@@ -2053,7 +1841,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/simbas-basin.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'simbas_basin',location:'poems_grid'});">
+    <a href="simbas-basin.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'simbas_basin',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1a3a5c,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#1a3a5c;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">💧 Poem II</div>
@@ -2066,7 +1854,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/phoenix-bird.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'phoenix',location:'poems_grid'});">
+    <a href="phoenix-bird.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'phoenix',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#8B1A1A,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#8B1A1A;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🔥 Poem</div>
@@ -2079,7 +1867,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/the-climber.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'the_climber',location:'poems_grid'});">
+    <a href="the-climber.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'the_climber',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#14532d,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#4ade80;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🌳 Poem</div>
@@ -2092,7 +1880,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/rareeram-lullaby.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'rareeram_lullaby',location:'poems_grid'});">
+    <a href="rareeram-lullaby.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'rareeram_lullaby',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#2d1b4e,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#9f7aea;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🎵 Lullaby</div>
@@ -2105,7 +1893,7 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
-    <a href="https://venadglobal.org/blog/people-who-shaped-me.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'people_shaped',location:'poems_grid'});">
+    <a href="people-who-shaped-me.html" class="post-card" data-category="poems" onclick="gtag('event','post_click',{post:'people_shaped',location:'poems_grid'});">
       <div class="post-card-accent" style="background:linear-gradient(90deg,#1a3a1a,#C9A227)"></div>
       <div class="post-card-body">
         <div class="post-tag" style="color:#1a5c1a;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:600;margin-bottom:0.5rem">🙏 Personal</div>
@@ -2118,126 +1906,91 @@ It's usually the will to turn on the lights.</p>
       </div>
     </a>
 
+  
   </div>
 </div>
+
 <footer style="background:#060606;border-top:1px solid rgba(201,162,39,0.15);padding:1.5rem 2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.75rem;color:#6b7280;">
   <p>(c) 2026 Antony Ancil - Venad Global Consultancy. All rights reserved.</p>
-  <p style="margin-top:0.4rem;">Content published on this site is the original work of Antony Ancil. Unauthorised reproduction is prohibited.</p>
+  <p style="margin-top:0.4rem;">Content published on this site is the original work of Antony Ancil. Unauthorised reproduction is prohibited. | Permanent Must Read on Top | 2 Featured Posts | 4-Column Grid</p>
 </footer>
+
+
 <script>
 (function(){
   var cards = Array.prototype.slice.call(document.querySelectorAll('.post-card[data-category]'));
   var pills = Array.prototype.slice.call(document.querySelectorAll('.topic-filter'));
-
-  var counts = {};
-  cards.forEach(function(c){
-    var cat = c.dataset.category;
-    counts[cat] = (counts[cat]||0) + 1;
-  });
-  pills.forEach(function(p){
-    var f = p.dataset.filter;
-    var countSpan = p.querySelector('.filter-count');
-    if(!countSpan) return;
-    if(f === 'all'){ countSpan.textContent = '(' + cards.length + ')'; }
-    else { countSpan.textContent = '(' + (counts[f]||0) + ')'; }
-  });
-
-  function applyFilter(filter){
-    cards.forEach(function(c){
-      if(filter === 'all' || c.dataset.category === filter){
-        c.classList.remove('filtered-hidden');
-      } else {
-        c.classList.add('filtered-hidden');
-      }
-    });
+  var searchInput = document.getElementById('searchInput');
+  var active = 'all';
+  function updateCounts(visibleCards){
+    var counts = {};
+    visibleCards.forEach(function(c){ var cat=c.dataset.category; counts[cat]=(counts[cat]||0)+1; });
     pills.forEach(function(p){
-      p.classList.toggle('active', p.dataset.filter === filter);
+      var f=p.dataset.filter;
+      var cs=p.querySelector('.filter-count');
+      if(!cs) return;
+      if(f==='all') cs.textContent='('+visibleCards.length+')';
+      else cs.textContent='('+(counts[f]||0)+')';
     });
-    gtag('event','topic_filter',{filter:filter});
   }
-
+  function applyFilter(filter, q){
+    q = (q||'').toLowerCase().trim();
+    var visible=[];
+    cards.forEach(function(c){
+      var cat=c.dataset.category;
+      var txt=(c.textContent||'').toLowerCase();
+      var okCat=(filter==='all'||cat===filter);
+      var okSearch=!q||txt.indexOf(q)!==-1;
+      if(okCat&&okSearch){ c.classList.remove('filtered-hidden'); visible.push(c); }
+      else { c.classList.add('filtered-hidden'); }
+    });
+    updateCounts(visible);
+    pills.forEach(function(p){ p.classList.toggle('active', p.dataset.filter===filter); });
+  }
+  updateCounts(cards);
   pills.forEach(function(p){
-    p.addEventListener('click', function(){ applyFilter(p.dataset.filter); });
+    p.addEventListener('click', function(){
+      active=p.dataset.filter;
+      applyFilter(active, searchInput?searchInput.value:'');
+    });
   });
-
+  if(searchInput){
+    searchInput.addEventListener('input', function(){
+      applyFilter(active, searchInput.value);
+    });
+  }
   document.querySelectorAll('.mega-menu a[data-filter]').forEach(function(a){
     a.addEventListener('click', function(e){
       e.preventDefault();
-      applyFilter(a.dataset.filter);
-      document.getElementById('megaMenu').classList.remove('open');
-      document.getElementById('megaTrigger').setAttribute('aria-expanded','false');
-      var grid = document.querySelector('.posts-grid');
-      if(grid) grid.scrollIntoView({behavior:'smooth', block:'start'});
-      var navLinks = document.getElementById('navLinks');
-      if(navLinks) navLinks.classList.remove('mobile-open');
+      active=a.dataset.filter;
+      applyFilter(active, searchInput?searchInput.value:'');
+      var mm=document.getElementById('megaMenu'); if(mm) mm.classList.remove('open');
+      var mt=document.getElementById('megaTrigger'); if(mt) mt.setAttribute('aria-expanded','false');
+      var grid=document.querySelector('.posts-grid'); if(grid) grid.scrollIntoView({behavior:'smooth', block:'start'});
+      var nl=document.getElementById('navLinks'); if(nl) nl.classList.remove('mobile-open');
     });
   });
-
-  var trigger = document.getElementById('megaTrigger');
-  var menu = document.getElementById('megaMenu');
-  if(trigger && menu){
+  var trigger=document.getElementById('megaTrigger'); var menu=document.getElementById('megaMenu');
+  if(trigger&&menu){
     trigger.addEventListener('click', function(e){
       e.stopPropagation();
-      var isOpen = menu.classList.toggle('open');
+      var isOpen=menu.classList.toggle('open');
       trigger.setAttribute('aria-expanded', isOpen);
     });
     document.addEventListener('click', function(e){
-      if(!menu.contains(e.target) && e.target !== trigger){
+      if(!menu.contains(e.target) && e.target!==trigger){
         menu.classList.remove('open');
         trigger.setAttribute('aria-expanded','false');
       }
     });
   }
-
-  var hamburger = document.getElementById('hamburgerBtn');
-  var navLinks = document.getElementById('navLinks');
-  if(hamburger && navLinks){
-    hamburger.addEventListener('click', function(){
-      navLinks.classList.toggle('mobile-open');
-    });
+  var hamburger=document.getElementById('hamburgerBtn'); var navLinks=document.getElementById('navLinks');
+  if(hamburger&&navLinks){
+    hamburger.addEventListener('click', function(){ navLinks.classList.toggle('mobile-open'); });
   }
 })();
 </script>
-
-<script>
-// Excellent search + locked categories - preserves original filter logic
-(function(){
-  var searchInput=document.getElementById('searchInput');
-  var cards=Array.prototype.slice.call(document.querySelectorAll('.post-card[data-category]'));
-  var pills=Array.prototype.slice.call(document.querySelectorAll('.topic-filter'));
-  var active='all';
-  function apply(){
-    var q=searchInput?searchInput.value.toLowerCase().trim():'';
-    var visible=0;
-    var counts={};
-    cards.forEach(function(c){
-      var cat=c.dataset.category;
-      var txt=(c.textContent||'').toLowerCase();
-      var okCat=(active==='all'||cat===active);
-      var okSearch=!q||txt.indexOf(q)!==-1;
-      if(okCat&&okSearch){c.classList.remove('filtered-hidden');visible++;counts[cat]=(counts[cat]||0)+1;}
-      else{c.classList.add('filtered-hidden');}
-    });
-    pills.forEach(function(p){
-      var f=p.dataset.filter;var cs=p.querySelector('.filter-count');
-      if(!cs) return;
-      if(f==='all'){cs.textContent='('+visible+')';}
-      else{cs.textContent='('+(counts[f]||0)+')';}
-    });
-  }
-  if(searchInput){searchInput.addEventListener('input',apply);}
-  pills.forEach(function(p){
-    p.addEventListener('click',function(){
-      pills.forEach(function(x){x.classList.remove('active');});
-      p.classList.add('active');active=p.dataset.filter;apply();
-      if(typeof gtag!=='undefined'){gtag('event','topic_filter',{filter:active});}
-    });
-  });
-  // init counts
-  var init={};cards.forEach(function(c){var cat=c.dataset.category;init[cat]=(init[cat]||0)+1;});
-  pills.forEach(function(p){var f=p.dataset.filter;var cs=p.querySelector('.filter-count');if(!cs) return;if(f==='all'){cs.textContent='('+cards.length+')';}else{cs.textContent='('+(init[f]||0)+')';}});
-})();
-</script>
-
 </body>
+
+</html>
 </html>
