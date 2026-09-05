@@ -86,6 +86,16 @@ td input.name-input{text-align:left} tr:hover td{background:#1c212c}
 .vgc-footer{background:#040506;border-top:1px solid rgba(201,162,39,0.15);padding:1.4rem 2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.73rem;color:#6b7280;margin-top:2rem}
 .vgc-footer a{color:#C9A227;text-decoration:none}
 
+
+/* V8 Improvements - Validation & Auto-save */
+.input-error{border:1px solid #ef4444 !important;background:#2a1515 !important;box-shadow:0 0 0 2px rgba(239,68,68,0.2)}
+.auto-save-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:600;background:#052e1a;border:1px solid #10b981;color:#6ee7b7}
+.auto-save-badge.saving{background:#1a1a05;border-color:#f0c040;color:#fde68a}
+.validation-msg{position:absolute;top:100%;left:0;z-index:10;background:#ef4444;color:#fff;font-size:11px;padding:3px 6px;border-radius:6px;white-space:nowrap;pointer-events:none}
+.settings-panel{display:none;border:1px dashed rgba(201,162,39,0.3);border-radius:12px;padding:12px;margin-top:12px;background:rgba(201,162,39,0.05)}
+.settings-panel.open{display:block}
+.kbd-hint{font-family:'DM Mono',monospace;font-size:10px;padding:2px 5px;border:1px solid #2a2f3a;border-radius:4px;background:#0e1015;color:#8a8f9a}
+
 </style>
 </head>
 <body>
@@ -234,7 +244,21 @@ td input.name-input{text-align:left} tr:hover td{background:#1c212c}
 <th style="width:68px" id="thCE">CE <span class="ceMaxLabel">10</span></th><th style="width:68px">CE Gr</th>
 <th style="width:68px">Total <span class="totalMaxLabel">50</span></th><th style="width:52px">%</th><th style="width:70px">Final</th><th style="width:110px">Action</th>
 </tr></thead><tbody id="tbody"></tbody></table></div>
-<div class="mono" style="padding:8px 12px;font-size:10.5px;color:#5a5f6a">DB: <span id="dbInfoFooter"></span> | Scheme: <span id="schemeLabel"></span> | <span id="genTime"></span></div>
+
+<div style="margin-top:10px">
+<button class="btn btn-dark btn-sm" onclick="document.getElementById('advancedSettings').classList.toggle('open')">⚙️ Settings / Backup (Advanced)</button>
+<div id="advancedSettings" class="settings-panel">
+<div class="mono" style="font-size:11px;color:#8a8f9a;margin-bottom:8px">Technical Details (Hidden from students - for power users)</div>
+<div>DB: <span id="dbKeyLabel"></span> | <span id="currentDBKey"></span> | <span id="dbInfoFooter"></span></div>
+<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn btn-dark btn-sm" id="btnExportJSON">📥 Backup JSON</button>
+<button class="btn btn-dark btn-sm" id="btnImportJSON">📤 Restore JSON</button>
+<button class="btn btn-danger btn-sm" id="btnClearLocal">🗑️ Clear Device Cache</button>
+</div>
+<div style="margin-top:8px;font-size:11px;color:#6b7280">Zero-Trust: Data stays in YOUR browser (localStorage). Never touches venadglobal.org server. JSON backup for long-term.</div>
+</div>
+</div>
+<div class="mono" style="padding:8px 12px;font-size:10.5px;color:#5a5f6a;display:none">DB: <span id="dbInfoFooter"></span> | Scheme: <span id="schemeLabel"></span> | <span id="genTime"></span></div>
 </div>
 
 </main>
@@ -307,6 +331,7 @@ function saveCurrentDBToMaster(showToast=false){
   saveMasterToStorage();
   document.getElementById('lastSaved').textContent='Last: '+new Date().toLocaleTimeString()+' • '+key;
   document.getElementById('autoSaveStatus').textContent='saved '+new Date().toLocaleTimeString()+' • '+key;
+  autoSaveToLocal();
   document.getElementById('dbKeyLabel').textContent='DB: '+key;
   document.getElementById('currentDBKey').textContent=key;
   document.getElementById('dbInfoFooter').textContent=key+' | '+students.length+' students | '+Object.keys(marks).length+' subjects';
@@ -768,24 +793,141 @@ document.getElementById('btnConsolidationPdf').addEventListener('click',()=>{
 });
 document.getElementById('btnPrint').addEventListener('click',()=>window.print());
 
-// PUBLIC VERSION – NO LOCAL STORAGE – FRESH FOR EVERY VISITOR – IMPORT JSON TO RESTORE
-window.addEventListener('DOMContentLoaded',()=>{
-  // PUBLIC: Always start fresh, ignore old localStorage (prevents previous error on blog)
-  try{ localStorage.removeItem(MASTER_KEY); }catch(e){}
-  let hadMaster=loadMasterFromStorage(); // tries sessionStorage only
-  if(!hadMaster){
-    masterDB={databases:{},currentKey:null};
-    // Public starts with empty 48 rows – no preloaded private data
-    students=Array.from({length:48},()=>({id:uid(),name:''}));
-    marks={}; SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
-    saveCurrentDBToMaster(false);
+
+// V8 IMPROVEMENTS - Teacher-Optimized
+// Auto-save safety net - keeps zero-trust (browser only)
+function getLocalStorageKey(dbKey){return 'VGC_MARKSHEET_'+dbKey;}
+function autoSaveToLocal(){
+  try{
+    let key=getCurrentDBKey();
+    let payload={
+      school:document.getElementById('schoolName').value,
+      exam:document.getElementById('examNameSel').value,
+      class:document.getElementById('classSel').value,
+      division:document.getElementById('divisionSel').value,
+      scheme:scheme,
+      students:students,
+      marks:marks,
+      currentSubject:currentSubject,
+      ts:Date.now()
+    };
+    localStorage.setItem(getLocalStorageKey(key), JSON.stringify(payload));
+    localStorage.setItem(MASTER_KEY+'_lastKey', key);
+    let badge=document.getElementById('autoSaveBadge');
+    if(badge){badge.textContent='● Auto-saved to this device • '+new Date().toLocaleTimeString();badge.classList.remove('saving');}
+    document.getElementById('autoSaveStatus').textContent='Auto-saved '+new Date().toLocaleTimeString();
+  }catch(e){
+    console.warn('localStorage full', e);
+    let badge=document.getElementById('autoSaveBadge');
+    if(badge){badge.textContent='⚠️ Save failed - storage full';badge.style.color='#ef4444';}
+  }
+}
+function tryRestoreFromLocal(){
+  try{
+    let lastKey=localStorage.getItem(MASTER_KEY+'_lastKey');
+    if(!lastKey) return false;
+    let data=localStorage.getItem(getLocalStorageKey(lastKey));
+    if(!data) return false;
+    let db=JSON.parse(data);
+    if(!db.students || !db.marks) return false;
+    // Restore
+    students=db.students;
+    marks=db.marks;
+    scheme=db.scheme||scheme;
+    document.getElementById('schoolName').value=db.school||'';
+    document.getElementById('examNameSel').value=db.exam||'';
+    document.getElementById('classSel').value=db.class||'';
+    document.getElementById('divisionSel').value=db.division||'';
+    currentSubject=db.currentSubject||currentSubject;
+    toast('✅ Restored from device cache: '+lastKey+' • '+students.length+' students');
+    return true;
+  }catch(e){console.warn('restore failed', e); return false;}
+}
+// Real-time validation
+function validateInput(input, max){
+  let v=input.value.trim().toUpperCase();
+  if(v===''||v==='AB'||v==='ABSENT'){input.classList.remove('input-error');return true;}
+  let n=parseFloat(v);
+  if(isNaN(n)){input.classList.add('input-error');return false;}
+  if(n<0 || n>max){
+    input.classList.add('input-error');
+    // Show tooltip
+    let msg=input.parentNode.querySelector('.validation-msg');
+    if(!msg){msg=document.createElement('div');msg.className='validation-msg';input.parentNode.style.position='relative';input.parentNode.appendChild(msg);}
+    msg.textContent='Max allowed is '+max;
+    msg.style.display='block';
+    setTimeout(()=>{if(msg)msg.style.display='none';},3000);
+    return false;
   } else {
-    let curKey=masterDB.currentKey || Object.keys(masterDB.databases)[0];
-    if(curKey && masterDB.databases[curKey]){
-      loadDBByKey(curKey);
+    input.classList.remove('input-error');
+    let msg=input.parentNode.querySelector('.validation-msg');
+    if(msg) msg.style.display='none';
+    return true;
+  }
+}
+// Enhanced keyboard navigation
+function handleMarkKeydown(e){
+  let input=e.target;
+  if(!input.matches('td input')) return;
+  let td=input.parentNode;
+  let tr=td.parentNode;
+  let rowIdx=Array.from(tr.parentNode.children).indexOf(tr);
+  let colIdx=Array.from(tr.children).indexOf(td);
+  // AB shortcut
+  if(e.key.toLowerCase()==='a' && (e.ctrlKey||e.metaKey||input.value==='')){
+    // If user types 'a' quickly set AB
+  }
+  if(e.key==='Enter' || e.key==='ArrowDown'){
+    e.preventDefault();
+    let nextRow=tr.parentNode.children[rowIdx+1];
+    if(nextRow){let nextInput=nextRow.children[colIdx]?.querySelector('input');if(nextInput)nextInput.focus();}
+  } else if(e.key==='ArrowUp'){
+    e.preventDefault();
+    let prevRow=tr.parentNode.children[rowIdx-1];
+    if(prevRow){let prevInput=prevRow.children[colIdx]?.querySelector('input');if(prevInput)prevInput.focus();}
+  } else if(e.key==='ArrowRight' || (e.key==='Tab' && !e.shiftKey)){
+    // Tab already handles, but ArrowRight moves to next subject TE
+    if(e.key==='ArrowRight'){
+      e.preventDefault();
+      let nextTd=tr.children[colIdx+1];
+      if(nextTd){let ni=nextTd.querySelector('input');if(ni)ni.focus();}
+    }
+  } else if(e.key==='ArrowLeft'){
+    e.preventDefault();
+    let prevTd=tr.children[colIdx-1];
+    if(prevTd){let pi=prevTd.querySelector('input');if(pi)pi.focus();}
+  }
+  // AB quick set
+  if(input.value.toUpperCase()==='A' || input.value.toUpperCase()==='AB'){
+    if(e.key==='Enter' || e.key==='Tab' || e.key==='ArrowDown'){
+      input.value='AB';
+      input.dispatchEvent(new Event('input',{bubbles:true}));
+    }
+  }
+}
+// Attach global listeners after render
+let _origRender=window.render;
+
+
+// V8 PUBLIC VERSION - WITH LOCAL STORAGE SAFETY NET (Zero-Trust still - browser only)
+window.addEventListener('DOMContentLoaded',()=>{
+  // Try restore from localStorage first (safety net for accidental close)
+  let restored=tryRestoreFromLocal();
+  if(!restored){
+    let hadMaster=loadMasterFromStorage();
+    if(!hadMaster){
+      masterDB={databases:{},currentKey:null};
+      students=Array.from({length:48},()=>({id:uid(),name:''}));
+      marks={}; SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
+      saveCurrentDBToMaster(false);
     } else {
-      let firstKey=Object.keys(masterDB.databases)[0];
-      if(firstKey) loadDBByKey(firstKey);
+      let curKey=masterDB.currentKey || Object.keys(masterDB.databases)[0];
+      if(curKey && masterDB.databases[curKey]){
+        loadDBByKey(curKey);
+      } else {
+        let firstKey=Object.keys(masterDB.databases)[0];
+        if(firstKey) loadDBByKey(firstKey);
+      }
     }
   }
   if(students.length===0){
@@ -794,10 +936,35 @@ window.addEventListener('DOMContentLoaded',()=>{
     saveCurrentDBToMaster(false);
   }
   render(); renderDBList();
-  // PUBLIC: No auto-save interval to localStorage – only session
-  // No preloaded private 10A data for public – public starts blank for privacy
-  toast('🌐 Public Version – Data not stored on site – Enter data → Export JSON + PDF → Import JSON to restore');
+  // Auto-save every 60 sec + on every input
+  setInterval(autoSaveToLocal, 60000);
+  // Attach keyboard nav
+  document.getElementById('tbody').addEventListener('keydown', handleMarkKeydown);
+  // Attach validation + auto-save on input
+  document.getElementById('tbody').addEventListener('input', (e)=>{
+    if(e.target.matches('td input')){
+      let vals=getSchemeVals();
+      let isTE=e.target.dataset.type==='te';
+      let max=isTE?vals.teMax:vals.ceMax;
+      validateInput(e.target, max);
+      autoSaveToLocal();
+    }
+  });
+  // Name input also auto-saves
+  document.getElementById('tbody').addEventListener('input', (e)=>{
+    if(e.target.classList.contains('name-input')){autoSaveToLocal();}
+  });
+  toast('🌐 V8 - Auto-saved to this device every 60s • Data stays in YOUR browser only • Use Settings for JSON backup');
+  // Clear cache button
+  document.getElementById('btnClearLocal')?.addEventListener('click',()=>{
+    if(confirm('Clear all cached data from this device? This will NOT delete exported JSON files.')){
+      Object.keys(localStorage).forEach(k=>{if(k.startsWith('VGC_MARKSHEET_')||k.includes('vgc_marksheet')) localStorage.removeItem(k);});
+      toast('🗑️ Device cache cleared');
+      document.getElementById('autoSaveBadge').textContent='● Cache cleared';
+    }
+  });
 });
+
 // expose preloaded data if injected
 </script>
 <footer class="vgc-footer">
