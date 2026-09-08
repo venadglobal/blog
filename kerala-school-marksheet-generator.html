@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kerala School Marksheet Generator – 48 Students A-D – TE 40/80 + CE – Consolidation – Clean PDF – VGC Gold</title>
+<title>Kerala School Marksheet Generator – V6.18 FINAL – A4 Only – Abbr Mal1 Eng1 – Grading – Subject Manager Add Working – Clean PDF – VGC Gold</title>
 <meta name="description" content="Free Kerala School Marksheet Generator for teachers – 48 students A-D, 13 subjects, TE 40/80 + CE 10/20, auto grading A+ to E, TE Grade + Total + Final Grade, consolidation mark list, auto paper A4/A3/A2, clean PDF with zero comments for official school records, JSON backup & import – 100% browser, no data stored on server.">
 <meta name="keywords" content="Kerala school marksheet generator, CCE marksheet, TE CE grading, Kerala 48 students marksheet, consolidation mark list, A+ to E grading, TE 40 80, CE 10 20, clean school PDF, teacher tool Kerala, VGC Gold">
 <meta name="author" content="Venad Global Consultants – VGC Gold">
@@ -97,8 +98,13 @@ td input.name-input{text-align:left} tr:hover td{background:#1c212c}
 .kbd-hint{font-family:'DM Mono',monospace;font-size:10px;padding:2px 5px;border:1px solid #2a2f3a;border-radius:4px;background:#0e1015;color:#8a8f9a}
 
 </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<!-- V6.18 FRESH FINAL – Add Subject Working – Built from V6.3 base – A4 Only – Abbr – Grading – Subject Manager -->
 </head>
 <body>
+
 <div class="top-gold"></div>
 <nav class="vgc-nav">
   <a href="https://venadglobal.org"><img class="vgc-logo" src="/android-chrome-512x512.png" alt="VGC Gold V"></a>
@@ -125,33 +131,21 @@ td input.name-input{text-align:left} tr:hover td{background:#1c212c}
 </div>
 </div>
 </header>
+
+
+
 <main style="max-width:1380px;margin:0 auto;padding:16px 14px 90px;display:flex;flex-direction:column;gap:14px">
-
-<div class="card" style="background:linear-gradient(90deg,rgba(201,162,39,0.15),rgba(240,192,64,0.08));border:1px solid rgba(201,162,39,0.3);padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center">
-<div style="display:flex;gap:10px;align-items:center">
-<span style="font-size:20px">🔒</span>
-<div>
-<div style="font-weight:700;font-size:12px;color:#f0c040;letter-spacing:.08em">PUBLIC VERSION – PRIVACY SAFE – NO DATA STORED ON SERVER</div>
-<div class="mono" style="font-size:11px;color:#e8e6e1;margin-top:2px">This tool runs 100% in your browser. No data sent to venadglobal.org. Refresh = data gone unless you export JSON. Backup your JSON file + PDF. Import JSON later based on Class/Division/Term/Scheme.</div>
-</div>
-</div>
-<div style="display:flex;gap:8px">
-<button class="btn btn-gold" onclick="document.getElementById('btnExportJson').click()">📥 Backup JSON Now</button>
-<button class="btn btn-dark" onclick="document.getElementById('btnImportJson').click()">📤 Import My JSON</button>
-</div>
-</div>
-
 
 <div class="card" style="background:linear-gradient(180deg,#151a23,#0e1218);border:1px solid rgba(201,162,39,0.25)">
 <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center">
 <div>
-<div style="font-size:11px;font-weight:700;letter-spacing:.18em;color:#f0c040">🌐 PUBLIC DATABASE – Session Only – No Site Storage</div>
-<div class="mono" style="font-size:10.5px;color:#8a8f98;margin-top:4px">PUBLIC: Each Term+Class+Div+Scheme = separate in-memory DB. Switching keeps data in this tab only. Refresh = data lost unless you exported JSON. Import your JSON to restore based on existing criteria (Class, Division, Term, Scheme).</div>
+<div style="font-size:11px;font-weight:700;letter-spacing:.18em;color:#f0c040">🗄️ DATABASE MANAGER – Foolproof Logic</div>
+<div class="mono" style="font-size:10.5px;color:#8a8f98;margin-top:4px">Each Term+Class+Div+Scheme = separate DB. Switching auto-saves current and loads target. No overwrite. No duplication.</div>
 </div>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
-<button class="btn btn-dark" id="btnShowDBs">📂 Show Session DBs</button>
-<button class="btn btn-dark" id="btnExportMaster">💾 Export SESSION MASTER</button>
-<button class="btn btn-dark" id="btnImportMaster">📤 Import MASTER (All)</button>
+<button class="btn btn-dark" id="btnShowDBs">📂 Show All DBs</button>
+<button class="btn btn-dark" id="btnExportMaster">💾 Export MASTER (All Classes)</button>
+<button class="btn btn-dark" id="btnImportMaster">📤 Import MASTER</button>
 <input type="file" id="fileMaster" accept=".json" style="display:none">
 </div>
 </div>
@@ -160,9 +154,9 @@ td input.name-input{text-align:left} tr:hover td{background:#1c212c}
 
 <div class="card card-gold" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center">
 <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-<span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:#f0c040">💾 BACKUP (Public – No Site Save)</span>
-<button class="btn btn-save" id="btnSaveNow">💾 Keep in Session</button>
-<span class="mono" style="font-size:11px;background:#0e1015;border:1px solid rgba(16,185,129,0.2);padding:7px 11px;border-radius:10px;color:#6ee7b7" id="autoSaveStatus">Public – Session Only – Export JSON</span>
+<span style="font-size:11px;font-weight:700;letter-spacing:.18em;color:#f0c040">💾 SAVE</span>
+<button class="btn btn-save" id="btnSaveNow">💾 Save Current DB</button>
+<span class="mono" style="font-size:11px;background:#0e1015;border:1px solid rgba(16,185,129,0.2);padding:7px 11px;border-radius:10px;color:#6ee7b7" id="autoSaveStatus">Auto-save ON</span>
 </div>
 <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
 <select id="backupType" class="input" style="width:210px;padding:8px 10px;font-size:12px">
@@ -174,8 +168,8 @@ td input.name-input{text-align:left} tr:hover td{background:#1c212c}
 <button class="btn btn-dark" id="btnExportJson">📥 Export</button>
 <button class="btn btn-dark" id="btnImportJson">📤 Import Selective</button>
 <input type="file" id="fileImport" accept=".json,.csv" style="display:none">
-<button class="btn btn-danger" id="btnClearCurrent">🗑️ Clear Session DB</button>
-<button class="btn btn-danger" id="btnClearAll">🗑️ Clear All Session</button>
+<button class="btn btn-danger" id="btnClearCurrent">🗑️ Clear Current DB</button>
+<button class="btn btn-danger" id="btnClearAll">🗑️ Clear ALL DBs</button>
 </div>
 </div>
 
@@ -201,6 +195,33 @@ td input.name-input{text-align:left} tr:hover td{background:#1c212c}
 
 <div style="margin-top:14px">
 <label style="font-size:11px;color:#8a8f98;letter-spacing:.08em">SUBJECTS (13) – Same Roster Per DB – Marks Per Subject</label>
+
+<div id="subjManager" style="margin-top:12px;border:1px solid #c9a22755;border-radius:12px;padding:12px;background:#161a20">
+<h3 style="margin:0 0 8px 0;color:#fff;font-size:14px">🗂️ Subject Manager – Remove Not Available / Add Available – V6.18 FIXED</h3>
+<p style="font-size:11px;color:#f0c040;margin:0 0 10px 0;font-family:monospace">Remove subjects not taught, Add subjects like Arabic/Sanskrit. Works offline & online clean. V6.3 base kept.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<div style="flex:1;min-width:280px">
+<b style="font-size:12px;color:#fff">Available (Click Hide to remove)</b>
+<div id="availSubList" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:180px;overflow:auto;margin-top:8px;padding:6px;background:#0e1015;border:1px solid #2a2f3a;border-radius:10px"></div>
+</div>
+<div style="flex:1;min-width:280px">
+<b style="font-size:12px;color:#fff">Active for This Class (Click Remove)</b>
+<div id="activeSubList" style="display:grid;grid-template-columns:1fr;gap:6px;max-height:180px;overflow:auto;margin-top:8px;padding:6px;background:#0e1015;border:1px solid #2a2f3a;border-radius:10px"></div>
+<div style="margin-top:8px;display:flex;gap:6px">
+<input id="newSubName" placeholder="Add custom: Arabic, Sanskrit, Urdu" style="flex:1;padding:8px;background:#0e1015;border:1px solid #c9a22755;border-radius:8px;color:#fff;font-size:12px">
+<select id="newSubScheme" style="padding:8px;background:#0e1015;border:1px solid #2a2f3a;border-radius:8px;color:#fff;font-size:11px"><option value="40_10">40+10</option><option value="80_20">80+20</option></select>
+<button id="btnAddCustomSub" type="button" style="padding:8px 14px;background:#c9a227;border:none;border-radius:8px;color:#000;font-weight:800;font-size:12px;cursor:pointer">➕ Add Subject</button>
+</div>
+<div id="addSubStatus" style="margin-top:6px;font-size:11px;color:#10b981;font-family:monospace"></div>
+</div>
+</div>
+<div style="margin-top:10px;display:flex;gap:8px">
+<button id="btnSaveSubConfig" type="button" style="padding:7px 12px;background:#1f242f;border:1px solid #2a2f3a;border-radius:8px;color:#fff;cursor:pointer">💾 Save Config</button>
+<button id="btnResetSubConfig" type="button" style="padding:7px 12px;background:#2a2f3a;border:none;border-radius:8px;color:#fff;cursor:pointer">↩️ Show All</button>
+<button id="btnTestAdd" type="button" style="padding:7px 12px;background:#10b981;border:none;border-radius:8px;color:#fff;cursor:pointer">🧪 Test Add Arabic</button>
+</div>
+</div>
+
 <div id="subjectPills" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:8px"></div>
 <div style="display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap">
 <select id="subjectSel" class="input" style="width:190px">
@@ -244,21 +265,7 @@ td input.name-input{text-align:left} tr:hover td{background:#1c212c}
 <th style="width:68px" id="thCE">CE <span class="ceMaxLabel">10</span></th><th style="width:68px">CE Gr</th>
 <th style="width:68px">Total <span class="totalMaxLabel">50</span></th><th style="width:52px">%</th><th style="width:70px">Final</th><th style="width:110px">Action</th>
 </tr></thead><tbody id="tbody"></tbody></table></div>
-
-<div style="margin-top:10px">
-<button class="btn btn-dark btn-sm" onclick="document.getElementById('advancedSettings').classList.toggle('open')">⚙️ Settings / Backup (Advanced)</button>
-<div id="advancedSettings" class="settings-panel">
-<div class="mono" style="font-size:11px;color:#8a8f9a;margin-bottom:8px">Technical Details (Hidden from students - for power users)</div>
-<div>DB: <span id="dbKeyLabel"></span> | <span id="currentDBKey"></span> | <span id="dbInfoFooter"></span></div>
-<div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-<button class="btn btn-dark btn-sm" id="btnExportJSON">📥 Backup JSON</button>
-<button class="btn btn-dark btn-sm" id="btnImportJSON">📤 Restore JSON</button>
-<button class="btn btn-danger btn-sm" id="btnClearLocal">🗑️ Clear Device Cache</button>
-</div>
-<div style="margin-top:8px;font-size:11px;color:#6b7280">Zero-Trust: Data stays in YOUR browser (localStorage). Never touches venadglobal.org server. JSON backup for long-term.</div>
-</div>
-</div>
-<div class="mono" style="padding:8px 12px;font-size:10.5px;color:#5a5f6a;display:none">DB: <span id="dbInfoFooter"></span> | Scheme: <span id="schemeLabel"></span> | <span id="genTime"></span></div>
+<div class="mono" style="padding:8px 12px;font-size:10.5px;color:#5a5f6a">DB: <span id="dbInfoFooter"></span> | Scheme: <span id="schemeLabel"></span> | <span id="genTime"></span></div>
 </div>
 
 </main>
@@ -274,38 +281,71 @@ function calcRow(teRaw,ceRaw,teMax,ceMax,totalMax){
   let tePerc=te===null?null:te/teMax*100, cePerc=ce===null?null:ce/ceMax*100;
   return{te,ce,total,perc,teGrade:te===null?'E':gradeByPerc(tePerc), ceGrade:ce===null?(ceRaw===''?'E':gradeByPerc(cePerc)):gradeByPerc(cePerc), finalGrade:total===null?'E':gradeByPerc(perc)};
 }
-const SUBJECTS=["Malayalam 1","Malayalam 2","English 1","English 2","Hindi 1","Hindi 2","Mathematics","Science","Social Science","Physics","Chemistry","Biology","IT"];
-const MASTER_KEY='vgc_marksheet_v6_master_foolproof';
+let SUBJECTS=["Malayalam 1","Malayalam 2","English 1","English 2","Hindi 1","Hindi 2","Mathematics","Science","Social Science","Physics","Chemistry","Biology","IT"];
+const MASTER_KEY='vgc_marksheet_v7_online_clean_no_data_store_v618';
 let masterDB={databases:{}, currentKey:null};
 let students=[]; let marks={}; let currentSubject='Malayalam 1'; let customName=''; let scheme='40_10';
-function getSchemeVals(){return scheme==='40_10'?{teMax:40,ceMax:10,totalMax:50}:{teMax:80,ceMax:20,totalMax:100};}
+let subjectSchemes={}; // V6.2 FIX: per-subject locked scheme
+function normalizeSubjectNameV62(n){ if(!n) return ""; let s=String(n).trim().replace(/\s+/g,' '); const map={"Malayalam I":"Malayalam 1","Malayalam II":"Malayalam 2","MALAYALAM I":"Malayalam 1","MALAYALAM II":"Malayalam 2"}; if(map[s]) return map[s]; s=s.replace(/\s+I\s*$/i,' 1').replace(/\s+II\s*$/i,' 2'); return s; }
+function getSubjectSchemeV62(sub){
+  sub=normalizeSubjectNameV62(sub);
+  if(subjectSchemes && subjectSchemes[sub]) return subjectSchemes[sub];
+  if(/english/i.test(sub)) return '80_20';
+  return scheme||'40_10';
+}
+function lockSubjectSchemeV62(sub, sch){
+  sub=normalizeSubjectNameV62(sub);
+  subjectSchemes[sub]=sch;
+  saveCurrentDBToMaster(false);
+}
+function ensureAllSubjectsLockedV62(){
+  if(!subjectSchemes) subjectSchemes={};
+  Object.keys(marks).forEach(function(sub){
+    let ns=normalizeSubjectNameV62(sub);
+    if(!subjectSchemes[ns]){
+      if(/english/i.test(ns)) subjectSchemes[ns]='80_20';
+      else subjectSchemes[ns]=scheme||'40_10';
+    }
+  });
+  if(typeof SUBJECTS!=='undefined'){
+    SUBJECTS.forEach(function(s){
+      let ns=normalizeSubjectNameV62(s);
+      if(!subjectSchemes[ns]){
+        if(/english/i.test(ns)) subjectSchemes[ns]='80_20';
+        else subjectSchemes[ns]=scheme||'40_10';
+      }
+    });
+  }
+}
+
+function getSchemeVals(schemeStr){ let sch=schemeStr||scheme; if(!sch) sch='40_10'; if(sch==='40_10') return {teMax:40,ceMax:10,totalMax:50,key:'40_10',label:'40+10'}; if(sch==='80_20') return {teMax:80,ceMax:20,totalMax:100,key:'80_20',label:'80+20'}; let parts=String(sch).split(/[_+\-]/); let te=parseInt(parts[0])||40; let ce=parseInt(parts[1])||10; return {teMax:te,ceMax:ce,totalMax:te+ce,key:sch,label:te+'+'+ce}; }
 function uid(){return Math.random().toString(36).slice(2,9);}
 function sanitize(str){return str.replace(/\s+/g,'_').replace(/[^A-Za-z0-9_.-]/g,'').replace(/_+/g,'_');}
-function generateDBKey(cls,div,exam,sch){let examS=sanitize(exam); return `${cls}${div}_${examS}_${sch}`;}
+function generateDBKeyOld(cls,div,exam,sch){let examS=sanitize(exam); return `${cls}${div}_${examS}_${sch}`;}
+function generateDBKey(cls,div,exam,sch){
+  // V6.2 FIX: No scheme in key, per-subject scheme locked inside DB. Underscore between class and division to fix 9A/9B bug
+  let examS=sanitize(exam);
+  let m=String(cls).match(/^(\d+)\s*([A-D])$/i);
+  if(m) return `${m[1]}_${m[2].toUpperCase()}_${examS}`;
+  return `${cls}_${div}_${examS}`;
+}
+function convertOldKeyToNewV62(oldKey){
+  let k=String(oldKey).trim();
+  k=k.replace(/_(\d+[_+]\d+)$/,'');
+  k=k.replace(/^(\d+)([A-D])_/i,function(a,b,c){ return b+"_"+c.toUpperCase()+"_"; });
+  return k;
+}
+
 function getCurrentDBKey(){let cls=document.getElementById('classSel').value; let div=document.getElementById('divisionSel').value; let exam=document.getElementById('examNameSel').value; return generateDBKey(cls,div,exam,scheme);}
 function ensureSubject(sub){if(!marks[sub]){marks[sub]=students.map(()=>({teRaw:'',ceRaw:''}));}else{if(marks[sub].length<students.length){let diff=students.length-marks[sub].length;for(let i=0;i<diff;i++) marks[sub].push({teRaw:'',ceRaw:''});}else if(marks[sub].length>students.length){marks[sub]=marks[sub].slice(0,students.length);}}}
 function getCurMarks(){ensureSubject(currentSubject); return marks[currentSubject];}
 
-// PUBLIC VERSION – NO STORAGE – DATA ONLY IN MEMORY – BACKUP VIA JSON + PDF
 function saveMasterToStorage(){
-  // No persistent storage for public – keep in memory only
-  try{
-    // Optional: keep in sessionStorage for current tab only, cleared on close
-    sessionStorage.setItem(MASTER_KEY+'_session', JSON.stringify(masterDB));
-  }catch(e){}
-  document.getElementById('lastSaved').textContent='In-Memory • '+getCurrentDBKey()+' • '+new Date().toLocaleTimeString();
-  document.getElementById('autoSaveStatus').textContent='Public – No site storage – Export JSON to backup';
-  document.getElementById('dbKeyLabel').textContent='DB: '+getCurrentDBKey()+' (Session only)';
-  document.getElementById('currentDBKey').textContent=getCurrentDBKey()+' – Session only – Export JSON';
-  document.getElementById('dbInfoFooter').textContent=getCurrentDBKey()+' | '+students.length+' students | '+Object.keys(marks).length+' subjects | Session only';
-  updatePdfNamePreview();
-  renderDBList();
-  return true;
+  try{localStorage.setItem(MASTER_KEY, JSON.stringify(masterDB)); return true;}catch(e){toast('Master save failed '+e.message); return false;}
 }
 function loadMasterFromStorage(){
-  // PUBLIC – try sessionStorage only, no localStorage – fresh start for public visitors
   try{
-    let raw=sessionStorage.getItem(MASTER_KEY+'_session');
+    let raw=localStorage.getItem(MASTER_KEY);
     if(!raw) return false;
     masterDB=JSON.parse(raw);
     if(!masterDB.databases) masterDB.databases={};
@@ -322,6 +362,7 @@ function saveCurrentDBToMaster(showToast=false){
     scheme:scheme,
     students:students,
     marks:marks,
+    subjectSchemes:subjectSchemes,
     currentSubject:currentSubject,
     customName:customName,
     ts:Date.now()
@@ -331,7 +372,6 @@ function saveCurrentDBToMaster(showToast=false){
   saveMasterToStorage();
   document.getElementById('lastSaved').textContent='Last: '+new Date().toLocaleTimeString()+' • '+key;
   document.getElementById('autoSaveStatus').textContent='saved '+new Date().toLocaleTimeString()+' • '+key;
-  autoSaveToLocal();
   document.getElementById('dbKeyLabel').textContent='DB: '+key;
   document.getElementById('currentDBKey').textContent=key;
   document.getElementById('dbInfoFooter').textContent=key+' | '+students.length+' students | '+Object.keys(marks).length+' subjects';
@@ -347,7 +387,9 @@ function loadDBByKey(key){
   document.getElementById('classSel').value=db.class||document.getElementById('classSel').value;
   document.getElementById('divisionSel').value=db.division||document.getElementById('divisionSel').value;
   scheme=db.scheme||'40_10'; document.getElementById('schemeSel').value=scheme;
-  students=db.students||[]; marks=db.marks||{}; currentSubject=db.currentSubject||'Malayalam 1'; customName=db.customName||'';
+  students=db.students||[]; marks=db.marks||{}; subjectSchemes=db.subjectSchemes||{}; currentSubject=db.currentSubject||'Malayalam 1'; customName=db.customName||'';
+  // V6.2: ensure all subjects have locked scheme
+  ensureAllSubjectsLockedV62();
   masterDB.currentKey=key;
   saveMasterToStorage();
   render();
@@ -414,7 +456,16 @@ function loadSample(key){
   }
 }
 function render(){
-  let vals=getSchemeVals();
+  ensureAllSubjectsLockedV62();
+  let lockedScheme=getSubjectSchemeV62(currentSubject);
+  let vals=getSchemeVals(lockedScheme);
+  // sync scheme selector to locked value without overwriting others
+  let schemeSel=document.getElementById('schemeSel');
+  if(schemeSel && schemeSel.value!==lockedScheme){
+    schemeSel.value=lockedScheme;
+    scheme=lockedScheme;
+  }
+
   document.getElementById('thTE').innerHTML=`TE <span class="teMaxLabel">${vals.teMax}</span> / AB`;
   document.getElementById('thCE').innerHTML=`CE <span class="ceMaxLabel">${vals.ceMax}</span>`;
   document.querySelectorAll('.totalMaxLabel').forEach(el=>el.textContent=vals.totalMax);
@@ -491,16 +542,31 @@ function updateRowCalc(i){
 }
 function renderPills(){
   let container=document.getElementById('subjectPills'); container.innerHTML='';
+  ensureAllSubjectsLockedV62();
   SUBJECTS.forEach(s=>{if(!marks[s]) marks[s]=students.map(()=>({teRaw:'',ceRaw:''}));});
   let allSubs=[...new Set([...SUBJECTS, ...Object.keys(marks).filter(s=>!SUBJECTS.includes(s))])];
   allSubs.forEach(sub=>{
     let count=(marks[sub]||[]).filter(x=>x.teRaw!==''||x.ceRaw!=='').length;
+    let locked=getSubjectSchemeV62(sub);
+    let vals=getSchemeVals(locked);
     let pill=document.createElement('div'); pill.className='subject-pill '+(sub===currentSubject?'active':'');
     let dotColor=count>0?'#10b981':'#3f3f46';
-    pill.innerHTML=`<span class="dot" style="background:${dotColor}"></span>${sub} <span class="mono" style="font-size:10px;opacity:0.7">(${count})</span>`;
-    pill.addEventListener('click',()=>{saveCurrentDBToMaster(false); currentSubject=sub; render(); saveCurrentDBToMaster(false); toast('Switched to '+sub);});
+    pill.innerHTML=`<span class="dot" style="background:${dotColor}"></span>${sub} <span class="mono" style="font-size:9px;background:#0e1015;border:1px solid #2a2f3a;padding:2px 5px;border-radius:999px;color:#f0c040">${vals.label}</span> <span class="mono" style="font-size:10px;opacity:0.7">(${count})</span>`;
+    pill.addEventListener('click',()=>{saveCurrentDBToMaster(false); currentSubject=sub; render(); saveCurrentDBToMaster(false); toast('Switched to '+sub+' ['+getSchemeVals(getSubjectSchemeV62(sub)).label+']');});
     container.appendChild(pill);
   });
+  // Debug line for per-subject lock
+  let debugEl=document.getElementById('perSubjectDebug');
+  if(!debugEl){
+    let bar=document.createElement('div');
+    bar.id='perSubjectDebug';
+    bar.className='mono';
+    bar.style.cssText='margin-top:10px;padding:8px 10px;background:#0e1015;border:1px dashed rgba(201,162,39,0.3);border-radius:8px;font-size:10px;color:#f0c040';
+    document.getElementById('subjectPills').parentNode.appendChild(bar);
+    debugEl=bar;
+  }
+  let entries=Object.entries(subjectSchemes).map(function(kv){ return kv[0]+'='+getSchemeVals(kv[1]).label; }).join(' , ');
+  debugEl.textContent='LOCKED PER-SUBJECT: '+entries;
 }
 function updatePdfNamePreview(){
   let subj=currentSubject.replace(/\s+/g,'');
@@ -526,14 +592,23 @@ function renderDBList(){
 function toast(m){let t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200);}
 
 // events – foolproof: change of Term/Class/Div/Scheme triggers DB switch
-['classSel','divisionSel','examNameSel','schemeSel'].forEach(id=>{
+// V6.3 FIX: schemeSel should NOT trigger DB switch, only per-subject lock
+['classSel','divisionSel','examNameSel'].forEach(id=>{
   let el=document.getElementById(id);
   el.addEventListener('change',()=>{
-    if(id==='schemeSel') scheme=el.value;
-    // auto-switch DB logic
     switchDBOnSelectorChange();
   });
 });
+// Per-subject scheme lock - ONLY place where schemeSel is handled
+document.getElementById('schemeSel').addEventListener('change',(e)=>{
+  let newSch=e.target.value;
+  scheme=newSch;
+  lockSubjectSchemeV62(currentSubject, newSch);
+  saveCurrentDBToMaster(false);
+  render();
+  toast('🔒 Locked '+currentSubject+' → '+getSchemeVals(newSch).label+' (per-subject)');
+});
+
 
 document.getElementById('btnShowDBs').addEventListener('click',()=>{
   let list=document.getElementById('dbList');
@@ -632,7 +707,7 @@ document.getElementById('btnCsv').addEventListener('click',()=>{
   let cur=getCurMarks(); let vals=getSchemeVals();
   let header=`Sl#,Name,TE(${vals.teMax}),TE Grade,CE(${vals.ceMax}),CE Grade,Total(${vals.totalMax}),%,Final Grade\n`;
   let csv=header+students.map((stu,i)=>{let m=cur[i]||{teRaw:'',ceRaw:''}; let c=calcRow(m.teRaw,m.ceRaw,vals.teMax,vals.ceMax,vals.totalMax); return `${i+1},"${stu.name.replace(/"/g,'""')}",${m.teRaw===''?'AB':m.teRaw},${c.teGrade},${m.ceRaw===''?'':m.ceRaw},${c.ceGrade},${c.total===null?'AB':c.total},${c.perc===null?'':c.perc.toFixed(2)},${c.finalGrade}`;}).join('\n');
-  let blob=new Blob([csv],{type:'text/csv'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=updatePdfNamePreview().replace('.pdf','.csv'); a.click(); URL.revokeObjectURL(url); trackExport('csv_'+currentSubject); toast('CSV: '+currentSubject);
+  let blob=new Blob([csv],{type:'text/csv'}); let url=URL.createObjectURL(blob); let a=document.createElement('a'); a.href=url; a.download=updatePdfNamePreview().replace('.pdf','.csv'); a.click(); URL.revokeObjectURL(url); toast('CSV: '+currentSubject);
 });
 async function exportPdfCurrent(){
   let vals=getSchemeVals(); let JSPDF=window.jspdf&&window.jspdf.jsPDF?window.jspdf.jsPDF:null; if(!JSPDF){toast('jsPDF not loaded'); return;}
@@ -672,7 +747,7 @@ async function exportPdfCurrent(){
   });
   // clean footer
   let finalY=doc.lastAutoTable?doc.lastAutoTable.finalY+4:200;
-  // NO FOOTER – CLEAN – doc.setFontSize(6.5);
+  doc.setFontSize(6.5); doc.setTextColor(100,100,100);
   doc.text(`Clean School Record – A4 Portrait – Auto-adjusted Name col ${nameColWidth}mm for ${maxNameLen} chars – ${getCurrentDBKey()}`,10,finalY);
   doc.save(updatePdfNamePreview());
   toast('✅ Clean PDF A4 – Auto-adjusted – '+updatePdfNamePreview());
@@ -793,180 +868,611 @@ document.getElementById('btnConsolidationPdf').addEventListener('click',()=>{
 });
 document.getElementById('btnPrint').addEventListener('click',()=>window.print());
 
-
-// V8 IMPROVEMENTS - Teacher-Optimized
-// Auto-save safety net - keeps zero-trust (browser only)
-function getLocalStorageKey(dbKey){return 'VGC_MARKSHEET_'+dbKey;}
-function autoSaveToLocal(){
-  try{
-    let key=getCurrentDBKey();
-    let payload={
-      school:document.getElementById('schoolName').value,
-      exam:document.getElementById('examNameSel').value,
-      class:document.getElementById('classSel').value,
-      division:document.getElementById('divisionSel').value,
-      scheme:scheme,
-      students:students,
-      marks:marks,
-      currentSubject:currentSubject,
-      ts:Date.now()
-    };
-    localStorage.setItem(getLocalStorageKey(key), JSON.stringify(payload));
-    localStorage.setItem(MASTER_KEY+'_lastKey', key);
-    let badge=document.getElementById('autoSaveBadge');
-    if(badge){badge.textContent='● Auto-saved to this device • '+new Date().toLocaleTimeString();badge.classList.remove('saving');}
-    document.getElementById('autoSaveStatus').textContent='Auto-saved '+new Date().toLocaleTimeString();
-  }catch(e){
-    console.warn('localStorage full', e);
-    let badge=document.getElementById('autoSaveBadge');
-    if(badge){badge.textContent='⚠️ Save failed - storage full';badge.style.color='#ef4444';}
-  }
-}
-function tryRestoreFromLocal(){
-  try{
-    let lastKey=localStorage.getItem(MASTER_KEY+'_lastKey');
-    if(!lastKey) return false;
-    let data=localStorage.getItem(getLocalStorageKey(lastKey));
-    if(!data) return false;
-    let db=JSON.parse(data);
-    if(!db.students || !db.marks) return false;
-    // Restore
-    students=db.students;
-    marks=db.marks;
-    scheme=db.scheme||scheme;
-    document.getElementById('schoolName').value=db.school||'';
-    document.getElementById('examNameSel').value=db.exam||'';
-    document.getElementById('classSel').value=db.class||'';
-    document.getElementById('divisionSel').value=db.division||'';
-    currentSubject=db.currentSubject||currentSubject;
-    toast('✅ Restored from device cache: '+lastKey+' • '+students.length+' students');
-    return true;
-  }catch(e){console.warn('restore failed', e); return false;}
-}
-// Real-time validation
-function validateInput(input, max){
-  let v=input.value.trim().toUpperCase();
-  if(v===''||v==='AB'||v==='ABSENT'){input.classList.remove('input-error');return true;}
-  let n=parseFloat(v);
-  if(isNaN(n)){input.classList.add('input-error');return false;}
-  if(n<0 || n>max){
-    input.classList.add('input-error');
-    // Show tooltip
-    let msg=input.parentNode.querySelector('.validation-msg');
-    if(!msg){msg=document.createElement('div');msg.className='validation-msg';input.parentNode.style.position='relative';input.parentNode.appendChild(msg);}
-    msg.textContent='Max allowed is '+max;
-    msg.style.display='block';
-    setTimeout(()=>{if(msg)msg.style.display='none';},3000);
-    return false;
-  } else {
-    input.classList.remove('input-error');
-    let msg=input.parentNode.querySelector('.validation-msg');
-    if(msg) msg.style.display='none';
-    return true;
-  }
-}
-// Enhanced keyboard navigation
-function handleMarkKeydown(e){
-  let input=e.target;
-  if(!input.matches('td input')) return;
-  let td=input.parentNode;
-  let tr=td.parentNode;
-  let rowIdx=Array.from(tr.parentNode.children).indexOf(tr);
-  let colIdx=Array.from(tr.children).indexOf(td);
-  // AB shortcut
-  if(e.key.toLowerCase()==='a' && (e.ctrlKey||e.metaKey||input.value==='')){
-    // If user types 'a' quickly set AB
-  }
-  if(e.key==='Enter' || e.key==='ArrowDown'){
-    e.preventDefault();
-    let nextRow=tr.parentNode.children[rowIdx+1];
-    if(nextRow){let nextInput=nextRow.children[colIdx]?.querySelector('input');if(nextInput)nextInput.focus();}
-  } else if(e.key==='ArrowUp'){
-    e.preventDefault();
-    let prevRow=tr.parentNode.children[rowIdx-1];
-    if(prevRow){let prevInput=prevRow.children[colIdx]?.querySelector('input');if(prevInput)prevInput.focus();}
-  } else if(e.key==='ArrowRight' || (e.key==='Tab' && !e.shiftKey)){
-    // Tab already handles, but ArrowRight moves to next subject TE
-    if(e.key==='ArrowRight'){
-      e.preventDefault();
-      let nextTd=tr.children[colIdx+1];
-      if(nextTd){let ni=nextTd.querySelector('input');if(ni)ni.focus();}
-    }
-  } else if(e.key==='ArrowLeft'){
-    e.preventDefault();
-    let prevTd=tr.children[colIdx-1];
-    if(prevTd){let pi=prevTd.querySelector('input');if(pi)pi.focus();}
-  }
-  // AB quick set
-  if(input.value.toUpperCase()==='A' || input.value.toUpperCase()==='AB'){
-    if(e.key==='Enter' || e.key==='Tab' || e.key==='ArrowDown'){
-      input.value='AB';
-      input.dispatchEvent(new Event('input',{bubbles:true}));
-    }
-  }
-}
-// Attach global listeners after render
-let _origRender=window.render;
-
-
-// V8 PUBLIC VERSION - WITH LOCAL STORAGE SAFETY NET (Zero-Trust still - browser only)
+// Init – foolproof multi-DB
 window.addEventListener('DOMContentLoaded',()=>{
-  // Try restore from localStorage first (safety net for accidental close)
-  let restored=tryRestoreFromLocal();
-  if(!restored){
-    let hadMaster=loadMasterFromStorage();
-    if(!hadMaster){
-      masterDB={databases:{},currentKey:null};
-      students=Array.from({length:48},()=>({id:uid(),name:''}));
-      marks={}; SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
-      saveCurrentDBToMaster(false);
-    } else {
-      let curKey=masterDB.currentKey || Object.keys(masterDB.databases)[0];
-      if(curKey && masterDB.databases[curKey]){
-        loadDBByKey(curKey);
-      } else {
-        let firstKey=Object.keys(masterDB.databases)[0];
-        if(firstKey) loadDBByKey(firstKey);
+  // V6.2 migration: merge old DBs like 9A_1st_Term_40_10 and 9A_1st_Term_80_20 into 9_A_1st_Term
+  try{
+    let raw=localStorage.getItem(MASTER_KEY);
+    if(raw){
+      let tmp=JSON.parse(raw);
+      if(tmp.databases){
+        let toMigrate=Object.keys(tmp.databases).filter(function(k){ return /_(\d+[_+]\d+)$/.test(k); });
+        if(toMigrate.length>0){
+          toMigrate.forEach(function(oldKey){
+            let m=oldKey.match(/^(\d+)([A-D])_(.+)_((?:\d+[_+]\d+))$/);
+            if(!m) return;
+            let newKey=m[1]+'_'+m[2].toUpperCase()+'_'+m[3];
+            let oldDb=tmp.databases[oldKey];
+            if(!oldDb) return;
+            if(!tmp.databases[newKey]){
+              // create new with subjectSchemes from old scheme
+              let newSchemes={};
+              Object.keys(oldDb.marks||{}).forEach(function(sub){ newSchemes[sub]=m[4].replace('+','_'); });
+              if(oldDb.subjectSchemes) Object.assign(newSchemes, oldDb.subjectSchemes);
+              tmp.databases[newKey]={
+                school:oldDb.school, exam:oldDb.exam, class:oldDb.class, division:oldDb.division,
+                scheme:oldDb.scheme, students:oldDb.students, marks:oldDb.marks,
+                subjectSchemes:newSchemes, currentSubject:oldDb.currentSubject, ts:Date.now(), migratedFrom:oldKey
+              };
+            } else {
+              // merge marks
+              let target=tmp.databases[newKey];
+              if(!target.subjectSchemes) target.subjectSchemes={};
+              Object.keys(oldDb.marks||{}).forEach(function(sub){
+                if(!target.marks[sub]) target.marks[sub]=oldDb.marks[sub];
+                if(!target.subjectSchemes[sub]) target.subjectSchemes[sub]=m[4].replace('+','_');
+              });
+            }
+          });
+          localStorage.setItem(MASTER_KEY, JSON.stringify(tmp));
+          console.log('V6.2 migrated '+toMigrate.length+' old DBs');
+        }
       }
     }
+  }catch(e){ console.error('migration failed', e); }
+
+  let hadMaster=loadMasterFromStorage();
+  if(!hadMaster){
+    masterDB={databases:{},currentKey:null};
+    // create initial DB for 10A 1st Term 40_10 with 48 empty
+    students=Array.from({length:48},()=>({id:uid(),name:''}));
+    marks={}; SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
+    saveCurrentDBToMaster(false);
+  } else {
+    // try load current key
+    let curKey=masterDB.currentKey || Object.keys(masterDB.databases)[0];
+    if(curKey && masterDB.databases[curKey]){
+      loadDBByKey(curKey);
+    } else {
+      // load first DB
+      let firstKey=Object.keys(masterDB.databases)[0];
+      if(firstKey) loadDBByKey(firstKey);
+    }
   }
+  // If still no students (first time), generate 48
   if(students.length===0){
     students=Array.from({length:48},()=>({id:uid(),name:''}));
     SUBJECTS.forEach(s=>marks[s]=students.map(()=>({teRaw:'',ceRaw:''})));
     saveCurrentDBToMaster(false);
   }
   render(); renderDBList();
-  // Auto-save every 60 sec + on every input
-  setInterval(autoSaveToLocal, 60000);
-  // Attach keyboard nav
-  document.getElementById('tbody').addEventListener('keydown', handleMarkKeydown);
-  // Attach validation + auto-save on input
-  document.getElementById('tbody').addEventListener('input', (e)=>{
-    if(e.target.matches('td input')){
-      let vals=getSchemeVals();
-      let isTE=e.target.dataset.type==='te';
-      let max=isTE?vals.teMax:vals.ceMax;
-      validateInput(e.target, max);
-      autoSaveToLocal();
-    }
-  });
-  // Name input also auto-saves
-  document.getElementById('tbody').addEventListener('input', (e)=>{
-    if(e.target.classList.contains('name-input')){autoSaveToLocal();}
-  });
-  toast('🌐 V8 - Auto-saved to this device every 60s • Data stays in YOUR browser only • Use Settings for JSON backup');
-  // Clear cache button
-  document.getElementById('btnClearLocal')?.addEventListener('click',()=>{
-    if(confirm('Clear all cached data from this device? This will NOT delete exported JSON files.')){
-      Object.keys(localStorage).forEach(k=>{if(k.startsWith('VGC_MARKSHEET_')||k.includes('vgc_marksheet')) localStorage.removeItem(k);});
-      toast('🗑️ Device cache cleared');
-      document.getElementById('autoSaveBadge').textContent='● Cache cleared';
-    }
-  });
+  setInterval(()=>saveCurrentDBToMaster(false),15000);
+
+  // preload 10A data if exists as global var (from previous file)
+  if(window.PRELOADED_10A_DATA){
+    try{
+      let d=window.PRELOADED_10A_DATA;
+      let key=generateDBKey(d.class,d.division,d.exam,d.scheme);
+      if(!masterDB.databases[key]){
+        masterDB.databases[key]=d;
+        saveMasterToStorage();
+        toast('✅ 10A preloaded DB imported: '+key);
+        renderDBList();
+      }
+    }catch(e){}
+  }
 });
 
 // expose preloaded data if injected
 </script>
+
+<script>
+/* V6.18 FIXED SUBJECT MANAGER – Add Subject Working – Fresh Build */
+let hiddenSubjects = [];
+try{
+  let k = (typeof getCurrentDBKey==='function'? getCurrentDBKey() : 'default');
+  hiddenSubjects = JSON.parse(localStorage.getItem('hiddenSubjects_'+k) || '[]');
+}catch(e){ hiddenSubjects=[]; }
+
+function saveHiddenV618(){
+  try{
+    let key = (typeof getCurrentDBKey==='function'? getCurrentDBKey() : 'default');
+    localStorage.setItem('hiddenSubjects_'+key, JSON.stringify(hiddenSubjects));
+    localStorage.setItem('hiddenSubjects_global', JSON.stringify(hiddenSubjects));
+  }catch(e){ console.log('saveHidden failed', e); }
+}
+
+function getAllSubjectsBaseV618(){
+  try{
+    let base = [...SUBJECTS];
+    try{ base = [...base, ...Object.keys(marks||{})]; }catch(e){}
+    return [...new Set(base.filter(s=>s && s!=='Basic Science'))];
+  }catch(e){ return SUBJECTS||[]; }
+}
+
+function renderSubManagerV618(){
+  let availCont=document.getElementById('availSubList');
+  let activeCont=document.getElementById('activeSubList');
+  if(!availCont || !activeCont) return;
+  availCont.innerHTML=''; activeCont.innerHTML='';
+  let all=getAllSubjectsBaseV618();
+  let filledSet=new Set();
+  try{ filledSet=new Set(SUBJECTS.filter(s=>marks[s] && marks[s].some(m=>m.teRaw!==''||m.ceRaw!==''))); }catch(e){}
+  all.forEach(sub=>{
+    let isHidden=hiddenSubjects.includes(sub);
+    let isFilled=filledSet.has(sub);
+    let sch='40_10'; try{ sch=(typeof getSubjectSchemeV62==='function'? getSubjectSchemeV62(sub) : '40_10'); }catch(e){}
+    let label=sch.replace('_','+');
+    let avDiv=document.createElement('div');
+    avDiv.style.cssText='padding:5px 7px;background:'+(isHidden?'#0e1015':'#c9a22722')+';border:1px solid '+(isHidden?'#2a2f3a':'#c9a227')+';border-radius:7px;font-size:11px;display:flex;justify-content:space-between;align-items:center;color:#fff';
+    avDiv.innerHTML='<span>'+sub+' <span style="font-size:9px;color:#f0c040">['+label+']</span> '+(isFilled?'<span style="color:#10b981">●</span>':'<span style="color:#555">○</span>')+'</span><button type="button" style="padding:2px 6px;background:'+(isHidden?'#c9a227':'#2a2f3a')+';border:none;border-radius:5px;color:'+(isHidden?'#000':'#fff')+';font-size:10px;cursor:pointer">'+(isHidden?'Add':'Hide')+'</button>';
+    avDiv.querySelector('button').addEventListener('click', function(){
+      if(isHidden){ hiddenSubjects=hiddenSubjects.filter(s=>s!==sub); }
+      else { if(!hiddenSubjects.includes(sub)) hiddenSubjects.push(sub); }
+      saveHiddenV618();
+      renderSubManagerV618();
+      if(typeof render==='function') render();
+    });
+    availCont.appendChild(avDiv);
+    if(!isHidden){
+      let acDiv=document.createElement('div');
+      acDiv.style.cssText='padding:5px 7px;background:#0e1015;border:1px solid #2a2f3a;border-radius:7px;font-size:11px;display:flex;justify-content:space-between;align-items:center;color:#fff';
+      let ab = (typeof abbr==='function'? abbr(sub) : sub.substring(0,4));
+      let cnt = 0; try{ cnt=(marks[sub]||[]).filter(x=>x.teRaw!==''||x.ceRaw!=='').length; }catch(e){}
+      acDiv.innerHTML='<span>'+sub+' → <b style="color:#f0c040">'+ab+'</b> ['+label+'] '+(cnt>0?'<span style="color:#10b981">● '+cnt+'</span>':'○')+'</span><button type="button" style="padding:2px 6px;background:#ff6b6b;border:none;border-radius:5px;color:#fff;font-size:10px;cursor:pointer">Remove</button>';
+      acDiv.querySelector('button').addEventListener('click', function(){
+        if(confirm('Hide subject "'+sub+'"? Marks kept, can restore.')){
+          if(!hiddenSubjects.includes(sub)) hiddenSubjects.push(sub);
+          saveHiddenV618();
+          renderSubManagerV618();
+          if(typeof render==='function') render();
+        }
+      });
+      activeCont.appendChild(acDiv);
+    }
+  });
+  if(activeCont.innerHTML===''){
+    activeCont.innerHTML='<div style="padding:10px;color:#ff6b6b;font-size:11px">No active subjects – add from left</div>';
+  }
+}
+
+function addSubjectV618(name, sch){
+  let statusEl=document.getElementById('addSubStatus');
+  function setStatus(msg, color){
+    if(statusEl){ statusEl.style.color=color||'#10b981'; statusEl.textContent=msg; }
+    console.log('[AddSubject]', msg);
+  }
+  try{
+    if(!name){ setStatus('Enter subject name', '#ff6b6b'); return false; }
+    name=name.trim().replace(/\s+/g,' ').trim();
+    if(typeof normalizeSubjectNameV62==='function'){
+      let nn=normalizeSubjectNameV62(name);
+      if(nn) name=nn;
+    }
+    if(!name){ setStatus('Invalid name', '#ff6b6b'); return false; }
+    setStatus('Adding '+name+'...', '#f0c040');
+    if(typeof students==='undefined' || !students || students.length===0){
+      setStatus('Creating 48 rows...', '#f0c040');
+      if(typeof uid==='function'){
+        students=Array.from({length:48},()=>({id:uid(),name:''}));
+      }else{
+        students=Array.from({length:48},(_,i)=>({id:'s'+Date.now()+i,name:''}));
+      }
+      if(typeof marks==='undefined') window.marks={};
+    }
+    if(hiddenSubjects.includes(name)){
+      hiddenSubjects=hiddenSubjects.filter(s=>s!==name);
+      saveHiddenV618();
+      setStatus('Unhidden '+name, '#10b981');
+      renderSubManagerV618();
+      if(typeof render==='function') render();
+      if(typeof toast==='function') toast('✅ Unhidden: '+name);
+      return true;
+    }
+    if(SUBJECTS.includes(name)){
+      setStatus('Already exists: '+name, '#f0c040');
+      if(typeof toast==='function') toast('Already active: '+name);
+      return true;
+    }
+    SUBJECTS.push(name);
+    setStatus('Pushed to SUBJECTS, creating marks...', '#f0c040');
+    if(typeof marks==='undefined') marks={};
+    marks[name]=students.map(()=>({teRaw:'',ceRaw:''}));
+    if(typeof subjectSchemes==='undefined') window.subjectSchemes={};
+    if(typeof lockSubjectSchemeV62==='function'){
+      lockSubjectSchemeV62(name, sch||'40_10');
+    }else{
+      subjectSchemes[name]=sch||'40_10';
+    }
+    let sel=document.getElementById('subjectSel');
+    if(sel){
+      let exists=[...sel.options].some(o=>o.value===name);
+      if(!exists){
+        let opt=document.createElement('option'); opt.value=name; opt.textContent=name; sel.appendChild(opt);
+      }
+      sel.value=name;
+    }
+    hiddenSubjects=hiddenSubjects.filter(s=>s!==name);
+    saveHiddenV618();
+    if(typeof saveCurrentDBToMaster==='function'){ try{ saveCurrentDBToMaster(false); }catch(e){} }
+    renderSubManagerV618();
+    if(typeof render==='function') render();
+    if(typeof currentSubject!=='undefined'){ currentSubject=name; if(typeof render==='function') render(); }
+    setStatus('✅ Added '+name+' ['+(sch||'40_10').replace('_','+')+'] – visible in pills & A4', '#10b981');
+    if(typeof toast==='function') toast('✅ Added: '+name);
+    return true;
+  }catch(err){
+    console.error('AddSubject failed', err);
+    setStatus('Failed: '+err.message, '#ff6b6b');
+    alert('Add failed: '+err.message);
+    return false;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  setTimeout(function(){
+    let btn=document.getElementById('btnAddCustomSub');
+    if(btn){
+      btn.addEventListener('click', function(){
+        let nameEl=document.getElementById('newSubName');
+        let schEl=document.getElementById('newSubScheme');
+        let name=nameEl? nameEl.value.trim() : '';
+        let sch=schEl? schEl.value : '40_10';
+        addSubjectV618(name, sch);
+        if(nameEl) nameEl.value='';
+      });
+    }
+    let testBtn=document.getElementById('btnTestAdd');
+    if(testBtn){
+      testBtn.addEventListener('click', function(){ addSubjectV618('Arabic','40_10'); });
+    }
+    let saveBtn=document.getElementById('btnSaveSubConfig');
+    if(saveBtn){ saveBtn.addEventListener('click', function(){ saveHiddenV618(); if(typeof toast==='function') toast('Saved'); }); }
+    let resetBtn=document.getElementById('btnResetSubConfig');
+    if(resetBtn){ resetBtn.addEventListener('click', function(){ if(confirm('Show all subjects?')){ hiddenSubjects=[]; saveHiddenV618(); renderSubManagerV618(); if(typeof render==='function') render(); } }); }
+    renderSubManagerV618();
+  }, 800);
+});
+setTimeout(function(){ try{ renderSubManagerV618(); }catch(e){} }, 1200);
+</script>
+
+<div id="a4Modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.88);display:none;z-index:99999;align-items:center;justify-content:center;padding:10px">
+<div style="background:#161a20;border:2px solid #c9a22766;border-radius:16px;padding:18px;max-width:900px;width:98%;max-height:95vh;overflow:auto">
+<h3 style="margin:0 0 8px 0;color:#fff">📚 Consolidation – A4 with Abbreviations + Grading FIXED</h3>
+<p style="font-size:11px;color:#f0c040;margin:0 0 12px 0;font-family:monospace">Fix: gradeFromPercent → gradeByPerc (V6.3). Now grading works. A4 1 Page / 2 Pages + Preview + Print working.</p>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<div style="flex:1;min-width:300px">
+<b style="font-size:12px;color:#fff">Subjects (Abbreviations)</b>
+<div id="a4SubList" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:200px;overflow:auto;margin-top:8px;padding:6px;background:#0e1015;border:1px solid #2a2f3a;border-radius:10px"></div>
+<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+<button type="button" id="a4All" class="btn-sm">All</button>
+<button type="button" id="a4Filled" class="btn-sm">Filled</button>
+<button type="button" id="a4First5" class="btn-sm">First 5 (Portrait 2 pages)</button>
+<button type="button" id="a4First10" class="btn-sm">10 Subs (Landscape)</button>
+</div>
+</div>
+<div style="flex:1;min-width:300px">
+<b style="font-size:12px;color:#fff">A4 Layout</b>
+<div style="margin-top:8px;display:grid;gap:8px">
+<label style="padding:8px 10px;background:#0e1015;border:1px solid #c9a227;border-radius:8px;display:flex;gap:8px;font-size:12px;color:#fff"><input type="radio" name="a4Layout" value="single-landscape" checked> <b>Single Page A4 Landscape</b> – All subs, tiny font</label>
+<label style="padding:8px 10px;background:#0e1015;border:1px solid #2a2f3a;border-radius:8px;display:flex;gap:8px;font-size:12px;color:#fff"><input type="radio" name="a4Layout" value="two-portrait"> <b>Two Pages A4 Portrait</b> – Split 5+5, bigger font</label>
+<label style="padding:8px 10px;background:#0e1015;border:1px solid #2a2f3a;border-radius:8px;display:flex;gap:8px;font-size:12px;color:#fff"><input type="radio" name="a4Layout" value="single-portrait"> Single Page A4 Portrait – 3-4 subs</label>
+</div>
+<div style="margin-top:10px">
+<b style="font-size:11px;color:#fff">Columns – Grading Included</b>
+<div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">
+<label style="padding:5px 8px;background:#0e1015;border:1px solid #2a2f3a;border-radius:6px;font-size:11px;color:#fff"><input type="radio" name="a4Cols" value="minimal" checked> Minimal: Tot+Grade (2/sub) – GRADE</label>
+<label style="padding:5px 8px;background:#0e1015;border:1px solid #2a2f3a;border-radius:6px;font-size:11px;color:#fff"><input type="radio" name="a4Cols" value="essential"> Essential: TE+Gr+Tot+Grade (4/sub) – GRADING</label>
+<label style="padding:5px 8px;background:#0e1015;border:1px solid #2a2f3a;border-radius:6px;font-size:11px;color:#fff"><input type="radio" name="a4Cols" value="full"> Full: TE+Gr+CE+Tot+Gr (5/sub)</label>
+</div>
+</div>
+<div id="a4Fit" style="font-size:10px;color:#f0c040;margin-top:10px;font-family:monospace;background:#0e1015;padding:6px;border-radius:6px"></div>
+</div>
+</div>
+
+<div style="margin-top:12px;border:1px solid #2a2f3a;border-radius:10px;padding:10px;background:#0e1015">
+<b style="font-size:12px;color:#fff">Preview – Decide Print or Not (Create PDF first, then Print)</b>
+<div id="a4Preview" style="max-height:300px;overflow:auto;background:#fff;color:#000;padding:8px;margin-top:8px;border-radius:6px;font-size:9px"></div>
+<div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+<button type="button" id="a4PreviewBtn" style="padding:7px 12px;background:#1f242f;border:1px solid #2a2f3a;border-radius:8px;color:#fff;cursor:pointer">👁️ Preview</button>
+<button type="button" id="a4Close" style="padding:7px 12px;background:#2a2f3a;border:none;border-radius:8px;color:#fff;cursor:pointer">Cancel</button>
+<button type="button" id="a4CSV" style="padding:7px 12px;background:#1f242f;border:1px solid #2a2f3a;border-radius:8px;color:#fff;cursor:pointer">📊 CSV with Abbrev + Grade</button>
+<button type="button" id="a4Print" style="padding:7px 12px;background:#1f242f;border:1px solid #2a2f3a;border-radius:8px;color:#fff;cursor:pointer">🖨️ Print A4</button>
+<button type="button" id="a4PDF" style="padding:7px 12px;background:#c9a227;border:none;border-radius:8px;color:#000;font-weight:700;cursor:pointer">📚 PDF A4 + Grade</button>
+</div>
+</div>
+</div>
+</div>
+
+<style>
+.btn-sm{padding:5px 9px;background:#1f242f;border:1px solid #2a2f3a;border-radius:7px;color:#fff;font-size:11px;cursor:pointer}
+</style>
+
+<script>
+// V6.13 FIXED - gradeByPerc is correct function name in V6.3, not gradeFromPercent
+let a4Sel = [];
+let a4Mode = 'minimal';
+
+const ABBR_MAP = {
+  'Malayalam 1':'Mal1', 'Malayalam 2':'Mal2', 'Malayalam':'Mal',
+  'English 1':'Eng1', 'English 2':'Eng2', 'English':'Eng',
+  'Hindi 1':'Hin1', 'Hindi 2':'Hin2', 'Hindi':'Hin',
+  'Mathematics':'Math', 'Maths':'Math',
+  'Social Science':'SS', 'Social':'SS',
+  'Physics':'Phy', 'Chemistry':'Che', 'Biology':'Bio',
+  'Science':'Sci', 'Basic Science':'BSci',
+  'Information Technology':'IT', 'IT':'IT'
+};
+function abbr(sub){ return ABBR_MAP[sub] || sub.substring(0,4); }
+
+// Use correct V6.3 function names
+function gradeFunc(p){ 
+  // V6.3 uses gradeByPerc
+  if(typeof gradeByPerc==='function') return gradeByPerc(p);
+  if(typeof gradeFromPercent==='function') return gradeFromPercent(p);
+  // fallback
+  if(p===null||isNaN(p)) return 'E';
+  if(p>=90) return 'A+'; if(p>=80) return 'A'; if(p>=70) return 'B+'; if(p>=60) return 'B'; if(p>=50) return 'C+'; if(p>=40) return 'C'; if(p>=30) return 'D+'; if(p>=20) return 'D'; return 'E';
+}
+
+function getAllA4(){ try{ return [...new Set([...SUBJECTS, ...Object.keys(marks||{})])].filter(s=>s!=='Basic Science'); }catch(e){ return []; } }
+function getFilledA4(){ try{ return SUBJECTS.filter(s=>marks[s] && marks[s].some(m=>m.teRaw!==''||m.ceRaw!=='')); }catch(e){ return []; } }
+
+function renderA4(){
+  let cont=document.getElementById('a4SubList');
+  if(!cont) return;
+  cont.innerHTML='';
+  let all=getAllA4();
+  let filled=new Set(getFilledA4());
+  if(a4Sel.length===0){ a4Sel=getFilledA4().length>0?getFilledA4().slice(0,9):all.slice(0,9); }
+  all.forEach(sub=>{
+    let chk=a4Sel.includes(sub);
+    let sch=typeof getSubjectSchemeV62==='function'? getSubjectSchemeV62(sub) : (typeof scheme!=='undefined'?scheme:'40+10');
+    let v=typeof getSchemeVals==='function'? getSchemeVals(sch) : {label:sch};
+    let div=document.createElement('label');
+    div.style.cssText='padding:5px 7px;background:'+(chk?'#c9a22722':'#0e1015')+';border:1px solid '+(chk?'#c9a227':'#2a2f3a')+';border-radius:7px;font-size:11px;display:flex;gap:5px;align-items:center;cursor:pointer;color:#fff';
+    div.innerHTML='<input type="checkbox" '+(chk?'checked':'')+'> '+sub+'→<b style="color:#f0c040">'+abbr(sub)+'</b> <span style="font-size:9px">['+(v.label||'')+']</span> '+(filled.has(sub)?'<span style="color:#10b981">●</span>':'<span style="color:#555">○</span>');
+    div.querySelector('input').addEventListener('change', function(){
+      if(this.checked){ if(!a4Sel.includes(sub)) a4Sel.push(sub); }
+      else { a4Sel=a4Sel.filter(s=>s!==sub); }
+      div.style.background=this.checked?'#c9a22722':'#0e1015';
+      div.style.borderColor=this.checked?'#c9a227':'#2a2f3a';
+      updFit(); updatePreview();
+    });
+    cont.appendChild(div);
+  });
+  updFit(); updatePreview();
+}
+
+function updFit(){
+  let n=a4Sel.length;
+  let per = a4Mode==='minimal'?2 : a4Mode==='essential'?4 : 5;
+  let layout=document.querySelector('input[name=a4Layout]:checked')?.value||'single-landscape';
+  let orient = layout==='single-landscape'?'landscape':'portrait';
+  let usable = orient==='landscape'?277:190;
+  let totCols = 2 + n*per + 3;
+  if(layout==='two-portrait'){ totCols = 2 + Math.ceil(n/2)*per + 3; }
+  let cw=usable/totCols;
+  let el=document.getElementById('a4Fit');
+  if(!el) return;
+  el.textContent=n+' subs ('+a4Sel.map(abbr).join(',')+') × '+per+' cols = '+totCols+' cols – A4 '+orient+' – col ~'+cw.toFixed(1)+'mm – '+(cw<6?'Too tight':'Fits A4 – Grade included');
+  el.style.color=cw<6?'#ff6b6b':'#f0c040';
+}
+
+function buildA4Data(){
+  let subs=a4Sel.length>0?a4Sel:getFilledA4().slice(0,9);
+  let cols = a4Mode==='minimal'? {te:false,teGr:false,ce:false,ceGr:false,total:true,perc:false,final:true} : a4Mode==='essential'? {te:true,teGr:true,ce:false,ceGr:false,total:true,perc:false,final:true} : {te:true,teGr:true,ce:true,ceGr:false,total:true,perc:false,final:true};
+  let rows=students.map((stu,idx)=>{
+    let totals={}; let sum=0; let gMax=0;
+    subs.forEach(sub=>{
+      let m=marks[sub]?marks[sub][idx]:{teRaw:'',ceRaw:''};
+      let te=parseFloat(m.teRaw); let ce=parseFloat(m.ceRaw);
+      if(m.teRaw==='AB') te=0; if(m.ceRaw==='AB') ce=0;
+      if(isNaN(te)) te=0; if(isNaN(ce)) ce=0;
+      let has=m.teRaw!==''||m.ceRaw!=='';
+      let sch=typeof getSubjectSchemeV62==='function'? getSubjectSchemeV62(sub):scheme;
+      let v=getSchemeVals(sch);
+      gMax+=v.totalMax;
+      let tot=has?(te+ce):0;
+      let perc=v.totalMax?(tot/v.totalMax*100):0;
+      totals[sub]={te:m.teRaw, ce:m.ceRaw, total:tot, perc:perc.toFixed(1), grade:gradeFunc(perc), has:has, vals:v, teGrade:gradeFunc(v.teMax? ( (parseFloat(m.teRaw)||0)/v.teMax*100):0)};
+      if(has) sum+=tot;
+    });
+    let oPerc=gMax?(sum/gMax*100):0;
+    return {stu, idx, totals, overallTotal:sum, overallPerc:oPerc, overallGrade:gradeFunc(oPerc)};
+  });
+  return {subs, rows, cols, layout:document.querySelector('input[name=a4Layout]:checked')?.value||'single-landscape'};
+}
+
+function updatePreview(){
+  try{
+    let {subs, rows, cols, layout}=buildA4Data();
+    let orient=layout==='single-landscape'?'landscape':'portrait';
+    let preview=document.getElementById('a4Preview');
+    if(!preview) return;
+    let html='<div style="font-size:8px"><b>Preview: '+subs.length+' subs – '+subs.map(abbr).join(', ')+' – '+layout+' – A4 '+orient+' – Grading included</b><br>';
+    html+='<table style="width:100%;border-collapse:collapse;margin-top:4px"><thead><tr>';
+    html+='<th style="border:1px solid #000;padding:2px;background:#c9a227">SL</th><th style="border:1px solid #000;padding:2px;text-align:left;background:#c9a227">NAME</th>';
+    subs.forEach(sub=>{
+      let v=getSchemeVals(typeof getSubjectSchemeV62==='function'? getSubjectSchemeV62(sub):scheme);
+      if(cols.te) html+='<th style="border:1px solid #000;padding:2px;background:#c9a227">'+abbr(sub)+'T('+v.teMax+')</th>';
+      if(cols.teGr) html+='<th style="border:1px solid #000;padding:2px;background:#c9a227">'+abbr(sub)+'G</th>';
+      if(cols.ce) html+='<th style="border:1px solid #000;padding:2px;background:#c9a227">'+abbr(sub)+'CE</th>';
+      if(cols.total) html+='<th style="border:1px solid #000;padding:2px;background:#c9a227">'+abbr(sub)+'T('+v.totalMax+')</th>';
+      if(cols.final) html+='<th style="border:1px solid #000;padding:2px;background:#c9a227">'+abbr(sub)+'FG</th>';
+    });
+    html+='<th style="border:1px solid #000;padding:2px;background:#c9a227">GT</th><th style="border:1px solid #000;padding:2px;background:#c9a227">%</th><th style="border:1px solid #000;padding:2px;background:#c9a227">OG</th></tr></thead><tbody>';
+    rows.slice(0,5).forEach(r=>{
+      html+='<tr><td style="border:1px solid #000;padding:2px">'+(r.idx+1)+'</td><td style="border:1px solid #000;padding:2px;text-align:left">'+r.stu.name+'</td>';
+      subs.forEach(sub=>{
+        let t=r.totals[sub]||{};
+        if(cols.te) html+='<td style="border:1px solid #000;padding:2px">'+(t.te||'')+'</td>';
+        if(cols.teGr) html+='<td style="border:1px solid #000;padding:2px"><b>'+(t.has?t.teGrade:'')+'</b></td>';
+        if(cols.ce) html+='<td style="border:1px solid #000;padding:2px">'+(t.ce||'')+'</td>';
+        if(cols.total) html+='<td style="border:1px solid #000;padding:2px"><b>'+(t.has?t.total:'')+'</b></td>';
+        if(cols.final) html+='<td style="border:1px solid #000;padding:2px"><b style="color:#c9a227">'+(t.has?t.grade:'')+'</b></td>';
+      });
+      html+='<td style="border:1px solid #000;padding:2px"><b>'+r.overallTotal+'</b></td><td style="border:1px solid #000;padding:2px">'+r.overallPerc.toFixed(1)+'%</td><td style="border:1px solid #000;padding:2px"><b>'+r.overallGrade+'</b></td></tr>';
+    });
+    html+='</tbody></table>';
+    if(rows.length>5) html+='<div style="margin-top:4px;color:#555">... and '+(rows.length-5)+' more rows (49 total) – preview first 5 only</div>';
+    if(layout==='two-portrait') html+='<div style="margin-top:6px;color:#c9a227"><b>Two Pages:</b> Page1: '+subs.slice(0,Math.ceil(subs.length/2)).map(abbr).join(', ')+' | Page2: '+subs.slice(Math.ceil(subs.length/2)).map(abbr).join(', ')+'</div>';
+    html+='</div>';
+    preview.innerHTML=html;
+  }catch(e){ console.error(e); document.getElementById('a4Preview').innerHTML='Preview error: '+e.message; }
+}
+
+function openA4(){ renderA4(); document.getElementById('a4Modal').style.display='flex'; }
+function closeA4(){ document.getElementById('a4Modal').style.display='none'; }
+
+document.getElementById('a4All')?.addEventListener('click', ()=>{ a4Sel=getAllA4(); renderA4(); });
+document.getElementById('a4Filled')?.addEventListener('click', ()=>{ a4Sel=getFilledA4(); renderA4(); });
+document.getElementById('a4First5')?.addEventListener('click', ()=>{ a4Sel=getAllA4().slice(0,5); renderA4(); });
+document.getElementById('a4First10')?.addEventListener('click', ()=>{ a4Sel=getAllA4().slice(0,10); renderA4(); });
+document.querySelectorAll('input[name=a4Cols]').forEach(r=>{ r.addEventListener('change', function(){ a4Mode=this.value; updFit(); updatePreview(); }); });
+document.querySelectorAll('input[name=a4Layout]').forEach(r=>{ r.addEventListener('change', function(){ updFit(); updatePreview(); }); });
+
+document.getElementById('a4Close')?.addEventListener('click', closeA4);
+document.getElementById('a4Modal')?.addEventListener('click', function(e){ if(e.target===this) closeA4(); });
+document.getElementById('a4PreviewBtn')?.addEventListener('click', updatePreview);
+
+document.getElementById('a4CSV')?.addEventListener('click', function(){
+  try{
+    let {subs, rows, cols}=buildA4Data();
+    let header=['Sl#','Name'];
+    subs.forEach(sub=>{
+      let v=getSchemeVals(typeof getSubjectSchemeV62==='function'? getSubjectSchemeV62(sub):scheme);
+      if(cols.te) header.push(abbr(sub)+' TE('+v.teMax+')');
+      if(cols.teGr) header.push(abbr(sub)+' TE-Gr');
+      if(cols.ce) header.push(abbr(sub)+' CE('+v.ceMax+')');
+      if(cols.total) header.push(abbr(sub)+' Tot('+v.totalMax+')');
+      if(cols.final) header.push(abbr(sub)+' Final-Grade');
+    });
+    header.push('GT'); header.push('Overall%'); header.push('OG');
+    let lines=[header.join(',')];
+    rows.forEach(r=>{
+      let row=[r.idx+1, '"'+r.stu.name.replace(/"/g,'""')+'"'];
+      subs.forEach(sub=>{
+        let t=r.totals[sub]||{};
+        if(cols.te) row.push(t.te||'');
+        if(cols.teGr) row.push(t.has?t.teGrade:'');
+        if(cols.ce) row.push(t.ce||'');
+        if(cols.total) row.push(t.has?t.total:'');
+        if(cols.final) row.push(t.has?t.grade:'');
+      });
+      row.push(r.overallTotal); row.push(r.overallPerc.toFixed(1)+'%'); row.push(r.overallGrade);
+      lines.push(row.join(','));
+    });
+    let blob=new Blob([lines.join('\n')],{type:'text/csv'});
+    let url=URL.createObjectURL(blob);
+    let a=document.createElement('a'); a.href=url; a.download='CONSOLIDATION_A4_'+(typeof getCurrentDBKey==='function'?getCurrentDBKey():'')+'_'+subs.length+'Sub_ABBR_GRADE.csv'; a.click(); URL.revokeObjectURL(url);
+    if(typeof toast==='function') toast('CSV with abbreviations + grading – fixed');
+  }catch(e){ alert('CSV error: '+e.message); console.error(e); }
+});
+
+document.getElementById('a4PDF')?.addEventListener('click', function(){
+  try{
+    let {subs, rows, cols, layout}=buildA4Data();
+    let JSPDF = window.jspdf && window.jspdf.jsPDF ? window.jspdf.jsPDF : null;
+    if(!JSPDF){ alert('jsPDF not loaded'); return; }
+    if(layout==='two-portrait'){
+      let half=Math.ceil(subs.length/2);
+      let groups=[subs.slice(0,half), subs.slice(half)];
+      groups.forEach((group, gi)=>{
+        if(group.length===0) return;
+        const doc=new JSPDF({orientation:'portrait', unit:'mm', format:'a4'});
+        let head=['Sl#','Name'];
+        group.forEach(sub=>{
+          let v=getSchemeVals(typeof getSubjectSchemeV62==='function'? getSubjectSchemeV62(sub):scheme);
+          if(cols.te) head.push(abbr(sub)+' TE('+v.teMax+')');
+          if(cols.teGr) head.push(abbr(sub)+' Gr');
+          if(cols.ce) head.push(abbr(sub)+' CE');
+          if(cols.total) head.push(abbr(sub)+' Tot');
+          if(cols.final) head.push(abbr(sub)+' FG');
+        });
+        head.push('GT'); head.push('%'); head.push('OG');
+        let body=rows.map(r=>{
+          let row=[r.idx+1, r.stu.name];
+          group.forEach(sub=>{
+            let t=r.totals[sub]||{};
+            if(cols.te) row.push(t.te||'');
+            if(cols.teGr) row.push(t.has?t.teGrade:'');
+            if(cols.ce) row.push(t.ce||'');
+            if(cols.total) row.push(t.has?t.total:'');
+            if(cols.final) row.push(t.has?t.grade:'');
+          });
+          row.push(r.overallTotal); row.push(r.overallPerc.toFixed(1)+'%'); row.push(r.overallGrade);
+          return row;
+        });
+        doc.setFontSize(9);
+        doc.text((document.getElementById('schoolName')?.value||'')+' – '+ (typeof getCurrentDBKey==='function'?getCurrentDBKey():'')+' – Page '+(gi+1)+' – '+group.map(abbr).join(', ')+' – A4 Portrait – Grading', 10, 10);
+        doc.autoTable({head:[head], body:body, startY:14, theme:'grid', styles:{fontSize:6, cellPadding:1.2}, headStyles:{fontSize:6, fillColor:[201,162,39], textColor:[0,0,0]}});
+        doc.save('CONSOLIDATION_A4_PORTRAIT_Page'+(gi+1)+'_'+(typeof getCurrentDBKey==='function'?getCurrentDBKey():'')+'_'+group.map(abbr).join('-')+'_GRADE.pdf');
+      });
+      closeA4(); if(typeof toast==='function') toast('2 PDFs Portrait with grading – fixed');
+    } else {
+      let orient=layout==='single-landscape'?'landscape':'portrait';
+      let totCols=2 + subs.length*Object.values(cols).filter(v=>v).length + 3;
+      let fHead= totCols<=12?7 : totCols<=18?6 : 5;
+      let fBody= totCols<=12?6.5 : totCols<=18?5 : 4;
+      const doc=new JSPDF({orientation:orient, unit:'mm', format:'a4'});
+      let head=['Sl#','Name'];
+      subs.forEach(sub=>{
+        let v=getSchemeVals(typeof getSubjectSchemeV62==='function'? getSubjectSchemeV62(sub):scheme);
+        if(cols.te) head.push(abbr(sub)+' TE('+v.teMax+')');
+        if(cols.teGr) head.push(abbr(sub)+' Gr');
+        if(cols.ce) head.push(abbr(sub)+' CE');
+        if(cols.total) head.push(abbr(sub)+' Tot('+v.totalMax+')');
+        if(cols.final) head.push(abbr(sub)+' G');
+      });
+      head.push('GT'); head.push('Overall%'); head.push('OG');
+      let body=rows.map(r=>{
+        let row=[r.idx+1, r.stu.name];
+        subs.forEach(sub=>{
+          let t=r.totals[sub]||{};
+          if(cols.te) row.push(t.te||'');
+          if(cols.teGr) row.push(t.has?t.teGrade:'');
+          if(cols.ce) row.push(t.ce||'');
+          if(cols.total) row.push(t.has?t.total:'');
+          if(cols.final) row.push(t.has?t.grade:'');
+        });
+        row.push(r.overallTotal); row.push(r.overallPerc.toFixed(1)+'%'); row.push(r.overallGrade);
+        return row;
+      });
+      doc.setFontSize(9);
+      doc.text((document.getElementById('schoolName')?.value||'')+' – '+ (typeof getCurrentDBKey==='function'?getCurrentDBKey():'')+' – '+subs.map(abbr).join(', ')+' – A4 '+orient.toUpperCase()+' – Grading', 10, 10);
+      doc.autoTable({head:[head], body:body, startY:14, theme:'grid', styles:{fontSize:fBody, cellPadding:1}, headStyles:{fontSize:fHead, fillColor:[201,162,39], textColor:[0,0,0]}});
+      doc.save('CONSOLIDATION_A4_'+orient.toUpperCase()+'_'+(typeof getCurrentDBKey==='function'?getCurrentDBKey():'')+'_'+subs.length+'Sub_ABBR_GRADE.pdf');
+      closeA4(); if(typeof toast==='function') toast('A4 PDF with abbreviations + grading – fixed');
+    }
+  }catch(e){ alert('PDF error: '+e.message); console.error(e); }
+});
+
+document.getElementById('a4Print')?.addEventListener('click', function(){
+  try{
+    let {subs, rows, cols, layout}=buildA4Data();
+    let orient=layout==='single-landscape'?'landscape':'portrait';
+    if(layout==='two-portrait'){
+      let half=Math.ceil(subs.length/2);
+      let groups=[subs.slice(0,half), subs.slice(half)];
+      groups.forEach((group, gi)=>{
+        let title='CONSOLIDATION A4 Portrait Page '+(gi+1)+' – '+(typeof getCurrentDBKey==='function'?getCurrentDBKey():'')+' – '+group.map(abbr).join(', ');
+        let html='<html><head><title>'+title+'</title><style>@page{size:A4 portrait;margin:8mm}body{font-family:Arial,sans-serif;font-size:8px;color:#000;background:#fff;margin:0;padding:8px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #000;padding:2px 3px;text-align:center;font-size:7px}th{background:#c9a227;color:#000}.left{text-align:left}h2{margin:0;font-size:11px}p{margin:2px 0;font-size:8px}</style></head><body>';
+        html+='<h2>'+(document.getElementById('schoolName')?.value||'')+' – '+(typeof getCurrentDBKey==='function'?getCurrentDBKey():'')+' – Page '+(gi+1)+' – '+group.map(abbr).join(', ')+' – A4 Portrait – Grading</h2>';
+        html+='<table><thead><tr><th>Sl</th><th style="text-align:left">Name</th>';
+        group.forEach(sub=>{
+          let v=getSchemeVals(typeof getSubjectSchemeV62==='function'? getSubjectSchemeV62(sub):scheme);
+          if(cols.te) html+='<th>'+abbr(sub)+'<br>TE('+v.teMax+')</th>';
+          if(cols.teGr) html+='<th>Gr</th>';
+          if(cols.ce) html+='<th>CE</th>';
+          if(cols.total) html+='<th>Tot</th>';
+          if(cols.final) html+='<th>FG</th>';
+        });
+        html+='<th>GT</th><th>%</th><th>OG</th></tr></thead><tbody>';
+        rows.forEach(r=>{
+          html+='<tr><td>'+(r.idx+1)+'</td><td class="left">'+r.stu.name+'</td>';
+          group.forEach(sub=>{
+            let t=r.totals[sub]||{};
+            if(cols.te) html+='<td>'+(t.te||'')+'</td>';
+            if(cols.teGr) html+='<td><b>'+(t.has?t.teGrade:'')+'</b></td>';
+            if(cols.ce) html+='<td>'+(t.ce||'')+'</td>';
+            if(cols.total) html+='<td><b>'+(t.has?t.total:'')+'</b></td>';
+            if(cols.final) html+='<td><b style="color:#000;background:#f0c040">'+(t.has?t.grade:'')+'</b></td>';
+          });
+          html+='<td><b>'+r.overallTotal+'</b></td><td>'+r.overallPerc.toFixed(1)+'%</td><td><b>'+r.overallGrade+'</b></td></tr>';
+        });
+        html+='</tbody></table><script>window.onload=function(){setTimeout(function(){window.print();},400);}<\/script>
 <footer class="vgc-footer">
   <div>© 2026 Antony Ancil – Venad Global Consultancy. All rights reserved.</div>
   <div style="margin-top:6px">Content published on this site is the original work of Antony Ancil. Unauthorised reproduction is prohibited. • <a href="https://venadglobal.org/blog/">Blog</a> • <a href="https://venadglobal.org/services.html">Services</a> • <a href="https://venadglobal.org/privacy.html">Privacy</a> • <a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">Marksheet Tool</a></div>
@@ -975,5 +1481,100 @@ window.addEventListener('DOMContentLoaded',()=>{
     <span style="color:#C9A227;font-weight:600;letter-spacing:0.05em">VGC Gold • Real Experience • Honest Guidance</span>
   </div>
 </footer>
+
+
+<script>
+// V6.19 – Custom subjects persistence control – back to default on exit if not saved
+let customAddedSubjects = [];
+try{
+  customAddedSubjects = JSON.parse(localStorage.getItem('customSubjects_'+ (typeof getCurrentDBKey==='function'?getCurrentDBKey():'default')) || '[]');
+}catch(e){ customAddedSubjects=[]; }
+
+function saveCustomSubjects(){
+  try{
+    let k = (typeof getCurrentDBKey==='function'?getCurrentDBKey():'default');
+    localStorage.setItem('customSubjects_'+k, JSON.stringify(customAddedSubjects));
+  }catch(e){}
+}
+
+function removeCustomSubjectPermanently(name){
+  if(!confirm('Permanently delete custom subject "'+name+'"? Marks will be deleted!')) return;
+  let idx=SUBJECTS.indexOf(name);
+  if(idx>-1) SUBJECTS.splice(idx,1);
+  if(marks[name]) delete marks[name];
+  if(subjectSchemes && subjectSchemes[name]) delete subjectSchemes[name];
+  customAddedSubjects=customAddedSubjects.filter(s=>s!==name);
+  hiddenSubjects=hiddenSubjects.filter(s=>s!==name);
+  saveCustomSubjects();
+  if(typeof saveHiddenV618==='function') saveHiddenV618();
+  if(typeof saveCurrentDBToMaster==='function') try{ saveCurrentDBToMaster(false); }catch(e){}
+  let sel=document.getElementById('subjectSel');
+  if(sel){ [...sel.options].forEach(o=>{ if(o.value===name) o.remove(); }); }
+  renderSubManagerV618();
+  if(typeof render==='function') render();
+  if(typeof toast==='function') toast('🗑️ Deleted custom: '+name+' – Back to default');
+}
+
+// Override addSubject to track custom
+let origAddSubject = addSubjectV618;
+addSubjectV618 = function(name, sch){
+  let isNew = !SUBJECTS.includes(name) && !getAllSubjectsBaseV618().includes(name);
+  let result = origAddSubject(name, sch);
+  if(result && isNew){
+    if(!customAddedSubjects.includes(name)) customAddedSubjects.push(name);
+    saveCustomSubjects();
+  }
+  return result;
+};
+
+// Reset to default – removes all custom subjects and shows all hidden
+function resetToDefaultV619(){
+  if(!confirm('Reset to default? This will:\n- Show all hidden subjects\n- DELETE all custom added subjects (Arabic, Sanskrit etc)\n- Back to original 13 subjects\nContinue?')) return;
+  hiddenSubjects=[];
+  if(typeof saveHiddenV618==='function') saveHiddenV618();
+  // Remove custom subjects
+  customAddedSubjects.forEach(cs=>{
+    let idx=SUBJECTS.indexOf(cs);
+    if(idx>-1) SUBJECTS.splice(idx,1);
+    if(marks[cs]) delete marks[cs];
+    if(subjectSchemes && subjectSchemes[cs]) delete subjectSchemes[cs];
+  });
+  customAddedSubjects=[];
+  saveCustomSubjects();
+  let sel=document.getElementById('subjectSel');
+  if(sel){
+    // Remove custom options, keep original 13
+    let original13=["Malayalam 1","Malayalam 2","English 1","English 2","Hindi 1","Hindi 2","Mathematics","Science","Social Science","Physics","Chemistry","Biology","IT"];
+    [...sel.options].forEach(o=>{
+      if(!original13.includes(o.value) && o.value!=='Custom') o.remove();
+    });
+  }
+  if(typeof saveCurrentDBToMaster==='function') try{ saveCurrentDBToMaster(false); }catch(e){}
+  renderSubManagerV618();
+  if(typeof render==='function') render();
+  if(typeof toast==='function') toast('↩️ Back to default – 13 subjects');
+}
+
+// Hook reset button to new reset
+document.addEventListener('DOMContentLoaded', function(){
+  setTimeout(function(){
+    let resetBtn=document.getElementById('btnResetSubConfig');
+    if(resetBtn){
+      resetBtn.onclick=function(){ resetToDefaultV619(); };
+      resetBtn.textContent='↩️ Reset to Default (13 subs)';
+    }
+  }, 900);
+});
+
+// For online version – if user exits without save, custom subjects are temporary?
+// We keep them in localStorage but Reset button clears them – so teacher can exit and still have them, but can reset to default anytime
+// If you want auto-reset on exit, uncomment below:
+// window.addEventListener('beforeunload', function(){
+//   // Auto reset custom subjects on exit – back to default
+//   // customAddedSubjects.forEach(...); // commented – keep persistent by default
+// });
+
+</script>
+
 </body>
 </html>
