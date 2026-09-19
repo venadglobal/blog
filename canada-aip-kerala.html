@@ -66,7 +66,7 @@ a:hover{text-decoration:underline;color:var(--gold)}
 /* KEY TAKEAWAY BOX */
 .key-box{background:var(--navy);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0;border-left:5px solid var(--gold)}
 .key-box-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.6rem}
-.key-box p{color:#d0d8e8;font-size:0.95rem;line-height:1.7}
+.key-box p{color:#fff;font-size:0.95rem;line-height:1.7}
 
 /* WARNING BOX */
 .warn-box{background:#FEF2F2;border-radius:8px;padding:1.25rem 1.5rem;margin:1.5rem 0;border-left:4px solid #E63946}
@@ -81,21 +81,21 @@ a:hover{text-decoration:underline;color:var(--gold)}
 .step{display:flex;gap:1.25rem;margin:1.25rem 0;align-items:flex-start}
 .step-num{background:var(--navy);color:var(--gold);font-family:'DM Mono',monospace;font-weight:500;font-size:0.9rem;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 .step-body h4{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:0.3rem}
-.step-body p{font-size:0.92rem;color:#3a4060;line-height:1.7}
+.step-body p{font-size:0.92rem;color:#111827;line-height:1.7}
 
 /* TABLE */
 .data-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
 .data-table th{background:var(--navy);color:#fff;padding:0.7rem 1rem;text-align:left;font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.5px;font-weight:500}
-.data-table td{padding:0.7rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;color:#3a4060}
+.data-table td{padding:0.7rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;color:#111827}
 .data-table tr:nth-child(even) td{background:#F2EFE8}
 .data-table td:first-child{font-weight:600;color:var(--navy)}
 
 /* ARTICLE TYPOGRAPHY */
 .article-wrap h2{font-family:'Playfair Display',serif;font-size:1.65rem;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border)}
 .article-wrap h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin:1.75rem 0 0.6rem}
-.article-wrap p{margin-bottom:1.2rem;font-size:1rem;color:#2a2a3a;line-height:1.85}
+.article-wrap p{margin-bottom:1.2rem;font-size:1rem;color:#111827;line-height:1.85}
 .article-wrap ul,.article-wrap ol{margin:0.75rem 0 1.25rem 1.5rem}
-.article-wrap li{margin-bottom:0.5rem;font-size:0.97rem;color:#3a4060;line-height:1.7}
+.article-wrap li{margin-bottom:0.5rem;font-size:0.97rem;color:#111827;line-height:1.7}
 .article-wrap strong{color:var(--navy)}
 
 /* AUTHOR BOX */
@@ -135,6 +135,14 @@ footer strong{color:var(--gold)}
 .footer-links{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-top:0.75rem}
 .footer-links a{color:#a0aabb;font-family:'DM Mono',monospace;font-size:0.75rem}
 .footer-links a:hover{color:var(--gold)}
+
+/* COLOR FIX — Sept 2026 — only ink color, no size change */
+body{color:#111827}
+.body p, .article-wrap p, .body li, .article-wrap li, .data-table td{color:#111827 !important}
+.callout p, .warning p, .tip p, .tip-box p, .warn-box p, .step-detail{color:#111827 !important}
+.author-bio, .author-info p{color:#1f2937 !important}
+.data-table td:first-child{color:#1B3A6B !important}
+
 </style>
 </head>
 <body>
@@ -143,8 +151,8 @@ footer strong{color:var(--gold)}
   <a href="index.html" class="nav-brand">
     <img src="../vgc_logo.png" alt="VGC" style="height:34px;">
     <div>
-      <div class="nav-title">Venad Global Blog</div>
-      <div class="nav-subtitle">Real Experience · Honest Guidance</div>
+      <div class="nav-title">Venad Global</div>
+      
     </div>
   </a>
   <div class="nav-links">
@@ -162,7 +170,7 @@ footer strong{color:var(--gold)}
     <h1>Canada AIP from Kerala —<br><em>The Honest Guide No Consultant Will Tell You</em></h1>
     <div class="article-meta">
       <span class="meta-item">✍ <strong>Antony Ancil</strong></span>
-      <span class="meta-item">📅 May 2026</span>
+      <span class="meta-item">📅 Sept 2026 • Updated 19 Sep 2026 — 4,000 AIP Places</span>
       <span class="meta-item">⏱ 8 min read</span>
       <span class="meta-item">🎯 Atlantic Immigration Program</span>
     </div>
@@ -176,6 +184,39 @@ footer strong{color:var(--gold)}
     <div class="key-box-label">⚡ Key Takeaway</div>
     <p>I went through the Canada Atlantic Immigration Program (AIP) myself — built a Canadian CV, collected reference letters from a Concordia University Dean in Montreal, and applied to Nova Scotia employers — all without paying a single rupee to any immigration consultant. This guide tells you exactly how.</p>
   </div>
+
+<div style="background:linear-gradient(135deg,#0D1F3C,#1B3A6B);border:2px solid #C9A227;border-radius:12px;padding:1.5rem;margin:2rem 0">
+<div style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:2px;color:#C9A227;margin-bottom:0.8rem">🇨🇦 SEPT 2026 UPDATE — 4,000 AIP PLACES + DESIGNATED EMPLOYERS LIVE</div>
+<h3 style="color:#fff;font-family:'Playfair Display',serif;margin:0 0 0.8rem">2026-2028 Levels Plan: 4,000 AIP Admissions Annually</h3>
+<ul style="color:#c0d0e8;margin:0 0 0 1.2rem">
+<li><strong>Federal allocation:</strong> ~4,000 PR admissions/year under AIP — 2026-2028 Immigration Levels Plan</li>
+<li><strong>Designated employers:</strong> NB: gnb.ca | NS: novascotiaimmigration.com/designated-aip-employers | PEI: princeedwardisland.ca/immigration | NL: gov.nl.ca/immigration</li>
+<li><strong>Newfoundland invites 217 Sep 2026:</strong> PNP + AIP streams active</li>
+<li><strong>Real sponsors 2026:</strong> Healthcare, IT, trades, hospitality — Indeed Canada + LinkedIn</li>
+</ul>
+</div>
+
+<div style="background:#E8F5E9;border-left:4px solid #2E7D32;padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:2rem 0">
+<div style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:2px;color:#2E7D32;margin-bottom:0.5rem">💼 JOB — COMPREHENSIVE</div>
+<p style="margin:0 0 0.5rem"><strong>AIP is employer-driven PR:</strong> Full-time non-seasonal job from designated employer in NS, NB, PEI, NL — TEER 0-4 eligible.</p>
+<ul style="margin:0 0 0 1.2rem">
+<li><strong>Kerala advantage:</strong> IT Support, Facilities, Admin, Nurses, Chefs, Truck drivers, Hospitality — high demand in Atlantic</li>
+<li><strong>How to find:</strong> atlanticimmigration.ca → designated list → Indeed.ca → LinkedIn → company sites — mention AIP + endorsement in cover letter</li>
+<li><strong>Experience:</strong> 1,560 hrs (1 year) in past 5 years — exempt if graduated from Atlantic institution</li>
+</ul>
+</div>
+
+<div style="background:#E8EAF6;border-left:4px solid #012169;padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:2rem 0">
+<div style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:2px;color:#012169;margin-bottom:0.5rem">🎓 STUDENTS — ATLANTIC GRADUATE PATHWAY</div>
+<p style="margin:0 0 0.5rem"><strong>International graduates get special AIP route:</strong></p>
+<ul style="margin:0 0 0 1.2rem">
+<li><strong>Exempt from work experience</strong> if graduated from Atlantic institution in last 24 months</li>
+<li><strong>Lived 16 months in last 24</strong> in Atlantic before graduation — requirement</li>
+<li><strong>No settlement funds needed</strong> if already living & working in Canada with valid work permit</li>
+<li><strong>Study to PR:</strong> 2-year diploma in NS/NB → PGWP → designated employer job → AIP PR — faster than Express Entry CRS 500+</li>
+</ul>
+</div>
+
 
   <p>Every week in Kerala, I see people losing lakhs of rupees to fake immigration agents. They are promised Canada PR in 6 months, pay ₹5–15 lakhs upfront, and then — nothing. The agent disappears, or keeps asking for more money, or gives them wrong information that gets their application rejected.</p>
 
@@ -366,18 +407,6 @@ footer strong{color:var(--gold)}
   </div>
 
 </article>
-
-<footer>
-  <p>⚡ <strong>Venad Global Consultancy</strong> &nbsp;·&nbsp; Kollam, Kerala, India &nbsp;·&nbsp; No fake promises. Real experience.</p>
-  <div class="footer-links">
-    <a href="index.html">Blog Home</a>
-    <a href="../services.html">Services</a>
-    <a href="https://venadglobal.org/cv.html">My CV</a>
-    <a href="https://wa.me/918589895659">+91 85898 95659</a>
-    <a href="mailto:venadglobal@gmail.com">venadglobal@gmail.com</a>
-  </div>
-</footer>
-
 
 <!-- Enhanced GA4 Event Tracking — VGC -->
 <script>
