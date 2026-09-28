@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Generational Baseline Drift | VGC Systems Audit</title>
+  <meta name="description" content="A VGC Systems Audit on the Generational Baseline Drift. Why automated comfort and the loss of ground-truth skills are making modern systems fragile.">
+  <meta name="keywords" content="Generational Baseline Drift, Shifting Baseline Syndrome, Ground-truth skills, Operational readiness, Infrastructure decay, Systems audit, Structural knowledge transfer, Facilities management, Automation risks, Venad Global">
+  <meta name="author" content="Antony Ancil — Venad Global Consultancy">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://venadglobal.org/blog/generational-baseline-drift.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Generational Baseline Drift | VGC Systems Audit">
+  <meta property="og:description" content="Why modern systems are destined to break when ground-truth skills are lost — a VGC operator's audit.">
+  <meta property="og:url" content="https://venadglobal.org/blog/generational-baseline-drift.html">
+  <meta property="og:site_name" content="Venad Global Consultancy">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BZDPM9EZM');
+    const scrollMarks=[25,50,75,100],firedMarks=new Set();
+    window.addEventListener('scroll',()=>{
+      const pct=Math.round((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100);
+      scrollMarks.forEach(m=>{if(pct>=m&&!firedMarks.has(m)){firedMarks.add(m);gtag('event','scroll_depth',{depth:m,page:'generational_baseline_drift'});}});
+    });
+    [30,60,120,180,240].forEach(s=>setTimeout(()=>gtag('event','time_on_page',{seconds:s,page:'generational_baseline_drift'}),s*1000));
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap');
+    :root{--bg:#08090b;--surface:#0f1115;--card:#161a20;--gold:#C9A227;--gold2:#f0c040;--text:#e0e4ec;--muted:#8892a0;--warm:#d4c8bc;--saffron:#FF9933;--green:#138808;--accent:#60a5fa;--accent2:#60a5fa;--red:#f87171;}
+    *{margin:0;padding:0;box-sizing:border-box;} html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.85;}
+    nav{background:rgba(8,9,11,0.97);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,162,39,0.2);}
+    nav img{height:34px;} nav a{color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.85rem;font-weight:600;}
+    nav .nav-links{margin-left:auto;display:flex;gap:1.5rem;} nav .nav-links a{color:var(--muted);font-weight:400;font-size:0.82rem;font-family:'DM Mono',monospace;}
+    nav .nav-links a:hover{color:var(--gold2);}
+    .color-bar{height:4px;display:flex;position:sticky;top:0;z-index:102;box-shadow:0 2px 12px rgba(201,162,39,0.25);} .color-bar div{flex:1;}
+    .hero{min-height:54vh;display:flex;align-items:center;padding:5rem 2rem 3.5rem;background:radial-gradient(ellipse at 18% 30%,rgba(201,162,39,0.09) 0%,transparent 50%),radial-gradient(ellipse at 82% 70%,rgba(96,165,250,0.07) 0%,transparent 50%),radial-gradient(ellipse at 50% 20%,rgba(255,153,51,0.06) 0%,transparent 60%);position:relative;overflow:hidden;border-bottom:1px solid rgba(201,162,39,0.12);}
+    .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#C9A227,#ffffff,#60a5fa,transparent);opacity:0.5;}
+    .hero-inner{max-width:780px;margin:0 auto;position:relative;z-index:2;width:100%;}
+    .series-tag{display:inline-block;background:rgba(240,192,96,0.1);border:1px solid rgba(240,192,96,0.28);color:var(--gold2);font-family:'DM Mono',monospace;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.32rem 0.9rem;border-radius:2rem;margin-bottom:0.8rem;margin-right:0.5rem;backdrop-filter:blur(4px);}
+    .hero-tag{display:inline-block;background:linear-gradient(135deg,rgba(255,153,51,0.14),rgba(201,162,39,0.18));border:1px solid rgba(255,153,51,0.4);color:#FFC978;font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.42rem 1.25rem;border-radius:2rem;margin-bottom:1.3rem;box-shadow:0 0 18px rgba(255,153,51,0.12);}
+    .hero h1{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.9rem,4.5vw,3.05rem);font-weight:700;color:#fff;line-height:1.22;margin-bottom:0.9rem;letter-spacing:-0.01em;}
+    .hero h1 span{color:var(--gold);font-style:italic;text-shadow:0 0 24px rgba(201,162,39,0.25);}
+    .hero-sub{font-size:1.06rem;color:var(--warm);line-height:1.75;margin-bottom:1.1rem;font-family:'Playfair Display',serif;font-style:italic;}
+    .hero-meta{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--muted);display:flex;gap:1.5rem;flex-wrap:wrap;}
+    .hero-note{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);margin-top:1.2rem;border-left:2px solid rgba(255,153,51,0.45);padding-left:0.9rem;line-height:1.6;}
+    .badge-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.4rem;margin-top:0.2rem;}
+    .badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 0.95rem;border-radius:2rem;backdrop-filter:blur(6px);transition:transform 0.2s;}
+    .badge:hover{transform:translateY(-1px);}
+    .badge-gold{background:rgba(201,162,39,0.13);border:1px solid rgba(201,162,39,0.38);color:#f0c040;box-shadow:0 2px 10px rgba(201,162,39,0.12);}
+    .badge-green{background:rgba(34,197,94,0.10);border:1px solid rgba(34,197,94,0.28);color:#86efac;}
+    .badge-blue{background:rgba(96,165,250,0.10);border:1px solid rgba(96,165,250,0.32);color:#93c5fd;}
+    .badge-violet{background:rgba(167,139,250,0.10);border:1px solid rgba(167,139,250,0.30);color:#c4b5fd;}
+    .article-body{max-width:720px;margin:0 auto;padding:3rem 2rem 5rem;position:relative;z-index:2;}
+    .article-body p{margin-bottom:1.4rem;color:var(--warm);line-height:1.9;}
+    .article-body p.lead{font-size:1.15rem;color:#e8ecf4;font-family:'Playfair Display',serif;font-style:italic;line-height:1.7;}
+    .section-break{display:flex;align-items:center;gap:1rem;margin:3rem 0 1.5rem;}
+    .section-break h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;white-space:nowrap;}
+    .section-break::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,162,39,0.4),transparent);}
+    .punch-quote{background:linear-gradient(135deg,var(--card),#0c0d10);border-left:4px solid var(--accent);border-radius:10px;padding:1.8rem 2rem;margin:2.2rem 0;}
+    .punch-quote p{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;font-style:italic;color:#fff;line-height:1.5;margin:0;}
+    .stat-box{background:var(--card);border-radius:14px;padding:1.6rem;margin:2rem 0;border:1px solid rgba(201,162,39,0.15);}
+    .stat-box h4{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--accent2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.8rem;}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0;}
+    .compare-card{background:var(--card);border-radius:12px;padding:1.4rem;border:1px solid rgba(255,255,255,0.08);}
+    .compare-card.left-c{border-left:4px solid var(--red);}
+    .compare-card.right-c{border-left:4px solid var(--green);}
+    .compare-label{font-family:'DM Mono',monospace;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.6rem;color:var(--accent2);}
+    .compare-card p{font-size:0.88rem;color:var(--muted);line-height:1.8;margin:0;}
+    .compare-card p strong{color:#fff;}
+    .steps-box{background:var(--card);border-radius:14px;padding:1.6rem;margin:2rem 0;border:1px solid rgba(96,165,250,0.15);border-left:4px solid var(--accent2);}
+    .steps-box h4{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;}
+    .steps-box p{font-size:0.92rem;color:var(--muted);line-height:1.7;margin-bottom:0.8rem;}
+    .vgc-box{background:linear-gradient(135deg,rgba(201,162,39,0.08),rgba(0,0,0,0.2));border:1px solid rgba(201,162,39,0.25);border-radius:12px;padding:1.4rem 1.6rem;margin:2rem 0;font-size:0.92rem;color:var(--warm);line-height:1.7;}
+    .vgc-box strong{color:var(--gold2);font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;}
+    .audit-list{list-style:none;padding:0;margin:1.5rem 0;}
+    .audit-list li{padding:0.8rem 0 0.8rem 1.8rem;position:relative;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.95rem;color:var(--warm);line-height:1.7;}
+    .audit-list li::before{content:'→';position:absolute;left:0;top:0.85rem;color:var(--gold);font-weight:700;}
+    .audit-list li strong{color:#fff;}
+    .verdict{background:linear-gradient(135deg,#161a20,#0d1115);border:1px solid rgba(201,162,39,0.22);border-left:4px solid var(--gold);border-radius:14px;padding:2rem;margin:2.5rem 0;}
+    .verdict h3{font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.15rem;margin-bottom:1rem;font-style:italic;}
+    .verdict p{color:var(--warm);font-size:0.95rem;line-height:1.85;margin-bottom:1rem;}
+    .verdict p:last-child{margin-bottom:0;}
+    .source-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.4rem 1.6rem;margin:2rem 0;}
+    .source-box h4{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--accent2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.8rem;}
+    .source-box p{font-size:0.88rem;}
+    .share-bar{display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);margin:2rem 0;}
+    .share-label{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--muted);}
+    .share-btn{padding:0.45rem 1.1rem;border-radius:20px;font-size:0.82rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:'DM Mono',monospace;transition:all 0.2s;background:var(--card);border:1px solid rgba(255,255,255,0.1);color:var(--muted);}
+    .share-btn:hover{transform:translateY(-1px);color:var(--gold2);border-color:rgba(201,162,39,0.3);}
+    .author-box{background:var(--surface);border-radius:16px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;margin:2rem 0;border:1px solid rgba(201,162,39,0.15);}
+    .author-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8B6914);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;color:#000;flex-shrink:0;}
+    .author-info h4{color:#fff;font-size:0.9rem;margin-bottom:0.3rem;font-family:'DM Mono',monospace;}
+    .author-info p{color:var(--muted);font-size:0.85rem;line-height:1.6;font-family:'DM Mono',monospace;}
+    .post-nav{background:var(--surface);padding:1.5rem 2rem;text-align:center;border-top:1px solid rgba(201,162,39,0.15);display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;}
+    .post-nav a{color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.82rem;}
+    footer{background:#040506;border-top:1px solid rgba(201,162,39,0.15);padding:1.5rem 2rem;text-align:center;font-family:'DM Mono',monospace;font-size:0.75rem;color:#6b7280;}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="https://venadglobal.org/"><img src="/android-chrome-192x192.png" alt="VGC"></a>
+  <a href="https://venadglobal.org/blog/" class="brand">Venad Global Blog</a>
+  <div class="nav-links">
+    <a href="https://venadglobal.org/">Home</a>
+    <a href="https://venadglobal.org/blog/">Blog</a>
+    <a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">Marksheet Tool</a>
+    <a href="https://wa.me/918589895659" class="wa" target="_blank">WhatsApp</a>
+  </div>
+</nav>
+<div class="color-bar"><div style="background:#C9A227"></div><div style="background:#60a5fa"></div><div style="background:#ffffff"></div><div style="background:#22c55e"></div></div>
+<section class="hero">
+  <div class="hero-inner">
+    <span class="series-tag">⚙️ Generational Dynamics</span>
+    <div class="hero-tag">⚠ The Baseline Drift • 🧠 Loss of Ground-Truth Skills</div>
+    <h1>Generational Baseline Drift: <span>Why Modern Systems Are Destined to Break</span></h1>
+    <p class="hero-sub">Walk into any modern facility today and observe the younger generation operating high-speed dashboards. To them, the system is seamless. But if the grid goes down, they do not know how to fix it because they never had to build it.</p>
+    <div class="badge-row">
+      <span class="badge badge-gold">✍️ Antony Ancil</span>
+      <span class="badge badge-green">📅 September 2026</span>
+      <span class="badge badge-blue">🌐 Organizational Architecture</span>
+      <span class="badge badge-violet">⏱️ 8 minutes read</span>
+    </div>
+    <p class="hero-note">⚠️ VGC CLARITY NOTE: This audit is not a critique of the youth. It is a structural evaluation of how human psychology adapts to comfort, and the critical failure of older generations to properly transfer structural knowledge.</p>
+  </div>
+</section>
+<section class="article-body">
+  <p class="lead">Walk into any modern facility, corporate office, or government department today and observe the younger generation of engineers, managers, or administrators. They are operating high-speed digital dashboards, AI-driven platforms, and automated workflows. To them, the system is seamless.</p>
+  <p>But if the automated grid goes down, a terrifying reality is exposed: they do not know how to fix it because they never had to build it. This cognitive disconnect is known as the <strong>Generational Baseline Drift</strong> (or Shifting Baseline Syndrome). It is the dangerous phenomenon where a new generation accepts the current state of technology, comfort, and infrastructure as their "normal" starting point, completely blind to the decades of friction, sacrifice, and mechanical heavy-lifting it took to get there.</p>
+  <p>And it is exactly why our modern operational systems are becoming structurally fragile.</p>
+  <div class="stat-box">
+    <h4>System Anomaly</h4>
+    <p style="font-size:0.95rem;color:var(--muted);line-height:1.7;margin:0;">A natural comfort signal can create competence. A weak knowledge-transfer system can amplify risk. The audit question is therefore not simply <strong>“Is the youth capable?”</strong> but also <strong>“Did we ever transfer the ground-truth?”</strong></p>
+  </div>
+  <div class="section-break"><h2>⚙️ The Erasure of Friction</h2></div>
+  <p>To understand why this generational disconnect happens, you have to look at the mechanics of progress. The ultimate goal of technology is to erase friction.</p>
+  <p>A few decades ago, executing a basic operational task — whether troubleshooting a mechanical pump, researching a legal title deed, or communicating across borders — required high physical and mental friction. You had to understand the raw mechanics of the task because there was no software to do it for you.</p>
+  <p>Today, that friction has been paved over by polished screens and automated algorithms.</p>
+  <div class="compare-grid">
+    <div class="compare-card left-c">
+      <div class="compare-label">The Old Reality</div>
+      <p><strong>High Friction Task:</strong> Troubleshooting a mechanical pump required you to physically open the housing, check the impeller, understand the raw mechanics — no software to do it for you.</p>
+    </div>
+    <div class="compare-card right-c">
+      <div class="compare-label">The New Illusion</div>
+      <p><strong>Green Light Trap:</strong> A modern engineer trusts the green light on a SCADA system, rather than physically inspecting the rusted valve. A modern administrator relies on a cloud database, having never learned to manually audit a physical paper trail.</p>
+    </div>
+  </div>
+  <div class="punch-quote">
+    <p>“Technology has smoothed out the rough edges, but in doing so, it has hidden the structural reality from the people operating the system.”</p>
+  </div>
+  <div class="section-break"><h2>📉 The Danger of the "New Normal"</h2></div>
+  <p>When a generation struggles, builds, and overcomes operational friction, they measure progress by the sheer distance they traveled from where they started. But the next generation is born right at the finish line.</p>
+  <p>They accept that finish line not as a hard-won victory, but as their baseline right.</p>
+  <p>This creates a massive vulnerability in our infrastructure and corporate matrices. When a generation grows up without experiencing the friction of zero-connectivity or manual labor, they lack the <strong>Ground-Truth Skills</strong> required to survive when the system inevitably fails. If you do not know the mechanical truth of how a system works under the hood, you are merely a passenger — not an Operator.</p>
+  <div class="vgc-box">
+    <strong>OPERATOR'S REALITY CHECK</strong>
+    Comfort is not competence. The fact that a system looks seamless on a dashboard does not mean the operator understands the machinery underneath. A passenger enjoys the flight; an operator knows how to land when autopilot fails.
+  </div>
+  <div class="section-break"><h2>🏛️ The Missing Blueprint: How We Fix the Matrix</h2></div>
+  <p>We cannot blame a younger generation for failing to understand a struggle they never lived through. The fault lies with the architects who failed to document the mechanics.</p>
+  <p>If we want to prevent catastrophic system decay in our industries, facilities, and civil infrastructure, we must change how we train the next wave of leaders:</p>
+  <div class="steps-box">
+    <h4>Operator's Fix-It Framework — 3 Steps</h4>
+    <p><strong style="color:#fff;">01 — Enforce Manual Overrides:</strong> In any training protocol, trainees must be forced to operate the system manually before they are allowed to use the automated software. They must feel the mechanical friction first.</p>
+    <p><strong style="color:#fff;">02 — Structural Knowledge Transfer:</strong> Stop handing down polished instruction manuals. We must document the failures, the raw audits, and the structural realities of how things are actually built on the ground.</p>
+    <p><strong style="color:#fff;">03 — Audit the Ground-Truth:</strong> Organizations must regularly run analog stress tests. Turn off the digital dashboards and see if the team can actually keep the facility running using physical dials, raw blueprints, and mechanical logic.</p>
+  </div>
+  <div class="section-break"><h2>🔧 The Infrastructure Stress Test</h2></div>
+  <p>The operator's approach can be reduced to a simple sequence:</p>
+  <ul class="audit-list">
+    <li><strong>Predict the gap:</strong> identify where ground-truth skills have eroded in your team.</li>
+    <li><strong>Inspect the assets:</strong> verify if your team can operate them manually, not just via dashboard.</li>
+    <li><strong>Measure capacity:</strong> can they troubleshoot a pump, valve, breaker, or paper trail without software?</li>
+    <li><strong>Find single points of failure:</strong> identify the one person who actually knows the old system — what if he retires?</li>
+    <li><strong>Test the response:</strong> simulate grid-down, software-down, cloud-down scenario before real failure.</li>
+    <li><strong>Close the gap:</strong> document raw mechanics, not just polished SOPs. Record failures, not just successes.</li>
+  </ul>
+  <div class="verdict">
+    <h3>The Operator's Verdict</h3>
+    <p>Comfort is the enemy of operational readiness. We have engineered a world so seamlessly automated that we are rapidly losing the foundational knowledge required to maintain it.</p>
+    <p>The most valuable asset an experienced professional can leave behind is not a piece of software, but operational transparency. We must show the next generation exactly how the machinery of the world works, or they will be completely helpless the day it finally stops.</p>
+    <p style="color:var(--gold2);font-size:1.15rem;margin-top:1.2rem;">Do not blame the youth.<br>Transfer the ground-truth. Document the friction. Keep the operator alive.</p>
+  </div>
+  <div class="source-box">
+    <h4>🔎 VGC Systems Audit Reference</h4>
+    <p style="margin:0 0 0.8rem;color:var(--muted);">This audit draws from Facilities Management operations, IOSH/NFPA safety audits, and Shifting Baseline Syndrome (Daniel Pauly) applied to organizational architecture. The drift is psychological — each generation resets its definition of "normal" — but the consequence is engineering.</p>
+    <p style="margin:0;color:var(--muted);">Concept: Shifting Baseline Syndrome · Operator Framework: Manual Override + Ground-Truth Audit</p>
+  </div>
+  <div class="share-bar">
+    <span class="share-label">Share:</span>
+    <a class="share-btn" href="https://wa.me/?text=Generational%20Baseline%20Drift%20—%20Why%20Modern%20Systems%20Are%20Destined%20to%20Break%20https://venadglobal.org/blog/generational-baseline-drift.html" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://venadglobal.org/blog/generational-baseline-drift.html" target="_blank" rel="noopener">LinkedIn</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://venadglobal.org/blog/generational-baseline-drift.html');this.textContent='Copied!';">Copy Link</button>
+  </div>
+  <div class="author-box">
+    <div class="author-avatar">AA</div>
+    <div class="author-info">
+      <h4>Antony Ancil — Kollam, Kerala</h4>
+      <p>36+ years UAE & India · Facilities Management, IOSH, NFPA, HSE · Founder, Venad Global Consultancy · Writing on systems, infrastructure and accountability.</p>
+    </div>
+  </div>
+</section>
+<div class="post-nav">
+  <a href="https://venadglobal.org/blog/">← All Posts</a>
+  <a href="https://venadglobal.org/blog/el-nino-infrastructure-reality.html">← El Niño Reality</a>
+  <a href="https://venadglobal.org/blog/citizenship-paradox.html">Citizenship Audit →</a>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: window.location.pathname });
+    });
+  });
+  var depths = [25,50,75,100], reached = [];
+  window.addEventListener('scroll', function() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    var pct = Math.round((window.scrollY / max) * 100);
+    depths.forEach(function(d) {
+      if (pct >= d && !reached.includes(d)) {
+        reached.push(d);
+        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: d+'%', value: d });
+      }
+    });
+  });
+});
+</script>
+<footer>
+  <p>© 2026 Antony Ancil — Venad Global Consultancy. All rights reserved.</p>
+  <p style="margin-top:0.3rem;">Content is personal opinion and systems evaluation for public awareness. Unauthorised reproduction is prohibited.</p>
+</footer>
+</body>
+</html>
