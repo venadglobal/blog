@@ -32,6 +32,52 @@
  });
  [30,60,120,180,240,300].forEach(s=>setTimeout(()=>gtag('event','time_on_page',{seconds:s,page:'india_political_audit'}),s*1000));
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: window.location.pathname });
+    });
+  });
+  document.querySelectorAll('a[href*="mailto"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'email_click', { event_category: 'engagement', event_label: el.href });
+    });
+  });
+  document.querySelectorAll('a[href*="tel:"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'phone_click', { event_category: 'engagement', event_label: el.href });
+    });
+  });
+  document.querySelectorAll('a[href^="http"]').forEach(function(el) {
+    if (!el.href.includes(window.location.hostname)) {
+      el.addEventListener('click', function() {
+        gtag('event', 'external_link_click', { event_category: 'engagement', event_label: el.href });
+      });
+    }
+  });
+  var depths = [25,50,75,100], reached = [];
+  window.addEventListener('scroll', function() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    var pct = Math.round((window.scrollY / max) * 100);
+    depths.forEach(function(d) {
+      if (pct >= d && !reached.includes(d)) {
+        reached.push(d);
+        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: d+'%', value: d });
+      }
+    });
+  });
+  var t = 0;
+  var ti = setInterval(function() {
+    t += 30;
+    if ([30,60,120,180,300].includes(t)) {
+      gtag('event', 'time_on_page', { event_category: 'engagement', event_label: t+'s', value: t });
+    }
+    if (t >= 300) clearInterval(ti);
+  }, 30000);
+});
+</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&family=DM+Mono:wght@400;500&display=swap');
 :root{--bg:#08090b;--surface:#0f1115;--card:#161a20;--card2:#1c212b;--gold:#C9A227;--gold2:#f0c040;--text:#e0e4ec;--muted:#8892a0;--warm:#d4c8bc;--red:#f87171;--red2:#fca5a5;--blue:#60a5fa;--green:#22c55e;--violet:#a78bfa;--orange:#fb923c;--line:#272d35}
