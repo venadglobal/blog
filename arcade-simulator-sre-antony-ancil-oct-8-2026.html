@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2BZDPM9EZM');</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: window.location.pathname });
+    });
+  });
+  document.querySelectorAll('a[href*="mailto"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'email_click', { event_category: 'engagement', event_label: el.href });
+    });
+  });
+  document.querySelectorAll('a[href*="tel:"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'phone_click', { event_category: 'engagement', event_label: el.href });
+    });
+  });
+  var depths = [25,50,75,100], reached = [];
+  window.addEventListener('scroll', function() {
+    var pct = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+    depths.forEach(function(d) {
+      if (pct >= d && !reached.includes(d)) {
+        reached.push(d);
+        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: d+'%', value: d });
+      }
+    });
+  });
+  var t = 0;
+  var ti = setInterval(function() {
+    t += 30;
+    if ([30,60,120,180,300].includes(t)) gtag('event', 'time_on_page', { event_category: 'engagement', event_label: t+'s', value: t });
+    if (t >= 300) clearInterval(ti);
+  }, 30000);
+});
+</script>
+<link href="../favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Arcade Simulator: Site Reliability Engineer — 3 Badges Oct 8, 2026 | Antony Ancil | Venad Global</title>
+<meta content="Antony Ancil earned 3 Google Cloud badges Oct 8, 2026: Set Up a Google Cloud Network (28742711), Implement DevOps Workflows (28742694), Arcade Simulator SRE Game (28742645). 50 Certificates verified. g.dev/idivet" name="description"/>
+<meta content="Antony Ancil, Google Cloud, Site Reliability Engineer, SRE, Arcade Simulator, DevOps Workflows, Cloud Network, Google Skills Arcade, g.dev/idivet, Venad Global, Kollam Kerala, 50 Certificates" name="keywords"/>
+<meta content="article" property="og:type"/>
+<meta content="Arcade Simulator: Site Reliability Engineer — Triple Badge Day — Oct 8, 2026" property="og:title"/>
+<meta content="3 badges in one day: Cloud Network, DevOps Workflows, and SRE Game Badge. 8 labs, Rank 419, 6678 spots. Verified on Google Skills." property="og:description"/>
+<meta content="https://venadglobal.org/blog/arcade-simulator-sre-antony-ancil-oct-8-2026.html" property="og:url"/>
+<meta content="https://venadglobal.org/assets/badge-arcade-sre-28742645.png" property="og:image"/>
+<meta content="Venad Global Consultancy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Arcade Simulator SRE Triple Badge — Antony Ancil" name="twitter:title"/>
+<meta content="Set Up Network 28742711 + DevOps Workflows 28742694 + SRE Simulator 28742645 — Oct 8, 2026 — 50 Certs" name="twitter:description"/>
+<meta content="https://venadglobal.org/assets/badge-arcade-sre-28742645.png" name="twitter:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#1B3A6B;--navy2:#0D1F3C;--gold:#C9A227;--gold2:#F0C060;--ink:#1a1a2e;--muted:#5a6480;--bg:#F7F5F0;--card:#FFFFFF;--border:#E8E4DC;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--ink);line-height:1.8}
+a{color:var(--navy);text-decoration:none}a:hover{text-decoration:underline;color:var(--gold)}
+.nav{background:var(--navy2);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;position:sticky;top:0;z-index:999;border-bottom:3px solid var(--gold)}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 0;text-decoration:none}
+.nav-title{color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
+.nav-subtitle{color:var(--gold);font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:1px}
+.nav-links{display:flex;gap:1.2rem;align-items:center}
+.nav-links a{color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.article-hero{background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 45%,#1B3A6B 100%);padding:3.5rem 1.5rem 3rem;position:relative;overflow:hidden}
+.article-hero::before{content:'☁️';position:absolute;right:-10px;bottom:-10px;font-size:10rem;opacity:0.06;pointer-events:none}
+.article-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),#4285F4,#34A853,var(--gold))}
+.article-hero-inner{max-width:760px;margin:0 auto}
+.breadcrumb{font-family:'DM Mono',monospace;font-size:0.72rem;color:#6b7590;margin-bottom:1rem}
+.breadcrumb a{color:var(--gold);text-decoration:none}
+.article-cat{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:0.75rem}
+.article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.8rem);color:#fff;line-height:1.25;margin-bottom:1rem}
+.article-hero h1 em{color:var(--gold2);font-style:italic}
+.article-meta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.25rem}
+.meta-item{font-family:'DM Mono',monospace;font-size:0.75rem;color:#a0aabb}
+.meta-item strong{color:var(--gold)}
+.article-wrap{max-width:760px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+.key-box{background:var(--navy);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0;border-left:5px solid var(--gold)}
+.key-box-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.6rem}
+.key-box p{color:#d0d8e8;font-size:0.95rem;line-height:1.7}
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:2rem 0}
+.badge-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;transition:transform .2s}
+.badge-card:hover{transform:translateY(-2px)}
+.badge-card img{width:100%;max-width:280px;height:auto;border-radius:6px;background:#fff;padding:6px;margin-bottom:10px;border:1px solid var(--border)}
+.badge-card h4{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--navy);margin-bottom:4px}
+.badge-card .bid{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted)}
+.badge-card a{display:inline-block;margin-top:8px;font-family:'DM Mono',monospace;font-size:0.72rem;background:var(--navy);color:#fff;padding:5px 12px;border-radius:4px;text-decoration:none}
+.badge-card a:hover{background:var(--gold);color:var(--navy)}
+.data-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem}
+.data-table th{background:var(--navy);color:#fff;padding:0.7rem 1rem;text-align:left;font-family:'DM Mono',monospace;font-size:0.75rem;font-weight:500}
+.data-table td{padding:0.7rem 1rem;border-bottom:1px solid var(--border);color:#111827}
+.data-table tr:nth-child(even) td{background:#F2EFE8}
+.article-wrap h2{font-family:'Playfair Display',serif;font-size:1.65rem;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border)}
+.article-wrap h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin:1.75rem 0 0.6rem}
+.article-wrap p{margin-bottom:1.2rem;font-size:1rem;color:#111827;line-height:1.85}
+.article-wrap ul,.article-wrap ol{margin:0.75rem 0 1.25rem 1.5rem}
+.article-wrap li{margin-bottom:0.5rem;font-size:0.97rem;color:#111827;line-height:1.7}
+.verify-box{background:#F7F5F0;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:6px;padding:1.25rem 1.5rem;margin:2rem 0}
+.verify-box p{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--muted);line-height:1.8;margin:0}
+.verify-box a{color:var(--navy);font-weight:600;word-break:break-all}
+.author-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;margin:3rem 0 2rem}
+.author-avatar{background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.author-info h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin-bottom:0.25rem}
+.author-info .author-role{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold);margin-bottom:0.5rem}
+.author-info p{font-size:0.85rem;color:var(--muted);line-height:1.65}
+.cta-box{background:var(--navy);border-radius:12px;padding:2rem;text-align:center;margin:2.5rem 0}
+.cta-box h3{font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.4rem;margin-bottom:0.75rem}
+.cta-box p{color:#a0aabb;font-size:0.9rem;margin-bottom:1.25rem;line-height:1.65}
+.cta-btn{padding:0.6rem 1.4rem;border-radius:6px;font-family:'DM Mono',monospace;font-size:0.8rem;font-weight:500;text-decoration:none;background:var(--gold);color:var(--navy);display:inline-block}
+.cta-btn:hover{opacity:0.85}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div style="display:flex;align-items:center;gap:0.75rem">
+    <a href="https://venadglobal.org" style="display:flex;align-items:center;text-decoration:none">
+      <img src="../vgc_logo.png" alt="VGC Logo" style="height:36px;width:auto;background:#fff;padding:2px;border-radius:4px;">
+    </a>
+    <a href="https://venadglobal.org" style="text-decoration:none">
+      <div class="nav-title">VENAD GLOBAL</div>
+      <div class="nav-subtitle">Real Experience · Honest Guidance</div>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="https://venadglobal.org/">Home</a>
+    <a href="https://venadglobal.org/cv.html">CV</a>
+    <a href="https://venadglobal.org/references.html">References</a>
+    <a href="https://venadglobal.org/blog/">Blog</a>
+    <a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">Marksheet Tool</a>
+    <a href="https://wa.me/918589895659" target="_blank">WhatsApp</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb"><a href="https://venadglobal.org/">Home</a> / <a href="https://venadglobal.org/blog/">Blog</a> / Arcade SRE Oct 2026</div>
+    <div class="article-cat">Google Cloud • Arcade Simulator • Oct 8, 2026</div>
+    <h1>Arcade Simulator: <em>Site Reliability Engineer</em> — Triple Badge Day</h1>
+    <div class="article-meta">
+      <div class="meta-item"><strong>Antony Ancil</strong> — Kollam, Kerala</div>
+      <div class="meta-item">Oct 8, 2026 EDT • 3 Badges</div>
+      <div class="meta-item">g.dev/idivet • 47 Certificates</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-wrap">
+
+<div class="key-box">
+  <div class="key-box-label">Verified Triple Badge — Oct 8, 2026</div>
+  <p><strong>Set Up a Google Cloud Network (28742711)</strong> + <strong>Implement DevOps Workflows (28742694)</strong> + <strong>Arcade Simulator: SRE Game Badge (28742645)</strong> — 8 labs completed. CI/CD with Cloud Build & Artifact Registry, GKE rollouts, custom VPC, firewall hardening, VM latency benchmarking. Leaderboard 344,692,593 pts.</p>
+</div>
+
+<div class="badge-grid">
+  <div class="badge-card">
+    <img src="../assets/badge-set-up-network-28742711.png" alt="Set Up a Google Cloud Network 28742711" loading="lazy">
+    <h4>Set Up a Google Cloud Network</h4>
+    <div class="bid">ID 28742711 • Introductory • Infrastructure Modernization</div>
+    <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28742711" target="_blank">Verify →</a>
+  </div>
+  <div class="badge-card">
+    <img src="../assets/badge-devops-workflows-28742694.png" alt="Implement DevOps Workflows 28742694" loading="lazy">
+    <h4>Implement DevOps Workflows in Google Cloud</h4>
+    <div class="bid">ID 28742694 • Intermediate • Application Modernization</div>
+    <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28742694" target="_blank">Verify →</a>
+  </div>
+  <div class="badge-card" style="border:2px solid var(--gold)">
+    <img src="../assets/badge-arcade-sre-28742645.png" alt="Arcade Simulator SRE 28742645" loading="lazy">
+    <h4>Arcade Simulator: Site Reliability Engineer — Oct 2026</h4>
+    <div class="bid">Game Badge ID 28742645 • Rank 419 • 6678 spots</div>
+    <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28742645" target="_blank">Verify Game →</a>
+  </div>
+</div>
+
+<h2>What Was Completed</h2>
+<p>Google Skills Arcade October 2026 — <strong>Arcade Simulator: Site Reliability Engineer</strong> requires completion of two skill badges and the simulator game. All 8 labs were completed on Oct 8, 2026.</p>
+
+<table class="data-table">
+  <tr><th>Module</th><th>Labs</th><th>Skills Covered</th></tr>
+  <tr><td>CI/CD & Kubernetes Deployments</td><td>4 Labs</td><td>Cloud Build, Artifact Registry, Cloud Source Repositories, GKE deployments, scaling, rollouts</td></tr>
+  <tr><td>VPC Architecture & Network Latency</td><td>4 Labs</td><td>Custom VPC, firewall rules, gcloud IAM, Compute Engine Web App, microservices breakdown, Cloud Logging BigQuery logs, Cloud SQL migration via Database Migration Service</td></tr>
+</table>
+
+<h2>Badge Details</h2>
+<h3>1. Set Up a Google Cloud Network — 28742711</h3>
+<p><strong>Level:</strong> Introductory — Infrastructure Modernization. Covers setting IAM features with gcloud CLI, deploying and scaling a Web App on Compute Engine, provisioning a Kubernetes cluster and breaking an application into microservices, basic networking tasks on Google Cloud Platform, viewing BigQuery logs inside Cloud Logging, and migrating a standalone PostgreSQL database to Cloud SQL using a continuous Database Migration Service job.</p>
+
+<h3>2. Implement DevOps Workflows in Google Cloud — 28742694</h3>
+<p><strong>Level:</strong> Intermediate — Application Modernization. Covers creating git repositories with Cloud Source Repositories, launching, managing and scaling deployments on Google Kubernetes Engine, and architecting CI/CD pipelines that automate container image builds and deployments to GKE.</p>
+
+<h3>3. Arcade Simulator: Site Reliability Engineer — 28742645</h3>
+<p><strong>Game Badge — Oct 2026.</strong> SRE role simulation: automate releases, secure infrastructure, maintain uptime. Completed with 344,692,593 arcade points, Rank 419, 6678 spots remaining at time of completion.</p>
+
+<div class="verify-box">
+  <p>
+  Public Skills Profile: <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de" target="_blank">94ed9c64-b219-4e43-8f23-b411eb4a37de</a><br>
+  28742711: <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28742711" target="_blank">Set Up a Google Cloud Network</a><br>
+  28742694: <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28742694" target="_blank">Implement DevOps Workflows</a><br>
+  28742645: <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28742645" target="_blank">Arcade Simulator: SRE</a><br>
+  Developer: <a href="https://g.dev/idivet" target="_blank">g.dev/idivet</a> | Credly: <a href="https://www.credly.com/users/antony-ancil" target="_blank">antony-ancil</a><br>
+  Updated Count: Digital 38 · British 2 · Safety 3 · Awards 4 · Education 3 = 50 — Oct 8, 2026
+  </p>
+</div>
+
+<div class="author-box">
+  <div class="author-avatar">AA</div>
+  <div class="author-info">
+    <h4>Antony Ancil</h4>
+    <div class="author-role">IT Support & Digital Operations • 36 Years International • Kollam, Kerala</div>
+    <p>Google Cloud certified Sept-Oct 2026 — 50 certificates including Google Cloud Computing Foundations, AI Essentials Specialization (5/5), Cisco, British Council IELTS 11y9m. Founder, Venad Global Consultancy. Profile: g.dev/idivet</p>
+  </div>
+</div>
+
+<div class="cta-box">
+  <h3>Verify All Certificates</h3>
+  <p>All badges linked to public Google Skills profile with exact URLs.</p>
+  <a class="cta-btn" href="https://venadglobal.org/references.html">View References →</a>
+</div>
+
+</div>
+
+</body>
+</html>
