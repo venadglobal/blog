@@ -57,17 +57,17 @@ document.addEventListener('DOMContentLoaded', function() {
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{--navy:#1B3A6B;--navy2:#0D1F3C;--gold:#C9A227;--gold2:#F0C060;--ink:#1a1a2e;--muted:#5a6480;--bg:#F7F5F0;--card:#FFFFFF;--border:#E8E4DC;}
+/* --- NAV FROM KSEB MODEL - GREAT LOGO --- */
+:root{--bg-dark:#08090b;--navy:#1B3A6B;--navy2:#0D1F3C;--gold:#C9A227;--gold2:#F0C060;--ink:#1a1a2e;--muted:#5a6480;--bg:#F7F5F0;--card:#FFFFFF;--border:#E8E4DC;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--ink);line-height:1.8}
 a{color:var(--navy);text-decoration:none}a:hover{text-decoration:underline;color:var(--gold)}
-.nav{background:var(--navy2);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;position:sticky;top:0;z-index:999;border-bottom:3px solid var(--gold)}
-.nav-brand{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 0;text-decoration:none}
-.nav-title{color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
-.nav-subtitle{color:var(--gold);font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:1px}
-.nav-links{display:flex;gap:1.2rem;align-items:center}
-.nav-links a{color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;transition:color 0.2s}
-.nav-links a:hover{color:var(--gold)}
+nav{background:rgba(8,9,11,.97);backdrop-filter:blur(12px);padding:1rem 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,162,39,.2)}
+nav a{color:var(--gold);text-decoration:none;font-family:'DM Mono',monospace;font-size:.85rem;font-weight:600}
+nav .nav-links{margin-left:auto;display:flex;gap:1.5rem}
+nav .nav-links a{color:#8892a0;font-weight:400;font-size:.82rem}
+nav .nav-links a:hover{color:var(--gold)}
+.color-bar{height:5px;display:flex}.color-bar div{flex:1}
 .article-hero{background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 45%,#1B3A6B 100%);padding:3.5rem 1.5rem 3rem;position:relative;overflow:hidden}
 .article-hero::before{content:'☁️';position:absolute;right:-10px;bottom:-10px;font-size:10rem;opacity:0.06;pointer-events:none}
 .article-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),#4285F4,#34A853,var(--gold))}
@@ -118,25 +118,9 @@ a{color:var(--navy);text-decoration:none}a:hover{text-decoration:underline;color
 </head>
 <body>
 
-<nav class="nav">
-  <div style="display:flex;align-items:center;gap:0.75rem">
-    <a href="https://venadglobal.org" style="display:flex;align-items:center;text-decoration:none">
-      <img src="../vgc_logo.png" alt="VGC Logo" style="height:36px;width:auto;background:#fff;padding:2px;border-radius:4px;">
-    </a>
-    <a href="https://venadglobal.org" style="text-decoration:none">
-      <div class="nav-title">VENAD GLOBAL</div>
-      <div class="nav-subtitle">Real Experience · Honest Guidance</div>
-    </a>
-  </div>
-  <div class="nav-links">
-    <a href="https://venadglobal.org/">Home</a>
-    <a href="https://venadglobal.org/cv.html">CV</a>
-    <a href="https://venadglobal.org/references.html">References</a>
-    <a href="https://venadglobal.org/blog/">Blog</a>
-    <a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">Marksheet Tool</a>
-    <a href="https://wa.me/918589895659" target="_blank">WhatsApp</a>
-  </div>
-</nav>
+<!-- KSEB STYLE NAV - GREAT LOGO - NO WHITE BACKGROUND -->
+<nav><a href="https://venadglobal.org"><img src="../vgc_logo.png" alt="VGC" style="height:34px"></a><a href="https://venadglobal.org">✦ Venad Global</a><div class="nav-links"><a href="https://venadglobal.org/">Home</a><a href="https://venadglobal.org/cv.html">CV</a><a href="https://venadglobal.org/references.html">References</a><a href="https://venadglobal.org/blog/">Blog</a><a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">Marksheet Tool</a><a href="https://wa.me/918589895659" target="_blank">WhatsApp</a></div></nav>
+<div class="color-bar"><div style="background:#FF9933"></div><div style="background:#FFFFFF"></div><div style="background:#138808"></div></div>
 
 <div class="article-hero">
   <div class="article-hero-inner">
