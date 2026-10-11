@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BZDPM9EZM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2BZDPM9EZM');</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: window.location.pathname });
+    });
+  });
+  document.querySelectorAll('a[href*="mailto"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'email_click', { event_category: 'engagement', event_label: el.href });
+    });
+  });
+  document.querySelectorAll('a[href*="tel:"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'phone_click', { event_category: 'engagement', event_label: el.href });
+    });
+  });
+  var depths = [25,50,75,100], reached = [];
+  window.addEventListener('scroll', function() {
+    var pct = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+    depths.forEach(function(d) {
+      if (pct >= d && !reached.includes(d)) {
+        reached.push(d);
+        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: d+'%', value: d });
+      }
+    });
+  });
+  var t = 0;
+  var ti = setInterval(function() {
+    t += 30;
+    if ([30,60,120,180,300].includes(t)) gtag('event', 'time_on_page', { event_category: 'engagement', event_label: t+'s', value: t });
+    if (t >= 300) clearInterval(ti);
+  }, 30000);
+});
+</script>
+<link href="../favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Develop Your Google Cloud Network + Arcade Base Camp + Event-Driven Messaging — Triple Badge Oct 10 Evening | Antony Ancil | Venad Global</title>
+<meta content="Antony Ancil earned 3 Google Cloud badges Oct 10, 2026 Evening: Develop Your Google Cloud Network 28786818 Intermediate, Arcade Base Camp October 2026 28786813, Implement Event-Driven Messaging and Automation Workflows 28786436 Smart Analytics. 60 Certificates verified. g.dev/idivet" name="description"/>
+<meta content="Antony Ancil, Google Cloud, Develop Your Google Cloud Network, Arcade Base Camp, Event-Driven Messaging, Smart Analytics, Infrastructure Modernization, Google Skills Arcade, g.dev/idivet, Venad Global, Kollam Kerala, 60 Certificates" name="keywords"/>
+<meta content="article" property="og:type"/>
+<meta content="Develop Network + Arcade Base Camp + Event-Driven — Triple Badge Oct 10 Evening 2026" property="og:title"/>
+<meta content="3 badges Oct 10 Evening: Develop Network 28786818 Intermediate + Arcade Base Camp 28786813 + Event-Driven 28786436 Smart Analytics. Verified on Google Skills." property="og:description"/>
+<meta content="https://venadglobal.org/blog/develop-arcade-event-driven-antony-ancil-oct-10-2026.html" property="og:url"/>
+<meta content="https://venadglobal.org/blog/assets/badge-develop-network-28786818.png" property="og:image"/>
+<meta content="Venad Global Consultancy" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Develop Network + Arcade + Event-Driven Triple — Antony Ancil" name="twitter:title"/>
+<meta content="Develop Network 28786818 + Arcade 28786813 + Event-Driven 28786436 — Oct 10, 2026 Evening — 60 Certs" name="twitter:description"/>
+<meta content="https://venadglobal.org/blog/assets/badge-develop-network-28786818.png" name="twitter:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#1B3A6B;--navy2:#0D1F3C;--gold:#C9A227;--gold2:#F0C060;--ink:#1a1a2e;--muted:#5a6480;--bg:#F7F5F0;--card:#FFFFFF;--border:#E8E4DC;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--bg);color:var(--ink);line-height:1.8}
+a{color:var(--navy);text-decoration:none}a:hover{text-decoration:underline;color:var(--gold)}
+/* FIXED NAV LOGO - Hero navigation logo fixed */
+.nav{background:var(--navy2);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;position:sticky;top:0;z-index:999;border-bottom:3px solid var(--gold)}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 0;text-decoration:none}
+.nav-title{color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
+.nav-subtitle{color:var(--gold);font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:1px}
+.nav-links{display:flex;gap:1.2rem;align-items:center}
+.nav-links a{color:#ccc;font-size:0.82rem;font-family:'DM Mono',monospace;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.article-hero{background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 45%,#1B3A6B 100%);padding:3.5rem 1.5rem 3rem;position:relative;overflow:hidden}
+.article-hero::before{content:'☁️';position:absolute;right:-10px;bottom:-10px;font-size:10rem;opacity:0.06;pointer-events:none}
+.article-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),#4285F4,#34A853,var(--gold))}
+.article-hero-inner{max-width:760px;margin:0 auto}
+.breadcrumb{font-family:'DM Mono',monospace;font-size:0.72rem;color:#6b7590;margin-bottom:1rem}
+.breadcrumb a{color:var(--gold);text-decoration:none}
+.article-cat{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:0.75rem}
+.article-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.8rem);color:#fff;line-height:1.25;margin-bottom:1rem}
+.article-hero h1 em{color:var(--gold2);font-style:italic}
+.article-meta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.25rem}
+.meta-item{font-family:'DM Mono',monospace;font-size:0.75rem;color:#a0aabb}
+.meta-item strong{color:var(--gold)}
+.meta-item a{color:var(--gold2);margin-left:0.75rem}
+.article-wrap{max-width:760px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+.key-box{background:var(--navy);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0;border-left:5px solid var(--gold)}
+.key-box-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.6rem}
+.key-box p{color:#d0d8e8;font-size:0.95rem;line-height:1.7}
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:2rem 0}
+.badge-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;transition:transform 0.2s}
+.badge-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+.badge-card img{width:100%;max-width:220px;height:auto;border-radius:8px;margin-bottom:0.75rem}
+.badge-card h4{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--navy);margin-bottom:0.4rem;line-height:1.3}
+.badge-card .bid{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.5}
+.badge-card a{font-family:'DM Mono',monospace;font-size:0.75rem;font-weight:600;color:var(--navy);background:var(--bg);padding:0.35rem 0.9rem;border-radius:20px;display:inline-block;border:1px solid var(--border)}
+.badge-card a:hover{background:var(--navy);color:var(--gold);text-decoration:none}
+h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);margin:2.5rem 0 1rem;line-height:1.3}
+h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ink);margin:1.8rem 0 0.6rem}
+p{margin-bottom:1rem;font-size:1rem;color:#2a2a3a}
+.data-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.88rem}
+.data-table th{background:var(--navy);color:var(--gold);font-family:'DM Mono',monospace;font-size:0.72rem;padding:0.7rem 0.8rem;text-align:left}
+.data-table td{padding:0.7rem 0.8rem;border-bottom:1px solid var(--border);vertical-align:top;color:#333}
+.data-table tr:nth-child(even){background:#fcfaf6}
+.verify-box{background:#f0efe9;border:1px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0}
+.verify-box p{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--muted);line-height:1.8;margin:0}
+.verify-box a{color:var(--navy);font-weight:600;word-break:break-all}
+.author-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;margin:3rem 0 2rem}
+.author-avatar{background:var(--navy);color:var(--gold);font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.author-info h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin-bottom:0.25rem}
+.author-info .author-role{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold);margin-bottom:0.5rem}
+.author-info p{font-size:0.85rem;color:var(--muted);line-height:1.65}
+.cta-box{background:var(--navy);border-radius:12px;padding:2rem;text-align:center;margin:2.5rem 0}
+.cta-box h3{font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.4rem;margin-bottom:0.75rem}
+.cta-box p{color:#a0aabb;font-size:0.9rem;margin-bottom:1.25rem;line-height:1.65}
+.cta-btn{padding:0.6rem 1.4rem;border-radius:6px;font-family:'DM Mono',monospace;font-size:0.8rem;font-weight:500;text-decoration:none;background:var(--gold);color:var(--navy);display:inline-block}
+.cta-btn:hover{opacity:0.85;text-decoration:none}
+@media(max-width:600px){.nav{padding:0 1rem}.nav-links{gap:0.8rem}.nav-links a{font-size:0.75rem}.article-hero{padding:2.5rem 1.2rem 2.2rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div style="display:flex;align-items:center;gap:0.75rem">
+    <a href="https://venadglobal.org" style="display:flex;align-items:center;text-decoration:none">
+      <img src="../vgc_logo.png" alt="VGC Logo" style="height:36px;width:auto;background:#fff;padding:2px;border-radius:4px;">
+    </a>
+    <a href="https://venadglobal.org" style="text-decoration:none">
+      <div class="nav-title">VENAD GLOBAL</div>
+      <div class="nav-subtitle">Real Experience · Honest Guidance</div>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="https://venadglobal.org/">Home</a>
+    <a href="https://venadglobal.org/cv.html">CV</a>
+    <a href="https://venadglobal.org/references.html">References</a>
+    <a href="https://venadglobal.org/blog/">Blog</a>
+    <a href="https://venadglobal.org/blog/kerala-school-marksheet-generator.html">Marksheet Tool</a>
+    <a href="https://wa.me/918589895659" target="_blank">WhatsApp</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb"><a href="https://venadglobal.org/">Home</a> / <a href="https://venadglobal.org/blog/">Blog</a> / Develop + Arcade + Event-Driven Oct 10 Evening</div>
+    <div class="article-cat">Google Cloud • Infrastructure Modernization • Arcade • Smart Analytics • Oct 10, 2026</div>
+    <h1>Develop Your Google Cloud Network <em>+ Arcade Base Camp + Event-Driven</em> — Evening Triple</h1>
+    <div class="article-meta">
+      <div class="meta-item"><strong>Antony Ancil</strong> — Kollam, Kerala</div>
+      <div class="meta-item">Oct 10, 2026 Evening • 3 Badges • Intermediate + Intro</div>
+      <div class="meta-item"><a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de" target="_blank">Google Skills Profile</a><a href="https://g.dev/idivet" target="_blank">Google Dev. Profile</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="article-wrap">
+
+<div class="key-box">
+  <div class="key-box-label">Verified Evening Triple — Oct 10, 2026 • 8:30 PM IST</div>
+  <p><strong>Develop Your Google Cloud Network (28786818)</strong> Intermediate — Infrastructure Modernization + <strong>Arcade Base Camp October 2026 (28786813)</strong> + <strong>Implement Event-Driven Messaging and Automation Workflows (28786436)</strong> Smart Analytics — VPC networking, subnet routing, firewall design + Arcade base camp entry + Pub/Sub event-driven pipelines, Cloud Run automation. Same VGC verification style as morning triple (Prometheus/AlloyDB/Trick-or-Metric).</p>
+</div>
+
+<div class="badge-grid">
+  <div class="badge-card" style="border:2px solid var(--gold)">
+    <img src="https://venadglobal.org/blog/assets/badge-develop-network-28786818.png" alt="Develop Your Google Cloud Network 28786818" loading="lazy">
+    <h4>Develop Your Google Cloud Network</h4>
+    <div class="bid">ID 28786818 • Intermediate • Infrastructure Modernization • Oct 10, 2026 Evening</div>
+    <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28786818" target="_blank">Verify →</a>
+  </div>
+  <div class="badge-card">
+    <img src="https://venadglobal.org/blog/assets/badge-arcade-base-camp-28786813.png" alt="Arcade Base Camp 28786813" loading="lazy">
+    <h4>Arcade Base Camp October 2026</h4>
+    <div class="bid">ID 28786813 • Arcade • Base Camp Entry • Oct 10, 2026</div>
+    <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28786813" target="_blank">Verify →</a>
+  </div>
+  <div class="badge-card">
+    <img src="https://venadglobal.org/blog/assets/badge-event-driven-28786436.png" alt="Event-Driven Messaging 28786436" loading="lazy">
+    <h4>Implement Event-Driven Messaging and Automation Workflows</h4>
+    <div class="bid">ID 28786436 • Introductory • Smart Analytics • Oct 10, 2026 Evening</div>
+    <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28786436" target="_blank">Verify →</a>
+  </div>
+</div>
+
+<h2>What Was Completed</h2>
+<p>Google Skills Arcade — Evening session Oct 10, 2026 — <strong>Develop Your Google Cloud Network</strong> Intermediate badge plus <strong>Arcade Base Camp</strong> and <strong>Event-Driven Messaging</strong> introductory badge. Completed after morning triple (Monitor Prometheus 28771685 + AlloyDB 28751651 + Trick-or-Metric 28771656).</p>
+
+<table class="data-table">
+  <tr><th>Module</th><th>Labs</th><th>Skills Covered</th></tr>
+  <tr><td>Develop Your Google Cloud Network</td><td>Intermediate • 3-4 Labs</td><td>VPC creation, subnets (us-central1, us-east1), custom routes, firewall rules (allow HTTP/SSH), Cloud Router, Cloud NAT, VPC peering, Private Google Access, hybrid networking concepts — Infrastructure Modernization track</td></tr>
+  <tr><td>Arcade Base Camp October 2026</td><td>Arcade</td><td>Base Camp entry for October 2026 Arcade — pixel badge, arcade points activation, Qwiklabs arcade access</td></tr>
+  <tr><td>Event-Driven Messaging & Automation</td><td>Introductory • 2 Labs</td><td>Pub/Sub topics & subscriptions, Cloud Functions triggers, Cloud Run event-driven automation, Workflows, Smart Analytics pipeline — publish/subscribe pattern, message ordering, dead-letter topics</td></tr>
+</table>
+
+<h2>Badge Details</h2>
+<h3>1. Develop Your Google Cloud Network — 28786818 • Intermediate</h3>
+<p><strong>Level:</strong> Intermediate — Infrastructure Modernization. Completed Oct 10, 2026 Evening. Covers developing VPC networks — building custom VPC with subnets, firewall, routing. Key for networking foundation leading to Load Balancing and Cloud Armor tracks. Earlier Credly version of same badge earned — this is Skills Boost version with hands-on labs.</p>
+
+<h3>2. Arcade Base Camp October 2026 — 28786813</h3>
+<p><strong>Arcade Badge — Oct 2026.</strong> Base Camp badge — required for participating in October Arcade. Arcade badges include Trick-or-Metric (28771656), Arcade SRE (Oct 8), and Base Camp. Same pixel-art arcade design as other Oct 2026 arcade badges.</p>
+
+<h3>3. Implement Event-Driven Messaging and Automation Workflows — 28786436</h3>
+<p><strong>Level:</strong> Introductory — Smart Analytics. Completed Oct 10, 2026 Evening. Covers Pub/Sub — creating topics, subscriptions (pull/push), publishing messages, Cloud Functions / Cloud Run triggered by Pub/Sub, Automation Workflows. Part of Smart Analytics track — builds on Dataflow, BigQuery event pipelines.</p>
+
+<div class="verify-box">
+  <p>
+  Public Skills Profile: <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de" target="_blank">94ed9c64-b219-4e43-8f23-b411eb4a37de</a><br>
+  28786818: <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28786818" target="_blank">Develop Your Google Cloud Network</a><br>
+  28786813: <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28786813" target="_blank">Arcade Base Camp October 2026</a><br>
+  28786436: <a href="https://www.skills.google/public_profiles/94ed9c64-b219-4e43-8f23-b411eb4a37de/badges/28786436" target="_blank">Event-Driven Messaging and Automation</a><br>
+  Developer: <a href="https://g.dev/idivet" target="_blank">g.dev/idivet</a> | Credly: <a href="https://www.credly.com/users/antony-ancil" target="_blank">antony-ancil</a>
+  </p>
+</div>
+
+<div class="author-box">
+  <div class="author-avatar">AA</div>
+  <div class="author-info">
+    <h4>Antony Ancil</h4>
+    <div class="author-role">IT Support & Digital Operations • 36 Years International • Kollam, Kerala</div>
+    <p>Google Cloud certified Sept-Oct 2026 — 56 certificates including Google Cloud Computing Foundations, Develop Your Network 28786818, Arcade Base Camp 28786813, Event-Driven 28786436, AI Essentials Specialization (5/5), Cisco, British Council IELTS 11y9m. Founder, Venad Global Consultancy. Profile: g.dev/idivet — Real Experience · Honest Guidance for study abroad, IT support and documentation.</p>
+  </div>
+</div>
+
+<div class="cta-box">
+  <h3>Verify All Certificates</h3>
+  <p>All badges linked to public Google Skills profile with exact URLs — same verification style as Oct 10 morning triple and Oct 8 SRE triple.</p>
+  <a class="cta-btn" href="https://venadglobal.org/references.html">View References →</a>
+  <a class="cta-btn" href="https://venadglobal.org/blog/trick-or-metric-prometheus-alloydb-antony-ancil-oct-10-2026.html" style="margin-left:0.5rem;background:#fff;color:var(--navy)">Morning Triple →</a>
+</div>
+
+</div>
+</body>
+</html>
