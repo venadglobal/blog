@@ -79,11 +79,15 @@ a:hover{text-decoration:underline;color:var(--gold)}
 footer{background:var(--navy2);color:#aaa;text-align:center;padding:2rem 1.5rem;font-family:"DM Mono",monospace;font-size:0.78rem;margin-top:3rem}
 footer a{color:var(--gold)}
 @media(max-width:600px){.nav-links{display:none}.step-block{padding-left:1rem}.step-num{display:none}.visa-grid{grid-template-columns:1fr}}
-/* COLOR FIX — Sept 2026 — only ink color */
-body{color:#111827}
-.body p, .body li, .data-table td{color:#111827 !important}
-.callout p, .warning p{color:#111827 !important}
-.author-bio{color:#1f2937 !important}
+
+/* COLOR FIX — UPDATED TEXT TO WHITE FOR BLUE BACKGROUND READABILITY */
+div[style*="background:linear-gradient(135deg,#0D1F3C,#1B3A6B)"], 
+div[style*="background:linear-gradient(135deg,#0D1F3C,#1B3A6B)"] h3, 
+div[style*="background:linear-gradient(135deg,#0D1F3C,#1B3A6B)"] ul, 
+div[style*="background:linear-gradient(135deg,#0D1F3C,#1B3A6B)"] li {
+    color: #FFFFFF !important;
+}
+
 </style>
 </head>
 <body>
@@ -98,7 +102,7 @@ body{color:#111827}
   <div class="nav-links">
     <a href="https://venadglobal.org/blog/">&larr; Blog</a>
     <a href="https://venadglobal.org/">Home</a>
-    <a href="https://venadglobal.org/services.html">Services</a>
+    <a href="https://venadglobal.org/#services">Services</a>
     <a href="https://wa.me/918589895659" style="color:var(--gold)">💬 WhatsApp</a>
   </div>
 </nav>
@@ -379,10 +383,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   document.querySelectorAll('a[href^="http"]').forEach(function(el) {
     if (!el.href.includes(window.location.hostname)) {
-      el.addEventListener('click', function() {
-        gtag('event', 'external_link_click', { event_category: 'engagement', event_label: el.href });
-      });
-    }
+      gtag('event', 'external_link_click', { event_category: 'engagement', event_label: el.href });
+    });
   });
   var depths = [25,50,75,100], reached = [];
   window.addEventListener('scroll', function() {

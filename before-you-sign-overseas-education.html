@@ -184,6 +184,61 @@
 .cost-label{color:#cbd5e1 !important}
 .warning-line{color:#fecaca !important}
 
+
+/* ── VGC READABILITY FIX: Blue background = WHITE font ── */
+.key-box, .key-box p, .key-box li,
+.data-table th, .data-table .total td,
+.salary-card, .salary-card *,
+.tl-item, .tl-item *,
+.article-hero, .article-hero h1, .article-hero p, .article-hero .meta-item,
+.hero, .hero h1, .hero p,
+.cta-box, .cta-box h3, .cta-box p,
+.author-box[style*="background"], 
+div[style*="background:linear-gradient"],
+div[style*="background:#0D1F3C"], div[style*="background:#1B3A6B"],
+div[style*="background: #0D1F3C"], div[style*="background: #1B3A6B"],
+section[style*="background:#0D1F3C"], section[style*="background:#1B3A6B"],
+span[style*="background:#1B3A6B"], span[style*="background:#0D1F3C"],
+a[style*="background:#1B3A6B"], a[style*="background:var(--navy)"] {
+  color: #ffffff !important;
+}
+/* Force any element with inline blue bg to have white text */
+[style*="background:#0D1F3C"], [style*="background: #0D1F3C"],
+[style*="background:#1B3A6B"], [style*="background: #1B3A6B"],
+[style*="background:#1a56db"], [style*="background: #1a56db"],
+[style*="background:#0d5c63"], [style*="background: #0d5c63"],
+[style*="background:var(--navy)"], [style*="background: var(--navy)"],
+[style*="background:var(--navy2)"], [style*="background: var(--navy2)"],
+[style*="background:var(--blue)"] {
+  color: #ffffff !important;
+}
+/* Ensure child text inside blue containers is also white */
+[style*="background:#0D1F3C"] *, [style*="background:#1B3A6B"] *,
+[style*="background:var(--navy)"] *, [style*="background:var(--navy2)"] * {
+  color: #ffffff !important;
+}
+/* Gold accents stay gold, but black on blue is fixed */
+.key-box p strong, .salary-card strong { color: #FFCE00 !important; }
+
+
+/* ===== BEFORE-YOU-SIGN - DARK THEME FIX - bg + font color ===== */
+:root{ --bg:#0a0c0f !important; --text:#e0e4ec !important; }
+html{ background:#0a0c0f !important; }
+body{ background:#0a0c0f !important; color:#e0e4ec !important; }
+.article-body{ background:#0a0c0f !important; color:#e0e4ec !important; }
+.article-body p, .article-body li{ color:#e0e4ec !important; }
+.article-body h2{ color:#FFFFFF !important; border-bottom-color:rgba(201,162,39,0.2) !important; }
+.article-body h3{ color:#C9A227 !important; }
+.article-body strong{ color:#FFFFFF !important; }
+.hero{ background:#0a0c0f !important; color:#FFFFFF !important; }
+.hero h1, .hero h1 span{ color:#FFFFFF !important; }
+.hero-sub{ color:#8892a0 !important; }
+.cost-box, .warning-box, .checklist, .bottom-line, .cost-row{ color:#e0e4ec !important; background:#181c23 !important; }
+#internal-links-seo{ background:#f9f5ee !important; border:1px solid #e8e4dc !important; }
+#internal-links-seo h4{ color:#1B3A6B !important; }
+#internal-links-seo a, #internal-links-seo li{ color:#1B3A6B !important; }
+footer{ background:#060606 !important; color:#6b7280 !important; }
+
 </style>
 </head>
 <body>
@@ -194,7 +249,7 @@
 <a href="https://venadglobal.org">✦ Venad Global</a>
 <div class="nav-links">
 <a href="https://venadglobal.org/blog/" onclick="gtag('event','nav_click',{target:'blog',page:'before_you_sign'});">Blog</a>
-<a href="https://venadglobal.org/services.html" onclick="gtag('event','nav_click',{target:'services',page:'before_you_sign'});">Services</a>
+<a href="https://venadglobal.org/#services" onclick="gtag('event','nav_click',{target:'services',page:'before_you_sign'});">Services</a>
 <a href="https://wa.me/918589895659" onclick="gtag('event','whatsapp_click',{source:'nav',page:'before_you_sign'});" target="_blank">WhatsApp</a>
 </div>
 </nav>
@@ -461,6 +516,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 30000);
 });
 </script>
+
 <footer>
 <p>(c) 2026 Antony Ancil — Venad Global Consultancy. All rights reserved.</p>
 <p>Content published on this site is the original work of Antony Ancil. Unauthorised reproduction is prohibited.</p>
@@ -472,17 +528,6 @@ const observer = new IntersectionObserver((entries)=>{
 document.querySelectorAll('[data-animate]').forEach(el=>observer.observe(el));
 </script>
 
-<div id="internal-links-seo" style="margin:2rem 0;padding:1.5rem;background:#f9f5ee;border:1px solid #e8e4dc;border-radius:8px;">
-<h4 style="font-family:DM Mono,monospace;font-size:0.8rem;letter-spacing:1px;color:#1B3A6B;margin-bottom:1rem;">Related Guides from Kollam</h4>
-<ul style="font-size:0.92rem;line-height:1.8;">
-<li><a href="https://venadglobal.org/blog/canada-aip-kerala.html">Canada AIP from Kerala — Honest Guide</a></li>
-<li><a href="https://venadglobal.org/blog/germany-blue-card-kerala.html">Germany Blue Card from Kerala</a></li>
-<li><a href="https://venadglobal.org/blog/nursing-abroad.html">Nursing Abroad — Real Process</a></li>
-<li><a href="https://venadglobal.org/blog/gulf-jobs-2026.html">Gulf Jobs 2026 — What Works</a></li>
-<li><a href="https://venadglobal.org/blog/cv-mistakes-kerala.html">CV Mistakes Kerala Professionals Make</a></li>
-<li><a href="https://venadglobal.org/blog/kseb-prosumer-injustice.html">KSEB Prosumer Injustice — Kerala</a></li>
-</ul>
-</div>
 <script src="/vgc-common.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -67,16 +66,16 @@ a:hover{text-decoration:underline;color:var(--gold)}
 /* KEY TAKEAWAY BOX */
 .key-box{background:var(--navy);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0;border-left:5px solid var(--gold)}
 .key-box-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.6rem}
-.key-box p{color:#fff;font-size:0.95rem;line-height:1.7}
+.key-box p{color:#fff !important;font-size:0.95rem;line-height:1.7}
 
 /* WARNING BOX */
 .warn-box{background:#FEF2F2;border-radius:8px;padding:1.25rem 1.5rem;margin:1.5rem 0;border-left:4px solid #E63946}
-.warn-box p{color:#7f1d1d;font-size:0.92rem;line-height:1.65}
-.warn-box strong{color:#991B1B}
+.warn-box p{color:#7f1d1d !important;font-size:0.92rem;line-height:1.65}
+.warn-box strong{color:#991B1B !important}
 
 /* TIP BOX */
 .tip-box{background:#F0FDF4;border-radius:8px;padding:1.25rem 1.5rem;margin:1.5rem 0;border-left:4px solid #059669}
-.tip-box p{color:#064e3b;font-size:0.92rem;line-height:1.65}
+.tip-box p{color:#064e3b !important;font-size:0.92rem;line-height:1.65}
 
 /* STEPS */
 .step{display:flex;gap:1.25rem;margin:1.25rem 0;align-items:flex-start}
@@ -94,7 +93,7 @@ a:hover{text-decoration:underline;color:var(--gold)}
 /* ARTICLE TYPOGRAPHY */
 .article-wrap h2{font-family:'Playfair Display',serif;font-size:1.65rem;color:var(--navy);margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border)}
 .article-wrap h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin:1.75rem 0 0.6rem}
-.article-wrap p{margin-bottom:1.2rem;font-size:1rem;color:#111827;line-height:1.85}
+.article-wrap > p{margin-bottom:1.2rem;font-size:1rem;color:#111827;line-height:1.85}
 .article-wrap ul,.article-wrap ol{margin:0.75rem 0 1.25rem 1.5rem}
 .article-wrap li{margin-bottom:0.5rem;font-size:0.97rem;color:#111827;line-height:1.7}
 .article-wrap strong{color:var(--navy)}
@@ -137,19 +136,23 @@ footer strong{color:var(--gold)}
 .footer-links a{color:#a0aabb;font-family:'DM Mono',monospace;font-size:0.75rem}
 .footer-links a:hover{color:var(--gold)}
 
-/* COLOR FIX — Sept 2026 — only ink color, no size change */
-body{color:#111827}
-.body p, .article-wrap p, .body li, .article-wrap li, .data-table td{color:#111827 !important}
-.callout p, .warning p, .tip p, .tip-box p, .warn-box p, .step-detail{color:#111827 !important}
-.author-bio, .author-info p{color:#1f2937 !important}
-.data-table td:first-child{color:#1B3A6B !important}
+/* ABSOLUTE OVERRIDE FOR ALL TEXT/ELEMENTS INSIDE INLINE-STYLED DARK/BLUE BOXES */
+div[style*="background:linear-gradient"],
+div[style*="background:linear-gradient"] *,
+div[style*="background:#0D1F3C"],
+div[style*="background:#0D1F3C"] *,
+div[style*="background: #0D1F3C"],
+div[style*="background:#012169"],
+div[style*="background:#012169"] * {
+  color: #FFFFFF !important;
+}
 
 </style>
 <link href="https://venadglobal.org/blog/canada-aip-kerala.html" rel="canonical"/><meta content="index, follow" name="robots"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Canada AIP from Kerala \u2014 The Honest Guide | Venad Global Blog",
-  "description": "How to apply for Canada Atlantic Immigration Program (AIP) from Kerala \u2014 step by step, without paying a consultant. Real experience by Antony Ancil.",
+  "headline": "Canada AIP from Kerala — The Honest Guide | Venad Global Blog",
+  "description": "How to apply for Canada Atlantic Immigration Program (AIP) from Kerala — step by step, without paying a consultant. Real experience by Antony Ancil.",
   "url": "https://venadglobal.org/blog/canada-aip-kerala.html",
   "author": {
     "@type": "Person",
@@ -178,7 +181,7 @@ body{color:#111827}
 </a>
 <div class="nav-links">
 <a href="index.html">← Blog</a>
-<a href="../services.html">Services</a>
+<a href="https://venadglobal.org/#services">Services</a>
 <a href="https://wa.me/918589895659" style="color:var(--gold)">💬 WhatsApp</a>
 </div>
 </nav>
@@ -205,7 +208,7 @@ body{color:#111827}
 <div style="background:linear-gradient(135deg,#0D1F3C,#1B3A6B);border:2px solid #C9A227;border-radius:12px;padding:1.5rem;margin:2rem 0">
 <div style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:2px;color:#C9A227;margin-bottom:0.8rem">🇨🇦 SEPT 2026 UPDATE — 4,000 AIP PLACES + DESIGNATED EMPLOYERS LIVE</div>
 <h3 style="color:#fff;font-family:'Playfair Display',serif;margin:0 0 0.8rem">2026-2028 Levels Plan: 4,000 AIP Admissions Annually</h3>
-<ul style="color:#c0d0e8;margin:0 0 0 1.2rem">
+<ul style="color:#ffffff;margin:0 0 0 1.2rem">
 <li><strong>Federal allocation:</strong> ~4,000 PR admissions/year under AIP — 2026-2028 Immigration Levels Plan</li>
 <li><strong>Designated employers:</strong> NB: gnb.ca | NS: novascotiaimmigration.com/designated-aip-employers | PEI: princeedwardisland.ca/immigration | NL: gov.nl.ca/immigration</li>
 <li><strong>Newfoundland invites 217 Sep 2026:</strong> PNP + AIP streams active</li>
@@ -221,10 +224,10 @@ body{color:#111827}
 <li><strong>Experience:</strong> 1,560 hrs (1 year) in past 5 years — exempt if graduated from Atlantic institution</li>
 </ul>
 </div>
-<div style="background:#E8EAF6;border-left:4px solid #012169;padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:2rem 0">
-<div style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:2px;color:#012169;margin-bottom:0.5rem">🎓 STUDENTS — ATLANTIC GRADUATE PATHWAY</div>
-<p style="margin:0 0 0.5rem"><strong>International graduates get special AIP route:</strong></p>
-<ul style="margin:0 0 0 1.2rem">
+<div style="background:#0D1F3C;border-left:4px solid #C9A227;padding:1.25rem 1.5rem;border-radius:0 8px 8px 0;margin:2rem 0">
+<div style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:2px;color:#C9A227;margin-bottom:0.5rem">🎓 STUDENTS — ATLANTIC GRADUATE PATHWAY</div>
+<p style="margin:0 0 0.5rem; color:#ffffff;"><strong>International graduates get special AIP route:</strong></p>
+<ul style="margin:0 0 0 1.2rem; color:#ffffff;">
 <li><strong>Exempt from work experience</strong> if graduated from Atlantic institution in last 24 months</li>
 <li><strong>Lived 16 months in last 24</strong> in Atlantic before graduation — requirement</li>
 <li><strong>No settlement funds needed</strong> if already living &amp; working in Canada with valid work permit</li>
@@ -421,10 +424,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // External links
   document.querySelectorAll('a[href^="http"]').forEach(function(el) {
     if (!el.href.includes(window.location.hostname)) {
-      el.addEventListener('click', function() {
-        gtag('event', 'external_link_click', { event_category: 'engagement', event_label: el.href });
-      });
-    }
+      gtag('event', 'external_link_click', { event_category: 'engagement', event_label: el.href });
+    });
   });
   // Scroll depth
   var depths = [25,50,75,100], reached = [];

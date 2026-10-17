@@ -89,6 +89,161 @@ footer strong{color:var(--gold)}
 .footer-links{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-top:0.75rem}
 .footer-links a{color:#a0aabb;font-family:'DM Mono',monospace;font-size:0.75rem}
 .footer-links a:hover{color:var(--gold)}
+
+/* ── VGC READABILITY FIX: Blue background = WHITE font ── */
+.key-box, .key-box p, .key-box li,
+.data-table th, .data-table .total td,
+.salary-card, .salary-card *,
+.tl-item, .tl-item *,
+.article-hero, .article-hero h1, .article-hero p, .article-hero .meta-item,
+.hero, .hero h1, .hero p,
+.cta-box, .cta-box h3, .cta-box p,
+.author-box[style*="background"], 
+div[style*="background:linear-gradient"],
+div[style*="background:#0D1F3C"], div[style*="background:#1B3A6B"],
+div[style*="background: #0D1F3C"], div[style*="background: #1B3A6B"],
+section[style*="background:#0D1F3C"], section[style*="background:#1B3A6B"],
+span[style*="background:#1B3A6B"], span[style*="background:#0D1F3C"],
+a[style*="background:#1B3A6B"], a[style*="background:var(--navy)"] {
+  color: #ffffff !important;
+}
+/* Force any element with inline blue bg to have white text */
+[style*="background:#0D1F3C"], [style*="background: #0D1F3C"],
+[style*="background:#1B3A6B"], [style*="background: #1B3A6B"],
+[style*="background:#1a56db"], [style*="background: #1a56db"],
+[style*="background:#0d5c63"], [style*="background: #0d5c63"],
+[style*="background:var(--navy)"], [style*="background: var(--navy)"],
+[style*="background:var(--navy2)"], [style*="background: var(--navy2)"],
+[style*="background:var(--blue)"] {
+  color: #ffffff !important;
+}
+/* Ensure child text inside blue containers is also white */
+[style*="background:#0D1F3C"] *, [style*="background:#1B3A6B"] *,
+[style*="background:var(--navy)"] *, [style*="background:var(--navy2)"] * {
+  color: #ffffff !important;
+}
+/* Gold accents stay gold, but black on blue is fixed */
+.key-box p strong, .salary-card strong { color: #FFCE00 !important; }
+
+
+/* ===== VENAD GLOBAL - FINAL BACKGROUND + FONT COLOR FIX - Antony bhayya ===== */
+:root{
+  --bg:#F7F5F0 !important;
+  --card:#FFFFFF !important;
+  --ink:#1a1a2e !important;
+  --ink-light:#2a2a3a !important;
+  --navy:#1B3A6B !important;
+  --navy2:#0D1F3C !important;
+}
+html{ background:#F7F5F0 !important; }
+body{
+  background:#F7F5F0 !important;
+  background-color:#F7F5F0 !important;
+  color:#1a1a2e !important;
+  font-family:'Source Serif 4',Georgia,serif !important;
+}
+.article-wrap, .body, .body-inner{
+  background:#F7F5F0 !important;
+  color:#1a1a2e !important;
+}
+.article-wrap p, .body p, .body li, .article-wrap li, .body ul, .article-wrap ul, .body ol, .article-wrap ol{
+  color:#1a1a2e !important;
+  line-height:1.85 !important;
+}
+.article-wrap h2, .body h2{
+  color:#1B3A6B !important;
+  border-bottom-color:#E8E4DC !important;
+}
+.article-wrap h3, .body h3{
+  color:#0D1F3C !important;
+}
+/* NAV - dark bg white font */
+.nav{
+  background:#0D1F3C !important;
+  color:#FFFFFF !important;
+}
+.nav-brand, .nav-title, .nav-subtitle{ color:#FFFFFF !important; }
+.nav-links a{ color:#D0D8E8 !important; }
+.nav-links a:hover{ color:#C9A227 !important; }
+/* HERO - dark bg white font - preserve gradient but ensure text white */
+.article-hero, .hero{
+  color:#FFFFFF !important;
+}
+.article-hero h1, .hero h1{
+  color:#FFFFFF !important;
+}
+.article-hero h1 em, .hero h1 em{
+  color:#F0C060 !important;
+}
+.breadcrumb, .meta-item, .cat, .article-cat, .hero-desc, .article-meta, .meta-tag, .hero-inner .breadcrumb{
+  color:#D0D8E8 !important;
+}
+.breadcrumb a, .cat a, .article-cat a{ color:#C9A227 !important; }
+.meta-item strong, .key-box-label{ color:#C9A227 !important; }
+/* KEY BOX - navy bg white font */
+.key-box{
+  background:#1B3A6B !important;
+  color:#FFFFFF !important;
+  border-left:5px solid #C9A227 !important;
+}
+.key-box p, .key-box li{ color:#FFFFFF !important; }
+/* CTA BOX - dark bg white font */
+.cta-box{
+  background:#0D1F3C !important;
+  color:#FFFFFF !important;
+}
+.cta-box h3{ color:#F0C060 !important; }
+.cta-box p{ color:#D0D8E8 !important; }
+/* TABLES - light bg dark font for readability */
+.data-table th{
+  background:#0D1F3C !important;
+  color:#FFFFFF !important;
+}
+.data-table td{
+  background:#FFFFFF !important;
+  color:#111827 !important;
+}
+.data-table tr:nth-child(even) td{
+  background:#F2EFE8 !important;
+  color:#111827 !important;
+}
+.data-table .total td{
+  background:#0D1F3C !important;
+  color:#FFFFFF !important;
+}
+.data-table td:first-child{ color:#1B3A6B !important; font-weight:600 !important; }
+/* AUTHOR BOX - white bg dark font */
+.author-box{
+  background:#FFFFFF !important;
+  color:#1a1a2e !important;
+  border:1px solid #E8E4DC !important;
+}
+.author-box .author-name, .author-info h4{ color:#1B3A6B !important; }
+.author-box p, .author-bio, .author-info p, .step-detail{ color:#5a6480 !important; }
+/* CALLOUT BOXES - light bg dark font */
+.callout, .warning, .tip, .warn-box, .tip-box, .visa-card, .step-block, .point-card, .tier-card, .mistake-card{
+  background:#FFFFFF !important;
+  color:#1a1a2e !important;
+}
+.callout p, .warning p, .tip p{ color:#1a1a2e !important; }
+/* Fix any inline dark background */
+[style*="background:#0D1F3C"], [style*="background: #0D1F3C"], [style*="background:#1B3A6B"], [style*="background: #1B3A6B"], [style*="#0D1F3C"], [style*="#1B3A6B"]{
+  color:#FFFFFF !important;
+}
+/* Salary cards keep white */
+.salary-card, .breaking, .cost-box{ color:#FFFFFF !important; }
+.salary-card *{ color:#FFFFFF !important; }
+.salary-card .salary-inr{ color:#A0C090 !important; }
+/* Footer dark */
+footer{ background:#060606 !important; color:#6b7280 !important; }
+footer a{ color:#C9A227 !important; }
+footer p{ color:#6b7280 !important; }
+/* Links */
+a{ color:#1B3A6B !important; }
+.cta-btn{ color:#FFFFFF !important; }
+.cta-gold{ background:#C9A227 !important; color:#0D1F3C !important; }
+.cta-outline{ color:#FFFFFF !important; border-color:rgba(255,255,255,0.3) !important; }
+
 </style>
 <link href="https://venadglobal.org/blog/cv-mistakes-kerala.html" rel="canonical"/><meta content="index, follow" name="robots"/><script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -119,7 +274,7 @@ footer strong{color:var(--gold)}
 <img alt="VGC" src="../vgc_logo.png" style="height:34px;"/>
 <div><div class="nav-title">Venad Global Blog</div><div class="nav-subtitle">Real Experience · Honest Guidance</div></div>
 </a>
-<div class="nav-links"><a href="index.html">← Blog</a><a href="../services.html">Services</a><a href="https://wa.me/918589895659" style="color:var(--gold)">💬 WhatsApp</a></div>
+<div class="nav-links"><a href="index.html">← Blog</a><a href="https://venadglobal.org/#services">Services</a><a href="https://wa.me/918589895659" style="color:var(--gold)">💬 WhatsApp</a></div>
 </nav>
 <header class="article-hero">
 <div class="article-hero-inner">
@@ -209,46 +364,29 @@ footer strong{color:var(--gold)}
 <p>Send me your CV on WhatsApp. I will give you honest feedback — what is working, what needs fixing, and exactly how to improve it for your target country. First consultation free.</p>
 <div class="cta-box-btns">
 <a class="cta-btn cta-gold" href="https://wa.me/918589895659?text=Hi%20Antony%2C%20I%20read%20your%20CV%20mistakes%20blog%20post%20and%20would%20like%20my%20CV%20reviewed">💬 Send CV for Review</a>
-<a class="cta-btn cta-outline" href="../services.html">View Services</a>
+<a class="cta-btn cta-outline" href="https://venadglobal.org/#services.html">View Services</a>
 </div>
 </div>
 <div class="related-section">
 <h3>Read Next</h3>
 <div class="related-grid">
-<a class="related-card" href="canada-aip-kerala.html">
+<a class="related-card" href="https://venadglobal.org/blog/canada-aip-kerala.html">
 <div class="related-cat">🇨🇦 Canada</div>
 <h4>Canada AIP from Kerala — The Honest Guide</h4>
 </a>
-<a class="related-card" href="gulf-jobs-2026.html">
+<a class="related-card" href="https://venadglobal.org/blog/gulf-jobs-2026.html">
 <div class="related-cat">🇦🇪 Gulf Jobs</div>
 <h4>How to Get a UAE Job in 2026</h4>
 </a>
-<a class="related-card" href="cs50-at-57.html">
+<a class="related-card" href="https://venadglobal.org/blog/cs50-at-57.html">
 <div class="related-cat">🎓 Certifications</div>
 <h4>Harvard CS50 at 57 — What I Learned</h4>
 </a>
 </div>
 </div>
 
-<div id="internal-links-seo" style="margin:2rem 0;padding:1.5rem;background:#f9f5ee;border:1px solid #e8e4dc;border-radius:8px;">
-<h4 style="font-family:DM Mono,monospace;font-size:0.8rem;letter-spacing:1px;color:#1B3A6B;margin-bottom:1rem;">Related Guides from Kollam</h4>
-<ul style="font-size:0.92rem;line-height:1.8;">
-<li><a href="https://venadglobal.org/blog/canada-aip-kerala.html">Canada AIP from Kerala — Honest Guide</a></li>
-<li><a href="https://venadglobal.org/blog/germany-blue-card-kerala.html">Germany Blue Card from Kerala</a></li>
-<li><a href="https://venadglobal.org/blog/nursing-abroad.html">Nursing Abroad — Real Process</a></li>
-<li><a href="https://venadglobal.org/blog/gulf-jobs-2026.html">Gulf Jobs 2026 — What Works</a></li>
-<li><a href="https://venadglobal.org/blog/cv-mistakes-kerala.html">CV Mistakes Kerala Professionals Make</a></li>
-</ul>
-</div>
 </article>
-<footer>
-<p>⚡ <strong>Venad Global Consultancy</strong>  ·  Kollam, Kerala  ·  No fake promises. Real experience.</p>
-<div class="footer-links">
-<a href="index.html">Blog Home</a><a href="../services.html">Services</a>
-<a href="https://wa.me/918589895659">+91 85898 95659</a>
-<a href="mailto:venadglobal@gmail.com">venadglobal@gmail.com</a>
-</div>
-</footer>
+
 <!-- Enhanced GA4 Event Tracking — VGC -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
